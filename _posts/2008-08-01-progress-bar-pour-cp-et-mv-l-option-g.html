@@ -1,0 +1,193 @@
+---
+layout: post
+title: "Progress bar pour cp et mv : l'option -g"
+date: 2008-08-01 23:21:04 +0200
+author: illov&aelig;
+mail: illovae[at]bk[dot]ru
+keywords: coreutils, barre, progression, illovae
+license: "WTFPL(v2) - Beerware License"
+---
+<p>
+<span class="articleAuthor">Britney Gopherspace, 01 juillet 2008,
+{{ page.author }}</span> &mdash;
+<span style="font-variant: small-caps;">Attention, ce qui suit n'est
+pas une opération anodine et n'est pas n00b friendly. Nous allons
+faire quelque chose qui peut mettre en rade (un peu) votre système si
+vous faîtes n'importe quoi. Si vous ne vous sentez pas sûr de vous,
+passez votre chemin.</span>
+
+<p>
+J'avais déjà fait un article sur le sujet concernant Gentoo. Nous
+allons voir comment faire cela sur tout autre distribution que Gentoo
+(si vous êtes sous Gentoo, la combine est beaucoup plus simple que ce
+qui suit, il vous suffit d'éditer l'ebuilds de votre version de
+coreutils et de décommenter les lignes qui concerne le patch
+<code>???_all_coreutils-gen-progress-bar.patch</code> et d'émerger les
+coreutils ; je n'ai plus de Gentoo sous la main, mais c'est pas dur,
+donc je vous laisse faire ;)).
+
+<p>
+Nous allons implémenter à notre <code>cp</code> et à
+notre <code>mv</code> une option <code>-g</code> qui va nous donner
+une barre de progression de ce style :
+
+<pre>
+$ cp mongrosfichier.file ~/dossier
+mongrosfichier.file   |  40% |   703 MiB |    17 MiB/s | ETA 00:00.25
+</pre>
+
+<p>
+Et pour faire cela, nous allons récupérer les sources de la dernière
+version stable des coreutils (qui vous permet d'avoir <code>cp</code>,
+<code>mv</code>, <code>touch</code>, <code>ls</code> et j'en passe) de
+lui appliquer un patch, de compiler et de l'installer. À noter que
+vous allez avoir plusieurs choix : on peut installer dans les
+répertoires des binaires systèmes ce qui aura pour effet d'écraser
+votre version des coreutils présentes sur votre système. De plus, lors
+d'une mise a jour des coreutils par votre distribution, il y a de
+fortes chances pour qu'elle écrase votre installation des coreutils à
+vous donc il faudra réinstaller votre version.  Mais ici nous allons
+agir autrement.
+
+<p>
+Ce que nous allons faire est plus sûr en cas de bêtise et vous évitera
+des désagrément au cas où ça foire à cause d'une erreur d'inattention
+de votre part ;) On va faire en sorte d'installer tout ca
+dans <code>/usr/local/</code> et de rajouter un préfixe aux binaires,
+comme ça pas de problèmes, si vous avez un soucis, votre système de
+base sera préservé (vous aurez donc un <code>/bin/cp</code> et un
+<code>/usr/local/bin/patch-cp</code> par exemple et il suffira de
+faire un alias pour que ça vous soit transparent, on verra ça à la
+fin). Mais si vous avez envie de faire autrement, libre à vous, il
+suffit de jouer avec <code>./configure</code>.
+
+<p>
+Question dépendances, vous avez besoin de bash, glibc et de pam si vous en
+activez l'option (les *-dev compris, car oui nous compilons).
+
+<p>
+Allons d'abord récupérer les sources de
+<a href="http://ftp.gnu.org/pub/gnu/coreutils/" class="external"
+hreflang="en">coreutils</a> de la derniere version stable, soit la 6.9
+(si vous préférez une version antérieure, il y a un patch
+correspondant pour chaque version mais nous allons ici travailler avec
+la version 6.9). Je vous laisse donc extraire l'archive où bon vous
+semble.
+
+<p>
+Dans un second temps nous allons récupérer le patch pour notre version
+sur le site de <a href="http://dev.gentoo.org/~vapier/dist/"
+class="external" hreflang="en">développement</a> de Gentoo. Prenez
+bien le patch correspondant à la version de vos sources. Pour la 6.9
+le dernier est : <code>coreutils-6.9-patches-1.3.tar.bz2</code> ; de
+même décompressez ça où bon vous semble. Un répertoire patch va être
+extrait, dedans récupérer le patch du nom de
+<code>001_all_coreutils-gen-progress-bar.patch</code> dans le
+dossier <code>generic/</code>.  Déplacez ce patch à la racine du
+dossier de coreutils (dans le dossier <code>coreutils-6.9/</code>
+donc).
+
+<p>
+Nous allons devoir maintenant modifier un peu ce patch en enlevant la
+définition du répertoire <code>coreutils/</code> dans les entrées (en
+effet on est déjà dans le dossier de coreutils) :
+
+<pre>
+$ sed 's/ coreutils\// /g' 001_all_coreutils-gen-progress-bar.patch > acgpb.patch
+</pre>
+
+<p>
+Il ne nous reste plus qu'à appliquer notre version de patch (je
+rappelle que vous devez être dans le
+dossier <code>coreutils-6.9/</code>) et voir le résultat suivant :
+
+<pre>
+$ patch -p0 &lt; acgpb.patch
+patching file src/copy.c
+Hunk #3 succeeded at 59 (offset 3 lines).
+Hunk #4 succeeded at 93 (offset 1 line).
+Hunk #5 succeeded at 253 with fuzz 1 (offset 53 lines).
+Hunk #6 succeeded at 335 (offset 48 lines).
+Hunk #7 succeeded at 485 (offset 81 lines).
+Hunk #8 succeeded at 568 (offset 97 lines).
+Hunk #9 succeeded at 771 (offset 95 lines).
+patching file src/copy.h
+Hunk #1 succeeded at 172 (offset -3 lines).
+patching file src/cp.c
+Hunk #1 succeeded at 82 (offset 1 line).
+Hunk #2 succeeded at 129 (offset 1 line).
+Hunk #3 succeeded at 186 (offset 1 line).
+Hunk #4 succeeded at 773 (offset 57 lines).
+Hunk #5 succeeded at 884 (offset 57 lines).
+Hunk #6 succeeded at 944 (offset 57 lines).
+patching file src/mv.c
+Hunk #1 succeeded at 44 (offset -1 lines).
+Hunk #2 succeeded at 82 (offset -1 lines).
+Hunk #3 succeeded at 112 (offset -1 lines).
+Hunk #4 succeeded at 146 with fuzz 2 (offset -12 lines).
+Hunk #5 succeeded at 311 (offset -14 lines).
+Hunk #6 succeeded at 379 (offset -14 lines).
+Hunk #7 succeeded at 392 (offset -14 lines).
+patching file src/remove.h
+Hunk #1 succeeded at 60 (offset 12 lines).
+</pre>
+
+<p>
+Par défaut, cela va s'installer dans <code>/usr/local</code> donc on a juste à
+spécifier un préfixe de cette façon (notez que vous pouvez aussi rajouter
+un suffixe avec <code>--program-suffix=</code>) :
+
+<pre>
+$ ./configure --program-prefix=patch-
+</pre>
+
+<p>
+Puis vient le temps de compiler tout ça :
+
+<pre>
+$ make
+</pre>
+
+<p>
+Ça prend un peu de temps et pour finir (en root/avec sudo) :
+
+<pre>
+# make install
+</pre>
+
+<p>
+Cette dernière opération vous donnera donc l'occasion de voir tout ce
+que contient comme binaire les coreutils ;) À noter que si vous avez
+pas envie d'installer toutes les binaires, vous pouvez simplement
+déplacer à la main nos deux binaires <code>mv</code>
+et <code>cp</code> qui sont dans le dossier <code>src/</code>
+vers <code>/usr/local/bin</code> (pensez cependant à rajouter un
+préfixe histoire d'éviter les conflits)). Je vous conseille de garder
+tel quel votre dossier de sources, le jour où vous voulez désinstaller
+cette version patchée des coreutils, il suffira de vous mettre dedans
+et de faire un simple (en root/avec sudo) :
+
+<pre>
+# make uninstall
+</pre>
+
+<p>
+Histoire de rendre les choses transparentes, dans
+votre <code>.profile</code>, <code>.bashrc</code>,
+<code>.zshrc</code>, <code>.whatever_rc</code>, créer des alias du
+genre :
+
+<pre>
+alias cp='/usr/local/bin/patch-cp -g'
+alias mv='/usr/local/bin/patch-mv -g'
+</pre>
+
+<p>
+Pour que ça prenne effet immédiatement faîtes un <code>source
+~/.bashrc</code> (ou <code>~/.zshrc</code> ou autre) ou alors
+redémarrer votre shell. Ainsi, quand vous ferez un <code>cp</code> ou
+un <code>mv</code>, vous utiliserez naturellement
+l'option <code>-g</code> sans avoir à le spécifier à chaque fois.
+
+<p>
+Have fun !

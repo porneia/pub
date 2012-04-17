@@ -1,0 +1,89 @@
+---
+layout: post
+title: "Curator : une galerie d'images statique en HTML"
+date: 2009-03-16 00:49:08 +0100
+author: illov&aelig;
+mail: illovae[at]bk[dot]ru
+keywords: images, galerie, curator, statique, illovae
+license: "WTFPL(v2) - Beerware License"
+---
+<p>
+<span class="articleAuthor">Britney Gopherspace, 16 mars 2009,
+{{ page.author }}</span> &mdash; Juste un petit billet rapide pour
+présenter un outil fort sympathique et très pratique. Mettons que vous
+ayez des tas d'images que vous voulez mettre en forme au sein d'un
+site web, ou au travers de galleries. Vous avez le choix d'utiliser des
+mastodontes tel que <a href="http://gallery.menalto.com/"
+class="external" hreflang="en">gallery</a> mais personnellement
+j'avais plutôt besoin d'un outils très basique. J'avais déjà fait
+quelques essais avec <a href="http://spgm.sourceforge.com/"
+class="external" hreflang="en">spgm</a> mais comme il fonctionne avec
+PHP j'ai donc décidé qu'il ne me convenait pas.
+
+<p>
+J'ai finalement trouvé mon bonheur avec
+<a href="http://furius.ca/curator" class="external"
+hreflang="en">curator</a> qui est un script python qui permet de
+générer des pages statiques HTML. Il supporte beaucoup de format
+d'images, différents répertoires et sous-répertoires, permet de
+générer des miniatures, de faire des updates, etc. Selon son auteur
+Martin Blais, le script peut être facilement modifié pour trier et
+afficher d'autres genre de fichier (.txt, .mp3, etc).
+
+<p>
+Pour installer curator vous pouvez récupérer depuis ce
+<a href="http://freefr.dl.sourceforge.net/sourceforge/curator/curator-2.1.tar.gz"
+class="external">miroir la version 2.1</a>. Ou si vous êtes sous
+Debian, vous pouvez aisément l'installer depuis les dépôts. En
+dépendance (pour créer les miniatures, vous aurez besoin d'installer
+aussi <code>imagemagick</code>).
+
+<p>
+Son utilisation est très simple. Vous créez par exemple un dossier dans
+lequel vous mettez tous vos dossiers d'images dedans (avec autant de
+sous-répertoires que vous voulez, puis vous lancez curator :
+
+<pre>
+$ curator /var/www/galerie
+</pre>
+
+<p>
+Vous pouvez voir un résultat
+<a href="http://furius.ca/curator/share/demo/dirindex.html"
+class="external" hreflang="en">démo ici</a>. Il est aussi possible
+bien sûr d'éditer les templates des pages d'index et de présentation
+d'images. Soit vous éditez directement le script, soit vous générez
+les templates par défaut à partir du script, que vous modifiez et qui
+sera utiliser au prochain update des galeries :
+
+<pre>
+$ curator -t /var/www/galerie/
+</pre>
+
+<p>
+Remarquez l'option <code>-t</code>. Vous verrez alors dans votre
+répertoire une série de fichier HTML commençant par template qu'il
+vous suffira comme dit de modifier à votre guise.
+
+<p>
+Il existe beaucoup d'options, notamment permettant d'affiner la qualité
+des miniatures, leurs tailles, etc. Vous pouvez retrouver toutes ces
+options dans la man si vous avez installer le paquet Debian, ou en faisant
+simplement <code>curator --help |more</code>.
+
+<p>
+L'avantage évidemment de curator est bien sûr que rien n'est exécuter
+sur le serveur, ce qui fait que vous pouvez très bien l'utiliser pour
+rendre vos CDs de photos de vacances user-friendly, avec vos propres
+templates, et utilisable pourvu que l'on ai un browser web sous la
+main. Vous pouvez même ajouter une description pour chaque image
+simplement en créant un fichier de cette
+forme <code>nomdelimage.desc</code> et contenant la description voulue
+dans le même répertoire que l'image en question.
+
+<p>
+Si votre idée est simplement d'exposer vos galeries de photos de
+famille et les rendre disponible facilement et rapidement ou si vous
+avez envie de monter des pages interdit à un public non vacciné (ou
+étant en âge de l'être) simples et sobres alors on peut se dire que
+curator est fait pour vous.

@@ -1,0 +1,29 @@
+---
+layout: nil
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version='2.0'
+        xmlns:atom="http://www.w3.org/2005/Atom"
+        xmlns:dc="http://purl.org/dc/elements/1.1/"
+>
+<channel>
+<title>Porneia delights' log</title>
+<link>http://porneia.free.fr/pub/archives/log.html</link>
+<atom:link href="http://porneia.free.fr/pub/rss/rss_log.xml" rel="self" type="application/rss+xml" />
+<description>I used to be schizophrenic but now we are going much better. We are the Porneia delights. We are persistent and reluctant. We also do not really come from outer space.</description>
+<language>fr-fr</language>
+{% projectlist projects_rss.xml %}
+{% for post in site.posts limit: 6 %}
+<item>
+<title>{{ post.title }}</title>
+<link>http://porneia.free.fr/pub{{ post.url }}</link>
+<guid>http://porneia.free.fr/pub{{ post.url }}</guid>
+<pubDate>{{ post.date | date_to_xmlschema }}</pubDate>
+<dc:creator>{% if post.author == 'al.' %}Porneia delights{% else %}{{ post.author | xml_escape }}{% endif %}</dc:creator>
+<description><![CDATA[
+{{ post.content }}
+]]></description>
+</item>
+{% endfor %}
+</channel>
+</rss>

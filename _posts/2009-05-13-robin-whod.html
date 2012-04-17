@@ -1,0 +1,222 @@
+---
+layout: post
+title: "Robin Whod"
+author: illov&aelig;
+mail: illovae[at]bk[dot]ru
+keywords: rwhod, ruptime, rwho, uptime, monitoring, illovae
+commentaire: Cet article a été revu et augmenté le 04 février 2012.
+license: "BY-ND"
+---
+<p>
+<span class="articleAuthor">Britney Gopherspace, 13 mai 2009,
+{{ page.author }}</span> &mdash; Sous ce titre au jeu de mot totalement foireux
+dû à la fatigue (mieux vaut croire que c'est cela) je voudrais simplement
+vous parler d'un outil assez simple et fort pratique si vous avez un parc
+informatique : rwhod. C'est un petit serveur issu du monde BSD qui, lancé
+en daemon, récupère des informations sur les machines sur lesquels il est
+installé. Ces informations sont en fait l'uptime ainsi que la charge
+système (load average). Rien d'extraordinaire là-dedans, mais les
+différents serveurs rwhod de votre réseau local se mettant en lien les uns
+avec les autres, vous aurez à partir de n'importe quel poste du parc
+réseau ces informations pour chaque machine connectée ; chaque serveur
+rwhod ayant à la fois un rôle de production de données et de réception de
+données. Ces informations sont disponibles au travers de plusieurs
+commandes (les principales étant <code>ruptime</code>
+et <code>rwho</code>). C'est un outil bien connu notamment sur les réseaux
+mettant à disposition des machines pour des utilisateurs se connectant via
+telnet ou SSH.
+
+<p>
+Histoire de donner un peu de corps à cette description peut-être pas très
+claire, voici un exemple de ce que l'on peut avoir :
+
+{% highlight console %}
+$ ruptime
+britney       up   62+19:53,    12 users,  load 0.45, 0.51, 0.56
+pticon        up    8+20:40,     4 users,  load 0.00, 0.01, 0.08
+unisys        up    7+16:14,     2 users,  load 0.07, 0.02, 0.00
+{% endhighlight %}
+
+<p>
+Ce sont des informations qui sont toujours pratiques non seulement pour
+l'administrateur de manière à voir une vue d'ensemble, mais aussi pour les
+utilisateurs afin de savoir où se connecter s'ils recherchent une machine
+plus ou moins fréquentée ou avec une charge système moins importante. Mais
+il trouve aussi tout son intérêt dans un réseau local pour monitorer
+rapidement la charge de la médiathèque numérique connectée à la
+télévision, du serveur@home, etc, et cela depuis n'importe quel poste dans
+la maison.
+
+<p>
+<b>GNU/Linux</b> &brvbar; Vous trouverez très certainement rwhod dans les
+dépots officiels de votre distribution. Vous devez l'installer sur toutes
+les machines que vous voulez voir apparaître dans la base de donnée. Les
+infos sont empaquetées et transmises via le port 513/UDP d'un serveur
+rwhod à l'autre. Il n'y a normalement pas de configuration particulière à
+faire (sauf au niveau des firewalls bien sûr si vous avez des politiques
+particulières) ; le démon devant probablement être lancé automatiquement
+par votre gestionnaire de paquets et ajouté au services se lançant au
+démarrage de la machine (c'est le cas sous debian). Il y a quelques
+options qui permettent de gérer tel ou tel types d'interface réseau, je
+vous laisse jetter un regard sur la man si cela vous intéresse.  En sus
+pour bénéficier de <code>ruptime</code> et <code>rwho</code> vous devrez
+aussi installer le paquet rwho.
+
+<p>
+Il existe aussi d'autres outils qui peuvent utiliser les informations
+fournies par les différents serveurs. Pour n'en citer
+un, <code>xload</code> dispose d'une option allant dans ce sens
+: <code>-remote</code>. Pensez à spécifier un nom avec
+l'option <code>-label</code> car sinon <code>xload</code> indique le nom
+de la machine locale et non celui de la machine distante (peut-etre un
+bug, en tout cas, c'est le comportement que j'ai trouvé chez moi). On
+pourra donc avoir quelque chose de ce genre :
+
+{% highlight console %}
+$ xload -label britney -remote britney -geometry 80x48+580+534 &
+{% endhighlight %}
+
+<p>
+<b>Mac OS X</b> &brvbar; rwhod se trouve être présent par défaut sur Mac
+OS X. Cependant rien n'est fourni pour le lancer automatiquement au
+démarrage de la machine. Plusieurs méthodes peuvent être utilisées mais
+j'ai préféré privilégier celle indiqué
+sur <a href="http://www.spy-hill.com/~myers/help/apple/rwhod.html"
+class="external" hreflang="en">cette page par Eric Myers</a> de Spy Hill
+Research car elle respecte la méthode standard de Mac OS X. Voici une
+adaptation du tutoriel en français :
+
+<p>
+Vous devez avant tout créer le dossier <code>rwhod</code> au sein
+de <code>/Library/StartupItems</code> :
+
+{% highlight console %}
+$ sudo mkdir /Library/StartupItems/rwhod</code>
+{% endhighlight %}
+
+<p>
+Puis deux fichiers doivent être créer et être placé dans ce dossier. Le
+premier
+est <a href="{{ site.url }}{{ site.baseurl }}/tmp/StartupItems.plist">StartupItems.plist</a> :
+
+<pre>
+{
+  Description     = &quot;rwho/ruptime  system&quot;;
+  Provides        = (&quot;rwhod&quot;);
+  Requires        = (&quot;Resolver&quot;);
+  OrderPreference = &quot;None&quot;;
+  Messages =
+  {
+    start = &quot;Starting rwho daemon&quot;;
+    stop  = &quot;Stopping rwho daemon&quot;;
+  };
+}
+</pre>
+
+<p>
+Le second est <a href="{{ site.url }}{{ site.baseurl }}/tmp/rwhod">rwhod</a> :
+
+{% highlight bash %}
+#!/bin/sh
+#
+# Start the rwhod at system startup time on MacOSX
+#
+# Eric Myers  - 23 July 2003
+# @(#) $Id:$
+######################################################################
+
+. /etc/rc.common
+
+# Add 'status' option
+
+RunService ()
+{
+    case $1 in
+      start  ) StartService   ;;
+      stop   ) StopService    ;;
+      restart) RestartService ;;
+      status ) StatusReport   ;;
+      *      ) echo "$0: unknown argument: $1";;
+    esac
+}
+
+StatusReport ()
+{
+    PID=`ps ax | grep -v grep | awk '$5 ~ /\/rwhod$/ {print $1}'`
+    if [ "$PID" != "" ]; then
+       echo "rwhod (pid $PID) is running... "
+       exit 0
+    else
+       if [ -f /var/run/rwhod.pid ]; then
+          echo "rwhod is stopped but pid file exists."
+	  exit 1
+       else
+          echo "rwhod is stopped "
+	  exit 2
+       fi
+    fi
+}
+
+
+StartService ()
+{
+    CheckForNetwork
+    if [ "${NETWORKUP}" = "-NO-" ]; then exit; fi
+
+    if [ ! -x /usr/sbin/rwhod ]; then exit; fi
+
+    ConsoleMessage "Starting rwho daemon"
+    /usr/sbin/rwhod
+
+    # Create pid file
+    PID=`ps ax | grep -v grep | awk '$5 ~ /rwhod/ {print $1} '`
+    echo $PID > /var/run/rwhod.pid
+}
+
+StopService ()
+{
+    PID=`ps ax | grep -v grep | awk '$5 ~ /\/rwhod$/ {print $1}'`
+    if [ "$PID" != "" ]; then
+        ConsoleMessage "Stopping rwho daemon"
+        kill -TERM "${PID}"
+        rm -f /var/run/rwhod.pid
+    else
+        echo "rwhod is not running."
+    fi
+}
+
+RestartService ()
+{
+    StopService
+    StartService
+}
+
+
+RunService "$1"
+
+##
+{% endhighlight %}
+
+<p>
+Vous devez rendre ce fichier <code>rwhod</code> exécutable :
+
+{% highlight console %}
+$ sudo chmod +x rwhod
+{% endhighlight %}
+
+<p>
+Enfin sachez que le démon rwhod se lance avec l'utilisateur
+&quot;daemon&quot; ; vous devez donc changer la possession du
+dossier <code>/var/rwho</code> de sorte que le démon puisse écrire dedans
+:
+
+{% highlight console %}
+$ sudo chown daemon /var/rwho
+{% endhighlight %}
+
+<p>
+Il ne vous reste plus qu'à démarrer rwhod :
+
+{% highlight console %}
+$ sudo /Library/StartupItems/rwhod/rwhod start
+{% endhighlight %}

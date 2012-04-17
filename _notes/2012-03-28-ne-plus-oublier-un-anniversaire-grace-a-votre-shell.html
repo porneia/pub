@@ -1,0 +1,59 @@
+---
+layout: project
+title: "Ne plus oublier un anniversaire grâce à votre shell"
+date: 2012-03-28 00:23:38 +0200
+id: "0328"
+---
+<p>
+Vous aussi vous avez la fâcheuse tendance d'oublier les dates
+d'anniversaire de vos {amis,familles,mot_qui_convient} ? Pire, comme
+vous ne connaissez pas la date, évidemment, vous ne prenez pas le
+temps d'acheter l'inévitable cadeau sans lequel vos
+{amis,familles,mot_qui_convient} continueront à vous aimer ? En plus
+de ça vous passez suffisamment de temps devant votre terminal pour que
+tous vos {amis,familles,mot_qui_convient} pensent que vous êtes le
+Prince Noir du Nain Ternet ?
+
+<p>
+Et bien plus d'excuses, car voici une solution : mieux que le reminder
+automatique de Facebook voici
+<a href="http://sourceforge.net/projects/birthday/" class="external"
+hreflang="en">birthday</a> écrit
+par <a href="http://www.users.zetnet.co.uk/mortia/" class="external"
+hreflang="en">Andy Mortimer</a> qui vous <mark>annoncera tout ce que
+vous devez ne pas oublier en plein dans votre terminal</mark>
+sombre. Ce petit programme se trouve bien sûr dans les dépôts Ubuntu
+ou Debian entre autres et son utilisation est on ne peut plus
+simple. Il vous suffit de créer un fichier à la racine de
+votre <code>$HOME</code> et se nommant
+<code>.birthdays</code> avec quelque chose qui pourrait ressembler à
+ça (une entrée par ligne) :
+
+<pre>
+#BIRTHDAYS
+Edgar Felix Pierre Jacobs=30/03/1904 bd
+Bob Frans Marie De Moor=20/12/1925 bd
+#ANNIVERSARY
+La Marque Jaune was released=01/04/1956 ann
+</pre>
+
+<p>
+Ensuite il vous suffit d'ajouter la commande <code>birthday</code> à
+la fin de votre <code>~/.bashrc</code>, <code>~/.profile</code>,
+<code>~/.foobar.rc</code> <mark>pour voir apparaître au lancement de
+votre session</mark> quelque chose qui pourrait ressembler à ceci :
+
+<pre>
+Edgar Felix Pierre Jacobs is 108 years old in 2 days' time.
+La Marque Jaune was released 56 years ago in 4 days' time.
+</pre>
+
+<p>
+Par défaut birthday annonce les évènements qui se produiront dans les
+21 prochains jours, mais on peut spécifier un autre nombre de jour
+soit en passant l'option <code>-W</code> à la commande, soit en
+utilisant l'option <code>wn</code> dans le fichier
+<code>~/.birthdays</code>. Comme vous pouvez le remarquez, birthday
+peut s'utiliser pour tout autre chose que les anniversaires, comme les
+rendez-vous à venir, les dates de commémorations, ou encore on peut
+très bien imaginer gérer des todos list avec contraintes de temps.

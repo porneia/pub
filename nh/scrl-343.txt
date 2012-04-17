@@ -1,0 +1,844 @@
+scrl-343.txt  Last edited 2006-05-04 for NetHack 3.4.3
+Scrolls and their effects in NetHack 3.4
+Compiled for 3.2.2 by Kevin Hugo.
+Updated for 3.4.3 by Dylan O'Donnell <psmith@spod-central.org>.
+
+SCROLL            COST  WGT  PROB   MRKR  APPEARANCE
+~~~~~~~~~~~~~~~ : ~~~~  ~~~  ~~~~ : ~~~~  ~~~~~~~~~~
+mail            : $  0   5     0  :   2   stamped
+identify        :   20   5   180  :  14
+light           :   50   5    90  :   8
+blank paper     :   60   5    28  :   0   unlabeled
+enchant weapon  :   60   5    80  :  16
+enchant armor   :   80   5    63  :  16
+remove curse    :   80   5    65  :  16
+confuse monster :  100   5    53  :  12
+destroy armor   :  100   5    45  :  10
+fire            :  100   5    30  :   8
+food detection  :  100   5    25  :   8
+gold detection  :  100   5    33  :   8
+magic mapping   :  100   5    45  :   8
+scare monster   :  100   5    35  :  20
+teleportation   :  100   5    55  :  20
+amnesia         :  200   5    35  :   8
+create monster  :  200   5    45  :  10
+earth           :  200   5    18  :   8
+taming          :  200   5    15  :  20
+charging        :  300   5    15  :  16
+genocide        :  300   5    15  :  30
+punishment      :  300   5    15  :  10
+stinking cloud  :  300   5    15  :  20
+
+Scrolls are listed above by increasing price, then alphabetically.  The
+COST field denotes the base price of each item.  WGT specifies the
+weight (100 zorkmids weighs 1).
+
+Scrolls comprise 16% of all randomly-generated items in the main dungeon,
+18% in containers, 22% on the Rogue level, and 1% in hell.  PROB is
+the relative probability of each subtype.  Scrolls appear 1/8 cursed,
+3/4 uncursed, and 1/8 blessed.
+
+Scrolls of mail exist only if this ability was compiled into your
+copy of the game, and if you have the "mail" option enabled.  When
+new email arrives (or every 1999+d(3000) turns if playing on an
+Amiga or DOS platform), the "mail daemon" will deliver a scroll of mail.
+All of these scrolls are considered uncursed, and they cannot be changed
+into another object in any way.
+
+MRKR specifies the value used to determine the number of magic marker
+charges needed to write a scroll of that type, or zero if it cannot be
+written.  The actual number of charges used will be a random amount
+from MRKR/2 to MRKR-1; if your marker has fewer than MRKR/2 charges,
+you will be unable to attempt to write the scroll.
+
+Wizards have a base 1/3 chance of writing an unknown scroll, and all other
+classes have a base 1/15 chance; your chance generally improves with
+higher luck, to a maximum of about 98% for Wizards and 32% for other
+classes.  You can only write scrolls on blank paper, which can be made by
+getting any scroll wet (except mail) or cancelling any scroll (except
+mail).  Failure to write the scroll will cause the blank scroll to be used
+up.  You can select non-blank scrolls to write on, but this will abuse
+your wisdom and you will be told, "That scroll is not blank!"
+
+Some types of scrolls have the same APPEARANCE when unidentified.  The
+appearance of the remaining scrolls are are randomized from the following
+descriptions:
+    ZELGO MER       JUYED AWK YACC  NR 9             XIXAXA XOXAXA XUXAXA
+    PRATYAVAYAH     DAIYEN FOOELS   LEP GEX VEN ZEA  PRIRUTSENIE
+    ELBIB YLOH      VERR YED HORRE  VENZAR BORGAVVE  THARR
+    YUM YUM         KERNOD WEL      ELAM EBOW        DUAM XNAHT
+    ANDOVA BEGARIN  KIRJE           VE FORBRYDERNE   HACKEM MUCHE
+    VELOX NEB       FOOBIE BLETCH   TEMOV            GARVEN DEH
+    READ ME
+
+
+Scroll messages and effects
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+(Adapted from the spoiler "scrolls", by Ian Burrell.)
+
+In order to read a scroll, you must either be unblind or know the
+APPEARANCE of the scroll.  When a scroll is read, it will be used up
+and disappear (except blank paper).  The effects depend on the blessing
+of the scroll.  Non-cursed means either blessed or uncursed.  If you
+are confused while reading the scroll, "you mispronounce the magic
+words" and may obtain a different effect. Some scrolls have a different
+message for "beginners"; a character is considered a beginner until
+accumulating 2000 score points (1000 for Wizards).
+
+amnesia
+  All Sokoban maps are immune from the effects of amnesia.
+  cursed or you are NOT confused
+    You forget all of the current level.
+  non-cursed and confused
+    You forget 6/7 of the current level.
+  In addition, if uncursed or cursed
+    You forget any number of spells.
+  In every case,
+    You have a 1/3 chance of forgetting up to 25% of all known level
+    maps and a separate 1/3 chance of forgetting up to 25% of object
+    identities.
+    You forget all traps on your current level, forget whether you are
+    punished, and abuse your wisdom.
+      "Your mind releases itself from mundane concerns."  (hallucinating)
+      "As your mind turns inward on itself, you forget everything else."
+        (your character's name is Maud);
+      "Who was that Maud person anyway?"  (otherwise, 50%)
+      "Thinking of Maud you forget everything else."  (otherwise, 50%)
+    The scroll is (re-)identified.
+
+blank paper
+  You identify the scroll; it will not be used up.
+    "This scroll seems to be blank."  (unblind)
+    "You don't remember there being any magic words on this scroll."
+    (blind)
+
+charging
+  blessed
+    You identify the scroll and select an item.
+      "This is a charging scroll."
+    If the item can't be charged, no effect.
+      "You have a feeling of loss."
+    Otherwise, the item is charged by a larger amount (see wan1-343.txt,
+    tool-343.txt, or ring-343.txt for specifics). Wands and rings may
+    explode (see below).
+      "Your <ring> spins clockwise for a moment."
+      "Your <item> glows blue for a moment."  (unblind)
+      "Your <item> vibrates for a moment."  (blind)
+  uncursed
+    You identify the scroll and select an item.
+      "This is a charging scroll."
+    If the item can't be charged, no effect.
+      "You have a feeling of loss."
+    Otherwise, the item is charged by a smaller amount (see wan1-343.txt,
+    tool-343.txt, or ring-343.txt for specifics). Wands and rings may
+    explode (see below).
+      "Your <ring> spins clockwise for a moment."
+      "Your <tool> glows white for a moment."  (unblind)
+      "Your <wand of wishing> glows blue for a moment."  (unblind)
+      "Your <item> glows briefly."  (unblind)
+      "Your <item> vibrates briefly."  (blind)
+  cursed
+    You identify the scroll and select an item.
+      "This is a charging scroll."
+    If it is a ring, it loses 1 to 2 points of enchantment and may
+    explode (see below).
+      "Your <ring> spins counterclockwise for a moment."
+    For other items, if it is blessed or has zero charges, no effect
+    other than incrementing the recharged counter (although wands may
+    explode; see below).
+      "Nothing happens."
+    Otherwise, it is set to zero charges. Wands may explode (see below).
+      "Your <item> vibrates briefly."
+  confused
+    If your energy is at maximum, you gain 5d4 maximum energy.
+    Your energy is increased to maximum.
+      "You feel charged up!"
+
+  Previously-recharged wands have a chance of exploding if you attempt to
+  charge them further; wands of wishing will always explode, others
+  have a chance depending on the number of times (x) recharged: 
+  (x^3)/(7^3).
+  PREV RCHG    %EXPLODE   %CUMULATIVE
+  ~~~~~~~~~    ~~~~~~~~   ~~~~~~~~~~~
+      0           0           0
+      1           0.29        0.29
+      2           2.33        2.62
+      3           7.87       10.28
+      4          18.66       27.02
+      5          36.44       53.62
+      6          62.97       82.83
+      7         100         100
+  When a ring with a positive enchantment is charged, it has an
+  (enchantment before) in 7 chance of exploding.  Rings with
+  enchantments of <= -5 or >= +7 will always explode when charged.
+
+confuse monster
+  blessed
+    You will confuse the next 2 to 9 (more) monsters you hit. (Once this
+    number reaches 40, each blessed scroll will only allow confusion of
+    one additional monster.)
+      "Your <hands> glow a brilliant red."  (unblind)
+      "Your <hands> glow an even more brilliant red."  (unblind, more)
+      "Your <hands> tingle very sharply."  (blind)
+      "Your <hands> tingle even more sharply."  (blind, more)
+  uncursed
+    You will confuse the next (one more) monster you hit.
+      "Your <hands> begin to glow red."  (unblind)
+      "Your <hands> begin to glow red even more."  (unblind, more)
+      "Your <hands> begin to tingle."  (blind)
+      "Your <hands> begin to tingle even more."  (blind, more)
+  cursed or polymorphed into non-@
+    You are confused for 1 to 100 (more) turns.
+      "You feel confused."
+  blessed and confused
+    You are no longer confused.
+      "A faint glow surrounds your <head>."  (unblind)
+      "A faint buzz surrounds your <head>."  (blind)
+  uncursed and confused
+    You are confused for 1 to 100 (more) turns.
+      "Your <hands> begin to glow purple."  (unblind)
+      "Your <hands> begin to tingle."  (blind)
+
+create monster
+  blessed
+    Creates one monster beside you.
+  uncursed
+    Creates one (72/73 chance) or 2 to 5 (1/73 chance) monsters around
+    you.
+  cursed
+    Creates 13 (72/73 chance) or 14 to 17 (1/73 chance) monsters around
+    you.
+  confused
+    Creates 13 (72/73 chance) or 14 to 17 (1/73 chance) acid blobs
+    around you.
+  No messages.  The scroll is identified if the new monsters are seen.
+
+destroy armor
+  not wearing armor
+    Abuses your strength and constitution.
+      "You have a strange feeling for a moment, then it passes."
+        (beginner not hallucinating)
+      "You have a normal feeling for a moment, then it passes."
+        (beginner hallucinating)
+      "Your bones itch."  (confused)
+      "Your skin itches."  (not confused)
+  blessed or uncursed
+    Destroys one random worn piece of armor.
+      "Your cloak crumbles and turns to dust!"
+      "Your armor turns to dust and falls to the <floor>!"
+      "Your shirt crumbles into tiny threads and falls apart!"
+      "Your helmet turns to dust and is blown away!"
+      "Your gloves vanish!"
+      "Your boots disintegrate!"
+      "Your shield crumbles away!"
+  cursed
+    Selects one random worn piece of armor.  If the armor is not cursed,
+    then same effect as an uncursed scroll.  Otherwise, you are stunned
+    for 10 to 19 (more) turns and your armor loses one enchantment if it
+    is -6 or greater.
+      "Your <armor> vibrates."
+  non-cursed and confused
+    Removes (rust|fire)proofing from one random worn piece of armor.
+      "Your <armor> glows purple for a moment."  (unblind)
+      "Your <armor> vibrates for a moment."  (blind)
+  cursed and confused
+    Makes one random worn armor (rust|fire)proof.
+      "Your <armor> glows purple for a moment."  (unblind)
+      "Your <armor> vibrates for a moment."  (blind)
+    Does NOT repair damage.
+
+earth
+  blessed
+    Creates a boulder on each open square around you.
+      "The ceiling rumbles around you!"
+  uncursed
+    Creates a boulder on the same square as you and on each open square
+    around you.
+      "The ceiling rumbles above you!"
+  cursed
+    Creates a boulder on the same square as you.
+      "The ceiling rumbles above you!"
+  blessed and confused
+    Creates 2-6 rocks on each open square around you.
+      "The ceiling rumbles around you!"
+  uncursed and confused
+    Creates 2-6 rocks on the same square as you and each open square
+    around you.
+      "The ceiling rumbles above you!"
+  cursed and confused
+    Creates 2-6 rocks on the same square as you.
+      "The ceiling rumbles above you!"
+  No effect on the Rogue level or in the endgame outside the Plane of Earth.
+  In Sokoban, there is a -1 penalty to Luck.  Boulders do d20 damage, rocks
+  d3 each; damage is capped at 2 if the monster/player underneath is wearing
+  a metal helmet. Only solid, non-amorphous, non-phasing creatures are
+  damaged.
+
+
+enchant armor
+  not wearing armor
+    Exercises (abuses if cursed) strength and constitution.
+      "You have a strange feeling for a moment, then it passes."
+      (beginner not hallucinating)
+      "You have a normal feeling for a moment, then it passes."
+      (beginner hallucinating)
+      "Your skin glows then fades."  (unblind)
+      "Your skin feels warm for a moment."  (blind)
+  blessed
+    One exterior piece of worn armor is selected semi-randomly.
+    If enchantment already above +3 (+5 for elven armor or a Wizard's
+    cornuthaum), there is a 1 in (current enchantment) chance that it
+    WON'T be vaporized.  If it is vaporized:
+      "Your <armor> violently glows silver for a while, then evaporates."
+        (no "silver" if shield of reflection or silver dragon scales or
+        scale mail)
+    Dragon scales become dragon scale mail, gain one enchantment, and are
+    blessed.
+      "Your <scales> merges and hardens!"
+    Other armor can gain several enchantments:
+      Current enchantment  -3 to -1  +0 to +2  +3 to +5  +6 to +8  +9 or more
+      ~~~~~~~~~~~~~~~~~~~  ~~~~~~~~  ~~~~~~~~  ~~~~~~~~  ~~~~~~~~  ~~~~~~~~~~
+      Additional possible   1 to 4    1 to 3    1 to 2       1       0 to 1
+
+      "Your <armor> glows silver for a moment."  (+1)
+      "Your <armor> glows silver for a while."  (more than +1)
+      "Your <armor> violently glows silver for a moment."  (+0)
+        (no "silver" if shield of reflection or silver dragon scales or
+        scale mail)
+    The armor is blessed.
+    If your armor is enchanted beyond the safe limit, it may vibrate:
+      "Your <armor> suddenly vibrates unexpectedly."  (unblind)
+      "Your <armor> suddenly vibrates again."  (blind)
+    NOTE:  If you were blind, then "glows silver" is replaced by
+    "vibrates".
+  uncursed
+    One exterior piece of worn armor is selected semi-randomly.
+    If enchantment already above +3 (+5 for elven armor or a Wizard's
+    cornuthaum), there is a 1 in (current enchantment) that it WON'T
+    be vaporized.  If it is vaporized:
+      "Your <armor> violently glows silver for a while, then evaporates."
+        (no "silver" if shield of reflection or silver dragon scales or
+        scale mail)
+    Dragon scales become dragon scale mail.
+      "Your <scales> merges and hardens!"
+    Other armor gains +1 enchantment (only a chance if already +9 or
+    more).
+      "Your <armor> glows silver for a moment."  (+1)
+      "Your <armor> violently glows silver for a moment."  (+0)
+        (no "silver" if shield of reflection or silver dragon scales or
+        scale mail)
+    If cursed, the armour is uncursed.
+    If your armor is enchanted beyond the safe limit, it may vibrate:
+      "Your <armor> suddenly vibrates unexpectedly."  (unblind)
+      "Your <armor> suddenly vibrates again."  (blind)
+    NOTE:  If you were blind, then "glows silver" is replaced by
+    "vibrates".
+  cursed
+    One exterior piece of worn armor is selected semi-randomly.
+    If enchantment already below -3 (-5 for elven armor or a Wizard's
+    cornuthaum), there is a 1 in (current absolute enchantment) that it
+    WON'T be vaporized.  If it is vaporized:
+      "Your <armor> violently glows black for a while, then evaporates."
+        (no "black" if black dragon scales or scale mail) 
+    Otherwise armor loses one enchantment and is cursed.
+      "Your <armor> glows black for a moment."  (unblind)
+        (no "black" if black dragon scales or scale mail) 
+      "Your <armor> vibrates for a moment."  (blind)
+  non-cursed and confused
+    One exterior piece of worn armor is selected semi-randomly and made
+    (rust|fire)proof.
+      "Your <armor> is covered by a shimmering golden shield/layer!"
+      (unblind)
+      "Your <armor> feels warm for a moment."  (blind)
+    If that armor had damage, it is repaired.
+      "Your <armor> looks as good as new!"  (unblind)
+      "Your <armor> feels as good as new!"  (blind)
+  cursed and confused
+        One exterior piece of worn armor is selected semi-randomly and any
+       (rust|fire)proofing removed.
+      "Your <armor> is covered by a mottled black glow!"  (unblind)
+      "Your <armor> feels warm for a moment."  (blind)
+  If the armor's enchantment was affected, then you identify the scroll
+  as well.
+
+enchant weapon
+  not wielding a weapon
+    Exercises (abuses if cursed) dexterity.
+      "You have a strange feeling for a moment, then it passes."
+      (beginner not hallucinating)
+      "You have a normal feeling for a moment, then it passes."
+      (beginner hallucinating)
+      "Your <hands> twitch."  (non-cursed)
+      "Your <hands> itch."  (cursed)
+  blessed
+    If your weapon was cursed, it is made uncursed.
+    If your weapon is a worm tooth, it becomes an unfixed crysknife.
+      "Your weapon seems sharper now."
+    Otherwise, weapons currently enchanted above +5 have a 2/3 chance of
+    being destroyed.
+      "Your <weapon> violently glows blue for a while and then
+      evaporates."  (unblind)
+      "Your <weapon> evaporates."  (blind)
+    Other weapons can gain several enchantments:
+      Current enchantment  -3 to -1  +0 to +2  +3 to +5  +6 to +8  +9 or more
+      ~~~~~~~~~~~~~~~~~~~  ~~~~~~~~  ~~~~~~~~  ~~~~~~~~  ~~~~~~~~  ~~~~~~~~~~
+      Additional possible   1 to 4    1 to 3    1 to 2       1       0 to 1
+      "Your <weapon> glows blue for a moment."  (+1 unblind)
+      "Your <weapon> glows blue for a while."  (more than +1 unblind)
+      "Your <weapon> violently glows blue for a while."  (+0 unblind)
+    Magicbane warns you if it is enchanted to +0 or above.
+      "Your right <hand> flinches!"  (2 or more added and now at +2 or more)
+      "Your right <hand> itches!"  (otherwise)
+    Elven weapons, artifacts, and sometimes other weapons vibrate when
+    they are enchanted above +5.
+      "Your <weapon> suddenly vibrates unexpectedly."
+  uncursed
+    If your weapon was cursed, it is made uncursed.
+    If your weapon is a worm tooth, it becomes an unfixed crysknife.
+      "Your weapon seems sharper now."
+    Otherwise, weapons currently enchanted above +5 have a 2/3 chance of
+    being destroyed.
+      "Your <weapon> violently glows blue for a while and then evaporates."
+      (unblind)
+      "Your <weapon> evaporates."  (blind)
+    Other weapons gain +1 enchantment (only a chance if already +9 or
+    more).
+      "Your <weapon> glows blue for a moment."  (+1 unblind)
+      "Your <weapon> violently glows blue for a while."  (+0 unblind)
+    Magicbane warns you if it is enchanted to +0 or above.
+      "Your right <hand> itches!"
+    Elven weapons, artifacts, and sometimes other weapons vibrate when
+    they are enchanted above +5.
+      "Your <weapon> suddenly vibrates unexpectedly."
+  cursed
+    If your weapon is a crysknife, it becomes a worm tooth.
+      "Your weapon seems duller now."
+    Artifacts (except Sting and Orcrist) will resist.
+      "Your <weapon> faintly glows black."  (unblind)
+    Otherwise, weapons currently enchanted below -5 have a 2/3 chance of
+    being destroyed.
+      "Your <weapon> violently glows blue for a while and then evaporates."
+      (unblind)
+      "Your <weapon> evaporates."  (blind)
+    Other weapons lose one enchantment.
+      "Your <weapon> glows black for a moment."  (unblind)
+    Elven weapons, artifacts, and sometimes other weapons vibrate if
+    they are still enchanted above +5.
+      "Your <weapon> suddenly vibrates unexpectedly."
+  non-cursed and confused
+    (Rust|Fire)proofs your weapon. If it is a crysknife, it becomes
+    fixed.
+      "Your <weapon> is covered by a shimmering golden shield!"
+      (unblind)
+      "Your weapon feels warm for a moment."  (blind)
+    If it had damage, it is repaired.
+      "Your <weapon> looks as good as new!"  (unblind)
+      "Your <weapon> feels as good as new!"  (blind)
+  cursed and confused
+    Removes (rust|fire)proofing from your weapon.
+      "Your <weapon> is covered by a mottled purple glow!"  (unblind)
+      "Your weapon feels warm for a moment."  (blind)
+  NOTE: The grammar of the above messages is changed if more than one
+  item is wielded.
+
+fire
+  blessed
+    An explosion of fire occurs, causing 3 to 5 hit points of damage to
+    you and surrounding monsters if not fire resistant.  Armor, scrolls,
+    and spellbooks may burn; potions may explode; slime is burnt away.
+      "The water around you vaporizes violently!"  (under water)
+      "The scroll erupts in a tower of flame!"  (otherwise)
+  uncursed
+    An explosion of fire occurs, causing 2 to 3 hit points of damage to
+    you and surrounding monsters if not fire resistant.  Armor, scrolls,
+    and spellbooks may burn; potions may explode; slime is burnt away.
+      "The water around you vaporizes violently!"  (under water)
+      "The scroll erupts in a tower of flame!"  (otherwise)
+  cursed
+    An explosion of fire occurs. causing 1 to 2 hit points of damage to
+    you and surrounding monsters if not fire resistant.  Armor, scrolls,
+    and spellbooks may burn; potions may explode; slime is burnt away.
+      "The water around you vaporizes violently!"  (under water)
+      "The scroll erupts in a tower of flame!"  (otherwise)
+  confused
+    If fire-resistant,
+      "Oh, look, what a pretty fire in your <hands>."  (unblind)
+      "You feel a pleasant warmth in your <hands>."  (blind)
+    Otherwise, you lose 1 hit point.
+      "The scroll catches fire and you burn your <hands>."
+  You always identify the scroll.
+
+food detection
+  blessed
+     You acquire the food appraisal intrinsic, which will warn you
+     when you next (only) eat food that could be dangerous or would
+     break a currently-unbroken conduct.
+     If no food on that level,
+       "You sense a lack of food nearby."
+         (saw some before, already have food appraisal.)
+       "You sense a lack of food nearby.  Your <nose> starts to tingle."
+          (saw some before, no food appraisal.)
+       "You have a strange feeling for a moment, then it passes."
+         (beginner hallucinating)
+       "You have a normal feeling for a moment, then it passes."
+         (beginner hallucinating)
+       "Your <nose> twitches then starts to tingle."
+         (non-beginner, no current food appraisal)
+       "Your <nose> twitches."
+         (non-beginner with food appraisal already)
+     Otherwise, you detect comestibles on that level.
+       "You smell food nearby.  Your <nose> starts to tingle."
+         (just on your square, no current food appraisal)
+       "You smell food nearby."
+         (just on your square, already have food appraisal)
+       "Your <nose> starts to tingle and you smell food."
+         (elsewhere, no current food appraisal)
+       "Your <nose> continues to tingle and you smell food."
+         (elsewhere, already have food appraisal)
+  uncursed
+     If no food on that level,
+      "You sense a lack of food nearby."  (saw some before)
+      "You have a strange feeling for a moment, then it passes."
+      (beginner not hallucinating)
+      "You have a normal feeling for a moment, then it passes."
+      (beginner hallucinating)
+       "Your nose twitches."  (otherwise)
+    Otherwise, you detect comestibles on that level.
+      "You smell food nearby."  (if just on your square)
+      "Your nose tingles and you smell food."  (if elsewhere)
+  cursed
+    If no potions on that level,
+      "You sense a lack of food nearby."  (saw some before)
+      "You have a strange feeling for a moment, then it passes."
+      (beginner not hallucinating)
+      "You have a normal feeling for a moment, then it passes."
+      (beginner hallucinating)
+      "Your nose twitches."  (otherwise)
+    Otherwise, you detect potions on that level.
+      "You smell food nearby."  (if just on your square)
+      "Your nose tingles and you smell food."  (if elsewhere)
+  confused
+    If no potions on that level,
+      "You sense a lack of something nearby."  (saw some before)
+      "You have a strange feeling for a moment, then it passes."
+      (beginner not hallucinating)
+      "You have a normal feeling for a moment, then it passes."
+      (beginner hallucinating)
+      "Your nose twitches."  (otherwise)
+    Otherwise, you detect potions on that level.
+      "You smell something nearby."  (if just on your square)
+      "Your nose tingles and you smell something."  (if elsewhere)
+
+genocide
+  Always identified when read.
+    "You have found a scroll of genocide!"
+  blessed (even if confused)
+    You can genocide an entire class of monsters (all species with the
+    same symbol); or you can choose 'none'.
+      "What class of monsters do you wish to genocide?"
+      "Wiped out all <monster>."
+      "You feel dead inside." (@ or your own race while polymorphed)
+    NOTE: Not all species can be genocided.
+    NOTE: Even if you don't have 'showrace' selected, dwarf players are
+    still considered dwarves ('h'), gnome players gnomes ('G') and orc
+    players orcs ('o') and can be self-genocided accordingly.
+  uncursed
+    You can genocide one species; or you can choose 'none'.
+      "What monster do you want to genocide? [type the name]"
+      "Wiped out all <monster>."
+      "You feel dead inside." (your own role or race while polymorphed)
+    If hallucinating, the message will claim "Wiped out all <your role or
+    current form>" but you are unaffected (unless you actually did choose
+    your role, race, or current form).
+    NOTE: Not all species can be genocided.
+  cursed
+    You are surrounded by 4 to 6 monsters of one species, if they are
+    not already genocided or extinct (more than 9 Nazgul, 3 erinyes, or
+    120 other already created). If you choose 'none', a monster species
+    will be selected at random. The monsters will carry nothing.
+      "What monster do you want to genocide? [type the name]"
+      "Sent in some <monster>."
+  confused and uncursed
+    You genocide your own role.
+      "Wiped out all <role>."
+      "Wiped out all <current form>." (hallucinating and polymorphed)
+      "You feel dead inside."  (while polymorphed)
+  confused and cursed
+    You are surrounded by 4 to 6 monsters of your own role.  The monsters
+    will carry nothing.
+      "Sent in some <role>."
+      "Sent in some <current form>." (hallucinating and polymorphed)
+
+gold detection
+  blessed or uncursed
+    If no gold, gold objects (if scroll blessed), or gold golems on that
+    level outside your inventory, no effect.
+      "You have a strange feeling for a moment, then it passes."
+        (beginner not hallucinating)
+      "You have a normal feeling for a moment, then it passes."
+        (beginner hallucinating)
+      "You feel like a million zorkmids!" (polymorphed into gold golem)
+      "You feel worried about your future financial situation."
+        (carrying gold coins)
+      "You feel materially poor."  (not carrying gold coins)
+    Otherwise, you detect gold (and, if scroll blessed, gold objects),
+    even buried or in containers, and gold golems on that level.
+      "You notice some gold between your <feet>."
+      (if just on your square)
+      "You feel very greedy, and sense gold!"  (if elsewhere)
+  cursed or confused
+    If no traps on that level, no effect.
+      "You have a strange feeling for a moment, then it passes."
+      (beginner not hallucinating)
+      "You have a normal feeling for a moment, then it passes."
+      (beginner hallucinating)
+      "Your <toes> stop itching."  (otherwise)
+    Otherwise, you detect traps (spaces with the ^ symbol) on that level.
+    If the scroll is cursed, the traps are shown as gold ($ symbol); if
+    you are hallucinating, they will appear as random objects; otherwise,
+    they appear as known traps.  The vibrating square is NOT shown.
+      "Your <toes> itch."  (if just on your square)
+      "You feel very greedy"  (cursed)
+      "You feel entrapped."  (otherwise)
+
+identify
+  Always identified when read.
+  blessed
+    You can identify items from your inventory:
+      # items:  1    2    3    4   all
+      chance:  1/5  1/5  1/5  1/5  1/5
+    If your luck is positive, then 1 item becomes 2 items.
+    "This is an identify scroll."
+  uncursed
+    You can identify items from your inventory:
+      # items:   1     2     3     4    all
+      chance:  21/25  1/25  1/25  1/25  1/25
+    "This is an identify scroll."
+  cursed
+    You can identify one item from your inventory.
+    "This is an identify scroll."
+  confused
+    You merely identify the scroll.
+    "You identify this as an identify scroll."
+
+light
+  Swallowed, engulfed, or underwater
+    No area is actually lit or darkened.
+    "It seems even darker in here than before."  (cursed or confused)
+      "<monster>'s <stomach> is lit. "  (animal)
+      "<monster> shines briefly."  (whirly monster)
+      "<monster> glistens."  (other swallowed)
+  blessed
+    An area of radius 9 is lit.
+      "A lit field surrounds you!"
+  uncursed
+    An area of radius 5 is lit.
+      "A lit field surrounds you!"
+  cursed or confused
+    An area of radius 5 (9 if blessed) is darkened.
+    Light sources in your inventory (other than Sunsword) are snuffed out.
+      "Suddenly, the only light left comes from Sunsword!" (if wielding it)
+      "You are surrounded by darkness!" (otherwise)
+  If unblind, you identify the scroll.
+  If on the Rogue level, rooms are lit/darkened instead of areas.
+
+magic mapping
+  non-mappable level
+    You become confused for 1 to 30 (more) turns.
+      "Your mind is filled with crazy lines!"
+      "Wow!  Modern art." (hallucinating)
+      "Your <head> spins in bewilderment."  (not hallucinating)
+  blessed or uncursed
+    You identify the scroll and map the entire level.
+      "A map coalesces in your mind!"
+    Blessed scrolls also reveal secret doors.
+  cursed or confused
+    You identify the scroll and map 1/7 of the squares of the level.
+      "A map coalesces in your mind!"
+      "Unfortunately, you can't grasp the details." (cursed but not confused)
+
+mail
+  Note: You must have the MAIL option compiled into your program and the
+  'mail' option enabled.  The scroll is identified when read.
+  If found in a bones pile:
+    "This seems to be junk mail addressed to the finder of the Eye of Larn."
+  On a system capable of checking new mail, is only generated when mail is
+  received:
+    You read your new mail with the program specified in the MAILREADER
+    environment variable.
+  On an Amiga or DOS platform, is generated every 1999+d(3000) turns (the
+  first time, after 99+d(2000) turns. The message is randomly chosen:
+    "It reads: "Please disregard previous letter.""
+    "It reads: "Welcome to NetHack.""
+    "It reads: "Report bugs to <devteam@nethack.org>.""
+    "It reads: "Only Amiga makes it possible."" (Amiga)
+    "It reads: "CATS have all the answers."" (Amiga)
+    "Unfortunately you cannot see what it says." (blind)
+  The scroll cannot be converted to another type by any means.
+
+punishment
+  Always identified when read.
+  blessed or confused
+    No effect.
+      "You feel guilty."
+  uncursed
+    "You are being punished for your misbehavior!"
+    If you were already being punished, the ball's weight increases by
+    160.  Else if polymorphed into an amorphous, swirly, or non-solid
+    creature, a heavy iron ball drops to the floor.
+      "A ball and chain appears, then falls away."
+    Otherwise, you are chained to a heavy iron ball and chain.
+  cursed
+      "You are being punished for your misbehavior!"
+    If you were already being punished, the ball's weight increases by
+    320.  Else if polymorphed into an amorphous, swirly, or non-solid
+    creature, a heavy iron ball drops to the floor.
+      "A ball and chain appears, then falls away."
+    Otherwise, you are chained to a heavy iron ball and chain.
+
+remove curse
+  blessed
+    All cursed items in your main inventory become uncursed.
+    Removes a ball and chain (punishment).
+      "You feel like someone is helping you."  (not hallucinating)
+      "You feel in touch with the Universal Oneness."  (hallucinating)
+  uncursed
+    All cursed worn or wielded items (weapons, armor, amulets, rings, and
+    eyewear), stackable quivered weapons (or, if wielding a sling, gems or
+    stones), applied leashes, and loadstones in main inventory are uncursed.
+    Removes a ball and chain (punishment).
+      "You feel like someone is helping you."  (not hallucinating)
+      "You feel in touch with the Universal Oneness."  (hallucinating)
+  cursed
+    Removes a ball and chain (punishment).
+      "You feel like someone is helping you."  (not hallucinating)
+      "You feel in touch with the Universal Oneness."  (hallucinating)
+      "The scroll disintegrates."
+  blessed and confused
+    All UNCURSED items have a 25% chance of being blessed and a 25% chance
+    of being cursed.
+    You are NOT unpunished.
+      "You feel like you need some help."  (not hallucinating)
+      "You feel the power of the Force against you!"  (hallucinating)
+  uncursed and confused
+    All UNCURSED worn or wielded items (weapons, armor, amulets, rings,
+    and eyewear), stackable quivered weapons (or, if wielding a sling, gems
+    or stones), applied leashes, and loadstones in main inventory have a 25%
+    chance of being blessed and a 25% chance of being cursed.
+    You are NOT unpunished.
+      "You feel like you need some help."  (not hallucinating)
+      "You feel the power of the Force against you!"  (hallucinating)
+  cursed and confused
+    No effect.
+      "The scroll disintegrates."
+      "You feel like you need some help."  (not hallucinating)
+      "You feel the power of the Force against you!"  (hallucinating)
+
+scare monster
+  dropped
+    Most monsters will become frightened when adjacent to the square, just
+    like engraving Elbereth.  Blind or peaceful creatures, minotaurs,
+    shopkeepers, vault guards, the Wizard, the endgame Riders, and all A
+    and @ are unaffected.
+  picked up
+    If blessed, becomes uncursed.  Otherwise, if cursed or if previously
+    picked up uncursed, the scroll(s) disintegrate.
+      "The scroll turns to dust as you pick it up."  (one)
+      "The scrolls turn to dust as you pick them up."  (several)
+  blessed or uncursed
+    You will cause monsters within your visual range to flee.  Some
+    monsters can resist the effect.
+      "You hear maniacal laughter close by."  (something was affected)
+      "You hear maniacal laughter in the distance." (no creature affected)
+  cursed or confused
+    You will wake up, unparalyze, and unscare monsters within your
+    visual range.
+      "You hear sad wailing close by."  (something was affected)
+      "You hear sad wailing in the distance."  (no creature affected)
+
+stinking cloud
+  Always identified when read.
+    "You have found a scroll of stinking cloud!"
+  Creates a gas cloud around a centre square you specify. This square must
+  be visible to you and within the following range:
+      .....
+     .......
+    .........
+   ...........
+   ...........
+   .....@.....
+   ...........
+   ...........
+    .........
+     .......
+      .....
+  or there will be no effect ("You smell rotten eggs.").
+  blessed
+    The cloud has a radius of 4 around the centre square, and will
+    dissipate after d3+7 turns; any living, breathing, non-poison-resistant
+    creature within it is blinded and takes d12+5 damage before the last
+    four turns of the cloud's life, d6+5 in the penultimate two turns,
+    and d3+5 in the last two.
+  uncursed 
+    The cloud has a radius of 3 around the centre square, and will
+    dissipate after d3+5 turns; any living, breathing, non-poison-resistant
+    creature within it is blinded and takes d8+5 damage before the last two
+    turns of the cloud's life, after which d4+5.
+  cursed
+    The cloud has a radius of 2 around the centre square, and will
+    dissipate after d3+3 turns; any living, breathing, non-poison-resistant
+    creature within it is blinded and takes d4+5 damage.
+
+taming
+  blessed or uncursed
+    Tames monsters within a one square radius.  Also calms shopkeepers.
+    Some monsters can resist.
+    No messages.
+  cursed
+    Angers monsters within a one square radius.
+      "<Monster> gets angry!"
+  non-cursed and confused
+    Tames monsters within an 11x11 square area.  Also calms shopkeepers.
+    Some monsters can resist.
+    No messages.
+  cursed and confused
+    Angers monsters within an 11x11 square area.
+      "<Monster> gets angry!"
+
+teleportation
+  blessed
+    If you don't have teleport control, you can choose whether to
+    teleport.
+      "Do you wish to teleport?"
+    If you are on a non-teleport level, no effect.
+      "A mysterious force prevents you from teleporting!"
+    Otherwise, one-third of the time if you are carrying the Amulet of 
+    Yendor, no effect.
+      "You feel disoriented for a moment."
+    Otherwise, you teleport to a random or controlled position on the same
+    level.
+    You will identify the scroll.
+  uncursed
+    If you are on a non-teleport level, no effect.
+      "A mysterious force prevents you from teleporting!"
+    Otherwise, one-third of the time if you are carrying the Amulet of
+    Yendor, no effect.
+      "You feel disoriented for a moment."
+    Otherwise, you teleport to a random or controlled position on the same
+    level.
+    You identify the scroll if you have teleport control, don't see your
+    old position, or are radius 4 or more from your old position.
+  cursed or confused
+    If you are not carrying the Amulet of Yendor, you teleport to another
+    level.  If you have teleport control, you can choose which level
+    (with limits); if you are confused, there is a chance that the
+    teleport may be random regardless.
+
+
+Acknowledgements
+~~~~~~~~~~~~~~~~
+Thanks to Bruce Cox for proofreading the original version of this file.
+Further corrections and clarifications provided by Joe Bednorz,
+Christian Cooper, Andreas Dorn, Josh Giesbrecht, Alon Lischinsky,
+Kate Nepveu, Pat Rankin, Rast, Martin Read, Irina Rempt, Jason Short,
+Hans van der Meulen, and Eric Wright.

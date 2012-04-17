@@ -1,0 +1,106 @@
+thrn-343.txt  Last edited 2004-02-16 for NetHack 3.4.3
+Sitting on and kicking thrones in NetHack 3.4
+Compiled by Dylan O'Donnell <psmith@spod-central.org>.
+
+Sitting on a throne
+~~~~~~~~~~~~~~~~~~~
+(Adapted from a spoiler by Kevin Hugo.)
+
+There is a 2/3 chance that nothing happens.
+  "You feel somehow out of place..."
+  "You feel very comfortable here." (polymorphed into royal monster)
+Otherwise, there is an equal 1/13 chance of one of the following:
+
+  *  You lose d4+2 points from a random attribute, and d10 hit points.
+       <Usual attribute-loss message>
+
+  *  You gain 1 point to a random attribute.
+       <Usual attribute-gain message>
+
+  *  If shock resistant, you lose d6 hit points.
+       "An electric shock shoots through your body!"
+     Otherwise, you lose d30 hit points.
+       "A massive electric shock shoots through your body!"
+     In both cases, your constitution is abused. Items in inventory are NOT
+     at risk of explosion.
+
+  *  If you are within 5 hit points of maximum, your max HP is increased by
+     4; hit points are then restored to maximum whether increased or not.
+     Also cures all blindness, all sickness, and wounded legs.
+       "You feel much, much better!"
+
+  *  If you have any gold in your main inventory, it's all taken away.
+       "You notice you have no gold!"
+     Otherwise, no effect.
+       "You feel a strange sensation."
+
+  *  If your luck is d5 or more below zero, your luck is increased by one.
+       "You feel your luck is changing."
+     Otherwise, you get to make a wish.
+
+  *  d10 throneroom monsters appear around you.
+       "Thy audience hath been summoned, <Sire/Dame>!"
+        
+  *  You get to genocide one species, as for an uncursed scroll of
+     genocide.
+       "A voice echoes: "By thy Imperious order, <Sire/Dame>...""
+    
+  *  If your luck is positive, you are blinded for 250 to 349 (more)
+     turns; otherwise, your inventory is randomly cursed (as for a
+     "malignant aura").
+       "A curse upon thee for sitting upon this most holy throne!"
+  
+  *  If your luck is non-negative and you don't already have intrinsic
+     see invisible, you acquire that intrinsic.
+       "Your vision becomes clear."
+     Otherwise, if the level can be magic-mapped, it is.
+       "An image forms in your mind."
+     Or, if the level cannot be mapped, you are confused for d30 (more)
+     turns.
+       "A terrible drone fills your head!"
+
+  *  If you have negative luck, you wake all monsters on the level.
+       "You feel threatened."
+     Otherwise, you are teleported within the level.
+       "You feel a wrenching sensation."
+
+  *  You can identify items from your inventory:
+         # items:  1    2    3    4   all
+         chance:  1/5  1/5  1/5  1/5  1/5
+       "You are granted an insight."
+
+  *  You are confused for 15+d7 (more) turns.
+       "Your mind turns into a pretzel!"
+  
+Whether anything happened or not, if you are still sitting on the
+throne (haven't teleported away), there is a 1/3 chance that the
+throne will then disappear.
+  "The throne vanishes in a puff of logic."
+
+
+Kicking a throne
+~~~~~~~~~~~~~~~~
+
+If you have negative luck, or the throne has previously been looted,
+there is a 1/3 chance of destroying the throne, leaving behind d200
+gold pieces.
+  "CRASH!  You destroy the throne."
+  "CRASH!  You destroy it." (if blind)
+
+If the throne is not destroyed in this manner, you have positive luck,
+and the throne has not previously been looted, there is a 1/3 chance
+of dislodging some loot: 300 to 500 gold pieces, and a number (more
+with higher luck) of gems.
+  "You kick loose some ornamental coins and gems!"
+  "You kick something loose!" (if blind)
+
+If neither of the above effects occur, there is a 1/4 chance that you
+may trigger a (hidden, and untriggerable any other way) trap door.
+  "The floor opens up under you!" followed by "The hole in the ceiling
+  above you closes up."
+
+If you didn't get any of the above, you get a hurt foot; your
+dexterity and strength, are abused, 1/3 chance of your right leg being
+hurt for 6 to 10 turns, and you lose d5 HP (d3 HP if your constitution
+is greater than 15).
+  "Ouch! That hurts!"

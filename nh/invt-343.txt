@@ -1,0 +1,184 @@
+invt-343.txt  Last edited 2004-02-16 for NetHack 3.4.3
+Starting inventories by class and race in NetHack 3.4
+Compiled by Dylan O'Donnell <psmith@spod-central.org>.
+
+Where unspecified, items can be either blessed or uncursed; multiples
+of items may be split between blessed and uncursed items.
+
+Archeologist
+  +2 bullwhip
+  +0 leather jacket
+  +0 fedora
+  3 to 6 uncursed food rations
+  +0 pick-axe
+  uncursed tinning kit (30 to 99 charges)
+  uncursed touchstone
+  uncursed sack
+  Following chances of ONE of:
+    10%    uncursed tin opener
+    22.5%  uncursed oil lamp
+     6.75% uncursed magic marker (30 to 99 charges)
+
+Barbarian
+  50% chance of:
+    +0 two-handed sword
+    +0 axe
+  otherwise:
+    +0 battle-axe
+    +0 <racial> short sword
+  +0 <racial> ring mail
+  1 or 2 uncursed food rations
+  17% chance of uncursed oil lamp
+
+Caveman
+  +1 club
+  +2 sling
+  10 to 20 flint stones
+  18 to 33 uncursed rocks
+  +0 leather armor
+
+Healer
+  1001 to 2000 gold pieces
+  +0 scalpel
+  +1 leather gloves
+  5 to 10 uncursed apples
+  blessed spellbook of healing
+  blessed spellbook of extra healing
+  blessed spellbook of stone to flesh
+  4 potions of healing
+  4 potions of extra healing
+  wand of sleep (4 to 8 charges)
+  uncursed stethoscope
+  4% chance of uncursed oil lamp
+
+Knight
+  +1 long sword
+  +1 lance
+  +1 ring mail
+  +0 helmet
+  +0 small shield
+  +0 leather gloves
+  10 to 20 uncursed apples
+  10 to 20 uncursed carrots
+  (And their pony starts with an uncursed saddle)
+
+Monk
+  +2 leather gloves
+  +1 robe
+  3 to 6 uncursed food rations
+  5 to 10 apples
+  5 to 10 oranges
+  3 to 6 fortune cookies
+  random scroll (not enchant weapon)
+  33% chance each of:
+    blessed spellbook of healing
+    blessed spellbook of protection
+    blessed spellbook of sleep
+  3 potions of healing
+  Following chances of ONE of:
+    20% uncursed magic marker (30 to 99 charges)
+     8% uncursed oil lamp
+
+Priest
+  blessed +1 mace
+  +0 robe
+  +0 small shield
+  1 or 2 uncursed cloves of garlic
+  1 or 2 uncursed sprigs of wolfsbane
+  2 random different spellbooks (healing, divination or clerical only)
+  4 potions of holy water
+  Following chances of ONE of:
+    10% uncursed magic marker (30 to 99 charges)
+     9% uncursed oil lamp
+
+Ranger
+  +1 <racial> dagger
+  +1 <racial> bow
+  50 to 59 +2 <racial> arrows (1% chance poisoned if chaotic)
+  30 to 39 +0 <racial> arrows (1% chance poisoned if chaotic)
+  +2 cloak of displacement (elves: +2 elven cloak)
+  4 to 8 uncursed cram rations (elves: 4 to 8 uncursed lembas wafers)
+
+Rogue
+  +0 <racial> short sword
+  6 to 15 uncursed +0 <racial> daggers
+  +1 leather armor
+  uncursed potion of sickness
+  uncursed lock pick
+  uncursed sack
+  20% chance of uncursed blindfold
+
+Samurai
+  +0 katana
+  +0 wakizashi
+  +0 yumi
+  26 to 45 +0 ya
+  rustproof +0 splint mail
+  20% chance of uncursed blindfold
+
+Tourist
+  1 to 1000 gold pieces
+  21 to 40 +2 darts
+  +0 Hawaiian shirt
+  10 to 20 random food items
+  4 scrolls of magic mapping
+  2 potions of extra healing
+  uncursed expensive camera (30 to 99 charges)
+  uncursed credit card
+  Following chances of ONE of:
+    4%   uncursed tin opener
+    3.8% uncursed leash
+    3.7% uncursed towel
+    3.5% uncursed magic marker (30 to 99 charges)
+
+Valkyrie
+  +1 long sword
+  +0 dagger
+  +3 small shield
+  1 or 2 uncursed food rations
+  17% chance of uncursed oil lamp
+
+Wizard
+  blessed +1 quarterstaff
+  +0 cloak of magic resistance
+  3 random scrolls
+  blessed spellbook of force bolt
+  3 random potions
+  2 random different rings
+  random wand
+  1 random other spellbook (any school)
+  Following chances of ONE of:
+    20% uncursed magic marker (29 to 99 charges)
+    16% uncursed blindfold
+
+Race-specific equipment is as follows:
+
+HUMAN         ELF            GNOME           ORC
+~~~~~       : ~~~          : ~~~~~         : ~~~
+short sword :              :               : orcish short sword
+ring mail   :              :               : orcish ring mail
+dagger      : elven dagger : dagger        : orcish dagger
+bow         : elven bow    : crossbow      : orcish bow
+arrow       : elven arrow  : crossbow bolt : orcish arrow
+
+In addition, all non-Wizard orcs get 2 to 4 additional random food
+items; and elven Priests and Wizards get a random uncursed musical
+instrument, one of wooden flute, tooled horn, wooden harp, bell,
+bugle, and leather drum.
+
+
+The following items will never be created in initial inventory:
+
+Scrolls of amnesia, blank paper, or fire
+Spellbooks of blank paper, or of level higher than 3
+Potions of acid or hallucination
+Rings of aggravate monster, hunger, or levitation
+Wands of nothing or of wishing (except as guaranteed by explore mode)
+
+The combination of potions/rings/spellbooks/wands of polymorph with
+a ring of polymorph control is also excluded.
+
+Acknowledgements
+~~~~~~~~~~~~~~~~
+Corrections and clarifications provided by Big Al, Patrick Clot,
+Vladimir Florinski, Annie Kang, Pat Rankin, and Rast.

@@ -1,0 +1,600 @@
+art1-343.txt  Last edited 2006-10-24 for NetHack 3.4.3
+Artifacts and their properties in NetHack 3.4
+Compiled for 3.2.2 by Kevin Hugo.
+Updated for 3.4.3 by Dylan O'Donnell <psmith@spod-central.org>.
+
+ARTIFACT       ITEM          COST  GENER  ALN  +HIT  +DAM  ATTACK  DEFEND
+~~~~~~~~~~~~~  ~~~~~~~~~~~~  ~~~~  ~~~~~  ~~~  ~~~~  ~~~~  ~~~~~~  ~~~~~~
+Demonbane      long sword   $2500  aborw  L    +d5    x2   demons
+Excalibur      long sword    4000   bcdw  L !  +d5  +d10           lev, search
+Grayswandir    silver saber  8000   borw  L    +d5    x2   silver  hallu
+Snickersnee    katana        1200   borw  LS    +0   +d8
+Sunsword       long sword    1500  aborw  L    +d5    x2   undead
+O Detection    crystal ball  2500   bq w  LA!                      mgc, spell
+S Might        mace          2500   bq w  LC!  +d5    x2   align   mgc
+M Mirr Merlin  mirror        1500   bq w  LK!                      mgc
+Mitre Holiness helm brllnce  2000   bq w  LP!                      undead, fire
+T Muramasa     tsurugi       4500   bq w  LS!   +0   +d8   bisect  luck
+      
+Cleaver        battle axe    1500  b orw  NB   +d3   +d6
+Giantslayer    long sword     200  b orw  N    +d5    x2   giants
+Magicbane      athame        3500  b orw  NW   +d3   +d4   magic   mgc, curse
+Mjollnir       war hammer    4000  b orw  NV   +d5  +d24   elec
+Vorpal Blade   long sword    4000  bcorw  N    +d5   +d1   behead
+H Ahriman      luckstone     2500  b q w  NB!   +5    x2   luck    stealth
+S Aesculapius  quarterstaff  5000  b q w  NH!   +0    x2   lev     lev, regen
+Eyes Overworld lenses        2500  b q w  NM!                      mgc
+PYEC           credit card   7000  b q w  NT!                      mgc, spell
+Orb of Fate    crystal ball  3500  b q w  NV!              luck    spell, phys
+Eye Aethiopica amulet ESP    4000  b q w  NW!                      mgc, spell
+
+Grimtooth      orcish dagger  300  b orw  C    +d2   +d6
+Orcrist        elv brdswd    2000  bnorw  C    +d5    x2   orcs
+Sting          elv dagger     800  bnorw  C    +d5    x2   orcs    warn, web
+Stormbringer   runesword     8000  bcorw  C !  +d5   +d2   lev     lev
+L Diana        bow           4000  b q w  CRa! +d5     0           reflect
+M Key Thievery skeleton key  3500  b q w  CRo!                     warn, phys
+
+Dragonbane     broadsword     500   borw       +d5    x2   dragon
+Fire Brand     long sword    3000   borw       +d5    x2   fire    fire
+Frost Brand    long sword    3000   borw       +d5    x2   cold    cold
+Ogresmasher    war hammer     200   borw       +d5    x2   ogres
+Trollsbane     morning star   200   borw       +d5    x2   trolls
+Werebane       silver saber  1500   borw       +d5    x2   were    were
+
+Bell Opening   silver bell    5000   g
+Can Invocation candelabrum    5000   g
+Book Dead      papyrus spbk  10000   g
+Amulet Yendor  amulet Yendor 30000   g
+
+
+Artifacts are listed above by alignment, then alphabetically with the
+Quest Artifacts listed later.  The name of each ARTIFACT may have been
+abbreviated to fit in the table above; see below for the official name.
+Artifacts are special instances of ordinary objects, and have all of the
+behaviors and properties of the ordinary ITEM in addition to those
+granted by the particular artifact; they are however considerably more
+valuable, as indicated by the COST field.
+
+The GENER field specifies all of the possible ways that a particular
+artifact may be generated.  Each artifact can only be generated _once_
+per game -- it cannot be generated again, even if the player never found
+the artifact, if the artifact is stolen, or if the artifact is destroyed.
+Note that in some cases, an ordinary object may be converted into an
+artifact, but no artifact will be converted into another artifact.  The
+meaning of the letters are as follows:
+ a  Humanoid angelic species have a 5% chance of being generated with a
+    blessed, rustproof Demonbane or Sunsword; 100% for Archons.
+ b  All artifacts on the current level are saved when a character dies
+    and creates a bones file.  If a new character visits the same level
+    and loads the bones file, the same artifacts will be created, except
+    under the following conditions.  If the artifact was already created
+    in the new player's game or is the new player's Quest Artifact, then
+    the artifact reverts to its ordinary object.  The Unique Items
+    (Bell of Opening, Candelabrum of Invocation, Book of the Dead, and
+    Amulet of Yendor) will revert into ordinary objects (cursed bell,
+    pile of used candles, cursed spellbook of blank paper, and cursed
+    fake amulet of Yendor, respectively).
+ c  If you pray and your god is very pleased, you may be crowned and get
+    a good artifact, though Wizards and Monks may instead receive a
+    spellbook of finger of death or restore ability respectively.  If a
+    lawful character is wielding an ordinary long sword when crowned, it
+    becomes Excalibur.  Neutrals get Vorpal Blade, regardless of what they
+    are wielding (if already wielding it, it goes "snicker-snack!").
+    Chaotics get Stormbringer, regardless of what they are wielding.  You
+    can only be crowned once.  If you were restricted to unskilled in the
+    weapon class of your alignment's artifact, the restriction is removed
+    so you may advance to basic skill.
+ d  If you #dip a single ordinary long sword in a fountain, are at least
+    experience level 5, and Excalibur doesn't already exist in your game,
+    then there is a 1/6 chance of something special happening to your
+    long sword.  If you are lawful, the long sword is converted into
+    the blessed, rustless, uncorroded, damageproof Excalibur and you
+    exercise your wisdom.  If you are neutral or chaotic, your long
+    sword is cursed, loses its rustproofing, may lose an enchantment,
+    and you abuse your wisdom.
+ g  This Unique Item is an essential part of the game, and can only be
+    obtained by killing (or stealing it from) the appropriate Nemesis.
+    These items are specially protected from being destroyed.  They
+    also do not count toward the number of artifacts that have been
+    generated.
+ n  An ordinary item can be converted into this artifact by #naming it.
+    The item must be singular, not already an artifact, of the same type
+    as the new artifact, and the new artifact must not already exist.
+    Answer that you want to #name a single item, and provide the short
+    name of the artifact (i.e. "Sting" instead of "elven dagger named
+    Sting").
+ o  This item may be given (non-cursed, and erodeproof if applicable) as
+    a gift from your god when #offering corpses.  You must sacrifice a
+    fresh corpse at a co-aligned altar, be in good standing with your god,
+    have non-negative luck, and be at least experience level 3. You will
+    only get artifacts that are of your alignment or none, and some
+    classes get certain artifacts as their first gift (if available).
+    Your first gift will always be co-aligned.
+    Orcs will never receive elven weapons, or vice versa.
+    The chance that you will be given a gift depends on the number of
+    artifacts already created in the game and how many of them were
+    gifts; the chance is 1/(10+(2*artifacts*gifts)).
+    If you receive a weapon artifact this way and were restricted in
+    its weapon class to unskilled, the restriction is removed so you
+    may advance to basic skill.
+ r  This artifact may be randomly generated in place of a regular item
+    (1/20 chance for each weapon).  In particular, antique weapons
+    outlets appear to frequently carry artifacts because a large number
+    of weapons are randomly generated there.  The player-monsters on the
+    Astral Plane also have a 50% chance that the weapon they are
+    generated will be upgraded to one of these random artifacts.
+ q  This is a Quest Artifact.  If you are of the same class as the
+    artifact, you can only obtain it by completing your Quest.
+    Otherwise it can only be obtained by bones levels or wishing.
+    If you are neither the same class nor the same alignment, you cannot
+    pick it up, wield it, or wear it.
+ w  This artifact can be wished for.  You may specify either the short
+    name of the artifact (e.g. "Magicbane") or the long name ("athame
+    named Magicbane"); capitalization does not matter.  You cannot wish
+    for Unique Items or your own Quest Artifact; there are also
+    limitations on wishing for other classes' Quest Artifacts based on
+    your class and alignment (see "q" above).  The chance of getting an
+    artifact from each wish depends on the number of artifacts already
+    created in the game:
+        ARTIFACTS   0     1     2     3    4    5    6      n
+        CHANCE     100%  100%  2/3   2/4  2/5  2/6  2/7  2/(n+1)
+
+The first letter of the ALN column indicates the alignment of the artifact
+(Lawful, Neutral, or Chaotic), if any.  When playing a class which can have
+multiple alignments, the alignment of the Quest Artifact will be adjusted
+to match the character's starting alignment.  A second letter specifies
+the class aligned to the artifact; alignments of these artifacts will also
+be adjusted if necessary. It also indicates which Quest Artifact belongs
+to each class, and for artifacts available as sacrifice gifts denotes that
+the artifact is the guaranteed first gift for that class.  Intelligent
+artifacts are indicated with a ! symbol.  All three conditions are
+considered each time you attempt to wish for, pick up, wield, wear,
+invoke, apply, or steal an artifact:
+ *  If the artifact is intelligent, then in order to touch the artifact
+    safely, you must have the same alignment as the artifact, must be of
+    the same class (or no class is specified), must have non-negative
+    alignment, and must not be in the form of something the artifact
+    specially attacks. Otherwise, you will be blasted by the artifact's
+    power, sustain 4d10 damage (2d10 if you have magic resistance), and
+    abuse your wisdom.
+    If you are of the wrong class and fail at least one of the other
+    conditions above, then the artifact will furthermore "evade your
+    grasp!" and you will not be able to use it at all.  
+ *  If the artifact is not intelligent, then you have only a 1/4 chance
+    of being blasted if you have a different alignment from the artifact
+    or have negative alignment (these two criteria not applying for
+    unaligned artifacts), or are in the form of something the artifact
+    specially attacks; damage is 4d4 (2d4 if you have magic resistance).
+    In any case, you will be able to use the artifact.
+ *  Orcrist and Sting will never blast non-orcs.
+Intelligent artifacts furthermore have an 80% chance of resisting being
+cursed by "malignant aura"-type curses.
+
+The +HIT column specifies any bonuses when calculating to-hit, and +DAM
+lists any bonuses or multiplier to damage.  For some artifacts, these
+adjustments only apply when hitting a specific type of monster.  See
+weap-343.txt to find out how these values are used in weapons calculations.
+Additional damage due to level drain, bisecting, or beheading are not
+included in the table above, but are listed in the weapon descriptions
+below.  Note that the chance of certain weapon artifact effects are
+based on your to-hit die roll.  This means that if you always hit a
+monster, the effect occurs with the published percentage; however, if
+you only hit a monster 1 in 20, then every hit you make causes the effect.
+
+The ATTACK and DEFEND fields list a brief summary of the offensive and
+defensive effects of each artifact; see the sections below for full
+descriptions of each artifact's abilities.  The effects of the Bell of
+Opening, Candelabrum of Invocation, and Book of the Dead are documented
+in tool-343.txt.  The powers of the Amulet of Yendor are listed in
+amul-343.txt.
+
+
+Lawful artifacts
+~~~~~~~~~~~~~~~~
+[Adapted from the spoilers "artifacts" by Boudewijn Waijers and "damages"
+by Henri Block and Hisashi Yoshida.]
+
+Demonbane
+  (lawful long sword)
+  Carried
+    No effect.
+  Wielded
+    +d5 to hit and x2 damage only against demons (all & except Death,
+    Pestilence, Famine, the mail daemon, sandestins, and djinn).
+  Invoked
+    No effect.
+
+Excalibur
+  (lawful long sword)
+  Carried
+    No effect.
+  Wielded
+    +d5 to hit and +d10 damage to all monsters.
+    Confers level drain resistance and automatic searching.
+    Manual and automatic searching have their chance of success modified
+    by Excalibur's enchantment.
+    Even eyeless monsters will be able to locate you.
+    Demon princes will be generated hostile.
+  Invoked
+    No effect.
+
+Grayswandir
+  (lawful silver saber)
+  Carried
+    No effect.
+  Wielded
+    +d5 to hit and x2 damage to all monsters.
+    Confers hallucination resistance.
+    Silver damage against silver-hating creatures (a normal effect of
+    silver sabers).
+  Invoked
+    No effect.
+
+Snickersnee
+  (lawful katana)
+  Carried
+    No effect.
+  Wielded
+    +d8 damage to all monsters.
+  Invoked
+    No effect.
+  Note: Do not confuse this artifact with Vorpal Blade.
+
+Sunsword
+  (lawful long sword)
+  Carried
+    No effect
+  Wielded
+    +d5 to hit and x2 damage only against undead (ghosts, shades, and
+    all LMVWZ).
+    Acts as a light source.
+    Prevents blinding from light-based sources.
+  Invoked
+    No effect.
+
+The Orb of Detection
+  (lawful* Archeologist crystal ball)
+  Carried
+    Confers magic resistance and telepathy.
+    Half damage when attacked by spells.
+  Invoked
+    Toggles invisibility on/off.
+
+The Sceptre of Might
+  (lawful* Caveman mace)
+  Carried
+    Confers magic resistance.
+  Wielded
+    +d5 to hit and x2 damage only against monsters not of its alignment.
+  Invoked
+    Toggles conflict on/off.
+
+The Magic Mirror of Merlin
+  (lawful Knight mirror)
+  Carried
+    Confers magic resistance and telepathy.
+    Knights get double damage when: turning undead in any way; using
+    a spell of force bolt, magic missile, unskilled/basic cone of
+    cold, or drain life; or using a wand of striking.
+  Applied or wielded
+    Speaks to you (gives random rumour, from the true file if blessed,
+    the false file if cursed, or either if uncursed).
+
+  Invoked
+    No effect.
+
+The Mitre of Holiness
+  (lawful* Priest helm of brilliance)
+  Carried
+    Confers fire resistance.
+  Worn
+    Priests take half damage from undead (ghosts, shades, and all LMVWZ)
+    and demons (all & except Death, Pestilence, Famine, the mail daemon,
+    djinn, and sandestins).
+    Increase in intelligence and wisdom (normal helm effects).
+  Invoked
+    Boost in spell energy.
+
+The Tsurugi of Muramasa
+  (lawful Samurai tsurugi)
+  Carried
+    Acts as luckstone.
+  Wielded
+    +d8 damage to all monsters.
+    5% chance (based on your to-hit roll) of extra damage:
+      Monsters engulfing you are instantly killed.
+      Damage is doubled against big monsters.
+      All other monsters are instantly killed.
+  Invoked
+    No effect.
+
+
+Neutral artifacts
+~~~~~~~~~~~~~~~~~
+[Adapted from the spoilers "artifacts" by Boudewijn Waijers and "damages"
+by Henri Block and Hisashi Yoshida.]
+
+Cleaver
+  (neutral* battle axe)
+  Carried
+    No effect.
+  Wielded
+    +d3 to hit and +d6 damage to all monsters.
+  Invoked
+    No effect.
+
+Giantslayer
+  (neutral long sword)
+  Carried
+    No effect.
+  Wielded
+    +d5 to hit and x2 damage only against giants, stone giants, hill
+    giants, fire giants, frost giants, storm giants, giant mummies,
+    giant zombies, Cyclops, and Lord Surtur.  Note that it does not
+    affect ettins or titans.
+  Invoked
+    No effect.
+
+Magicbane
+  (neutral* athame)
+  Carried
+    No effect.
+  Wielded
+    +d3 to hit to all monsters; +d4 damage to monsters that do not resist.
+    May also probe, stun, scare, cancel, or confuse (see art2-343.txt).
+    Confers magic resistance.
+    Protects inventory against 95% of curses.
+  Invoked
+    No effect.
+  Note: You can also engrave "Elbereth" with any non-cursed athame and
+    it won't dull the weapon.
+
+Mjollnir
+  (neutral* war hammer)
+  Carried
+    No effect.
+  Wielded
+    +d5 to hit and +d24 damage against monsters that are NOT shock-
+    resistant.
+    May explode rings (other than shock resistance) or wands (other than
+    lightning) carried by the target.
+    Can only be thrown when you have strength 25 (such as with gauntlets
+    of power) and you are wielding it.  When thrown by Valkyries there is
+    a 99% chance that the artifact will return to you: if you are not
+    confused, stunned, blind, hallucinating, or fumbling, there is a
+    further 99% chance it will return directly to your hand, otherwise it
+    will either land at your feet or hit you (50/50 chance).
+    Can only be kicked one square.
+  Invoked
+    No effect.
+  Note: Does NOT provide shock resistance!
+
+Vorpal Blade
+  (neutral long sword)
+  Carried
+    No effect.
+  Wielded
+    +d5 to hit and +1 damage to all monsters.
+    Instantly kills Jabberwocks.
+    5% chance (based on your to-hit roll) of instantly killing monsters
+    by beheading.  Monster must not be headless, amorphous, non-corporeal,
+    or swallowing you.  Worms must be hit on their head segment.
+  Invoked
+    No effect.
+  Note: Do not confuse this artifact with Snickersnee.
+
+The Heart of Ahriman
+  (neutral* Barbarian luckstone)
+  Carried
+    Confers stealth.
+    +d5 to hit if thrown or slung at a monster; x2 damage if slung.
+  Invoked
+    Levitation; you can stop this levitation with '>' at will, or by
+    invoking the Heart again.
+
+The Staff of Aesculapius
+  (neutral Healer quarterstaff)
+  Carried
+    No effect.
+  Wielded
+    x2 damage to all non-level-drain-resistant monsters (all except
+    undead, demons, were-creatures, and Death).
+    Drains levels (1 to 8 hp) from non-level-drain-resistant monsters.
+    Confers hungerless regeneration and protection from level drain.
+  Invoked
+    Heals half hp loss, cures sickness, unblinds (except from cream or
+    venom) and unslimes.
+
+The Eyes of the Overworld
+  (neutral* Monk lenses)
+  Carried
+    Confer magic resistance.
+  Worn
+    Confer astral vision (X-ray vision and blinding immunity).
+    Prevent stunning effect of Archons' radiant gaze.
+  Invoked
+    Enlightenment.
+
+The Platinum Yendorian Express Card
+  (neutral Tourist credit card)
+  Carried
+    Confers magic resistance and telepathy.
+    Half damage when attacked by spells.
+  Invoked
+     Charges objects like a scroll of charging with the same blessed/
+     cursed status.  Only Tourists can perform blessed charging.
+
+The Orb of Fate
+  (neutral* Valkyrie crystal ball)
+  Carried
+    Confers warning and half spell damage.
+    Half damage when attacked physically.
+    Acts as a luckstone.
+  Invoked
+    Level teleport.
+
+The Eye of the Aethiopica
+  (neutral* Wizard amulet of ESP)
+  Carried
+    Confers magic resistance and faster energy regeneration.
+    Half damage when attacked by spells.
+  Worn
+    Confers telepathy (normal amulet effect).
+  Invoked
+    Transports you to the closest visited level of any dungeon branch you
+    have already visited. Will not work if you have the Amulet of Yendor
+    or are in the endgame.
+
+
+Chaotic artifacts
+~~~~~~~~~~~~~~~~~
+[Adapted from the spoilers "artifacts" by Boudewijn Waijers and "damages"
+by Henri Block and Hisashi Yoshida.]
+
+Grimtooth
+  (chaotic orcish dagger)
+  Carried
+    No effect.
+  Wielded
+    +d2 to hit and +d6 damage to all monsters.
+  Invoked
+    No effect.
+
+Orcrist
+  (chaotic elven broadsword)
+  Carried
+    No effect.
+  Wielded
+    +d5 to hit and x2 damage only against orcs (all o, orc mummies, and
+    orc zombies).
+  Invoked
+    No effect.
+
+Sting
+  (chaotic elven dagger)
+  Carried
+    No effect.
+  Wielded
+    +d5 to hit and x2 damage only against orcs (all o, orc mummies, and
+    orc zombies).
+    Confers the warning intrinsic, specifically attuned to orcs.
+    Cuts through all webs.
+  Invoked
+    No effect.
+
+Stormbringer
+  (chaotic runesword)
+  Carried
+    No effect.
+  Wielded
+    Attacks tame and peaceful monsters without confirmation.
+    +d5 to hit and +d2 damage to all non-level-drain-resistant monsters
+    (all except undead, demons, were-creatures, and Death).
+    Drains levels (1 to 8 hp) from non-level-drain-resistant monsters,
+    healing the wielder by half (rounded down) the damage so inflicted.
+    Protects from level drain.
+  Invoked
+    No effect.
+
+The Longbow of Diana
+  (chaotic* Ranger bow)
+  Carried
+    Confers telepathy.
+  Wielded
+    Confers reflection.
+    +d5 to hit when firing arrows against all monsters.
+  Invoked
+    Creates 7-16 uncursed arrows if uncursed, 7-21 blessed arrows if
+    blessed, 6-11 cursed arrows if cursed.
+
+The Master Key of Thievery
+  (chaotic Rogue skeleton key)
+  Carried
+    Confers warning and teleport control.
+    Half damage when attacked physically.
+  Applied or wielded
+    Speaks to you (gives random rumour, from the true file if blessed,
+    the false file if cursed, or either if uncursed).
+  Invoked
+    Untraps boxes and doors with 100% success.
+
+Unaligned artifacts
+~~~~~~~~~~~~~~~~~~~
+[Adapted from the spoilers "artifacts" by Boudewijn Waijers and "damages"
+by Henri Block and Hisashi Yoshida.]
+
+Dragonbane
+  (unaligned broadsword)
+  Carried
+    No effect.
+  Wielded
+    +d5 to hit and x2 damage only against dragons (all D).
+  Invoked
+    No effect.
+
+Fire Brand
+  (unaligned long sword)
+  Carried
+    No effect.
+  Wielded
+    +d5 to hit and x2 damage against monsters that are NOT fire-resistant.
+    May boil potions or burn paper (other than scrolls of fire, spellbooks
+    of fireball, or the Book of the Dead) carried by the target.
+    Confers fire resistance.
+  Invoked
+    No effect.
+
+Frost Brand
+  (unaligned long sword)
+  Carried
+    No effect.
+  Wielded
+    +d5 to hit and x2 damage against monsters that are NOT cold-resistant.
+    May freeze potions (other than oil) carried by the target.
+    Confers cold resistance.
+  Invoked
+    No effect.
+
+Ogresmasher
+  (unaligned war hammer)
+  Carried
+    No effect.
+  Wielded
+    +d5 to hit and x2 damage only against ogres (all O).
+  Invoked
+    No effect.
+
+Trollsbane
+  (unaligned morning star)
+  Carried
+    No effect.
+  Wielded
+    +d5 to hit and x2 damage only against trolls (all T).
+  Invoked
+    No effect.
+
+Werebane
+  (unaligned silver saber)
+  Carried
+    No effect.
+  Wielded
+    +d5 to hit and x2 damage only against were-creatures in both human
+    and creature forms.
+    Attacks of were-creatures will not transfer lycanthropy.
+    Silver damage against silver-hating creatures (a normal effect of
+    silver sabers).
+  Invoked
+    No effect.
+
+
+* These artifacts are adjusted if necessary to match the starting
+alignment of a player of their class.
+
+
+Acknowledgements
+~~~~~~~~~~~~~~~~
+Corrections and clarifications provided by Joe Bednorz, Patrick Clot,
+Bruce Cox, David Damerell, Kieron Dunbar, Rob Ellwood, Harold Hill,
+Scott Hill, Olli Mannisto, Greg Nowak, Jaakko Rajakallio, Pat Rankin,
+Martin Read, Newell Rose, Darshan Shaligram, and Stanislav Traykov.

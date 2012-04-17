@@ -1,0 +1,797 @@
+wan1-343.txt  Last edited 2004-07-18 for NetHack 3.4.3
+Wands and their effects in NetHack 3.4
+Compiled for 3.2.2 by Kevin Hugo.
+Revised and updated for 3.4.3 by Dylan O'Donnell <psmith@spod-central.org>.
+
+WAND                    COST  WGT  PROB   CHG  TYPE
+~~~~~~~~~~~~~~~~~~~~~ : ~~~~  ~~~  ~~~~ : ~~~  ~~~~
+light                 : $100   7    95  : 15   NODIR
+nothing               :  100   7    25  : 15   BEAM
+digging               :  150   7    55  :  8   RAY
+enlightenment         :  150   7    15  : 15   NODIR
+locking               :  150   7    25  :  8   BEAM
+magic missile         :  150   7    50  :  8   RAY
+make invisible        :  150   7    45  :  8   BEAM
+opening               :  150   7    25  :  8   BEAM
+probing               :  150   7    30  :  8   BEAM
+secret door detection :  150   7    50  : 15   NODIR
+slow monster          :  150   7    50  :  8   BEAM
+speed monster         :  150   7    50  :  8   BEAM
+striking              :  150   7    75  :  8   BEAM
+undead turning        :  150   7    50  :  8   BEAM
+cold                  :  175   7    40  :  8   RAY
+fire                  :  175   7    40  :  8   RAY
+lightning             :  175   7    40  :  8   RAY
+sleep                 :  175   7    50  :  8   RAY
+cancellation          :  200   7    45  :  8   BEAM
+create monster        :  200   7    45  : 15   NODIR
+polymorph             :  200   7    45  :  8   BEAM
+teleportation         :  200   7    45  :  8   BEAM
+death                 :  500   7     5  :  8   RAY
+wishing               :  500   7     5  :  3!  NODIR
+
+Wands are listed above by increasing price, then alphabetically.  The
+COST field denotes the base price of each item.  WGT specifies the weight
+(100 zorkmids weighs 1).
+
+Wands comprise 4% of all randomly-generated items in the main dungeon,
+6% in containers, 5% on the Rogue level, and 8% in hell.  PROB is
+the relative probability of each subtype.  They appear 1/34 cursed,
+16/17 uncursed, and 1/34 blessed.
+
+The CHG field specifies the maximum number of charges that a wand
+normally has.  An exclamation (!) denotes that a wand of wishing may only
+be recharged once.  Wands of wishing start with 1 to 3 charges; otherwise,
+the wand starts with a number of charges at most 4 less than its maximum.
+
+Each time you (z)ap or (E)ngrave with a wand, you use one charge.  A wand
+with zero charges left has a 1 in 121 chance of wresting a last charge
+and then turning to dust each time it is zapped (this won't happen if the
+wand was cancelled but not recharged).  Cancelling a wand will make it
+uncursed and (except for wands of cancellation) it will get zero charges.
+
+Wands may be recharged by scrolls of charging or by the Platinum Yendorian
+Express Card.  Previously-recharged wands have a chance of exploding (up
+to a maximum of 100% for a 7:x wand or a wand of wishing); see scrl-343.txt.
+A cursed scroll will have no effect on a blessed wand or a wand with no
+charges; otherwise, "Your <wand> vibrates briefly" and it gets zero charges.
+An uncursed scroll will bring the number of charges to a random number from
+1 to a random number between 5 and the maximum charges shown above (or for
+a wand of wishing a random number from 1 to 3); a blessed scroll will bring
+the number of charges in the wand to a random number from 5 to the maximum
+charges shown above, or for a wand of wishing to three charges.  If it
+already has that number of charges, it gains one more charge.  A wand of
+wishing charged beyond three charges will explode.
+"Your <wand> <glows/vibrates> briefly." if the new enchantment is below the
+maximum; "Your <wand> <glows blue/vibrates> for a moment." otherwise.
+
+The TYPE of wand denotes the behavior when it is zapped.  NODIR wands do
+not ask for a direction.  BEAM wands ask for a direction, but do not show
+a visibly animated effect when zapped.  RAY wands produce a ray which is
+animated on the screen; if you are unblind when you zap the wand, you
+will also identify that type of wand.
+
+The appearances of wands are randomized from the following descriptions:
+    glass       balsa       crystal     maple       pine
+    oak         ebony       marble      tin         brass
+    copper      silver      platinum    iridium     zinc
+    aluminum    uranium     iron        steel       hexagonal
+    short       runed       long        curved      forked
+    spiked      jeweled
+
+
+Zapping wands
+~~~~~~~~~~~~~
+Nondirectional wands will be identified if you saw their effect (e.g., you
+found a secret door with a wand of secret door detection).  If the wand
+produces a visible ray or beam, you will identify the wand if you were
+unblind.  The range of a RAY (other than digging) will be 7 to 13 squares;
+this range may be lessened by the ray causing effects or bouncing.  Zapping
+a RAY wand upwards or downwards is equivalent to restricting the ray to a
+range of 1. BEAM wands have a range of 6 to 13, which can similarly be
+lessened, and will not bounce; they will be identified if you observe an
+effect caused by them.
+
+Cursed wands have a 1% chance of exploding when zapped; this does 1 to
+6 points of damage for each charge in the wand, plus an additional 2
+to 12 points of damage, and abuses your strength.
+
+Monsters are not angered by wands of digging, locking, nothing, opening,
+probing, or undead turning (if not undead and none of their inventory was
+affected); being zapped with (or missed by) other wands will cause peaceful
+monsters to become hostile if you were the zapper.
+
+cancellation (BEAM)
+  zap monster
+    Some monsters may resist.
+    Clay golems are killed.
+      "Some writing vanishes from <monster's> head!"
+    Weremonsters return to human form.
+    The monster is cancelled.
+  zap downwards
+    Any engraving at the location is removed.
+  zap object
+    Object is cancelled.
+  zap self
+    All items in your inventory are cancelled.
+    If you are polymorphed into a clay golem, you revert to your normal
+    form unless you have unchanging.
+      "Some writing vanishes from your head!" (if not blind)
+      "Your amulet grows hot for a moment, then cools." (unchanging)
+
+cold (RAY)
+  zap monster
+    The location of the monster is revealed, if unseen.
+    If monster is cold resistant, no effect.
+    Otherwise, does 6 to 36 damage.  It does an additional 6 to 18 damage
+    if the monster is fire resistant.
+    Some monsters may resist and take half damage.
+    Potions in the monster's inventory may be destroyed.
+      "The bolt of cold rips into the <monster>." (if swallowed)
+      "The bolt of cold hits the <monster>." (otherwise)
+  zap self
+    If you are not cold resistant, does 12 to 72 damage.
+      "You imitate a popsicle!" (not cold resistant)
+      "You feel a little chill." (cold resistant)
+    May freeze potions in your inventory.
+  zap location
+    If water, it freezes (except on Plane of Water).
+      "The water freezes." (normal water, in sight)
+      "The moat is bridged with ice!" (moat, in sight)
+      "You hear a crackling sound." (water, out of sight)
+      "The water freezes for a moment." (Plane of Water, in sight)
+      "You hear a soft crackling." (Plane of Water, out of sight)
+    If lava, it solidifies.
+      "The lava cools and solidifies." (lava, in sight)
+    If closed door, it is destroyed.  The ray is halted.
+      "The door freezes and shatters!" (in sight)
+      "You feel cold." (otherwise)
+  monster zaps you
+    If you are riding a non-reflective monster, 1/3 chance of hitting
+    your steed instead.  (Effects as "zap monster" above.)
+    If you are not cold resistant, does 6 to 36 damage.
+      "You don't feel cold." (cold resistant)
+    Potions in your inventory may be destroyed.
+
+create monster (NODIR)
+  zap
+    22/23 chance of creating a monster adjacent to you.
+    1/23 chance of creating 2 to 8 monsters around you.
+  monster zaps
+    Creates a monster adjacent to the monster.  If you are both in
+    water, the monster created will be a giant eel; if it is in water
+    and you are on land, it will be a crocodile; otherwise the monster
+    will be random. 
+
+death (RAY)  
+  zap monster
+    If monster is Death, his maximum HP are increased by 50% (to a limit
+    of 999) and he is healed to maximum HP.
+    If monster is magic resistant, a demon, or non-living, no effect.
+    Otherwise, kills the monster.
+      "The death ray rips into the <monster>." (if swallowed)
+      "The death ray hits the <monster>." (otherwise)
+  zap location
+    If closed door, halts ray.
+      "The door absorbs your bolt!"
+  zap self
+    If you are a demon or a non-living monster, no effect.
+      "The wand shoots an apparently harmless beam at you."
+    Otherwise, you die.
+      "You irradiate yourself with pure energy! You die."
+  monster zaps you
+    If you are magic resistant or polymorphed into a demon or a
+    non-living monster, no effect.
+      "You aren't affected."  (magic resistant)
+      "You seem unaffected."  (demon or non-living)
+    Otherwise, you die.
+
+digging (RAY)        
+  zap monster
+    If swallowed by a non-vortex non-elemental, you are expelled and
+    the monster is reduced to 1 hit point.
+      "You pierce <monster's> stomach wall!" (if animal)
+  zap upwards
+    If not on the Planes of Air or Water or underwater, causes a rock
+    to fall on your head doing 1 to 6 damage (1 to 2 if wearing a
+    metal helmet).
+      "The beam bounces off the <stairs> and hits the <ceiling>!" (on stairs)
+      "You loosen a rock from the <ceiling>.  It falls on your <head>."
+  zap downwards
+    If standing on stairs, same effect as zapping upwards.
+    If in a pit or another trap on a hard-floored level, or a magic
+    portal on any level, or phasing within a wall on a level with
+    non-diggable walls, no effect.
+      "The <floor> here is too hard to dig in."
+    If on an altar or throne, no effect.
+      "The <throne/altar> is too hard to break apart."
+    If on a sink, turns it into a fountain.
+      "The pipes break!  Water spurts out!"
+    If on a fountain, creates a number of pools nearby.
+      "Water gushes forth from the overflowing fountain!" (made at least one)
+      "Water sprays all over you." (didn't)
+    If over, on or in water or lava, wakes nearby monsters.
+      "The <water> sloshes furiously for a moment, then subsides."
+    If on a lowered drawbridge or its portcullis, it is destroyed.  Things
+    in the vicinity are very likely to die.
+      "The drawbridge collapses into the <moat>!" (if still moat or lava)
+      "The drawbridge disintegrates!" (if iced or dried up)
+      "You are blown apart by flying debris." (died standing on portcullis)
+      "You are hit by a huge chunk of metal!" (died on drawbridge)
+    If standing on same spot as a boulder, it is destroyed.  An existing
+    pit has a 50% chance of just having any spikes removed; otherwise any
+    trap is destroyed.
+      "The boulder settles into the pit." (existing pit, 50% chance).
+      "KADOOM! The boulder falls in!" (otherwise)
+    If on a grave, it is excavated.
+      "You dig a pit in the grave."
+    Otherwise, digs a pit if on a hard-floored level, or a hole if not.
+      "You dig a <pit/hole> in the <floor>."
+  zap sideways
+    The range of the digging ray is 8 to 25 squares through open space.
+    Doors and walls count as 3 spaces; stone as two.  If not in a
+    non-mazelike Dungeon level or the Plane of Earth, the ray will halt
+    after the first obstacle against which it has taken effect; on those
+    levels it will continue.
+    Known, closed doors will be destroyed; secret doors and diggable walls
+    will be converted into empty doorways; diggable stone into open
+    corridor spaces.
+      "The door is razed!" (closed door)
+      "The wall glows then fades." (undiggable wall)
+      "The rock glows then fades." (undiggable rock)
+  monster zaps
+    If monster is on level 1 upstairs, fountain, throne, sink, grave,
+    altar or drawbridge, no effect.
+      "The digging ray is ineffective."
+    If level has hard floors, no effect.
+      "The <floor> here is too hard to dig in." (if in sight)
+    Otherwise, creates a hole and falls through it.
+      "You hear something crash through the <floor>." (out of sight)
+      "<Monster> has made a hole in the <floor>. 
+       <Monster> <falls> through..." (otherwise)
+             
+enlightenment (NODIR)
+  zap
+    Same effect as quaffing an uncursed potion of enlightenment.
+
+fire (RAY)
+  zap monster
+    The location of the monster is revealed, if unseen.
+    If monster is fire resistant, no effect.
+    Otherwise, does 6 to 36 damage.  It does an additional 7 damage if the
+    monster is cold resistant.
+    Some monsters may resist and take half damage.
+    Flammable armour worn by the monster may be burnt, and flammable
+    objects in the monster's inventory may be destroyed.
+      "The bolt of fire rips into the <monster>." (if swallowed)
+      "The bolt of fire hits the <monster>." (otherwise)
+  zap location
+    If ice, it melts.
+      "The ice crackles and melts." (in sight)
+      No message (otherwise)
+    If a pool, evaporates to leave a pit.
+      "The water evaporates." (in sight)
+      "You hear hissing gas." (otherwise)
+    If other water, no effect.
+      "Some water evaporates." (in sight)
+      "You hear hissing gas." (otherwise)
+    If fountain, it dries up.
+      "Steam billows from the fountain." (in sight)
+      No message (otherwise).
+    If closed door, it is destroyed.  The ray is halted.
+      "The door is consumed in flames!" (in sight)
+      "You smell smoke." (otherwise)
+    If a web, it burns away.
+      "A web bursts into flames!" (in sight)
+      No message (otherwise).
+  zap object
+    If scroll or spellbook, may be destroyed.  Scrolls of fire, spellbooks
+    of fireball and the Book of the Dead will resist.
+      "You see a puff of smoke." (not blind)
+      "You smell a whiff of smoke." (blind)    
+  zap self
+    If you are not fire resistant, does 12 to 72 points of damage.
+      "You've set yourself afire!" (not fire resistant)
+      "You feel rather warm" (fire resistant)
+    If polymorphed into an iron golem, restores 12 to 72 hit points
+    and exercises your strength.
+      "Strangely, you feel better than before."
+    May cause fire damage to worn armour and destroy flammable items in
+    inventory.  Burns away slime.
+  monster zaps you
+    If you are riding a non-reflective monster, 1/3 chance of hitting
+    your steed instead.  (Effects as "zap monster" above.)
+    If you are not fire resistant, does 6 to 36 damage.
+      "You don't feel hot!" (fire resistant)
+    If polymorphed into an iron golem, restores 6 to 36 hit points
+    and exercises your strength.
+      "Strangely, you feel better than before."
+    May cause fire damage to worn armour and destroy flammable items in
+    inventory.  Burns away slime.
+
+light (NODIR)
+  zap
+    Same effect as reading an uncursed scroll of light.
+
+lightning (RAY)
+  zap monster
+    The location of the monster is revealed, if unseen.
+    If not swallowed and monster is not blinding resistant, blinds monster
+    for 1 to 50 (more) turns (to a maximum of 127 more turns).
+    If monster is not shock resistant, does 6 to 36 damage.
+    Some monsters may resist and take half damage.
+    Rings and wands in the monster's inventory may be destroyed.
+      "The bolt of lightning rips into the <monster>." (if swallowed)
+      "The bolt of lightning hits the <monster>." (otherwise)        
+  zap location
+    If closed door, it is broken.  The ray is halted.
+      "The door splinters!" (in sight)
+      "You hear crackling." (otherwise)
+  zap self
+    If you are not shock resistant, does 12 to 72 damage and abuses your
+    constitution.
+      "You shock yourself!" (not shock resistant)
+      "You zap yourself, but seem unharmed." (shock resistant)
+    If polymorphed into a flesh golem, restores 2 to 12 hit points and
+    exercises your strength.
+      "Strangely, you feel better than before."
+    May explode wands and rings in your inventory.
+    If you do not resist blinding, you are blinded for 1 to 100 turns.
+      "You are blinded by the flash!"
+  monster zaps you    
+    If you are riding a non-reflective monster, 1/3 chance of hitting
+    your steed instead.  (Effects as "zap monster" above; you may still be
+    blinded as below.)
+    If you are not shock resistant, does 6 to 36 damage and abuses your
+    constitution.
+      "You aren't affected." (shock resistant)
+    If polymorphed into a flesh golem, restores 1 to 6 hit points and
+    exercises your strength.
+      "Strangely, you feel better than before."
+    May explode wands and rings in your inventory.
+    If you do not resist blinding, you are blinded for 6 to 300 turns.
+      "You are blinded by the flash!" 
+
+locking (BEAM)
+  zap downwards
+    If on a lowered drawbridge or its portcullis, raises drawbridge.
+    Things in the vicinity are very likely to die.
+      "You see a drawbridge <coming/going> up!"
+      "You tumble towards the closed portcullis!" (standing on drawbridge)
+        "The drawbridge closes in..." (died)
+        "You pass through it!" (phasing)
+      "You are crushed by the falling portcullis!" (died standing under
+        portcullis)
+    If on a trap door, closes and removes the trap door.
+      "A trap door beneath you closes up then vanishes."
+      "You see a swirl of <dust> beneath you." (not previously seen)
+      "You hear a twang followed by a thud." (blind)
+    Otherwise, no effect.
+  zap upwards
+    If on a portcullis, raises the drawbridge as 'zap downwards' above.
+    Otherwise, no effect.
+  zap location
+    If lowered drawbridge or portcullis, raises drawbridge.  Things in the
+    vicinity are very likely to die.
+      "You see a drawbridge <coming/going> up!"
+    If doorway on Rogue level, becomes secret door if clear of obstruction.
+      "A cloud of dust springs up in the older, more primitive doorway."
+      "The cloud quickly dissipates." (if obstructed)
+      "The doorway vanishes!" (otherwise)
+    If empty doorway with trap, no effect.
+      "A cloud of dust springs up in the doorway, but quickly dissipates."
+    If an empty doorway, broken door, or open or closed door, becomes locked
+    door.
+      "A cloud of dust springs up and assembles itself into a door!" (empty)
+      "The broken door reassembles and locks!" (broken)
+      "The door swings shut and locks!" (open)
+      "The door locks!" (closed)
+    Otherwise, no effect.
+  zap object
+    If chest or large box, is locked (and lock mended if broken).
+      "Klunk!" (if not already locked)
+    Otherwise, no effect.
+
+magic missile (RAY)
+  zap monster
+    The location of the monster is revealed, if unseen.
+    If monster is magic resistant, no effect.
+    Otherwise, does 2 to 12 damage.
+    Some monsters may resist and take half damage.
+      "The magic missile rips into the <monster>." (if swallowed)
+      "The magic missile hits the <monster>." (otherwise)
+  zap location
+    If closed door, halts ray.
+      "The door absorbs your bolt!"
+  zap self
+    If you are magic resistant, no effect.
+      "The missiles bounce!"
+    Otherwise, does 4 to 24 damage.
+      "Idiot!  You've shot yourself!"
+  monster zaps you
+    If you are riding a non-reflective monster, 1/3 chance of hitting
+    your steed instead.  (Effects as "zap monster" above.)
+    If you are magic resistant, no effect.
+      "The missiles bounce off!"
+    Otherwise, does 2 to 12 damage (1 to 6 if half spell damage) and
+    abuses your strength.
+      "The magic missile hits you!"
+
+make invisible (BEAM)
+  zap monster
+    If not already invisible, the monster becomes invisible.
+      "<Monster> turns transparent!" (not already invisible, and you can
+        see invisible or otherwise still sense the monster)
+      No message.  (otherwise, or if swallowed)
+  zap downwards
+    Any engraving at the location is removed.
+  zap object
+    No effect.  (There is stub code for invisible objects, but it is not
+    yet implemented)
+  zap self
+    If you are wearing a mummy wrapping, no effect.
+       "You feel rather itchy under your <mummy wrapping>."
+    Otherwise, gain permanent invisibility.
+      No message (if blind or already invisible)
+      "Gee!  All of a sudden, you can't see yourself." (not hallucinating)
+      "Gee!  All of a sudden, you can see right through yourself."
+        (not hallucinating, see invisible)
+      "Far out, man!  You can't see yourself." (hallucinating)
+      "Far out, man!  You can see right through yourself." (hallucinating,
+        see invisible)
+  monster zaps itself
+    Monster becomes invisible.
+      "Suddenly you cannot see <monster>." (no see invisible)
+      "<Monster's> body takes on a strange transparency."
+         (not hallucinating, see invisible.)
+      "<Monster's> body takes on a normal transparency." (hallucinating,
+          see invisible.)
+
+nothing (BEAM)  
+  zap
+    No effect.
+
+opening (BEAM) 
+  zap monster
+    If you are being swallowed, you are expelled.
+      "<Monster> opens its mouth!" (animal, not blind)
+      "You feel a sudden rush of air!" (animal, blind)
+    If the monster is saddled, the saddle is dropped.
+      No message.
+    Otherwise, no effect.
+  zap downwards
+    If on Quest home level and not permitted to descend, no effect (nice try).
+      "The stairs seem to ripple momentarily."
+    If phasing through closed portcullis, drawbridge opens.
+      "You see a drawbridge going down!"
+  zap upwards
+    If phasing through closed portcullis, as 'zap downwards' above.
+  zap location
+    If closed drawbridge, it is opened. Anything in its moat square is
+    quite likely to die.
+      "You see a drawbridge <coming/going> down!"
+      "You are crushed underneath the drawbridge." (died)
+    If secret door, it is revealed (but still closed).
+      "A door appears in the wall!"
+    If locked door, it is unlocked (but still closed).
+      "The door unlocks!"
+    Otherwise, no effect.
+  zap object
+    If iron chain attached to you, it is removed and you become unpunished.
+    No message.
+    If chest or large box, it becomes unlocked, or lock mended if broken.
+      "Klick!" (if locked)
+    No message for fixing lock.
+    Otherwise, no effect.
+  zap self
+    No effect.
+      "Your chain quivers for a moment." (if punished)
+
+polymorph (BEAM)   
+  zap monster
+    If the monster is magic resistant or resists, no effect.
+    Otherwise, 1/25 chance of monster dying from system shock unless it
+    is a natural shapeshifter.
+      "<Monster> shudders!"
+    If no system shock, monster polymorphs into a new form.
+      No message.
+  zap downwards
+    Any engraving at the location is changed into a randomly chosen
+    engraving.
+  zap object
+    Object may be polymorphed into a new object.  Some objects may
+    resist.
+  zap self
+    If you are not unchanging, you polymorph into a new form.
+  monster zaps itself
+    Monster polymorphs into a new form.
+
+probing (BEAM)       
+  zap monster
+    The location of the monster is revealed, if unseen.
+    Shows the status of the monster, and lists its inventory.
+  zap upwards
+    No effect.
+      "You probe towards the <ceiling>.  Your probe reveals nothing."
+  zap downwards
+    Will zap objects even if buried.
+    "You probe beneath the <floor>."
+  zap object
+    Shows contents of the object, if any, and supplies its appearance if
+    unknown.
+  zap self
+    Shows your status.  The appearance of any object in inventory that
+    has not been seen is supplied.
+
+secret door detection (NODIR)
+  zap
+    Secret doors and corridors, non-statue traps, mimics, and hidden and
+    invisible monsters in an area of radius 8 are revealed.
+
+sleep (RAY) 
+  zap monster
+    The location of the monster is revealed, if unseen.
+    If monster is sleep resistant or resists, no effect.
+    Otherwise, monster falls asleep for 6 to 127 (more) turns (to a
+    maximum of 127 more turns).   
+      "The sleep ray rips into the <monster>." (if swallowed)
+      "The sleep ray hits the <monster>." (otherwise)
+  zap location
+    If closed door, halts ray.
+      "The door absorbs your bolt!"
+  zap self
+    If you have sleep resistance, no effect.
+      "You don't feel sleepy!"
+    Otherwise, fall asleep for 1 to 50 turns.
+      "The sleep ray hits you!"
+  monster zaps you
+    If you are riding a non-reflective monster, 1/3 chance of hitting
+    your steed instead.  (Effects as "zap monster" above.)
+    If you are not sleep resistant, fall asleep for 6 to 300 turns.
+      "You don't feel sleepy." (sleep resistant)
+
+slow monster (BEAM)
+  zap monster
+    The monster becomes slow, or normal speed if fast.  If you are engulfed
+    by a vortex or air elemental, you are expelled.  Some monsters may
+    resist.
+      "You disrupt <monster>! A huge hole opens up..." (expelled)
+      "<Monster> seems to be moving slower." (slowed, not swallowed)
+  zap self
+    If you currently have the speed intrinsic, it is lost.
+      "You slow down" (not wearing speed boots)
+      "Your quickness feels less natural." (wearing speed boots)
+
+speed monster (BEAM)
+  zap monster
+    The monster becomes fast, or normal speed if slow.  Some monsters may
+    resist. 
+      "<Monster> is suddenly moving faster." (sped up, not swallowed)
+  zap self
+    If you don't currently have the speed intrinsic, gain it and exercise
+    dexterity.
+      "You speed up." (not very fast)
+      "Your quickness feels more natural" (very fast)
+    Otherwise, no effect.
+  monster zaps itself
+     The monster becomes fast.
+       "<Monster> is suddenly moving faster."
+
+striking (BEAM)
+  zap monster
+    The location of the monster is revealed, if unseen.
+    If the monster is magic resistant, no effect.
+      "Boing!"
+    If monster's AC is less than a random number between -9 and 10, and
+    it is not swallowing you, the strike misses.
+      "The wand misses <monster>." 
+    Otherwise, does 2 to 24 points of damage (4 to 48 if you are a Knight
+    with the Magic Mirror of Merlin).  Some monsters may resist and take
+    half damage.  Fragile objects in monster's inventory may be broken,
+    as 'zap object' below.
+      "The wand hits <monster>."
+  zap downwards
+    If on a lowered drawbridge or its portcullis, it is destroyed.  Things
+    in the vicinity are very likely to die.
+      "The drawbridge collapses into the <moat>!" (if still moat or lava)
+      "The drawbridge disintegrates!" (if iced or dried up)
+      "You are blown apart by flying debris." (died standing on portcullis)
+      "You are hit by a huge chunk of metal!" (died on drawbridge)
+    Any engraving at the location is corrupted.
+  zap upwards
+    If on the portcullis of an open drawbridge, it is destroyed.  Effects
+    as 'zap downwards' above.
+    Otherwise, if not underwater or on the Quest home level or the Plane of
+    Air or Water, there is a 2/3 chance of causing a rock to fall on your
+    head doing 1 to 6 damage (1 to 2 if wearing a metal helmet).
+      "A rock is dislodged from the ceiling and falls on your <head>."
+  zap location
+    If drawbridge or its portcullis, it is destroyed.  Effects as 'zap
+    downwards' above.
+    If secret door or closed door, door is broken, waking nearby monsters;
+    trapped doors are additionally destroyed, waking slightly less nearby
+    monsters.
+      "A door appears in the wall!" (secret door, in sight)
+      "The door crashes open!" (untrapped, in sight)
+      "You hear a crashing sound." (untrapped, not in sight)
+      "KABOOM!!  You see a door explode." (trapped, in sight)
+      "You hear a distant explosion." (trapped, not in sight)
+  zap object
+    Statue traps will be activated.
+      "Instead of shattering, the statue suddenly comes alive!"
+      "Instead of shattering, the statue suddenly disappears!" (invisible)
+    Non-trapped statues and boulders will be broken into 8 to 66 rocks.
+    Breaking a boulder in Sokoban has a -1 penalty to Luck.
+    No message.
+    Fragile objects may be broken.  Breaking a mirror has -2 penalty
+    to Luck.  Breaking your own eggs has a -1 penalty to Luck per egg
+    (to a maximum of 5).
+      "<object> shatters!" (potion, in sight)
+      "<object> shatters into a thousand pieces!" (tool, in sight)
+      "You hear something shatter!" (potion or tool, out of sight)
+      "Splat!" (egg)
+      "What a mess!" (cream pie, in sight)
+  zap self
+    If you have magic resistance, no effect.
+      "Boing!"
+    Otherwise, does 2 to 24 points of damage and abuses strength.
+      "You bash yourself!"             
+  monster zaps you
+    If you have magic resistance, no effect.
+      "Boing!"
+    Otherwise, does 2 to 24 points of damage (1 to 12 if half spell
+    damage).
+      "The wand hits you!"
+
+teleportation (BEAM)      
+  zap monster
+    A priest(ess) in his or her temple resists.
+      "<Monster> resists your magic!"
+    Riders have a 12/13 chance of being teleported to a square next to you.
+    Otherwise, the monster is teleported to a random location on the same
+    level. If you were engulfed by it, you go with it, unless you are on a
+    no-teleport level, in which case you cease to be engulfed and remain
+    at your original location.
+      "You are no longer inside the <monster>!"
+        (was engulfed on a no-teleport level)
+      No message (otherwise).
+    If the monster is unseen and does not move, its location is revealed.
+  zap downwards
+    Any engraving on the location will be teleported to a random position
+    on the same level.
+  zap object
+    Rider corpses are immediately revived.
+    Otherwise, the object is teleported to a random location on the same
+    level.
+  zap self
+    If you are on a non-teleport level, no effect.
+      "A mysterious force prevents you from teleporting!"
+    Otherwise, one-third of the time if you are carrying the Amulet of
+    Yendor, no effect.
+      "You feel disoriented for a moment."
+    Otherwise, you teleport to a random or controlled position on the same
+    level.
+  monster zaps itself
+    If you are on a non-teleport level, no effect.
+      "A mysterious force prevents <monster> from teleporting!"
+    Otherwise, the monster is teleported to a random location on the same
+    level.
+  monster zaps you
+    [This will only be used if the monster is carrying the Amulet of Yendor]
+    Same as 'zap self' above.
+
+undead turning (BEAM)
+  zap object
+    Eggs are rejuvenated.
+    Corpses are revived. If the corpse has a ghost on the same level,
+    the ghost is rejoined with the body and the resulting monster is
+    confused.
+      "<Ghost> is suddenly drawn into its former body!"
+      No messages otherwise.
+  zap monster
+    Corpses in monster's inventory revive (as above), eggs are rejuvenated.
+    Undead monsters take 1 to 8 points of damage (2 to 16 if you are a
+    Knight with the Magic Mirror of Merlin), their location is revealed if
+    unseen, and they flee if they do not resist.
+      No message.
+  zap self
+    Corpses in your inventory revive (as above), eggs are rejuvenated.
+    If you are undead, you are stunned for 1 to 30 (more) turns.
+      "You feel frightened and stunned." (not already stunned)
+      "You feel frightened and even more stunned." (already stunned)
+    Otherwise, no effect.
+      "You shudder in dread."
+
+wishing (NODIR)
+  zap
+    You receive a wish unless your luck is less than a random number
+    between -4 and 0. You may wish for "nothing" if you do not want to
+    receive anything (thus preserving wishless conduct).
+
+
+Engraving with wands
+~~~~~~~~~~~~~~~~~~~~
+Use the (E)ngrave command to engrave with a wand.  It will use one charge
+(possibly wresting the last) from the wand.  Depending on the type of the
+wand, you can get one of the messages below if you are unblinded, not
+levitating, and over a writable floor.  Some messages are the same for
+different types of wands, some messages require an engraving already on
+that square, and some wands will not provide any means of identification
+this way.  Nondirectional wands will act as if they were zapped.  If you
+didn't wrest the last charge from the wand, you can write a message in
+the dust (or engrave if specified below).  These messages provide (perhaps
+in combination with judicious zapping) a safe method of identifying many
+wands.
+
+WAND                   ENGRAVING
+~~~~~~~~~~~~~~~~~~~~~  ~~~~~~~~~
+cancellation           If there already is an engraving, it is erased:
+                       "The engraving on the <floor> vanishes!"
+
+cold                   If a burned-in engraving exists, it is erased:
+                       "The engraving on the <floor> vanishes!"
+                       After writing in the dust:
+                       "A few ice cubes drop from the wand."
+
+create monster         Same effect as zapping wand.
+
+death                  "The bugs on the <floor> stop moving!"
+                       (Same as sleep.)
+
+digging                "This <wand> is a wand of digging!"
+                       You can engrave a message.
+
+enlightenment          Same effect as zapping wand.
+
+fire                   "This <wand> is a wand of fire!"
+                       You can burn a message.
+
+light                  Same effect as zapping wand.
+
+lightning              "This <wand> is a wand of lightning!"
+                       You can burn a message, and you are blinded for
+                       1 to 50 turns.
+
+locking                No message.
+
+magic missile          You can write a message in the dust, after which
+                       "The <floor> is riddled by bullet holes!"
+
+make invisible         If there already is an engraving, it is erased:
+                       "The engraving on the <floor> vanishes!"
+
+nothing                Same effect as zapping wand -- no message!
+
+opening                No message.
+
+polymorph              If an engraving already exists, it becomes a
+                       randomly chosen engraving; otherwise, no message.
+
+probing                No message.
+
+secret door detection  Same effect as zapping wand.
+
+sleep                  "The bugs on the <floor> stop moving!"
+                       (Same as death.)
+
+slow monster           "The bugs on the <floor> slow down!"
+
+speed monster          "The bugs on the <floor> speed up!"
+
+striking               "The wand unsuccessfully fights your attempt to
+                        write!"
+
+teleportation          If there already is an engraving, it is teleported:
+                       "The engraving on the <floor> vanishes!"
+
+undead turning         No message.
+
+wishing                Same effect as zapping wand.
+
+
+Acknowledgements
+~~~~~~~~~~~~~~~~
+Thanks to Bruce Cox for proofreading the original version of this file.
+Further corrections and clarifications provided by Vladimir Florinski,
+David Grabiner, Bruce Labbate, Eva Myers, Kate Nepveu, David Wang, and
+Gary D. Young.

@@ -1,0 +1,142 @@
+amul-343.txt  Last edited 2004-02-06 for NetHack 3.4.3
+Amulets and their properties in NetHack 3.4
+Compiled for 3.2.2 by Kevin Hugo.
+Updated for 3.4.3 by Dylan O'Donnell <psmith@spod-central.org>.
+
+AMULET                        COST   WGT  PROB   EAT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~ : ~~~~~  ~~~  ~~~~ : ~~~
+amulet of change            :  $150   20  130c :  Y
+amulet of ESP               :   150   20  175  :  Y
+amulet of life saving       :   150   20   75  :
+amulet of magical breathing :   150   20   65  :  Y
+amulet of reflection        :   150   20   75  :
+amulet of restful sleep     :   150   20  135c :  Y
+amulet of strangulation     :   150   20  135c :  Y
+amulet of unchanging        :   150   20   45  :  Y
+amulet versus poison        :   150   20  165  :  Y
+imitation AoY               :     0   20    0  :
+Amulet of Yendor            : 30000   20    0  :
+
+Amulets are listed in alphabetical order above.  The COST field denotes
+the base price of each amulet.  WGT specifies the weight (100 zorkmids
+weighs 1).
+
+Amulets comprise 1% of all randomly-generated items in the main dungeon,
+1% in containers, and 4% in hell.  PROB is the relative probability of
+each subtype; the suffix specifies the chance of blessed/cursed:
+    c           0.5% blessed, 9% uncursed, 90.5% cursed
+    otherwise   5% blessed, 90% uncursed, 5% cursed
+Imitation Amulets of Yendor may be found on the bones pile of the Rogue
+level (50% chance), with "double trouble" Wizards of Yendor when you
+don't have the real Amulet (50% chance), and with the player-monsters
+on the Astral Plane (100%).  The real Amulet of Yendor is carried by
+the high priest(ess) of Moloch.
+
+Except as noted below, the effects of amulets are controllable by
+putting on and removing the amulet.  If the EAT field is Y, then it
+is possible to obtain an effect permanently by polymorphing into a
+metallivore (rock mole, rust monster, or xorn) and eating the amulet.
+There is only a 1/5 chance of obtaining the effect this way ("Magic
+spreads through your body as you digest the amulet."). Eating an
+amulet of unchanging will not confer unchanging, but instead return
+you to your natural form ("un-change" you).
+
+The appearances of the first nine types of amulets are randomized from
+the following descriptions:
+    circular    spherical   oval      
+    triangular  pyramidal   square
+    concave     hexagonal   octagonal
+Both the imitation and real Amulets of Yendor appear as an "Amulet
+of Yendor"; they can be distinguished by identifying each individual
+copy, naming the real one, or by placing each inside a container (the
+real one will not fit).  The possible imitation Amulet on the Rogue
+level is always pre-identified.
+
+
+Wearing an amulet will increase the rate at which you get hungry
+(see food-343.txt).
+
+Amulet effects
+~~~~~~~~~~~~~~
+amulet of change
+  When either worn or eaten, it toggles your character's gender between
+  male and female.  Gender has the following effects in the game:
+      Only female monsters can lay eggs.
+      Eggs in a male character's inventory may hatch tame monsters.
+      Males are seduced by succubi, females are seduced by incubi.
+      Nymphs "seduce" males and "charm" females.
+      The Cave(wo)man and Priest(ess) classes have different names.
+      It determines how you are addressed (purely cosmetic).
+  If you are polymorphed into a single-sex monster, your base gender will
+  be altered but not your current one, with the exception that an incubus
+  will change into a succubus and vice versa.
+    "You are suddenly very feminine/masculine!"
+    "You don't feel like yourself." (polymorphed into single-sex monster,
+      but character's base sex has changed) 
+    "The amulet disintegrates!"
+amulet of ESP
+  When worn, you will see monsters that have a brain when they are nearby,
+  or anywhere on the level when you are blind.  If eaten, the intrinsic
+  telepathy only works when blind. No messages.
+amulet of life saving
+  When worn, your life will be saved if you die; the amulet then
+  disintegrates.  No message when put on. No effect when eaten (nice try).
+amulet of magical breathing
+  When either worn or eaten, you gain amphibiousness and unbreathing.  You
+  can swim under water and cannot be strangled or choked.  No messages.
+amulet of reflection
+  When worn, rays from wands, spells, and breath attacks can be
+  reflected.  No message when put on.  No effect when eaten (nice try).
+amulet of restful sleep
+  When worn or eaten, you will fall asleep within 1 to 100 turns. You awaken
+  within 1 to 20 turns or when disturbed.  If you continue wearing an
+  amulet of restful sleep, the cycle will repeat.  No message.
+amulet of strangulation
+  When worn, you are strangled to death in 6 turns.  When eaten, you
+  instantly choke, with 1/20 chance of survival.  Exceptions are made
+  if you have unbreathing from an amulet of magical breathing or
+  polyself.
+    "It constricts your throat!"
+amulet of unchanging
+  When worn, you are prevented from changing your current form by
+  polymorph or other means, and are also protected from being slimed;
+  any sliming in progress is halted. No message when put on. When eaten,
+  you are "un-changed" to your natural form.
+amulet versus poison
+  When either worn or eaten, you gain poison resistance.  No message.
+cheap plastic imitation of the Amulet of Yendor
+  No effect or message when put on.  Cannot be eaten.
+Amulet of Yendor
+  When carried, you get all of the following (mostly bad):
+    You get clairvoyance, if it is not blocked.
+    When casting spells, your energy is drained.
+    Hunger is increased (additional to normal amulet hunger).
+    Your luck timeout is increased.
+    Monster difficulty will depend on your deepest level reached, not
+    your current dungeon level.
+    Monsters are less likely to be generated asleep.
+    When going up levels in Gehennom, you may teleport down 0 to 3
+    levels instead.  The chance depends on your alignment:
+        UP    L      N      C
+        +1  75.0%  75.0%  75.0%
+         0   6.25   8.33  12.5
+        -1   6.25   8.33  12.5
+        -2   6.25   8.33   0.0
+        -3   6.25   0.0    0.0
+    You cannot level teleport.
+    Teleportation within the level is blocked 1/3 of the time.
+    The Wizard can teleport or level teleport to find you.
+    The Wizard will try to steal the Amulet.
+    You are permitted to enter the Plane of Earth by taking the upstairs,
+    or quaffing a cursed potion of gain level, from dungeon level 1.
+    You can activate the endgame portals.
+  When worn or wielded, you get messages about the amulet getting
+  "hotter" as you approach magic portals.  No message when putting
+  on.  Cannot be eaten.  (Would you sacrifice yourself, then?)
+
+
+Acknowledgements
+~~~~~~~~~~~~~~~~
+Thanks to Bruce Cox for proofreading the original version of this file.
+Further corrections and clarifications by Philipp Lucas, Jeff MacDonald,
+obscurity, Darshan Shaligram, Donald Welsh, and Yoshi348.

@@ -1,0 +1,419 @@
+spl1-343.txt  Last edited 2006-03-28 for NetHack 3.4.3
+Spells (learning, practising, and casting) in NetHack 3.4
+Compiled for 3.2.2 by Kevin Hugo.
+Updated for 3.4.3 by Dylan O'Donnell <psmith@spod-central.org>.
+
+  SPELLBOOK          COST   WGT  PROB   LVL  READ  MRKR  BONUS  APPEARANCE
+  ~~~~~~~~~~~~~~~~ : ~~~~~  ~~~  ~~~~ : ~~~  ~~~~  ~~~~  ~~~~~  ~~~~~~~~~~
+  blank paper      : $   0   50   18  :  0     0     0          plain
+  Book of the Dead : 10000   20    0  :  7     0     0          papyrus
+attack             :                  :
+  force bolt       :   100   50   35  :  1     2    10
+  drain life       :   200   50   10  :  2     2    20
+  magic missile    :   200   50   45  :  2     2    20    Wiz
+  cone of cold     :   400   50   10  :  4    21    40    Val
+  fireball         :   400   50   20  :  4    12    40
+  finger of death  :   700   50    5  :  7    80    70
+healing            :                  :
+  healing          :   100   50   40  :  1     2    10       +
+  cure blindness   :   200   50   25  :  2     2    20       +
+  cure sickness    :   300   50   32  :  3     6    30    Hea+
+  extra healing    :   300   50   27  :  3    10    30       +
+  stone to flesh   :   300   50   15  :  3     2    30
+  restore ability  :   400   50   25  :  4    15    40    Mon+
+divination         :                  :
+  detect monsters  :   100   50   43  :  1     1    10
+  light            :   100   50   45  :  1     1    10
+  detect food      :   200   50   30  :  2     3    20
+  clairvoyance     :   300   50   15  :  3     6    30    Sam
+  detect unseen    :   300   50   20  :  3     8    30
+  identify         :   300   50   20  :  3    12    30
+  detect treasure  :   400   50   20  :  4    15    40    Rog
+  magic mapping    :   500   50   18  :  5    35    50    Arc
+enchantment        :                  :
+  sleep            :   100   50   50  :  1     1    10
+  confuse monster  :   200   50   30  :  2     2    20
+  slow monster     :   200   50   30  :  2     2    20
+  cause fear       :   300   50   25  :  3     6    30
+  charm monster    :   300   50   20  :  3     6    30    Tou
+clerical           :                  :
+  protection       :   100   50   18  :  1     3    10
+  create monster   :   200   50   35  :  2     3    20
+  remove curse     :   300   50   25  :  3    10    30    Pri+
+  create familiar  :   600   50   10  :  6    42    60
+  turn undead      :   600   50   16  :  6    48    60    Kni
+escape             :                  :
+  jumping          :   100   50   20  :  1     3    10
+  haste self       :   300   50   33  :  3     8    30    Bar
+  invisibility     :   400   50   25  :  4    15    40    Ran
+  levitation       :   400   50   20  :  4    12    40
+  teleport away    :   600   50   15  :  6    36    60
+matter             :                  :
+  knock            :   100   50   35  :  1     1    10
+  wizard lock      :   200   50   30  :  2     3    20
+  dig              :   500   50   20  :  5    30    50    Cav
+  polymorph        :   600   50   10  :  6    48    60
+  cancellation     :   700   50   15  :  7    64    70
+
+
+Spellbooks are listed above by school, then increasing level.
+The COST field denotes the base price of each item.  WGT specifies the
+weight (100 zorkmids weighs 1).
+
+Spellbooks comprise 4% of all randomly-generated items in the main
+dungeon, 12% in containers, 0% on the Rogue level, and 0% in hell.
+PROB is the relative probability of each subtype.  They appear 1/34
+cursed, 16/17 uncursed, and 1/34 blessed.  There is also a chance of
+obtaining a spellbook (if possible, one you haven't learnt yet and whose
+school you're unrestricted in) from praying when your god is pleased.
+A Wizard will usually receive a blessed spellbook of finger of death
+when crowned; a Monk, a blessed spellbook of restore ability.
+
+The level (LVL) of a spell controls how difficult it is to cast and
+how much energy is required.  Normal spellbooks cost 100 times their
+level.  READ indicates the number of turns needed to successfully read a
+particular spellbook.
+
+MRKR specifies the maximum number of magic marker charges needed to
+write a spellbook of that type, or zero if it cannot be written.  You
+may note that this number is 10 times the spell level.  The actual
+number of charges used will be a random amount from MRKR/2 to MRKR-1.
+Wizards have a base 1/3 chance of writing an unknown book, and all
+other classes have a base 1/15 chance; your chance generally improves
+with higher luck, to a maximum of about 98% for Wizards and 32% for
+other classes.  You can only write on spellbooks of blank paper, which
+can be made by getting any spellbook wet, cancelling any spellbook
+(except spellbooks of cancellation), or reading a spellbook until it
+is too faint to be read anymore.  The Book of the Dead can't be
+blanked by any means.  You can select non-blank spellbooks to write
+on, but this will abuse your wisdom and you will be told, "That
+spellbook is not blank!"
+
+Some spells provide a BONUS against spell failure.  Each character
+class has a particular spell that they are good at casting (noted with
+class identifier).  In addition, the spells marked with a plus (+) are
+emergency spells that grant an additional bonus.  See the section on
+calculating spell failure below for details.  Note that this column
+does NOT list which spellbooks a character may start with.
+
+Some types of spellbooks have the same APPEARANCE when unidentified.
+The appearance of the remaining spellbooks are are randomized from the
+following descriptions:
+    parchment    vellum       ragged       dog eared    mottled
+    stained      cloth        leather      white        pink
+    red          orange       yellow       velvet       light green
+    dark green   turquoise    cyan         light blue   dark blue
+    indigo       magenta      purple       violet       tan
+    plaid        light brown  dark brown   gray         wrinkled
+    dusty        bronze       copper       silver       gold
+    glittering   shining      dull         thin         thick
+
+
+Reading spellbooks
+~~~~~~~~~~~~~~~~~~
+Each spellbook takes a certain number of turns to READ it, noted above.
+(Wearing lenses will reduce this number by, on average, one-third.)
+
+If the spellbook is cursed, you will fail to learn the spell, will be
+paralyzed for the given number of turns, and will be subject to a bad
+effect (chosen randomly, with worse effects only being able to be caused
+by higher-level spells):
+  * You are teleported randomly.
+      "You feel a wrenching sensation."
+  * Monsters on the level are woken and unparalysed.
+      "You feel threatened."
+  * You are blinded for 250 to 349 turns.
+      "A cloud of darkness falls upon you."
+      "Oh, bummer!  Everything is dark!  Help!" (hallucinating)
+      "Your vision seems to dim for a moment but is normal now"
+        (blindness overcome by Eyes of the Overworld)
+      "Your vision seems to dim for a moment but is happier now."
+        (blindness overcome by Eyes of the Overworld, hallucinating)
+  * You lose your gold in inventory, if any.
+      "You notice you have no gold!"
+      "You feel a strange sensation." (no gold to lose)
+  * You become confused for 16 to 22 turns.
+      "These runes were just too much to comprehend."
+  * You are poisoned (1 to 10 damage, 3 to 6 strength loss; if poison
+    resistant, 1 to 6 damage, 1 to 2 strength loss). Gloves will protect
+    you from this, but ungreased metal gloves will be corroded.
+      "The book was coated with contact poison!"
+  * You get blasted by explosive energy (7 to 25 damage unless magic
+    resistant).
+      "As you read the book, it radiates explosive energy in your <face>!"
+      "The book radiates explosive energy, but you are unharmed!"
+        (magic resistance)
+There is a 1/3 chance that the book then crumbles to dust.
+
+If the spellbook is uncursed, there is a random chance of the same effects
+happening as for a cursed spellbook, depending on your INTelligence, your
+experience level (XL),and the spellbook's level (LVL):
+    1 - ((INT + 4 +(XL/2) - (2 * LVL)) / 20)
+    (If you are wearing lenses, the factor of 4 is increased to 6.)
+Wizards will be warned if this chance is non-zero and given the option to
+abort the reading attempt.
+
+Blessed spellbooks never cause these bad effects.
+
+You will never learn a spellbook while confused, and attempting while
+you are has a 1/3 chance of destroying the spellbook (except the Book
+of the Dead).
+  "Being confused you have difficulties in controlling your actions.
+    You accidentally tear the spellbook to pieces." (book destroyed).
+  "You find yourself reading the <next/first> line over and over again."
+    (book not destroyed)
+
+If you are interrupted while reading, you may continue your efforts by
+reading the same spellbook again.
+
+When you successfully read a spellbook, there are four outcomes.  If you do
+not yet know the spell, "You add the <spell> to your repertoire", ("You
+learn the <spell>" if the first spell you have learnt), identify the
+spellbook, get 20000 turns use of the spell, and increment the number of
+times you've studied that particular spellbook.  For spells already known,
+if the book has four or more times previously been studied or polymorphed,
+"This spellbook is too faint to be read anymore" and the spellbook turns
+into blank paper.  Otherwise, if you had 1000 or fewer turns use of the
+spell remaining, then "Your knowledge of the <spell> is keener", you have
+20000 turns' use of the spell again, you exercise your wisdom, and the
+number of times you've studied that particular spellbook is incremented.
+But if "You know the <spell> quite well already", then there is no further
+effect and the number of times you've studied the spellbook is unchanged.
+
+Reading a spellbook will give you 20000 turns during which that spell can be
+used freely.  If you use the spell towards the end of this time, you will
+get warning messages:
+  1001 to 20000 turns left  No message.
+  101 to 1000 turns left    "Your knowledge of this spell is growing faint."
+  1 to 100 turns left       "You strain to recall the spell."
+Expiry of this time is denoted by an asterisk (*) next to the level in the
+spell's listing. If you try to cast an expired spell, "Your knowledge of
+this spell is twisted" and you will become stunned and/or confused for
+a number of turns depending on the spell's level (LVL):
+  CHANCE   CONFUSED     STUNNED
+  ~~~~~~   ~~~~~~~~~~~  ~~~~~~~ 
+    40%    3 * (LVL+1)      0  
+    30%    2 * (LVL+1)   (LVL+1)
+    20%     (LVL+1)     2 * (LVL+1)
+    10%        0        3 * (LVL+1)
+You may reset the time left to 20000 turns by rereading the spellbook after
+the usage time has been reduced to 1000 turns.
+
+Reading the Book of the Dead has immediate effect. If you are standing on
+the vibrating square with a lit Candelabrum of Invocation with its quota of
+seven candles, and have rung the Bell of Opening there within the last four
+turns, and all three items are uncursed, then the staircase to Moloch's
+Sanctum is opened. Otherwise, the invocation fails, and a message is given
+to suggest why this may be the case. Outside of an invocation situation, if
+the Book is blessed you will tame nearby co-aligned undead, and render any
+other undead in sight peaceful and cause them to flee; if it is uncursed,
+there is no effect beyond a random message; if it is cursed, some undead
+will be summoned, corpses in your inventory revived and eggs in your
+inventory rejuvenated.
+
+
+Spell skills
+~~~~~~~~~~~~
+Since the integration of the "wizard patch" into NetHack 3.3,
+characters have had individual skill levels associated with particular
+groups of spells, in a manner analogous to the weapon skills.  As with
+weapons, continued use of a spell gives you practice in its spell
+school.  With enough practice in a school of magic and experience
+levels, you may have the opportunity to advance your skill level in
+that school.  This will in turn lead to reduced failure rates and an
+improvement in effects caused by spells in that school.
+
+There are specifically two requirements needed to advance a spell school:
+a number of successful castings of any spell in the school and a number
+of experience levels. Castings to a total of 20 are needed to achieve
+basic level, 80 to become skilled, and 180 to become expert, with each
+spell cast contributing a number equal to its level to this total.  These
+are cumulative from the beginning of the game (though if you start out at
+basic level in a school you are precredited with the 20 castings that
+would have been needed to achieve it).
+
+The other criterion used to advance skill levels is experience levels.
+Each time you gain an experience level, you earn a "skill slot" that is
+used up when you an advance a skill.  Thus you can earn a maximum of 29
+skill slots, by advancing from level 1 to level 30.  If you lose an
+experience level, you lose the associated skill slot; if that skill slot
+was used to enhance a skill, you will lose the most recently earned skill
+and are refunded the remaining skill slots from that skill level.  Going
+from unskilled to basic or basic to skilled costs one slot; going from
+skilled to expert costs two slots.  Note that these slots are shared with
+weapon skills.
+
+When you start the game, Healers and Monks will have basic skill in the
+healing school, Priests in clerical and Wizards in attack and enchantment;
+you will be unskilled in all other schools.  When you reach the point when
+you can advance a skill category, you will see the message, "You feel more
+confident in your spell casting skills."  You can then advance the skill
+using the #enhance command (alt-e on some systems).  You may choose to
+not advance a skill level if you want to reserve the skill slots for a
+different school or weapon class.  After advancing a skill, if you are
+ready to advance another skill (possibly the same one), you will get the
+message "You feel you could be more dangerous!"  The #enhance command can
+also be used at any time to check your current skill levels.
+
+Different classes can reach different maximum levels in the spell schools,
+as follows:
+
+School         Arc Bar Cav Hea Kni Mon Pri Ran Rog Sam Tou Val Wiz
+~~~~~~         ~~~ ~~~ ~~~ ~~~ ~~~ ~~~ ~~~ ~~~ ~~~ ~~~ ~~~ ~~~ ~~~
+attack      :   b   s   b   -   s   b   -   -   -   s   -   b   E
+healing     :   b   -   -   E   s   E   E   b   -   -   -   -   s
+divination  :   E   -   -   -   -   b   E   E   s   -   b   -   E
+enchantment :   -   -   -   -   -   b   -   -   -   -   b   -   s
+clerical    :   -   -   -   -   s   s   E   -   -   s   -   -   s
+escape      :   -   -   -   -   -   b   -   b   s   -   s   b   E
+matter      :   b   -   s   -   -   b   -   -   s   -   -   -   E
+
+The term "restricted" is used to describe schools in which you are
+permanently unskilled.  They do not appear in the #enhance menu, although
+you will see schools that are unskilled and can be advanced.
+
+
+Spell failure
+~~~~~~~~~~~~~
+There are some preliminary needs that must be met for any spellcasting.
+The spell must be already known and have been (re)learnt less than
+20000 turns ago.  You need at least 11 nutrition (weak, near fainting)
+unless you are casting a spell of detect food.  You must have a strength
+of at least 4, must have a free hand (both can't be welded to weapons
+and/or a shield), and must not be overtaxed.  Finally, each attempt to
+cast a spell drains energy equal to 5 times the spell's level (randomly up
+to three times this amount if you have the Amulet) for a successful
+casting, or half as much for a failure.  (See hppw-343.txt for details of
+how fast you will regain this energy.)  Your hunger increases by twice
+the amount of energy that would be drained for a success regardless, but
+it will not make you faint. For Wizards, this hunger loss is reduced by an
+amount depending on intelligence; halved for INT of 15, quartered for INT
+of 16, or eliminated entirely for INT of 17 or greater.
+
+There are three factors that cause spells to fail:
+
+-   Your armor.  Metallic body armor, metallic helmets (except helm of
+    brilliance), metallic gloves, metallic shoes, and any shield
+    (although a small shield is not as bad) will penalize you.  Fighter-
+    type classes are not penalized as much as the other classes.  The
+    following items are "safe" for spellcasting:
+        All shirts
+        All dragon scales and dragon scale mails
+        Leather jacket, leather armor, studded leather armor
+        Crystal plate mail
+        All cloaks and robes
+        Elven leather helm, fedora, helm of brilliance
+        Cornuthaum
+        All gloves except gauntlets of power
+        All boots except iron shoes and kicking boots
+
+    So the "best" armor class you could achieve for spellcasting -- not
+    including your intrinsic protection or item enchantments -- is with
+    any shirt, any dragon scale mail, a robe, a helm of brilliance,
+    gauntlets of dexterity, and high boots.  Of course, there are other
+    combinations that yield a lower AC or spellcasting ability but have
+    strategic advantages.
+
+-   The level of the spell, as shown above (LVL).
+
+-   If you are confused, the spell will always fail.
+
+There are seven factors that improve spellcasting success:
+
++   Your class.  Each class has its own base ability, armor penalties,
+    bonuses for emergency spells, and a spell that they are especially
+    good at.  See the table below.
+
++   Your armor.  Robes help offset a penalty for wearing metallic body
+    armour, or grant an outright bonus if worn without it.
+
++   Your intelligence (Arc, Bar, Cav, Ran, Rog, Sam, Tou, Wiz) or
+    wisdom (Hea, Kni, Mon, Pri, Val).
+
++   Your experience level.
+
++   Your skill in the school of the spell.
+
++   Certain "emergency" spells get an extra bonus.  They are noted with
+    a plus (+) in the above BONUS column.  The amount of the bonus
+    depends on your class.  Note that Rangers and Tourists are actually
+    penalized for these spells.
+
++   If you have the teleport intrinsic ("teleportitis"), you may be able
+    to perform a self-teleport (^T) without using the teleport away spell.
+    You also must be at least experience level 12 (8 if a Wizard) or be
+    polymorphed into a teleporting monster, may not be overtaxed, must
+    have at least 6 strength, and need 100 nutrition and 19 energy (both
+    of which are consumed).  If you fall into water with teleportitis or
+    as a teleporting monster, you may automatically attempt to cast a
+    self-teleport to get out.  Finally, characters with teleportitis
+    will always teleport at random intervals.
+
+To calculate spell failure, you first need to sum together the penalties
+marked with a number sign (#) below.  An increasing total penalty is worse
+for spellcasting, and is limited to a maximum of 20.
+
+#   The "BASE" value from the table below, depending on the character's
+    class.
+#   If an "emergency" spell (noted with a + above), the "EMERG" field.
+#   If wearing any shield, the amount in the "SHIELD" field.
+#   If wearing metallic body armor, the amount in the "SUIT" field.
+    If also wearing a robe, only add half the amount (rounded down).
+#   If wearing a robe without metallic armour, *subtract* the amount
+    in the "SUIT" field.
+#   If wearing a metallic helmet other than the helm of brilliance, add 4.
+    (Metal helmets interfere with the mind.)
+#   Metallic gloves add 6 (casting channels through the hands).
+#   Metallic boots add 2 (all metal interferes to some degree).
+#   Add -4 if the spell is special to that class (see table).
+
+CLASS   BASE    EMERG   SHIELD  SUIT    STAT    SPECIAL SPELL
+~~~~~   ~~~~    ~~~~~   ~~~~~~  ~~~~    ~~~~    ~~~~~~~~~~~~~
+ Arc      5#      0#      2#     10#    Int     Magic mapping
+ Bar     14#      0#      0#      8#    Int     Haste self
+ Cav     12#      0#      1#      8#    Int     Dig
+ Hea      3#     -3#      2#     10#    Wis     Cure sickness
+ Kni      8#     -2#      0#      9#    Wis     Turn undead
+ Mon      8#     -2#      2#     20#    Wis     Restore ability
+ Pri      3#     -2#      2#     10#    Wis     Remove curse
+ Ran      9#      2#      1#     10#    Int     Invisibility
+ Rog      8#      0#      1#      9#    Int     Detect treasure
+ Sam     10#      0#      0#      8#    Int     Clairvoyance
+ Tou      5#      1#      2#     10#    Int     Charm monster
+ Val     10#     -2#      0#      9#    Wis     Cone of cold
+ Wiz      1#      0#      3#     10#    Int     Magic missile
+
+
+Next, calculate a base chance of success, which is 5.5 times your
+intelligence or wisdom STAT, depending on your class.  This chance is
+modified by the following factors:
+#   SKILL level (unskilled = 0, basic = 1, skilled = 2, expert = 3)
+#   spell level (LVL)
+#   experience level (XL)
+according to this formula:
+    difficulty = (LVL * 4) - (SKILL * 6) - (XL/3) - 5
+
+If this is positive, your chance is reduced according to another formula:
+    chance = base chance - square root of ((900 * difficulty) + 2000)
+Otherwise, it will be increased with diminishing returns: the
+absolute value is multiplied by (15/LVL), capped at 20, and added to
+the base chance.
+
+The resulting chance is clipped to the range of 0% to 120% success.  If
+you are wearing a shield larger than a small shield, the chance is then
+reduced to 1/4 its amount (except if it is the special spell for your
+class -- then it is only halved).
+
+Finally, the chance of success is adjusted by your total penalty using
+the following formula:
+    chance = (chance * (20-penalty) / 15) - penalty
+The result is clipped to the range of 0% to 100% success.
+
+
+Acknowledgements
+~~~~~~~~~~~~~~~~
+Thanks to Bruce Cox for proofreading the original version of this file.
+Further corrections and clarifications provided by Joe Bednorz, Jason Brown,
+Snibor Eoj, Monte Mitzelfelt, Petrosky, Pat Rankin, Pekka Rousu,
+Pekka Savola, Robert R. Schneck, Darshan Shaligram, Jason Short, and
+Sascha Wostmann.

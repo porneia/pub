@@ -1,0 +1,203 @@
+ring-343.txt  Last edited 2005-06-02 for NetHack 3.4.3
+Rings and their generic properties in NetHack 3.4 
+Compiled for 3.2.2 by Kevin Hugo.
+Updated for 3.4.3 by Dylan O'Donnell <psmith@spod-central.org>.
+
+RING                             COST  WGT  PROB   CHG
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ : ~~~~  ~~~  ~~~~ : ~~~
+meat ring                      : $  5   1     0  :
+adornment                      :  100   3     1  :  Y
+hunger                         :  100   3     1c :
+protection                     :  100   3     1  :  Y
+protection from shape changers :  100   3     1  :
+stealth                        :  100   3     1  :
+sustain ability                :  100   3     1  :
+warning                        :  100   3     1  :
+aggravate monster              :  150   3     1c :
+cold resistance                :  150   3     1  :
+gain constitution              :  150   3     1  :  Y
+gain strength                  :  150   3     1  :  Y
+increase accuracy              :  150   3     1  :  Y
+increase damage                :  150   3     1  :  Y
+invisibility                   :  150   3     1  :
+poison resistance              :  150   3     1  :
+see invisible                  :  150   3     1  :
+shock resistance               :  150   3     1  :
+fire resistance                :  200   3     1  :
+free action                    :  200   3     1  :
+levitation                     :  200   3     1  :
+regeneration                   :  200   3     1  :
+searching                      :  200   3     1  :
+slow digestion                 :  200   3     1  :
+teleportation                  :  200   3     1c :
+conflict                       :  300   3     1  :
+polymorph                      :  300   3     1c :
+polymorph control              :  300   3     1  :
+teleport control               :  300   3     1  :
+
+Rings are listed in increasing order of base COST, then alphabetically
+by name.  WGT specifies the weight (100 zorkmids weighs 1).
+
+Rings comprise 3% of all randomly-generated items in the main dungeon,
+5% in containers, 5% on the Rogue level, and 8% in hell.  PROB is
+the relative probability of each subtype; the suffix specifies the chance
+of blessed/cursed:
+    c           90% cursed, 10% uncursed, 0% blessed
+    charged     42.93% cursed, 41.33% uncursed, 15.73% blessed
+                Courtesy of Bruce Cox:
+                                  +ve      +0       -ve
+                   blessed   181/1200   1/240    7/3000   =  59/375
+                   uncursed       1/3    1/60    19/300   =   31/75
+                   cursed     19/1200   1/240   307/750   = 161/375
+    otherwise   10% cursed, 90% uncursed, 0% blessed
+Rings of invisibility carried by Nazguls are always cursed.
+
+The CHG field is Y if the ring can be charged.  The initial enchantment
+has an exponentially-weighted probability, but tends to be in the range
+of -3 to +3.  When a ring with a positive enchantment is charged, it
+has an (enchantment before) in 7 chance of exploding.  Rings with
+enchantments of <= -5 or >= +7 will always explode when charged.
+Otherwise, blessed charging adds 1 to 3 points of enchantment, cursed
+charging removes 1 to 2 points, and uncursed charging always adds +1.
+Therefore, the highest possible enchantment is +9 by charging (and +10
+by random generation).  You may repeatedly enchant and unenchant a ring.
+
+The effects of rings are controllable by putting on and removing the
+ring.  Most rings will confer an intrinsic or a combat or stat
+modifier; see rint-343.txt and drgn-343.txt for descriptions of the
+intrinsics involved. It is possible to obtain an effect permanently by
+polymorphing into a metallivore or gelatinous cube (depending on the
+appearance of the ring; see below) and eating the ring.  There is only
+a 1/3 chance of obtaining the effect this way ("Magic spreads through
+your body as you digest the ring.").  Note that the effect of eating
+rings that affect stats (gain constitution, gain strength, adornment)
+will not persist when you change from this form. Eating a ring of free
+action will confer sleep resistance instead.  Rings of slow digestion
+may not be eaten ("This ring is indigestible!").
+
+Meat rings have no effect when worn, but can be eaten as normal food
+(see food-343.txt). The appearances of other rings are randomized from
+the following descriptions.
+These can be eaten by any metallivore (rock mole, rust monster, or xorn):
+    pearl       iron        twisted     steel       wire
+    engagement  shiny
+The following can additionally be eaten by metallivores not restricted to
+rustprone metals (rock mole or xorn):
+    bronze      brass       copper      silver      gold
+The following can be eaten by gelatinous cubes:
+    wooden
+These appearances cannot be eaten by any monster:
+    granite     opal        clay        coral       black onyx
+    moonstone   tiger eye   jade        agate       topaz
+    sapphire    ruby        diamond     ivory       emerald
+You can determine the appearance of already identified rings using the
+discoveries command (\).
+
+Wearing a ring (other than a chargeable ring at +0) will increase the
+rate at which you get hungry; see food-343.txt.
+
+
+Identifying rings using sinks
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+When a ring is dropped on top of a sink, you will get a message that
+can help you identify the ring.  Note that most messages require that
+you are not blind, and the ring of hunger requires that there is a
+(preferably worthless) object already on the sink; if these are not the
+case, you will just get "You hear the ring bouncing down the drain pipe."
+Except for the rings of searching and slow digestion, there is a 95% chance
+that the ring will fall down the drain and you will lose it forever.
+
+RING                      MESSAGE
+~~~~~~~~~~~~~~~~~~~~~~~~  ~~~~~~~
+meat ring                 "Several flies buzz around the sink."
+                          Works when blind.
+
+adornment                 "The faucets flash brightly for a moment."
+
+hunger                    If you are unblind and there are any items on
+                          the sink (except ball or chain) and they fail a
+                          resistance roll, they disappear:
+                          "Suddenly, <item> vanishes from the sink!"
+
+protection                "The sink glows silver/black for a moment."
+                          depending on non-negative/negative enchantment.
+
+prot from shape changers  "The sink looks nothing like a fountain."
+
+stealth                   "The sink seems to blend into the floor for a
+                           moment."
+
+sustain ability           "The water flow seems fixed."
+                          Works when blind.
+
+warning                   "The sink glows white for a moment."
+
+aggravate monster         "Several flies buzz angrily around the sink."
+                          Works when blind.
+
+cold resistance           "The cold water faucet flashes brightly for a
+                           moment."
+
+gain constitution         "The water flow seems greater/lesser now."
+                          depending on non-negative/negative enchantment.
+                          Works when blind.
+
+gain strength             "The water flow seems stronger/weaker now."
+                          depending on non-negative/negative enchantment.
+                          Works when blind.
+
+increase accuracy         "The water flow hits/misses the drain."
+                          depending on non-negative/negative enchantment.
+                          Works when blind.
+
+increase damage           "The water's force seems greater/smaller now."
+                          depending on non-negative/negative enchantment.
+                          Works when blind.
+
+invisibility              "You don't see anything happen to the sink."
+
+poison resistance         "You smell rotten <fruit>."
+                          Works when blind.
+
+see invisible             "You see some air in the sink."
+
+shock resistance          "Static electricity surrounds the sink."
+                          Works when blind.
+
+fire resistance           "The hot water faucet flashes brightly for a
+                           moment."
+
+free action               "You see the ring slide right down the drain!"
+
+levitation                "The sink quivers upward for a moment."
+                          Works when blind.
+
+regeneration              "The sink looks as good as new."
+
+searching                 "You thought your ring got lost in the sink,
+                           but there it is!"
+                          You never lose the ring.
+                          Works when blind.
+
+slow digestion            "The ring is regurgitated!"
+                          You never lose the ring.
+                          Works when blind.
+
+teleportation             "The sink momentarily vanishes."
+
+conflict                  "You hear loud noises coming from the drain."
+                          Works when blind.
+
+polymorph                 "The sink momentarily looks like a fountain."
+
+polymorph control         "The sink momentarily looks like a regularly
+                           erupting geyser."
+
+teleport control          "The sink looks like it is being beamed aboard
+                           somewhere."
+
+
+Acknowledgements
+~~~~~~~~~~~~~~~~
+Thanks to Bruce Cox for proofreading the original version of this file.
+Further corrections and clarifications provided by Irina Rempt.

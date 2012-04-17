@@ -1,0 +1,361 @@
+---
+layout: post
+title: "Nanoblogger"
+description: ou<br><p style="font-size:large">Comment blogger en bash
+date: 2009-05-17 01:50:49 +0200
+author: illov&aelig;
+mail: illovae[at]bk[dot]ru
+keywords: nanoblogger, blog, bash, illovae
+license: "BY-NC-SA"
+---
+<p>
+<span class="articleAuthor">Britney Gopherspace, 17 mai 2009,
+{{ page.author }}</span> &mdash;
+<a href="http://druuna.dud-t.org/b" class="external"
+hreflang="fr">Je nanobloggue</a>,
+<a href="http://olivier.dossmann.net/joueb" class="external"
+hreflang="fr">tu nanobloggues</a>,
+<a href="http://buje.free.fr/leblogdejean" class="external"
+hreflang="fr">il nanobloggue</a>,
+<a href="http://nanoblogger.sourceforge.net/articles/nanoblogger/users/"
+class="external" hreflang="fr">nous nanoblogguons</a>, vous
+nanoblogguez ?
+
+<p>
+Depuis le boom du blog de particuliers d'il y a quelques années, nous
+avons vu apparaître plusieurs moteurs (ou propulseurs selon les termes) de
+blog libre. Nous connaissons tous
+<a href="http://www.wordpress-fr.net/" class="external"
+hreflang="fr">wordpress</a> ou <a href="http://fr.dotclear.org/"
+class="external" hreflang="fr">dotclear</a> qui sont à base de
+PHP. Mais il en existe dans d'autres languages comme
+<a href="http://byteflow.su/" class="external" hreflang="en">byteflow
+blog engine</a> écrit en python et utilisant Django. Ces moteurs
+génèrent des pages dynamiques, id est que le serveur génère des pages
+en live en fonction des demandes des clients. Il en existe bien
+d'autres comme <a href="http://vss.73rus.com/wadcomblog/"
+class="external" hreflang="en">wadomblog</a> toujours en python ; mais
+aussi et cette fois-ci en ruby, <a href="http://mephistoblog.com/"
+class="external" hreflang="en">mephisto</a> ou encore <a href="
+http://rog.rubyforge.org/" class="external" hreflang="en">rog</a> ;
+ces trois derniers générant des pages statiques, id est que le moteur
+génère une ou des pages HTML uniques que le serveur délivre à tout le
+monde (pour plus d'informations sur le statique/dynamique vous pouvez
+vous référer à
+cette <a href="http://crdp.ac-dijon.fr/Sites-statiques-sites-dynamiques.html"
+class="external" hreflang="fr">page</a>). Comme le sous-entend le
+titre de l'article, je ne vais pas ici faire le détail des moteurs de
+blogs suscités et vous en donner mon avis, mais l'idée est plutôt de
+vous présenter un autre propulseur écrit en bash par Kevin
+'<a href="http://n1xt3r.fastmail.fm/weblog/" class="external"
+hreflang="en">n1xt3r</a' Wood et qui porte le nom de
+<a href="http://nanoblogger.sourceforge.net/" class="external"
+hreflang="en">nanoblogger</a>.
+
+<p>
+Comme le précise la page officielle du projet, Nanoblogger est un petit
+moteur de blog écrit en bash et disponible depuis la ligne de commande (la
+CLI cay bon mangez-en). Il utilise les outils UNIX très répandus que sont
+<code>cat</code>, <code>sed</code> et <code>grep</code> et est diffusé
+sous
+<a href="http://www.gnu.org/licenses/gpl.html" class="external"
+hreflang="en">GNU Public General License</a>. Il est donc de ce fait
+tout à fait utilisable sous GNU/Linux bien sûr, mais, et cela bien
+qu'écrit avec les outils GNU, aussi sous *BSD. Il est dit qu'il
+fonctionne très bien sous Solaris et sous Mac, mais je n'ai jamais
+testé.
+
+<h2 class="articleHeadline">Communauté</h2>
+
+<p>
+n1xt3r a réussi à réunir autour de son projet une petite communauté
+très active et fidèle, et notamment une communauté francophone menée
+par Denis '<a href="http://www.oceamer.com/" class="external"
+hreflang="fr">deber</a>' Bernard qui héberge chez lui le
+<a href="http://nanoblogger.fr" class="external" hreflang="fr">site
+non-officiel de Nanoblogger en langue française</a> et qui s'occupe
+aussi de la traduction en français du moteur. Vous pourrez retrouver
+sur ce dernier des news ainsi que les blogs de la communauté
+francophone sous Nanoblogger, sans oublier le
+<a href="http://wiki.nanoblogger.fr" class="external"
+hreflang="fr">wiki</a> (hébergé par Olivier
+'<a href="http://olivier.dossmann.net/" class="external"
+hreflang="fr">Blanko</a>' Dossmann). À noter qu'il existe aussi un
+canal IRC <code>#nanoblogger-fr@irc.oftc.net:6667</code>, certes peu
+fréquenté mais où vous trouverez toujours une personne ou deux à votre
+écoute. La communauté s'occupe aussi du maintien de la page sur
+<a href="http://fr.wikipedia.org/wiki/NanoBlogger" class="wikipedia"
+hreflang="fr">wikipedia</a> francophone et qui explique notamment que
+:
+
+<blockquote>
+L'interface utilisateur est minimale et se fait en ligne de commande
+depuis une console en local, telnet ou SSH. Nanoblogger permet d'avoir,
+sans modifier ou ajouter une seule ligne de code, un blog prêt à l'emploi.
+Le moteur génère uniquement des pages statiques. Ça a l'avantage de
+pouvoir créer ses pages depuis un ordinateur quelconque et de les
+transférer (via ftp par exemple, ndla) sur un serveur Web, comme l'espace
+offert pour les pages personnelles de son fournisseur d'accès Internet.
+Mais on peut tout aussi bien agir directement sur le serveur Web si l'on
+en dispose un.
+</blockquote>
+
+<h2 class="articleHeadline">Avantages et inconvénients</h2>
+
+<p>
+L'intérêt de Nanoblogger est donc pluriel : son accessibilité au
+travers de la ligne de commande, sa légèreté et sa simplicité mais aussi
+le fait de pouvoir l'utiliser au travers de différentes voies. Il n'est
+pas nécessaire de connaître la programmation bash ou de savoir éditer de
+l'HTML pour l'utiliser. Il est fonctionnel et prêt à l'emploi des
+l'installation et est livré avec plusieurs thèmes graphiques (CSS) ainsi
+que plusieurs plugins.
+
+<p>
+Nanoblogger a aussi l'avantage d'être très configurable et extensible.
+En effet, le fichier de configuration laisse énormément de liberté et de
+plus, si une fonction vous manque, Nanoblogger contient un système de
+plugin très simple (beaucoup sont livrés avec le moteur en lui-même, de
+plus si vous codez en bash, l'ajout de plugin est un jeu d'enfant ; pour
+les apprentis, c'est aussi une bonne façon de bidouiller du code, et
+d'avoir des résultats concrets rapidement). Son utilisation en CLI est
+très intuitive, l'édition/l'ajout/le retrait d'articles et de billets se
+font très facilement. Il a un système d'archive très poussé, l'édition des
+templates se fait aussi aisément, ce qui vous permet d'avoir rapidement le
+résultat qui vous convient (avec l'aide de CSS si vous le souhaitez comme
+dit). Il génère aussi bien sur des flux Atom 1.0, RSS 1.0 et 2.0. Sachez
+que Nanoblogger est aussi conçu pour pouvoir gérer plusieurs blogs en même
+temps. Si vous avez un serveur qui gère plusieurs utilisateurs, il est
+très aisé pour eux d'avoir leur propre blog chacun. Enfin notez que
+Nanoblogger permet d'écrire des billets et des articles. La distinction se
+fait en ce sens que les billets s'affichent sur la page principale, sont
+datés, se retrouve dans les archives, etc (comme n'importe quel blog)
+alors que les articles sont figés hors du temps, et ont leur place
+particulière avec un sous-menu à eux. La liste des possibilités de
+Nanoblogger est encore longue, mais je pense qu'on a le principal ici.
+
+<p>
+Mais, il ne faut pas l'élaguer, Nanoblogger a aussi quelques défauts.
+Je ne lui en reconnaît que deux (un et demi en fait) personnellement :
+
+<p>
+  <ul>
+    <li>sa lenteur comparé à d'autres ;
+    <li>l'impossibilité out of the box d'avoir des commentaires.
+  </ul>
+
+<p>
+Il faut cependant relativisé un peu. Question lenteur, avec la
+dernière version 3.4RC2, les choses se sont grandement améliorées même
+quand on a un blog comportant énormément d'entrée. Sans aller dans des
+détails techniques, l'ajout d'un billet prend environ 10 secondes. En
+effet, il faut générer la page du billet en elle-même, le flux RSS
+ainsi que l'index.html de la page principale notamment. De plus si
+vous utilisez tidy, il faut prendre en compte le check w3c des
+pages. Mais bon, 10 secondes personnellement je trouve ça tout à fait
+raisonnable.
+
+<p>
+En ce qui concerne les commentaires, en effet comme tout est statique,
+il faut utiliser des outils extérieurs. Vous pouvez parfaitement
+utiliser un code cgi ou php pourquoi pas, ou comme beaucoup de
+nanobloggueur le font, passer par des sites dédiés, tel que
+<a href="http://www.haloscan.com/" class="external"
+hreflang="en">haloscan</a> qui en ajoutant simplement deux lignes la
+où il faut vous permet d'avoir non seulement des commentaires
+dynamiques mais aussi un système de notation des billets pour vos
+lecteurs si vous voulez (pour avoir un exemple concret du résultat,
+référez vous au <a href="http://nanoblogger.sourceforge.net/"
+class="external" hreflang="en">site du projet</a> qui utilise cette
+méthode ; et attention haloscan ça bosse avec du javascript, plutôt
+sale donc). Enfin d'autres ont fait le choix de rester totalement en
+statique et de gérer eux-mêmes les commentaires via mail, voir même
+pour certains pas de commentaires du tout.
+
+<h2 class="articleHeadline">Installation et configuration : à l'aventure, tout de suite</h2>
+
+<p>
+Comme évoqué précédemment, la version disponible en ce moment est la
+3.4RC2 que vous pouvez donc récupérer
+<a href="http://nanoblogger.sourceforge.net/downloads/nanoblogger-3.4-rc2.tar.gz"
+class="external">à cet endroit</a>. Certaines distributions offrent
+aussi dans leur dépôt un paquet pour installer Nanoblogger. Cependant,
+je vous déconseille cette méthode. Tout d'abord, parce qu'il est plus
+intéressant d'avoir la dernière version de Nanoblogger qui apporte
+tout de même de bonne mise à jour, ainsi qu'une nouvelle méthode de
+gestion des billets au sein de son code. En sus lors d'une mise à jour
+vers une version supérieure, il est toujours conseille de le faire a
+la main dans ce cas présent histoire de maîtriser les tenants et les
+aboutissants.
+
+<p>
+Décompressez où vous voulez l'archive. Pensez à rajouter le path de
+votre dossier Nanoblogger à la variable PATH de votre shell si vous
+voulez pouvoir utiliser la commande du blog depuis n'importe où
+(regardez les premières lignes de votre
+fichier <code>~/.bashrc</code>, <code>~/.zshrc</code> ou autre si vous
+ne voyez pas trop comment faire ça). Ceci fait, vous pouvez des à
+présent créer votre blog :
+
+<pre>
+$ nb -b /path/du/blog add weblog
+creating weblog directory '/path/du/blog' ...
+copying default weblog files ...
+would you like to configure the new weblog now? [Y/n]
+&gt; Y
+</pre>
+
+<p>
+Le fait de répondre '<code>Y</code>' va ouvrir le
+fichier <code>/path/du/blog/blog.conf</code> avec
+votre <code>$EDITOR</code> par défaut et vous pourrez commencer à
+régler le blog selon votre bon vouloir. Le fichier est plutôt bien
+commenté, je ne vais donc pas rentrer dans les détails ici. Une fois
+fait, vous n'avez plus qu'à enregistrer et quitter.  N'ayez pas peur
+de faire des erreurs, même après création du blog, ce fichier peut
+être modifié et on peut régénérer totalement le blog sans perdre ni
+articles ni billets bien sûr.
+
+<pre>
+generating weblog files ...
+selected tag id(s): 1 ...
+adding new entry ...
+updating main database ...
+updating all weblog files! this may take a while ...
+initializing main database ...
+generating weblog calendar for May 2009 ...
+generating recent entries links ...
+generating rss 2.0 feed ...
+/path/de/votre/choix/rss.xml
+generating weblog links ...
+generating weblog status ...
+generating articles: /path/du/blog/articles ...
+/path/du/blog/articles/example/index.html
+generating archive index page ...
+/path/du/blog/archives/index.html
+generating archives ...
+/path/du/blog/archives/nanoblogger-help/index.html
+generating year archives ...
+/path/du/blog/archives/2009/index.html
+generating weblog calendar for May 2009 ...
+/path/du/blog/archives/2009/05/index.html
+/path/du/blog/archives/2009/05/14/welcome_to_nanoblogger_3_4/index.html
+generating main index page(s) ...
+/path/du/blog/index.html
+expiring cache data ...
+</pre>
+
+<p>
+Et vous voilà déjà avec votre blog prêt à l'emploi et qui vous a
+publié un petit message d'accueil dans la catégorie
+'<code>nanoblogger-help</code>'. Les commandes de Nanoblogger sont
+simples, en voici un aperçu (que vous pouvez retrouver dans le billet
+de bienvenue de votre nouveau blog) :
+
+<p>
+  <ul>
+    <li>créer un nouveau weblog (dossier) ... <code>nb -b &lt;blog_dir&gt;
+      add weblog</code>
+    <li>créer un nouvel article ... <code>nb add article</code>
+    <li>créer un nouveau billet (sans tag) ... <code>nb add entry</code>
+    <li>créer un nouveau tag ... <code>nb add tag</code>
+    <li>créer une nouvelle entrée avec un tag ... <code>nb --tag [tag_id]
+      add entry</code>
+    <li>lister les différentes entrées ... <code>nb list &lt;query&gt;</code>
+    <li>lister les différents tags ... <code>nb list tags</code>
+    <li>lister les entrées par tags ... <code>nb list tag [tag_id]</code>
+    <li>editer une entrée ... <code>nb edit entry [entry_id]</code>
+    <li>tager une entrée déjà existante ... <code>nb --tag [tag_id]
+      tag-entry [entry_id]</code>
+    <li>enlever un tag a une entrée ... <code>nb --tag [tag_id] delete entry
+      [entry_id]</code>
+    <li>effacer un tag ... <code>nb delete tag [tag_id]</code>
+    <li>effacer une entrée ... <code>nb delete entry [entry_id]</code>
+    <li>créer un squelette d'entrée ou d'articles ... <code>nb draft
+      [draft_file]</code>
+    <li>importer un fichier en tant que billet ... <code>nb import entry
+      [draft_file]</code>
+    <li>importer un fichier en tant qu'article ... <code>nb import article
+      [draft_file]</code>
+    <li>mettre à jour le blog ... <code>nb update
+      &lt;all|DATE|main|max|articles|feeds&gt;</code>
+</ul>
+
+<p>
+Rien de très compliqué donc comme vous pouvez le voir. Remarquez que
+l'option <code>-b</code> vous permet de définir où se trouve votre
+blog. Il est impératif de mettre cette option à chaque fois, sans quoi
+Nanoblogger ne saura pas où est votre blog. Ceci dit, on peut s'en
+passer si on édite le
+fichier <code>../nanoblogger-3.4-rc2/nb.conf</code> à la
+variable <code>BLOG_DIR</code> ; et la plus besoin
+d'option <code>-b</code>. Notez aussi que créer un billet ou un
+article l'ajoutera à votre blog dès que vous quitterez votre éditeur
+de texte. Si vous voulez prendre le temps d'écrire un billet ou un
+article et y revenir plus tard, il vous suffit de créez un squelette
+que vous éditez, et enregistrerez où bon vous semble (c'est un simple
+fichier .txt). Vous pourrez ainsi le garder dans un coin, le rééditer,
+le modifier, etc. Quand l'heure de la publication aura sonnée, il vous
+suffira simplement d'importer ce fichier .txt pour l'ajouter à votre
+blog.
+
+<p>
+En ce qui concerne l'édition des billets en eux-mêmes. Par défaut le
+format est <code>raw</code> ce qui signifie que vous devez écrire le
+billet avec une mise en forme HTML. Cependant il existe deux autres
+formats disponibles.  Le premier est <code>autobr</code> : dans ce
+mode vous écrivez simplement votre billet et Nanoblogger se chargera
+d'ajouter du code HTML dans les lignes vides histoire de faire un peu
+de mise en forme rudimentaire. L'avantage est que vous ne vous prenez
+pas du tout la tête, par contre l'inconvénient est clairement que vous
+ne mettez pas du tout en forme votre billet (pas de gras, d'italique,
+de balise code, etc), sans compter que cela peut vous causer des
+soucis si vous mettez un point d'honneur à passer la validation
+<a href="http://validator.w3.org/" class="external"
+hreflang="en">w3c</a>... La seconde méthode est baucoup plus sexy et
+utilise le format très connu
+<a href="http://daringfireball.net/projects/markdown/"
+class="external" hreflang="en">markdown</a>.  C'est un outil perl qui
+permet de convertir du texte vers de l'HTML comme cela se fait avec
+l'édition des pages type wiki (vous savez à grand coup de <code>====
+Titre h2 ====</code> par exemple pour faire des titres, etc). Le
+format que Nanoblogger doit avoir par défaut se configure dans le
+fichier <code>blog.conf</code> de votre blog.
+
+<p>
+Je ne vais pas m'étendre plus que cela sur l'utilisation de
+Nanoblogger, il existe un
+<a href="http://oceamer.com/~nanoblogger/articles/manuel/index.html"
+class="external" hreflang="fr">manuel de l'utilisateur</a> bien écrit
+et conséquent qui devrait répondre à vos principales questions. Pensez
+aussi au
+<a href="http://nb.homelinux.com/apropos/" class="external"
+hreflang="fr">wiki</a> évidemment, et à sa section
+<a href="http://nb.homelinux.com/astuces/" class="external"
+hreflang="fr">astuces</a>. Vous pouvez enfin aussi, comme présenté en
+introduction, rejoindre le
+<a href="irc://#nanoblogger-fr@irc.oftc.net:6667" class="external"
+hreflang="fr">canal IRC</a> bien sûr si vous n'arrivez pas à vous en
+sortir ;)
+
+<p>
+Voilà donc pour la présentation de ce moteur de blog très apprécié par
+ses utilisateurs. Sa prise en main est très simple et rapide, mais
+Nanoblogger vous permet de faire vraiment beaucoup de chose, et se
+plis à vos envies. Sans compter qu'il est très léger et ne nécessite
+pas d'avoir un mastodonte de serveur. Le moindre petit httpd fait
+l'affaire.  J'apprécie personnellement le côté modelage de ce moteur
+de blog, on peut dire qu'avec lui, on gère vraiment notre blog à notre
+façon tant dans la forme (templates, CSS) que dans le fond (script
+bash). Il a souvent été appelé moteur de blog pour geek et c'est
+peut-être un peu vrai. Mais j'aurai plutôt tendance à dire qu'il
+s'adresse tout à fait à l'utilisateur lambda qui ne veut pas se
+prendre la tête avec un serveur PHP+module ou autre et qui veut
+simplement &quot;publier des billets&quot; ; idéal pour répondre à la
+dictature du Ça en somme. Nanoblogger, out of the box, est
+parfaitement utilisable tel quel, sans rien modifié du tout,
+d'ailleurs beaucoup d'utilisateurs ne prennent même pas la peine
+d'éditer le CSS par défaut, et s'en retrouve très bien. Mais il sera
+aussi très apprécié du hacker (au sens premier du terme et non au sens
+hadopien) car il permet aisément d'arriver à ses fins tout en laissant
+une vaste marge de bidouillage.

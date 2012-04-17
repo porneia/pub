@@ -1,0 +1,27 @@
+---
+layout: nil
+permalink: .htaccess
+---
+AddDefaultCharset UTF-8
+
+Options Indexes
+FancyIndexing on
+
+IndexOptions NameWidth=* FancyIndexing FoldersFirst DescriptionWidth=80 IconWidth=16 IconHeight=16 SuppressHTMLPreamble ScanHTMLTitles
+
+AddType text/html .html
+
+HeaderName {{ site.baseurl }}/header.html
+ReadmeName {{ site.baseurl }}/readme.html
+
+AddDescription "Mayaliubova kalashnika" ..
+AddDescription "Videos+7 backups" a7
+AddDescription "Littérature et autres digressions intellectuelles" litt
+AddDescription "Random logs" logs
+AddDescription "Nethack related stuff" nh
+AddDescription "Piano sheets" piano
+AddDescription "Little slackbuilds archive" slackbuilds
+AddDescription "Temporary folder" tmp
+AddDescription "Will you be my Ukulele Hero?" ukulele
+AddDescription "Do you know how to kill a shinigami?" 1254662596281.jpg
+AddDescription "The Conscience of a Hacker by The Mentor" hacker.txt

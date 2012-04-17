@@ -1,0 +1,64 @@
+crwn-343.txt  Last edited 2004-03-10 for NetHack 3.4.3
+Crowning and its consequences in NetHack 3.4
+Compiled for 3.1.3 by Boudewijn Waijers.
+Updated for 3.4.3 by Dylan O'Donnell <psmith@spod-central.org>
+
+When you pray a lot of nice things can happen. If you are in good
+standing with your god ("piously aligned"; at least +20) and
+sufficiently lucky ("extremely lucky"; at least +10), one of these
+things is that you may be "crowned" by your god.
+
+If this happens, you are not only granted a title (visible with
+enlightenment or at the end of the game), but some other effects (most
+of them beneficial) happen as well. The title you will gain is the
+following:
+
+Lawful:  Hand of Elbereth
+Neutral: Envoy of Balance
+Chaotic: Glory of Arioch
+
+Then, you gain some useful intrinsics (if you didn't have them already,
+of course):
+
+* cold resistance
+* fire resistance
+* poison resistance
+* sleep resistance
+* shock resistance
+* see invisible
+
+Next, you may gain an item, depending on your class and alignment:
+
+* Wizards will receive a (blessed) spellbook of finger of death unless they
+  are already carrying one, or are wielding Vorpal Blade or Stormbringer.
+* Monks will receive a (blessed) spellbook of restore ability unless they
+  are already carrying one, or are wielding an artifact.
+
+If these classes do not receive a spellbook, or for any other class:
+
+* Lawful:  If you are wielding (as primary, if two-weaponing) a
+           non-artifact long sword, it is changed into Excalibur if
+           that does not yet exist in your game.
+* Neutral: If Vorpal Blade does not yet exist in your game, it is
+           created at your feet.
+* Chaotic: If Stormbringer does not yet exist in your game, it is
+           created at your feet.
+
+If you received a weapon gift, it is blessed, unrusted and made
+rustproof, and set to at least +1. If you received no gift (or you
+received a spellbook gift of a spell that you already knew), your
+currently-wielded (primary) weapon (or weapon-tool) receives the same
+enhancements, and your skill in it is unrestricted. In all cases, your
+skill in the appropriate alignment gift weapon is unrestricted whether
+you got it or not: long sword for lawfuls and neutrals, broad sword
+for chaotics.
+
+There is, of course, a disadvantage to balance all this generosity:
+after crowning, your average prayer time-out (the time you have to
+wait between prayers) is greatly increased. So, if you already have a
+decent weapon and the above intrinsics, being named is a BAD thing. If
+you pray often enough, it WILL happen eventually, though.
+
+Acknowledgements
+~~~~~~~~~~~~~~~~
+Corrections and clarifications provided by Annie Kang.

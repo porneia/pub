@@ -1,0 +1,352 @@
+<HTML> 
+<head>
+<BASE HREF="win.html">
+ 
+<title> R1's Nethack page </title>
+<meta name="author" content="Erwan Grasland-Mongrain">
+<meta http-equiv="Reply-to" content="Erwan.Grasland-Mongrain@ens.fr">
+</head> 
+
+<body BGCOLOR="#FFFFFF">
+
+<ul><center><img src="../nethack.png"></center></ul>
+<br>
+
+<ul><center><h2><font color=green>Comment gagner (en théorie...) ?</font></h2></center></ul>
+
+<p> Comme vous pouvez vous en douter, ceci n'est pas un
+<cite>spoiler</cite> universel dont la simple lecture suffira à
+vous faire ascender le premier touriste pacifique venu... Tout comme
+savoir écrire ne signifie pas automatiquement que vous serez capable
+d'écrire le prochain prix Goncourt, il s'agit plutôt de la liste des
+choses précises qu'il est essentiel d'avoir effectué pour ascender. Vous
+n'imaginiez quand même pas que Nethack consistait simplement à descendre
+40 niveaux générés aléatoirement, ramasser l'<cite>Amulet of
+Yendor</cite> qui traîne par terre et remonter, n'est-ce pas ? ;-)
+
+<ul><br></ul><a name="map"></a><h4><font color=blue>Petit plan du
+Donjon</font></h4>
+
+<p> Comme vous avez dû vous en apercevoir en allant dans les Mines des
+Gnomes et dans le Sokoban, le Donjon n'est pas complètement linéaire.
+Voici un plan grossier du donjon, avec une petite description des niveaux
+spéciaux :
+
+<p> <img src="nh.jpg">
+
+<ul>
+<li> <cite>The Heaven</cite> : le Paradis. Le seul moyen d'y accéder
+consiste à se téléporter au niveau -10 ou au-delà ; notez que cela
+revient à terminer le jeu comme si vous mourriez.
+<li> <cite>The Sky</cite> : le Ciel. Ici aussi, vous ne pourrez y
+accéder qu'en vous téléportant entre les niveaux -1 et -9. Si vous êtes
+incapable de léviter d'une quelconque manière, la partie se termine
+comme si vous mourriez. Sinon, elle se termine comme si vous étiez sorti
+du donjon par l'escalier...
+<li> <cite>The Surface</cite> : la Surface. Empruntez l'escalier du
+premier niveau du donjon ou téléportez-vous au niveau 0 pour y accéder.
+Dans ce cas, la partie se termine immédiatement (sauf si vous êtes en
+possession de l'<cite>Amulet of Yendor</cite>), avec un petit bonus au
+score par rapport à une partie terminée par une mort.
+<li> <cite>The Dungeons of Doom</cite> : le donjon standard, dans lequel
+vous vous trouvez lorsque vous débutez la partie. Susceptible de contenir
+des fontaines, des autels, etc. Il contient 25 à 29 niveaux (y compris
+les niveaux spéciaux comme l'Oracle ou la Big Room, mais pas les Mines
+des Gnomes ou le Sokoban).
+ <ul>
+ <li> <cite>The Gnomish Mines</cite> : les Mines des Gnomes, dont
+l'entrée se trouve entre le niveau 2 et 4 du donjon standard. Les niveaux
+ressemblent généralement à de grandes cavernes contenant de nombreux
+gnomes et nains. Pas mal de pièges y sont générés, et aucune
+fontaine/autel/évier/etc., sauf dans la Ville des Gnomes. Au total, les
+Mines des Gnomes ont 8 à 10 niveaux de profondeur.
+  <ul>
+  <li> <cite>The Gnomish Town</cite> : la Ville des Gnomes. Contient de
+nombreux magasins (dont un d'éclairage), un temple et un prêtre, une ou
+plusieurs fontaines et des gardes (normalement pacifiques). Elle est
+situé entre les niveau 3 et 5 des Mines.
+  <li> <cite>The Bottom of the Mines</cite> : le fond des Mines.
+Contient de nombreuses pierres précieuses (rubis, améthystes...) et une
+<cite>luckstone</cite>. C'est le dernier niveau des Mines (niveau 8 à 10
+des Mines).
+  </ul>
+ <li> <cite>The Oracle</cite> : l'Oracle. Contient une grande salle au
+centre du niveau, contenant plusieurs statues et 4 fontaines. Pensez à
+acheter des consultations mineures et majeures à l'Oracle pour obtenir
+des informations utiles. Il est situé entre les niveau 5 et 10 du donjon.
+ <li> <cite>The Sokoban</cite> : le Sokoban. Poussez intelligemment les
+rochers dans les trous pour passer au niveau suivant. Au bout du 4e
+niveau, vous trouverez un zoo (de nombreux monstres et de l'or) et, au
+hasard, un <cite>Bag of Holding</cite> ou une <cite>Amulet of
+Reflection</cite>. Le Sokoban contient par ailleurs de nombreux anneaux,
+baguettes magiques et sources de nourriture. L'entrée du Sokoban est un
+escalier montant situé au niveau juste en-dessous de l'Oracle.
+ <li> <cite>The Big Room</cite> : N'apparaît que dans 40 % des parties.
+Il s'agit d'un niveau ne contenant qu'une seule immense salle, avec pas
+mal de monstres et quelques trésors. Les morts sont courantes dans la
+<cite>Big Room</cite>... Si elle apparaît, elle est située entre les
+niveau 6 et 10 du donjon.
+ <li> <cite>The Quest</cite> : Entre les niveaux 11 et 18 (entre 6 et 8
+niveaux en-dessous de l'Oracle), vous serez appelé à l'aide par votre
+maître (son identité dépend de votre classe). Vous pourrez alors le
+rejoindre en emprutant un portail magique se trouvant quelque part dans
+le niveau. Si vous avez atteint le niveau 14 (entre autres), il vous
+confiera la mission d'aller tuer un certain monstre (puissant !), lequel
+garde par ailleurs deux artefacts très puissants utiles dans la suite du
+jeu. Cette branche fait de 5 à 7 niveaux de profondeur (selon les
+quêtes).
+ <li> <cite>The Rogue Level</cite> : en hommage à l'ancêtre de Nethack,
+Rogue, ce niveau en reprend les règles et les particularités :
+entièrement en mode texte (même si vous jouez avec les
+<cite>tiles</cite> ; notez si vous n'y êtes pas habitué que vous êtes
+représenté par un « @ » et que toutes les lettres sont des monstres),
+seuls les monstres représentés par une majuscule peuvent y être générés,
+les monstres ne laissent jamais de corps, etc. Ce niveau peut ne pas être
+présent dans certaines versions de Nethack (c'est le cas de la version
+installée à l'ENS). Il est situé entre les niveau 15 et 19 du donjon.
+ <li> <cite>Fort Ludios</cite> : un niveau secret auquel on peut accéder
+via un portail magique caché quelque part entre le niveau 11 et l'antre
+de la Méduse. Attention, il est possible qu'il n'existe pas dans votre
+partie. Il consiste en un simple niveau contenant de nombreux monstres
+(soldats, dragons...), au milieu duquel se trouve un château rempli d'or
+et de pierres précieuses, la demeure de Crésus.
+ <li> <cite>Medusa's Lair</cite> : l'antre de la Méduse. Conformément à
+la légende, un simple regard de cette créature suffit à vous transformer
+en pierre... Faites preuve de prévoyance donc ! Notez qu'elle se trouve
+sur une île (et garde les escaliers menant au niveau suivant), donc vous
+devrez trouver un moyen de traverser l'eau. Elle est située entre 1 et 4
+niveaux au-dessus du Château (soit entre les niveaux 21 et 28).
+ <li> <cite>The Castle</cite> : le Château. Ce niveau est consituté d'un
+immense château entouré d'eau, dans lequel on ne peut pénétrer que par
+le pont-levis (qui s'ouvre en jouant la bonne mélodie avec n'importe quel
+instrument adapté ; il est possible de la trouver en suivant les règles
+du Mastermind, pour ceux qui connaissent ce jeu), ou par l'arrière (ce
+qui nécessite un moyen de lévitation). Le château proprement dit contient
+de nombreux monstres, 4 dépôts (armes, armures, gemmes et nourriture) et
+une <cite>Wand of Wishing</cite>. C'est le dernier niveau du donjon (il
+est donc situé entre les niveaux 25 et 29) ; pour entrer dans les Enfers
+ils vous faut tomber dans l'un des trous situés à l'arrière du château.
+ </ul> 
+<li> <cite>Gehennom</cite> : les Enfers. À l'exception de quelques
+niveaux spéciaux, tous les niveaux des Enfers sont constitués de
+labyrinthes hébergeant moults créatures (démons et minotaures entre
+autres) et pièges (surtout des <cite>fire traps</cite> : résistance au
+feu indispensable ici !). Ah oui, et quelques objets parfois aussi...
+Les traverser constitue une étape particulièrement pénible dans une
+ascension (et qui fait que certains joueurs abandonnent littéralement des
+personnages bien partis à niveau-là, par manque d'intérêt...). Notez que
+toute prière dans les Enfers (à l'exception de la Tour de Vlad
+l'Empaleur) s'adressera à Moloch. Les Enfers font de 20 à 24 niveaux de
+profondeur.
+ <ul>
+ <li> <cite>The Valley of the Dead</cite> : la Vallée de la Mort. Le
+premier niveau des Enfers est en fait un immense cimetière, rempli de
+morts-vivants et de démons. Il contient aussi un temple de Moloch, avec
+un prêtre pacifique.
+ <li> <cite>Asmodeus' Lair</cite> : l'antre d'Asmodeus. Asmodeus est un
+prince démon, assez inoffensif en pratique si vous êtes correctement
+équipé (ce qui devrait être le cas maintenant !). Un peu pénible
+lorsqu'il se téléporte pour se soigner et revient vous embêter ensuite.
+Son antre se trouve entre les niveaux 2 et 7 des Enfers.
+ <li> <cite>Juiblex' Lair</cite> : l'antre de Juiblex. Le niveau et un
+gigantesque marais (de l'eau avec quelques îles, quelques
+<cite>molds</cite> et autres <cite>jellies</cite>), au milieu duquel se
+trouve Juiblex, un démon majeur pas particulièrement puissant, mais qui
+avale ses victimes et les rend malades : trouvez un moyen de guérison
+avant de vous aventurer ici ! Il se situe entre les niveaux 4 et 7 des
+Enfers.
+ <li> <cite>Baalzebub's Lair</cite> : l'antre de Baalzebub. Encore un
+prince démon, assez semblable à Asmodeus, mais qui possède le pouvoir de
+vous assomer avec un simple regard. Pas particulièrement méchant donc,
+mais pénible. Son antre se trouve entre les niveaux 6 et 9 des Enfers.
+ <li> <cite>Orcus Town</cite> : la Ville d'Orcus. À une époque on
+devait y trouver une ville avec son lot d'habitants et de marchands, mais
+à présent il n'y a plus que des magasins abandonnés (repaires de
+mimiques), des ombres, des squelettes et des morts-vivants. Orcus est un
+prince démon, pas excessivement méchant, mais qui possède une <em>Wand of
+death</em>, et qui n'hésitera pas à s'en servir ! Cette ville se trouve
+quelque part entre le niveau 10 et le niveau 15.
+ <li> <cite>Vlad's Tower</cite> : la Tour de Vlad l'Empaleur. Il s'agit
+de la seule branche indépendante des Enfers. Au 3e étage de cette Tour,
+vous trouverez Vlad l'Empaleur, un vampire un peu plus puissant que les
+autres, qui détient un artefact essentiel pour finir le jeu. L'entrée de
+cette tour est une échelle se trouvant entre les niveaux 9 et 13 des
+Enfers.
+ <li> <cite>The Wizard's Tower</cite> : la Tour du Magicien. Vous
+apercevrez au cours de votre descente une partie inexplorée au milieu de
+quelques niveaux : il s'agit de cette tour. Vous ne pourez pas y entrer
+directement toutefois : vous devrez descendre jusqu'à trouver une petite
+tour entourée d'eau (entre les niveaux 14 et 21 des Enfers), au milieu de
+laquelle se trouve un portail magique vers le reste de la tour. Tout en
+haut de cette tour se trouve le <cite>Wizard of Yendor</cite>, le gardien
+du dernier artefact dont vous aurez besoin pour finir le jeu.
+Attention ! Une fois attaqué, celui-ci vous harcèlera jusqu'à la fin du
+jeu, même s'il doit resssuciter entretemps !
+ <li> <cite>The Fake Wizard's Tower</cite> : la Fausse Tour du Magicien.
+Elle est semblable à l'entrée de la véritable tour, mais ne contient pas
+le portail magique. Elle est située entre 3 et 6 niveaux au dessus du
+fond des Enfers (soit entre les niveaux 14 et 21 des Enfers).
+ <li> <cite>The Vibrating Square Level</cite> : l'avant-dernier niveau
+des Enfers. Il ne contient aucun escalier descendant et est impossible à
+creuser. Pour atteindre le dernier niveau (et l'<cite>Amulet of
+Yendor</cite>), vous devrez trouver le <cite>Vibrating Square</cite> qui
+se trouve quelque part dans ce niveau, et accomplir l'Invocation sur
+cette case.
+ <li> <cite>Moloch's Sanctum</cite> : Le sanctuaire de Moloch. Mis à
+part un cimetière, ce niveau contient une grande salle et des prêtres
+hostiles de Moloch, ainsi que le Haut Prêtre de Moloch, détenteur de
+l'<cite>Amulet of Yendor</cite> (enfin !).
+ </ul>
+<li> <cite>The Elemental Planes</cite> : les Plans Élémentaires. Une
+fois l'<cite>Amulet of Yendor</cite> en votre possession, si vous
+remontez les escaliers du premier niveau du donjon, le jeu ne se termine
+pas, mais vous vous retrouvez à la place dans le Plan Élémentaire de la
+Terre. Chaque Plan Élémentaire (Terre, Air, Feu, Eau) contient un portail
+magique quelque part sur la carte, qu'il vous faudra emprunter pour
+accéder au Plan suivant.
+<li> <cite>The Astral Plane</cite> : le Plan Astral. Après le Plan
+Élémentaire de l'Eau, vous vous retrouverez dans un immense temple,
+rempli (entre autres) d'anges et de prêtres (hostiles pour la plupart).
+Vous devrez alors trouver l'autel de votre dieu et lui offrir
+l'<cite>Amulet of Yendor</cite>. Attention ! 3 des 4 Cavaliers de
+l'Apocalypse (le quatrième, la Guerre, c'est vous désormais...), Famine,
+Peste et Mort, se trouvent sur ce Plan, et ne vous rendront pas la tâche
+facile !
+</ul>
+
+<ul><br></ul><a name="guide"></a><h4><font color=blue>Marche à
+suivre</font></h4>
+
+<p> Bon, concrètement, qu'est-ce qu'il faut faire pour ascender ? Voici
+un petit résumé des pricipales étapes d'une ascension (même si certaines
+ne sont pas essentielles, elles aident beaucoup).
+
+<p> Premièrement, essayez de localiser l'entrée des Mines. N'y entrez pas
+si vous n'avez pas au moins une quarantaine de points de vie avec les
+gnomes et les nains hostiles (si vous n'incarnez pas une de ces deux
+races) ! Allez jusqu'à la ville, si l'autel est coaligné faites-y
+quelques sacrifices, faites des affaires chez les marchands (essayez
+entre autres de trouver une source de lumière autre qu'une bougie chez
+Izchak, ou mieux une <cite>magic lamp</cite>), et remontez vers le donjon
+principal.
+
+<p> Descendez quelques niveaux, payez éventuellement une ou plusieurs
+consultation à l'Oracle, et entrez dans le Sokoban. Allez le plus loin
+possible, ramassez toute la nourriture, les anneaux et les baguettes
+magiques que vous pouvez, et si possible le <cite>Bag of Holding</cite>
+ou l'<cite>Amulet of Reflection</cite>. Retournez alors dans les Mines,
+descendez jusqu'au fond et ramassez éventuellement les pierres précieuses
+sans oublier la <cite>luckstone</cite>.
+
+<p> Idéalement sacrifiez le plus possible à un autel pour augmenter votre
+chance et obtenez vos premières potions d'eau bénite en priant avec des
+potions d'eau sur l'autel, continuez à descendre, et entrez au niveau de
+la Quête si vous avez atteint le niveau 14 (sinon, continuez à vous
+balader dans le donjon jusqu'à trouver assez de <cite>potions of gain
+level</cite> ou de <cite>wraith corpses</cite> pour l'atteindre ; il
+peut être envisageable d'aller jusqu'au château si votre Quête est
+particulièrement dure, par exemple pour un Moine). Finissez votre Quête
+(en n'oubliant pas les deux artefacts !), resortez et continuez à
+descendre. Trouvez un moyen de traverser l'eau (lévitation ou saut par
+exemple) pour le niveau de la Méduse, pensez à emporter un
+<cite>blindfold</cite> et un miroir pour la tuer. Continuez jusqu'au
+Château, entrez-y par un quelconque moyen (attention aux ponts-levis qui
+s'écroulent !) et emparez-vous de la <cite>Wand of Wishing</cite>.
+Utilisez les voeux pour améliorer votre équipement, armez vous au maximum
+et entrez dans les Enfers.
+
+<p> Tuez les différents Démons (Juiblex posera peut-être un problème si
+vous n'avez pas de moyen de vous soignez, pensez-y !), ce qui ne devrait
+pas être trop dur si vous êtes bien préparés, nettoyez la Tour de Vlad
+l'Empaleur et récupérez l'artefact laissé par Vlad. Descendez jusqu'au
+fond des Enfers (là où vous ne pouvez plus creuser plus bas), localisez
+le <cite>Vibrating Square</cite> (vous obtenez le message « <samp>You
+feel a strange vibration under your feets</samp> » lorsque vous êtes sur
+la bonne case), et faites vos ultimes préparatifs (vous n'aurez plus le
+temps ensuite), notamment allez acheter des bougies à la Villes des
+Gnomes si ce n'est déjà fait. Retournez dans la Tour du Magicien, et tuez
+le <cite>Wizard of Yendor</cite>. Récupérez l'artefact qu'il laisse et
+redescendez au <cite>Vibrating Square</cite>.
+
+<p> Pour réaliser l'Invocation, vous avez besoin de 3 artefacts : la
+Cloche d'Ouverture (<cite>Bell of Opening</cite>), le Candélabre
+d'Invocation (<cite>Candelabrum of Invocation</cite>) et le Livre des
+Morts (<cite>Book of the Dead</cite>). Le premier était gardé par votre 
+<cite>Quest Nemesis</cite>, le monstre que vous avez normalement dû
+vaincre dans votre Quête. Le second artefact était gardé par Vlad
+l'Empaleur ; n'oubliez pas d'y attacher 7 bougies. Enfin le dernier
+était en possession du <cite>Wizard of Yendor</cite>, qui ne cesse de
+vous harceler à partir du moment où vous l'avez tiré de sa méditation
+pour lui prendre son livre.
+
+<p> Enfin, placez-vous sur le <cite>Vibrating Square</cite>, allumez le
+Candélabre, sonnez la Cloche et lisez le Livre (aucun des trois ne devant
+être maudit) : l'escalier vers le Sanctuaire de Moloch apparaît alors.
+Une fois dans le sanctuaire, allez le plus vite possible vers le
+Sanctuaire Intérieur, où vous attend le Haut Prêtre de Moloch avec
+l'<cite>Amulet of Yendor</cite>. Prenez-lui l'Amulette et remontez le
+plus vite possible vers la surface, en vous débarassant du <cite>Wizard
+of Yendor</cite> dès qu'il apparaît (les <cite>Wands of Death</cite>
+fonctionnent très bien, malheureusement elles sont plutôt rares), afin de
+ne pas lui laisser le temps de vous nuire (genre, invoquer des hordes de
+créatures - et ce ne sont pas des insectes qu'il invoque, lui... - vous
+voler l'Amulette ou votre Artefact de Quête, etc.).
+
+<p> Au niveau 1 du donjon, empruntez l'escalier vers la surface, sans
+oublier d'emporter quelques <cite>wands of teleportation</cite> (pour
+téléporter certains monstres pénibles, typiquement les <cite>Air
+Elementals</cite>), des <cite>cursed scrolls of gold detection</cite> ou
+une <cite>crystal ball</cite> (pour trouver les portails magiques),
+des <cite>blessed potions of full healing</cite> (toujours utiles,
+spécialement avec <cite>Pestilence</cite> dans les parages), une
+<cite>blessed unicorn horn</cite> (au cas où, en cas de conflit avec
+<cite>Pestilence</cite>), un <cite>pick-axe</cite> (pour creuser dans le
+Plan Élémentaire de la Terre), des <cite>C-rations</cite> et des
+<cite>K-rations</cite> (calent l'estomac rapidement en cas d'attaque de
+<cite>Famine</cite>), un moyen de lévitation (ce qui rend le Plan
+Élémentaire de l'Air beaucoup moins pénible) et bien sûr l'<cite>Amulet
+of Yendor</cite>.
+
+<p> Dans le Plan Élémentaire de la Terre, creusez simplement jusqu'au
+portail (détecté grâce à un <cite>cursed scroll of gold detection</cite>,
+si possible lu lorsque vous êtes <cite>confused</cite>, ou une
+<cite>crystal ball</cite>), en vous débarassant de tous les monstres sur
+votre route. Dans le Plan Élémentaire de l'Air, utilisez votre moyen de
+léviter, n'hésitez pas à téléporter les <cite>Air Elementals</cite> et à
+rester tranquillement dans les vortex (inoffensifs si vous avez la
+résistance appropriée) pour regagner des points de vie. Traverser le Plan
+Élémentaire du Feu ne devrait pas poser de problème : courez le plus
+vite possible jusqu'au portail. Enfin, dans le Plan Élémentaire de l'Eau,
+restez toujours dans la bulle d'air, ne vous approchez pas des
+<cite>krakens</cite> et autres <cite>eels</cite>, et n'hésitez pas à
+utiliser plusieurs fois un moyen de détecter le portail vu que celui-ci a
+tendance à bouger au fur et à mesure du temps...
+
+<p> Dans le Plan Astral, détectez par la télépathie ou un autre moyen les
+positions respectives des 3 <cite>Riders</cite>. Généralement,
+<cite>Death</cite> est moins effrayante que les deux autres (évitez
+simplement de lui jeter des sorts de <cite>Finger of Death</cite> ou
+d'utiliser une <cite>Wand of Death</cite> !). Évitez-la autant
+que possible en utilisant les insectes invoqués par les prêtres, et
+tuez-la si elle vient à côté de vous. Si elle ne garde pas l'autel de
+votre dieu, utilisez la même technique avec <cite>Famine</cite>, sans
+oublier de toujours garder à portée de main quelques
+<cite>C-rations</cite> ou <cite>K-rations</cite>. Si ce n'est toujours
+pas le bon autel, sortez des <cite>blessed potions of full healing</cite>
+de votre sac et fuyez <cite>Pestilence</cite> comme la peste ! ;-) Si
+elle vous touche, essayez de la tuer avant de vous soigner si vous
+disposez d'un nombre limité de moyens de vous soigner (potions par
+exemple), mais n'hésitez pas à les utiliser au bout de deux ou trois
+tours sous peine de mort subite ! Enfin, lorsque vous avez trouvé le bon
+autel, sacrifiez l'<cite>Amulet of Yendor</cite> à votre dieu, et
+soufflez un peu après cette éprouvante aventure, avant d'essayer de
+relever à nouveau le challenge avec une autre classe ;-).
+
+<p><a href=liste.html>Revenir à la liste des tutoriels</a>
+
+<p><hr>
+2003 - Erwan Grasland-Mongrain (<a
+href="mailto:erwan.grasland-mongrain@ens.fr">grasland@clipper.ens.fr</a>)
+
+</body>
+</HTML>

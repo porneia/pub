@@ -1,0 +1,213 @@
+<HTML> 
+<head>
+<BASE HREF="equip.html">
+ 
+<title> R1's Nethack page </title>
+<meta name="author" content="Erwan Grasland-Mongrain">
+</head> 
+
+<body BGCOLOR="#FFFFFF">
+
+<center><img src="nethack.png"></center>
+
+<center><h2><font color=green>Gestion de l'inventaire et des
+contenants</font></h2></center>
+
+<center><small>
+<a href="#inventory">Consulter l'inventaire</a> -
+<a href="#pickup">Ramasser des objets</a> -
+<a href="#drop">Déposer des objets</a> -
+<a href="#boxes">Contenants</a>
+</small></center>
+<br>
+<br>
+
+<p><a name="inventory"></a><b><font color=blue>Consulter son
+inventaire</font></b>
+
+<p> Maintenant, il serait temps de regarder ce que vous avez la chance de
+posséder à votre entrée dans le donjon. Pour afficher votre inventaire,
+c'est la touche « <kbd>i</kbd> » (pour <cite>(i)nventory</cite>) qu'il vous
+faudra utiliser. Selon les versions, vous pourrez conserver cette fenêtre
+ouverte en permanence ou non.
+
+<p><center><img src="invent.png"></center><small><center>Une fenêtre
+d'inventaire typique</center></small>
+
+<p> Comme vous pouvez le constater, les objets sont rangés par catégorie
+: <cite>Amulets</cite> (amulettes), <cite>Weapons</cite> (armes), <cite>Armors</cite>
+(armures), <cite>Comestibles</cite> (nourriture), <cite>Scrolls</cite>
+(parchemins), <cite>Spellbooks</cite> (livres de magie), <cite>Potions</cite>
+(potions), <cite>Rings</cite> (bagues), <cite>Wands</cite> (baguettes
+magiques), <cite>Tools</cite> (outils), <cite>Gems</cite> (gemmes et
+cailloux), <cite>Boulders/Statues</cite> (rochers et statues) et
+<cite>Gold</cite> (or) (ce dernier n'est pas toutefois affiché dans la
+fenêtre d'inventaire). À chaque objet est associé une lettre au moment où
+vous le ramassez : chaque fois que vous aurez faire quoi que ce soit avec
+un objet, vous devrez le désigner par cette lettre. Cela implique
+notamment que vous ne pourrez pas transporter plus de 52 objets (les
+majuscules comptent) dans votre inventaire, indépendamment de leur poids,
+à moins bien sûr que vous ne trouviez un contenant secondaire dans lequel
+mettre les objets excédentaires. Notez que l'or n'est pas inclu dans ces
+52 objets, et qu'il est toujours associé au symbole « <kbd>$</kbd> » au
+lieu d'une lettre.
+
+<p> Vous pouvez également lister une partie seulement de votre
+inventaire : tapez pour cela « <kbd>I</kbd> » suivi de la lettre associée à
+la catégorie d'objets que vous désirez lister dans le petit menu qui
+s'est affiché, ou du symbole désignant cette catégorie dans la version
+texte (pour information : « <kbd>&quot;</kbd> » pour les amulettes,
+« <kbd>)</kbd> » pour les armes, « <kbd>[</kbd> » pour les armures,
+« <kbd>%</kbd> » pour la nourriture, « <kbd>?</kbd> » pour les
+parchemins, « <kbd>+</kbd> » pour les livres, « <kbd>!</kbd> » pour les
+potions, « <kbd>=</kbd> » pour les anneaux, « <kbd>/</kbd> » pour les
+baguettes magiques, « <kbd>(</kbd> » pour les outils, « <kbd>*</kbd> »
+pour les gemmes, « <kbd>`</kbd> » pour les rochers et les statues et
+« <kbd>$</kbd> » pour l'or). Dans tous les cas, la lettre
+« <kbd>u</kbd> » peut aussi être utilisé pour désigner les objets non
+payés de votre inventaire.
+
+
+<p><a name="pickup"></a><b><font color=blue>Ramasser des
+objets</font></b>
+
+<p> Après quelques pas dans le donjon, vous avez sûrement aperçu des
+objets divers traîner ça et là par terre dans le donjon. Pour
+l'aventurier assoiffé d'or et d'objets magiques que vous êtes (vous serez
+peut-être être déçu au début...), ces objets vous appartiennent de droit,
+il n'y a qu'à se baisser pour les ramasser. Oui, mais comment ?
+Simplement avec la touche « <kbd>,</kbd> » une fois que vous vous serez
+placé sur la case où se trouve l'objet. Il se peut que plusieurs objets
+soient sur une même case, dans ce cas sélectionnez simplement ceux que
+vous désirez prendre en appuyant sur les touches associées aux lettres
+inscrites à côté des objets (ou en cliquant dessus si votre interface le
+permet). Le ou les objet(s) sont alors automatiquement placés dans votre
+<cite>knapsack</cite> (c'est-à-dire votre inventaire) en prenant la
+lettre immédiatement supérieure à la plus grande lettre de votre
+inventaire. 
+
+<p> Il existe une option qui vous permet de ramasser automatiquement tous
+les objets sur lesquels vous marchez (elle est automatiquement activée
+dans certaines versions de Nethack, notamment la version Windows). Pour
+l'activer ou la désactiver, appuyez sur la touche « <kbd>@</kbd> », le
+message « <samp>Autopickup: ON.</samp> » ou « <samp>Autopickup:
+OFF.</samp> » s'affichera alors selon les cas. Vous pouvez régler cette
+option par défaut dans votre fichier de configuration (voir <a
+href="avancees.html#options">le tutoriel sur les options</a>) en y
+ajoutant ou retirant la ligne « <kbd>OPTION=noautopickup</kbd> ». Bien
+que cette option paraisse intéressante au premier abord, elle se révèle
+en fait assez peu pratique à l'usage, car vous vous retrouverez bien vite
+complètement surchargé d'objets inutiles (cadavres d'orc, gros coffres,
+cailloux...), voire dangereux (vous trouverez bien par vous-même
+lesquels...).
+
+<p><a name="drop"></a><b><font color=blue>Déposer des objets
+au sol</font></b>
+
+<p> Ça y est, vous êtes <cite>Burdened</cite> ? Vous devez sûrement avoir un
+paquet d'objets inutiles dans votre inventaire... Choisissez-en un
+particulièrement inintéressant, et déposez-le au sol avec la commande
+« <kbd>d</kbd> » (pour <cite>(d)rop</cite>), suivie de la lettre associée
+à cet objet. Si vous faites un pas de côté, vous devriez le voir sur la
+case où vous étiez.
+
+<p> Si vous désirez déposer un certain nombre d'objets désignés par la
+même lettre (typiquement, de l'or, mais aussi des parchemins, des dagues
+ou des potions identiques), précédez la lettre du nombre que vous voulez
+déposer : « <kbd>d100$</kbd> » déposera 100 pièces d'or,
+« <kbd>d3g</kbd> » déposera trois objets du type désigné par la lettre g,
+etc. Si vous ne spécifiez aucun nombre, le jeu supposera que vous voulez
+tous les déposer.
+
+<p> Une fois que vous avez déposé un objet, il conserve (tant que cela
+est possible) la lettre qui lui avait été attribuée la première fois que
+vous l'avez pris. Autrement dit, si vous déposez un objet A puis en
+récupérez un autre B, et enfin reprenez l'objet A, celui-ci sera encore
+désigné par la même lettre (sauf bien sûr si votre inventaire est
+suffisamment plein pour que cette lettre devienne entretemps occupée).
+C'est particulièrement utile lorsque vous avez à effectuer une série de
+commandes avec un ou plusieurs objets (par exemple
+« <kbd>TbTgWlWb</kbd> » pour remplacer une armure sous une cape, voir le
+tutoriel suivant) : cette séquence restera normalement identique au cours
+du jeu, ce qui permet de la mémoriser et de la taper plus vite.
+Cependant, si vous désirez réattribuer une lettre de votre équipement
+(par exemple si un objet que vous utilisiez souvent a malencontreusement
+changé de lettre, ou si vous avez l'habitude d'associer un objet précis à
+une lettre dans toutes vos parties), vous pouvez utiliser la commande
+<cite>adjust</cite> « <kbd>#a&lt;Enter&gt;</kbd> » (ou
+« <kbd>M-a</kbd> ») pour les réorganiser : tapez à la suite de cette
+commande la lettre de l'objet que vous désirez changer, puis la nouvelle
+lettre que vous souhaitez lui attribuer. Vous pouvez également désactiver
+cette option (nommée <cite>fixinv</cite>) dans votre fichier de
+configuration ou en cours de partie (voir <a
+href="avancees.html#options">le tutoriel sur les options</a>).
+
+
+<p><a name="boxes"></a><b><font color=blue>Manipuler des
+contenants</font></b>
+
+<p><center><img src="large_box.png"> <img src="ice_box.png"> <img
+src="chest.png"> <img src="bag.png"></center>
+<small><center>Différents contenants de Nethack : boîte, glacière, coffre
+et sac (liste non exhaustive...)</center></small>
+
+<p> Lors de votre exploration du donjon, il vous arrivera sûrement de tomber
+sur quelque chose ressemblant à un coffre. Comme tout aventurier qui se
+respecte, considérant que son contenu vous appartient désormais, vous
+allez alors tenter de l'ouvrir. Pour cela, placez-vous sur la même case
+que le contenant, et utilisez la commande <cite>#loot</cite> : tapez
+« <kbd>#l&lt;Enter&gt;</kbd> » (ou « <kbd>M-l</kbd> », voire simplement
+« <kbd>l</kbd> » si vous jouez avec le pavé numérique), puis
+« <kbd>y</kbd> » pour confirmer, et appropriez-vous les richesses qu'il
+ne manquera pas de contenir.
+
+<p> Ça, c'était la théorie... Il est en effet fréquent que les coffres
+(comme tout autre contenant du même genre) soient fermés à clé (on se
+demande bien pourquoi...) ; cependant, rien ne vous empêche de passer
+outre cet obstacle mineur : reportez-vous au <a
+href="base.html#doors">tutoriel sur les portes</a> (paragraphe sur
+l'ouverture des portes fermées à clé) plus d'informations sur comment
+traiter avec ce genre de nuisance (à savoir, « <kbd>^d</kbd> » lorsque
+vous êtes sur une case voisine pour lui donner des coups de pied, ou
+utiliser un objet pour crocheter la serrure). Cependant, vous vous
+apercevrez bien vite que secouer ainsi un pauvre coffre peut avoir pour
+conséquence de détériorer son contenu. Heureusement, une autre solution
+existe si vous suspectez le coffre de contenir quelque chose de fragile
+et de précieux, et que vous ne disposez pas d'outil adapté au crochetage
+de serrures. Lorsque vous avez une arme quelconque en main, essayez la
+commande <cite>#force</cite> : « <kbd>#f&lt;Enter&gt;</kbd> » (ou
+« <kbd>M-f</kbd> »), puis « <kbd>y</kbd> » pour confirmer. Selon le type
+d'arme que vous aurez en main, vous défoncerez le coffre ou vous
+glisserez une lame entre son couvercle et sa base (dans le but de faire
+levier et de faire sauter la serrure). Si vous êtes chanceux, le coffre
+s'ouvrira avec son contenu intact. Si vous êtes malchanceux... la serrure
+du coffre peut du même coup devenir inutilisable (ce qui n'est en général
+pas trop gênant), une partie de son contenu peut être détruite (déjà un
+peu plus gênant), ou encore votre arme peut s'abîmer (ce qui peut être
+dramatique...). À utiliser avec précaution donc (avec une arme « de
+secours » par exemple) !
+
+<p> N'oubliez pas non plus que les coffres, fermés à clé ou non, peuvent
+très bien cacher des pièges plus ou moins sournois (dont vous testerez
+les effets bien assez tôt). Si vous y pensez, placez-vous sur la case
+où se trouve le coffre, et utilisez la commande <cite>#untrap</cite>
+(« <kbd>#u&lt;Enter&gt;</kbd> » ou « <kbd>M-u</kbd> » ou <kbd>u</kbd> si
+vous utilisez le pavé numérique), puis « <kbd>.</kbd> » pour indiquer que
+vous désirez regarder s'il y a des pièges sur la case où vous vous
+trouvez, et enfin « <kbd>y</kbd> » pour confirmer. En cas de succès, vous
+pourrez alors essayer de désamorcer le piège. En revanche, en cas
+d'échec, vous n'aurez aucun moyen de savoir si c'est parce que vous
+n'avez pas bien cherché ou si c'est parce qu'il n'y a effectivement pas
+de piège... Notez que la démarche est la même pour chercher des pièges
+sur une porte (en indiquant la direction de la porte au lieu de
+« <kbd>.</kbd> » bien sûr).
+
+<p><small><a href=objets.html>Lire le tutoriel suivant</a>
+<br><a href=index.html>Revenir à la liste des tutoriels</a></small>
+
+<p><hr>
+2003 - Erwan Grasland-Mongrain (<a
+href="../../mail.html">m'écrire...</a>)
+
+</body>
+</HTML>

@@ -1,0 +1,76 @@
+---
+layout: project
+title: "Faire marcher une carte son ESS Tech Allegro sous Debian"
+date: 2012-02-21 00:33:30 +0100
+id: "0221"
+---
+<p>
+Sous Debian Lenny et Squeeze au moins, certaines cartes sons ESS
+(maestro) ne fonctionnent pas par défaut. Pourtant, dans le cas
+présent, la carte est bien détectée et les modules sont chargés :
+
+<pre>
+$ <b>lspci |grep audio</b>
+02:03.0 Multimedia audio controller: ESS Technology ES1988 Allegro-1 (rev 12)
+$ <b>lsmod |grep maestro</b>
+snd_maestro3           12703  1
+snd_ac97_codec         79200  2 snd_intel8x0m,snd_maestro3
+snd_pcm                47226  3 snd_intel8x0m,snd_maestro3,snd_ac97_codec
+snd                    34423  9 snd_intel8x0m,snd_maestro3,snd_ac97_codec,snd_pcm,snd_seq,snd_timer,snd_seq_device
+</pre>
+
+<p>
+Cependant pas de son. Les tests de bases avec VLC ou aplay renvoient
+des erreurs. En cherchant un peu plus on trouve ceci :
+
+<pre>
+[    8.757898] firmware: requesting ess/maestro3_assp_kernel.fw
+[    8.865895] ACPI: PCI interrupt for device 0000:02:09.0 disabled
+[    8.873406] Maestro3: probe of 0000:02:09.0 failed with error -2
+</pre>
+
+<p>
+Selon <code>dmesg</code> il manque donc apparement les firmwares pour
+le bon fonctionnement de la carte son. Pour des raisons obscures ils
+ne sont pas fournis par Debian. Il nous faut donc les récupérer sur le
+ftp du projet alsa (<a href="ftp://ftp.alsa-project.org/pub/firmware/"
+class="external">ftp://ftp.alsa-project.org/pub/firmware/</a>) :
+
+<pre>
+$ <b>cd /tmp</b>
+$ <b>wget ftp://ftp.alsa-project.org/pub/firmware/alsa-firmware-1.0.25.tar.bz2</b>
+$ <b>tar xvjf alsa-firmware-1.0.25.tar.bz2</b>
+$ <b>cd alsa-firmware-1.0.25/</b>
+$ <b>./configure</b>
+$ <b>cd mestro3</b>
+$ <b>sudo make install</b>
+gcc -DPACKAGE_NAME=\&quot;\&quot; -DPACKAGE_TARNAME=\&quot;\&quot; \
+ -DPACKAGE_VERSION=\&quot;\&quot; -DPACKAGE_STRING=\&quot;\&quot; \
+ -DPACKAGE_BUGREPORT=\&quot;\&quot; -DPACKAGE_URL=\&quot;\&quot; \
+ -DPACKAGE=\&quot;alsa-firmware\&quot; -DVERSION=\&quot;1.0.25\&quot; \
+ -DSTDC_HEADERS=1 -I. -g -O2 -MT fw_writer.o -MD -MP -MF .deps/fw_writer.Tpo \
+ -c -o fw_writer.o fw_writer.c
+mv -f .deps/fw_writer.Tpo .deps/fw_writer.Po
+gcc  -g -O2   -o fw_writer fw_writer.o
+./fw_writer
+writing maestro3_assp_kernel.fw ...
+writing maestro3_assp_minisrc.fw ...
+make[1]: entrant dans le répertoire `/tmp/alsa-firmware-1.0.25/maestro3'
+make[1]: Rien à faire pour `install-exec-am'.
+test -z &quot;/lib/firmware/ess&quot; || /bin/mkdir -p &quot;/lib/firmware/ess&quot;
+ /usr/bin/install -c -m 644 maestro3_assp_kernel.fw \
+           maestro3_assp_minisrc.fw '/lib/firmware/ess'
+make[1]: quittant le répertoire `/tmp/alsa-firmware-1.0.25/maestro3'
+$ <b>ls /lib/firmware/ess/</b>
+maestro3_assp_kernel.fw  maestro3_assp_minisrc.fw
+</pre>
+
+<p>
+Après un reboot tout entre dans l'ordre :
+
+<pre>
+$ <b>dmesg |grep -i maestro</b>
+[    8.867069] Maestro3 0000:02:03.0: PCI INT A -> Link[LNKD] -> GSI 5 (level, low) -> IRQ 5
+[    8.867082] Maestro3 0000:02:03.0: firmware: requesting ess/maestro3_assp_kernel.fw
+[    9.100840] Maestro3 0000:02:03.0: firmware: requesting ess/maestro3_assp_minisrc.fw
+</pre>

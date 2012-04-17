@@ -1,0 +1,630 @@
+tool-343.txt  Last edited 2006-11-17 for NetHack 3.4.3
+Tools, their properties, and the invocation items in NetHack 3.4
+Compiled for 3.2.2 by Kevin Hugo.
+Updated for 3.4.3 by Dylan O'Donnell <psmith@spod-central.org>.
+
+TOOL                          COST  WGT  PROB   CHG  APPEARANCE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~ : ~~~~  ~~~  ~~~~ : ~~~  ~~~~~~~~~~
+Containers                  :                 :
+  sack                      : $  2   15   35  :      bag
+  large box                 :    8  350   40  :      --
+  chest                     :   16  600   35  :      --
+  ice box                   :   42  900    5  :      --
+  bag of holding            :  100   15   20  :      bag
+  bag of tricks             :  100   15   20  :  20  bag
+  oilskin sack              :  100   15    5  :      bag
+Unlocking tools             :                 :
+  credit card*              :   10    1   15  :      --
+  lock pick         (osaku) :   20    4   60  :      --
+  skeleton key              :   10    3   80  :      key
+Light sources               :                 :
+  tallow candle             :   10    2   20  :      candle
+  wax candle                :   20    2    5  :      candle
+  brass lantern             :   12   30   30  :1499  --
+  oil lamp                  :   10   20   45  :1499  lamp
+  magic lamp                :   50   20   15  :      lamp
+  Candelabrum of Invocation : 5000   10    0  :      candelabrum
+Instruments                 :                 :
+  tin whistle               :   10    3  100  :      whistle
+  magic whistle             :   10    3   30  :      whistle
+  bugle                     :   15   10    4  :      --
+  wooden flute              :   12    5    4  :      flute
+  magic flute               :   36    5    2  :   8  flute
+  tooled horn               :   15   18    5  :      horn
+  frost horn                :   50   18    2  :   8  horn
+  fire horn                 :   50   18    2  :   8  horn
+  horn of plenty            :   50   18    2  :  20  horn
+  leather drum              :   25   25    4  :      drum
+  drum of earthquake        :   25   25    2  :   8  drum
+  wooden harp        (koto) :   50   30    4  :      harp
+  magic harp                :   50   30    2  :   8  harp
+  bell                      :   50   30    2  :      --
+  Bell of Opening           : 5000   10    0  :   3  silver bell
+Traps                       :                 :
+  beartrap                  :   60  200    0  :      --
+  land mine                 :  180  300    0  :      --
+Weapon-Tools                :                 :
+  pick-axe                  :   50  100   20  :      --
+  grappling hook            :   50   30    5  :      iron hook
+  unicorn horn              :  100   20    0  :      --
+Other tools                 :                 :
+  expensive camera*         :  200   12   15  :  99  --
+  mirror                    :   10   13   45  :      looking glass
+  crystal ball              :   60  150   15  :   5  glass orb
+  lenses                    :   80    3    5  :      --
+  blindfold                 :   20    2   50  :      --
+  towel                     :   50    2   50  :      --
+  saddle*                   :  150  200    5  :      --
+  leash                     :   20   12   65  :      --
+  stethoscope               :   75    4   25  :      --
+  tinning kit               :   30  100   15  :  99  --
+  tin opener                :   30    4   35  :      --
+  can of grease             :   20   15   15  :  25  --
+  figurine                  :   80   50   25  :      --
+  magic marker              :   50    2   15  : 99!  --
+
+Tools are listed above by category.  The COST field denotes the base
+price of each item.  WGT specifies the weight (100 zorkmids weighs 1).
+The existence of some items depends on options chosen when the program
+was compiled; they are noted with an asterisk (*).
+
+Tools comprise 8% of all randomly-generated items in the main dungeon,
+0% in containers, 0% on the Rogue level, and 12% in hell.  PROB is
+the relative probability of each subtype.  See below for more details
+on item generation.
+
+If the CHG field is not blank, then the tool can be charged by a scroll
+of charging or the Platinum Yendorian Express Card. The number shows the
+maximum number of initial charges. An exclamation mark (!) indicates
+that the tool can only be recharged once.
+
+Finally, some items have a different APPEARANCE until they are identified.
+Note that many tools share the same appearance with other types of tools.
+
+
+Using containers
+~~~~~~~~~~~~~~~~
+Containers are generated uncursed, with the CONTENTS described below. 
+Containers will not be generated containing tools, weapons, armour or
+rocks. Containers in your initial inventory will be empty.  If the
+container can be LOCKED, then there is an 80% chance that it will be
+generated locked and a different 10% chance that it will be trapped.  Not
+all containers FIT into other containers.  Some containers have special
+EFFECTS.  All of the containers except ice boxes can be eaten by
+gelatinous cubes; the contents will be engulfed but unharmed.
+  CONTAINER       CONTENTS      LOCKED  FIT  EFFECTS
+  ~~~~~~~~~~~~~~  ~~~~~~~~~~~~  ~~~~~~  ~~~  ~~~~~~~
+  sack            0-1 items     No      Yes  --
+  large box       0-3 items     Yes     No   --
+  chest           0-5 items     Yes     No   --
+  ice box         0-20 corpses  No      No   Suspends rotting of corpses.
+  bag of holding  0-1 items     No      Yes  May reduce weight.
+  bag of tricks   1-20 charges  No      Yes  Bites you / creates monsters.
+  oilskin sack    0-1 items     No      Yes  May prevent water damage.
+
+Quantum mechanics may carry a large box containing either a live or
+dead housecat named Schroedinger's Cat.  The state of the cat is not
+determined until the box is opened.  There is nothing special about
+this cat; it is just a silly physics joke. 
+
+The weight of a bag of holding (wgt) -- including the 15 for the bag
+itself -- depends on the weight of its contents (cwgt) and its blessed
+status:
+  blessed:   wgt = 15 + cwgt/4 + 1
+  uncursed:  wgt = 15 + cwgt/2 + 1
+  cursed:    wgt = 15 + cwgt*2
+
+You may also lose items when you use a cursed bag of holding; each item
+in the bag has a 1/13 chance of disappearing each time you apply or loot
+the bag.
+
+Putting any of the following (and ONLY the following) items into any bag
+of holding will cause it to explode:
+  (another) bag of holding
+  bag of tricks (with non-zero charge)
+  wand of cancellation (with non-zero charge)
+It is sometimes possible to put one of these items into nested sacks
+and/or oilskin sacks and then place them safely inside a bag of holding.
+The chance of an explosion occurring then depends on the amount of
+nesting:
+  sacks:  0    1    2    3    4     5     6      7      8        n
+  odds:  1/1  2/2  3/4  4/8  5/16  6/32  7/64  8/128  9/128  (n+1)/128
+
+When a bag of tricks is #looted, it will bite you (1 to 10 hit points
+damage) and become identified.  If you (a)pply it and it has charges
+left, it will create one monster 22 out of 23 times, and create 2 to
+8 monsters 1 out of 23 times.  "Nothing happens" when you apply a bag
+with zero charges. Bags of tricks are generated with 1 to 20 charges.
+If the bag has more than 10 charges, a blessed scroll of charging will
+add 6 to 10 charges, otherwise it will add 6 to 15 charges; an uncursed
+scroll will always add 1 to 5 charges.  Cannot be charged higher than 50
+charges.
+
+When ungreased bags get wet, their contents may also get wet.  Greasing
+a bag will prevent this, but there is a 50% chance each time of the
+grease washing off. A non-cursed oilskin sack will also prevent this;
+if the oilskin sack is cursed, there is a 1/3 chance that the contents
+can get wet.  Boxes and chests are all waterproof.
+
+If a container (other than a bag of holding) is kicked, thrown, or
+dropped from a height, fragile contents (glass items (other than
+worthless glass) and eggs) may be destroyed. Kicking a locked large
+box or chest may also break it open (see below).
+
+
+Using unlocking tools
+~~~~~~~~~~~~~~~~~~~~~
+Each of the tools, wands, and spells listed below can be used for locking
+and unlocking doors, large boxes, and chests.  Not all methods can LOCK
+or UNLOCK.  DOOR and BOX represent the probability (in percent) of
+succeeding each turn when attempting to unlock doors and large boxes or
+chests respectively; it may be based on your Dexterity and you will fail
+after 50 turns.  ROGUEs may get an additional percentile bonus for using an
+implement (the numbers before and after the slash being added to DOOR/BOX
+respectively).  The per-turn probability of picking the lock is halved if
+you use a cursed credit card, lock pick, or skeleton key.  All unlocking
+tools are generated uncursed.
+  TOOL             LOCK  UNLOCK  DOOR    BOX     ROGUE
+  ~~~~~~~~~~~~~~~  ~~~~  ~~~~~~  ~~~~~~  ~~~~~~  ~~~~~
+  credit card      No     Yes    2*Dex   Dex     20/20
+  lock pick        Yes    Yes    3*Dex   4*Dex   30/25
+  skeleton key     Yes    Yes    70+Dex  75+Dex   0/0
+  wand/spell open  No     Yes    100     100      0/0
+  wand/spell lock  Yes    No     100     100      0/0
+
+Using any of the first three types will exercise your dexterity, even if
+you don't succeed.  Please note that a credit card has no special effects
+in shops, although you can unlock a shop "Closed for inventory" and you
+can buy and sell it like any other item.  If a watchman or watch captain
+sees you pick a door with any tool, he may get upset; if he warns you
+off, a trap is automatically added to the door in question.
+
+Wands of opening and locking and the spells of knock and wizard lock
+always work in one turn and can be performed from a distance.  Zapped
+opening will also unlock doors in the same turn, will lower drawbridges,
+and can remove a ball and chain (as will ringing the blessed Bell of
+Opening).  Zapped closing will close a door in the same turn (if there
+are no objects in the way; creating one if necessary) and will raise
+drawbridges. 
+
+You can also attempt to break a lock on a large box or chest by #forcing
+it with a suitable weapon or kicking it open. This may EXERCISE your
+dexterity or strength, but may also destroy any WEAPON you use, the
+CONTAINER and/or some of the CONTENTS (possibly restricted to fragile
+ones, namely glass items (other than worthless glass) and eggs):
+  METHOD        WEAPON  CONTAINER  CONTENTS  EXERCISE 
+  ~~~~~~        ~~~~~~  ~~~~~~~~~  ~~~~~~~~  ~~~~~~~~
+  Blunt weapon    No       Yes       Yes       STR
+  Edged weapon   Yes        No        No       DEX
+  Kicking         --        No      Fragile     No   
+
+
+Using light sources
+~~~~~~~~~~~~~~~~~~~
+Light sources are generated to stay lit for the number of TURNS noted
+below.  They are GENERATED in the quantity and blessed state shown.
+Cursed light sources will sometimes not light.
+  LIGHT SOURCE   TURNS        GENERATED
+  ~~~~~~~~~~~~~  ~~~~~~~~~~~~  ~~~~~~~~~
+  tallow candle           200  1 to 7; 10% blessed, 80% uncursed, 10% cursed
+  wax candle              400  1 to 7; 10% blessed, 80% uncursed, 10% cursed
+  brass lantern  1000 to 1499  10% blessed, 80% uncursed, 10% cursed
+  oil lamp       1000 to 1499  10% blessed, 80% uncursed, 10% cursed
+  magic lamp       Infinite    25% blessed, 50% uncursed, 25% cursed
+  potion of oil           400  1/8 blessed, 3/4 uncursed, 1/8 cursed
+  Sunsword         Infinite    10% blessed, 80% uncursed, 10% cursed
+
+Candles can also be applied to the Candelabrum of Invocation.  Brass
+lanterns and oil lamps can be refilled by a scroll of charging; a blessed
+scroll will refill them to 1500 turns, an uncursed scroll will add 750
+turns to a maximum of 1500. Oil lamps with 1000 or fewer turns left can
+also be refilled with potions of oil, getting twice the remaining turns
+in the potion of oil. (Attempting to refill an oil lamp with a *lit*
+potion of oil, or while the lamp is lit, will cause an explosion dealing
+6 to 36 points of damage). No lamp can be filled beyond 1500 turns.
+
+The artifact weapon Sunsword will act as a light source whenever wielded,
+either by you or by a monster.
+
+If you wish for a magic lamp, you will instead get an ordinary oil lamp.
+
+Magic lamps never run out of power, and may summon a djinni and lead to
+a wish when #rubbed.  Each time you rub the lamp, there is a 1/3 chance
+that "You see a puff of smoke" and another 1/3 chance that "Nothing
+happens"; in either case, just try again.
+
+The remaining 1/3 of the time a djinni appears, the lamp is identified
+and turned into an oil lamp, and one of five outcomes can occur.  The
+relative chance of these outcomes depends on whether the lamp was
+blessed, uncursed, or cursed:
+  BLESSED  UNCURSED  CURSED  OUTCOME
+  ~~~~~~~  ~~~~~~~~  ~~~~~~  ~~~~~~~
+    80%       20%       5%   Grants one wish, then disappears.
+                             "I am in your debt.  I will grant one wish!"
+     5%       20%       5%   Remains as a pet.
+                             "Thank you for freeing me!"
+     5%       20%       5%   Remains as a peaceful monster.
+                             "You freed me!"
+     5%       20%       5%   Speaks, then vanishes.
+                             "It is about time!"
+     5%       20%      80%   Remains as a hostile monster.
+                             "You disturbed me, fool!"
+NOTE: There is no way to get a wish from the djinni other than the first
+outcome above.
+
+There is a limit of 120 djinn per game.  Beyond this limit, they are
+extinct and no more can be created.
+
+Using instruments
+~~~~~~~~~~~~~~~~~
+All instruments are generated uncursed.  In this section, "nearby" means
+within some distance from you that depends on your experience level.
+Depending on your system, configuration, and options, sounds may also be
+produced on your system's speaker.
+
+tin whistle
+  Wakes nearby monsters and calls nearby pets.
+    "You produce a high whistling sound."  (non-cursed)
+    "You produce a shrill whistling sound."  (cursed)
+
+magic whistle
+  non-cursed
+    Teleports pets next to you.
+      "You produce a strange whistling sound."  (not hallucinating)
+      "You produce a normal whistling sound."  (hallucinating)
+  cursed
+    50% chance of acting as non-cursed; otherwise, wakes nearby monsters
+    and calls nearby pets.
+      "You produce a high-pitched humming noise."
+
+horn of plenty
+  Created with 1 to 20 charges. If more than 10 charges, blessed scrolls of
+  charging add 6 to 10 charges, otherwise 6 to 15 charges. Uncursed
+  scrolls of charging add 1 to 5 charges. Cannot be charged higher than
+  50 charges.
+  No effect if no charges.
+  Creates some food (including royal jelly) or a potion of water, fruit
+  juice, booze, acid, sickness, or oil.
+  The blessed/uncursed/cursed state of the object produced is the same as
+  the horn.
+
+leather drum
+  Awakens and may scare nearby monsters. Abuses wisdom.
+    "You beat a deafening row!"
+
+drum of earthquake
+  Created with 4 to 8 charges. Blessed scrolls of charging add 2 to 8
+  charges; uncursed scrolls 1 to 4 charges.  Drums cannot have more than
+  20 charges.
+  Creates several pits around you, and angers peaceful monsters in the
+  vicinity. Awakens and may scare all monsters on the level.
+    "You produce a heavy, thunderous rolling! The entire dungeon is
+    shaking around you!"
+
+bell
+  Doesn't work under water or when swallowed.
+  non-cursed
+    Wakes nearby monsters and calls nearby pets.
+  cursed
+    There is a 1/4 chance of summoning a nymph (with no inventory), if they
+    aren't already genocided or extinct. There is a further chance that the
+    bell breaks, and/or that you are paralyzed or the nymph is made fast.
+    Wakes nearby monsters and calls nearby pets.
+
+The following instruments can be used to play notes to open the Castle
+drawbridge. You will hear one "gear turn" for each correct note in the
+right position and one "tumbler click" for each correct note in the wrong
+position. However, if you improvise, you will get the EFFECT shown; some
+monsters may resist.  Charged instruments are created with 4 to 8 charges.
+Blessed scrolls of charging add 2 to 8 charges; uncursed scrolls 1 to 4
+charges.  They can never have more than 20 charges.
+  INSTRUMENT          EFFECT
+  ~~~~~~~~~~~~~~~~~~  ~~~~~~
+  bugle               Awaken and anger soldiers on level, abuse wisdom.
+  wooden flute        Make nearby snakes peaceful (if enough dexterity and
+                      experience), exercise dexterity.
+  magic flute         May put nearby monsters to sleep, exercise dexterity.
+  tooled horn         Awaken and may scare nearby monsters, abuse wisdom.
+  frost horn          Same as a wand of cold other than dealing 6 to 66
+                      base damage (plus 6 to 33 against fire resistant
+                      monsters).
+  fire horn           Same as a wand of fire other than dealing 6 to 66
+                      base damage (plus 6 to 33 against cold resistant
+                      monsters).
+  wooden harp (koto)  Make nearby nymphs peaceful (if enough dexterity and
+                      experience), exercise dexterity.
+  magic harp          May tame nearby monsters, exercise dexterity.
+
+
+Using other tools
+~~~~~~~~~~~~~~~~~
+Unless noted, all items in this section are generated uncursed. Not all
+of them are actual tools; a few items of other object types can also be
+a)pplied.
+
+beartrap or land mine
+  If you successfully #untrap one of these traps, the trap becomes a tool.
+  You can pick up the tool and later re-arm the trap at your current
+  location by (a)pplying the tool.
+
+bullwhip
+  This weapon can also be applied to get yourself out of a pit, unwield
+  or steal another monster's weapon, hit a monster, whip your steed into a
+  gallop, or grab objects off the floor while levitating.
+
+pick-axe
+  You can dig by (a)pplying a pick-axe or dwarvish mattock.  Specify > to 
+  dig downward (first makes a pit, then a hole), or a direction to dig
+  through rock, walls, or doors, or to smash up statues or boulders.
+
+axe or battle-axe
+  These weapons can also be applied to chop down doors or trees.
+
+cream pie
+  You can apply this food item to blind yourself for 1 to 25 (more) turns.
+
+eucalyptus leaf
+  non-blessed
+    Acts like a tin whistle (see instruments, above).
+  blessed
+    Acts like a blessed magic whistle (see instruments, above). Each
+    use has a 1/49 chance of unblessing the leaf.
+
+grappling hook
+  You can apply this tool to grab an object at a distance, hit a monster
+  (or, if small, drag it towards you), drag yourself in a direction, or
+  hit yourself for 10 to 19 points of damage. If you are at least skilled
+  in flail, you can attempt to choose between the first three options
+  (with a 50% chance of accuracy if skilled, 95% if expert); otherwise,
+  the effect will be randomly chosen. 
+
+unicorn horn
+  non-cursed
+    Randomly fixes one or more of the following troubles: sickness,
+    blindness, hallucination, vomiting, confusion, stunning, and loss of
+    an attribute.  The approximate chances of fixing a certain number of
+    troubles are shown here:
+      # Troub:    0      1      2      3      4      5      6      7
+      blessed:  22.7%  22.7%  19.5%  15.4%  10.7%   5.7%   2.6%   0.8%
+     uncursed:  35.4%  35.4%  22.9%   6.3%    0      0      0      0
+  cursed
+    You get one of the following: illness, blindness, confusion,
+    stunning, hallucination, or a decremented attribute.
+  Unicorn horns don't fix stoning, sliming, strangulation, or wounded legs.
+  #dipping a unicorn horn in a potion of blindness, confusion, or
+  hallucination turns the potion into uncursed water.  Dipping it in
+  a potion of sickness produces non-blessed fruit juice.
+  Unicorn horns also make a fairly good weapon.  They are two-handed.
+
+expensive camera
+  Generated with 30 to 99 charges. An uncursed scroll of charging will
+  add 10 to 20 charges, and then bring the camera to a minimum of 50
+  charges. A blessed scroll of charging will add 15 to 30 charges,
+  and then bring the camera to a minimum of 50 charges (75 if between
+  51 and 74). A camera may never have more than 127 charges.
+  You can get several humorous messages by applying it in certain
+  situations.
+  A cursed camera has a 50% chance of blinding you when applied.
+  Otherwise, you can blind monsters.
+
+mirror
+  Cursed mirrors only work half of the time.
+  You can get several humorous messages by applying it in certain
+  situations (especially hallucinating; try underwater or at yourself
+  while polymorphed into a floating eye).
+  You can use a mirror to make a monster's gaze attacks work against
+  itself (if the monster isn't cancelled):
+    vampire or ghost   No reflection
+    Medusa             Turns to stone
+    floating eye       Paralyzed, if it is not invisible
+    umber hulk         Confused
+    nymph or succubus  Steals the mirror, if she is not invisible
+  Otherwise, you have a 4 out of 5 chance of scaring the monster
+  in that direction for 2 to 8 turns.  The monster cannot be a
+  unicorn or humanoid, must have eyes and be unblind, and must be able
+  to see invisible if it is invisible.
+  Breaking any mirror (except by kicking a container) carries a -2 penalty
+  to luck.
+
+crystal ball
+  Generated 1/4 blessed, 1/2 uncursed, 1/4 cursed.
+  Generated with 1 to 5 charges. (If your Quest Artifact is a crystal ball,
+  it is always generated with 5 charges.) Blessed scrolls of charging set
+  the ball to 6 charges. Uncursed scrolls of charging add one charge, to a
+  maximum of 5.
+  Applying a crystal ball will cause you to be immobile (in a trance) for 1
+  to 10 turns.
+  There are several humorous messages if used when hallucinating.
+  non-cursed
+    You may look for an object, monster or symbol (including traps and
+    portals, ^, but not stairs or other dungeon features).  There is an
+    (intelligence in 20) chance of success; otherwise, you suffer the same
+    effects as a cursed crystal ball.
+  cursed
+    One of the following happens: nothing, you are confused, you are
+    blinded, you hallucinate, or the ball explodes (not if an artifact).
+
+lenses
+  These protect you from being blinded by ravens, spat venom or thrown
+  cream pies. They increase the effectiveness of searching, and reduce
+  the failure rate and time taken to learn spells from spellbooks.
+
+blindfold
+  You can controllably blind yourself by (a)pplying it or (P)utting
+  it on.  A cursed blindfold cannot be removed by yourself.
+
+towel
+  You can controllably blind yourself (like a blindfold) by (P)utting
+  it on.  A cursed towel cannot be removed by yourself.
+  When (a)pplied, a towel can clean greasy hands (e.g., from a tin of
+  greasy food) or clean a cream pie off your face.  A cursed towel has
+  a 1/3 chance of causing each of these problems, or else it works
+  normally.
+  If you (E)ngrave with a towel, you can rub out writing in the dust.
+
+saddle
+  You can (a)pply it to a monster (equines, quadrupeds, dragons,
+  jabberwocks, ki-rin or couatls) in order to be able to ride it in
+  future. Chance of successfully saddling depends on dexterity,
+  charisma, tameness of monster and riding skill; Knights receive a
+  bonus, as does wearing riding boots or gloves.
+
+leash
+  You can (a)pply it to a tame monster to keep it nearby.
+  Once you have leashed a monster, you can release it by re-(a)pplying the
+  leash.  A cursed leash can't be removed by yourself, and moving too far
+  from your pet may cause it to be choked and take damage.
+
+stethoscope
+  A stethoscope can be (a)pplied once each turn without taking any time.
+  If you use it more than that, each application takes one turn.
+  You can get several humorous messages by applying it in certain
+  situations.
+  A cursed stethoscope has a 50% chance of only hearing your own
+  heartbeat.
+  Otherwise, you can use it to find the status of adjacent monsters or
+  of yourself or your steed (though this latter use may be interfered with
+  if engulfed by a monster), and find secret doors and passages.
+
+tinning kit
+  Created with 30 to 99 charges. An uncursed scroll of charging will
+  add 10 to 20 charges, and then bring the kit to a minimum of 50 charges.
+  A blessed scroll of charging will add 15 to 30 charges, and then bring
+  the kit to a minimum of 50 charges (75 if between 51 and 74). A tinning
+  kit may never have more than 127 charges.
+  You can convert corpses into tins.  The corpse must be uneaten and
+  have non-zero nutrition.  The resulting tin is blessed/uncursed/cursed
+  the same way as the tinning kit that produced it.  Blessed tins are
+  not poisonous or rotten, and can be opened in one turn.  Cursed tins
+  always contain rotten food.  Tins have the same chance of giving an
+  intrinsic as the equivalent corpse; the blessed/cursed status of the
+  tin does NOT affect the chance.
+  Some people tin unique monsters as souvenirs.  You cannot tin the
+  endgame Riders.
+
+tin opener
+  Mostly useless.  Wield the tin opener and you can e)at a tin in one
+  turn.
+
+can of grease
+  Generated 5% blessed, 90% uncursed, 5% cursed.
+  Created with 1 to 25 charges. If more than 10 charges, blessed
+  scrolls of charging add 6 to 10 charges, otherwise 6 to 15 charges.
+  Uncursed scrolls of charging add 1 to 5 charges.  Cannot be charged
+  higher than 50 charges.
+  When a)pplying a can of grease, you have a 50% chance of dropping it
+  if it is cursed or you have fumbling.  Otherwise, you can grease an
+  item to protect it or its contents from water or acid damage. If the
+  can of grease is cursed or you specify no object, you get your fingers
+  greasy.
+  Greased outer body armour will protect against grabbing attacks,
+  and greased helmets will protect against (master) mind flayer's
+  tentacles; however, the grease has a 50% chance of wearing off after
+  each attack against which it protects, and grease on cursed armour
+  will only be effective 1/3 of the time.
+  You can also use the can of grease or a potion of oil to #untrap a
+  squeaky board.
+
+figurine
+  Generated 1/8 blessed, 3/4 uncursed, and 1/8 cursed.
+  Applying a figurine creates that monster in an adjacent square of your
+  choosing.  It will fail if the square is occupied, or if the species is
+  genocided.  The chance of a tame or peaceful monster depends on the
+  blessed state of the figurine:
+              blessed  uncursed  cursed
+    tame        80%      10%      10%
+    peaceful    10%      80%      10%
+    hostile     10%      10%      80%
+  Cursed figurines can spontaneously transform when carried, after
+  201 to 9200 turns in inventory.
+
+magic marker
+  Generated with 30 to 99 charges.  Can only be recharged once.
+  An uncursed scroll of charging will add 10 to 20 charges, and then bring
+  the marker to a minimum of 50 charges. A blessed scroll of charging will
+  add 15 to 30 charges, and then bring the marker to a minimum of 50
+  charges (75 if between 51 and 74).
+  You can write scrolls and spellbooks from blank ones.  See the spoilers
+  "scrl-343.txt" and "spl1-343.txt" for details.  The blessed/uncursed/
+  cursed status of the resulting item depends on the marker and
+  scroll/spellbook:
+              blessed   uncursed  cursed
+    blessed   blessed   blessed   uncursed
+    uncursed  blessed   uncursed  cursed
+    cursed    uncursed  cursed    cursed
+  You can also (E)ngrave graffiti on the floor with a magic marker.
+
+
+Invocation items
+~~~~~~~~~~~~~~~~
+The three unique invocation items (Bell, Book, and Candelabrum) cannot be
+placed in a container or destroyed in any way.  They have special effects
+when (a)pplied or #invoked and you are NOT on the vibrating square:
+
+Bell of Opening
+  Obtained from your Quest Nemesis. Created with 3 charges. Blessed
+  scrolls of charging add 1 to 3 charges, uncursed scrolls of charging add
+  1 charge. Cannot be charged higher than 5 charges.
+  uncharged
+    Acts like a regular bell.  Will not break.
+  blessed
+    If you are swallowed, you are expelled.
+      "<monster> opens its mouth!" (if animal)
+    Else you unlock and open nearby containers and doors, find nearby
+    secret passages and non-statue traps, open nearby drawbridges, and
+    are unpunished.  Items must be in your visual range.
+  uncursed
+    If you are swallowed, you are expelled.
+      "<monster> opens its mouth!" (if animal)
+    Else same effect as a wand of secret door detection -- you find
+    nearby secret doors, secret passages, non-statue traps, mimics,
+    and hiding and invisible monsters.
+  cursed
+    If you are swallowed, "Nothing happens."
+    Else you summon undead and wake nearby monsters.
+
+Candelabrum of Invocation
+  Obtained from Vlad the Impaler.
+  blessed or uncursed
+    The Candelabrum acts like an ordinary light source if at least one
+    candle is applied to it.  It will last as many turns as the first
+    candle that was applied would have burned.
+  cursed
+    The Candelabrum won't light.
+
+Book of the Dead
+  Obtained from the Wizard of Yendor.
+  blessed
+    Undead creatures in your sight are made peaceful; nearby ones sharing
+    your alignment may be tamed, others may flee.
+  uncursed
+    No effect.
+    "Your ancestors are annoyed with you!"
+    "The headstones in the cemetery begin to move!"
+    "Oh my!  Your name appears in the book!"
+  cursed
+    You summon undead.
+
+To complete the invocation, you must be standing on the vibrating square
+and have the non-cursed Candelabrum of Invocation with seven candles
+attached (the candles can be any type(s), and even cursed), the non-cursed
+Bell of Opening with at least one charge, and the non-cursed Book of the
+Dead.  The Candelabrum burns out twice as fast when on the vibrating
+square.  The Bell must be rung within 5 turns before the invocation.  The
+Book must be read last.  Sascha Wostmann described a good way to remember
+the sequence:
+1. Make some light, to read by.
+2. Ring the bell, to get the attention of an audience.
+3. Finally, read the book.
+
+Good luck!
+
+
+Acknowledgements
+~~~~~~~~~~~~~~~~
+Thanks to Bruce Cox for proofreading the original version of this file.
+Further corrections and clarifications provided by Kevin Buhr, A C,
+Paul Collins, Andreas Dorn, Kieron Dunbar, Vladimir Florinski,
+Douglas Freyburger, David Goldfarb, David Grabiner, Kaidur Heliste, Ivan,
+Philipp Lucas, ManaUser, pervect, Pat Rankin, Irina Rempt, Vasilisha,
+David Wescott, and Yoshi348.

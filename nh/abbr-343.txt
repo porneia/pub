@@ -1,0 +1,187 @@
+abbr-343.txt  Last edited 2006-08-01 for NetHack 3.4.3
+Acronyms and abbreviations found in rec.games.roguelike.nethack
+Originally written by Satoshi Asami.
+Revised, corrected, added to, pruned, and updated by Boudewijn Waijers,
+Adam Dawes, and Sascha Wostmann.
+Revised, etc. for 3.4.3 by Dylan O'Donnell <psmith@spod-central.org>.
+
+NetHack, being the addictive game that it is, obviously leaves the player
+vastly less time to write messages for newsgroups than would otherwise be
+the case. As a result, the Usenet newsgroup rec.games.roguelike.nethack is
+liable to be full of cryptic acronyms and abbreviations.
+
+This document contains a list of all the more popular (and some of the less
+popular) acronyms that you might find while reading the newsgroup. Some
+people may consider knowledge of some of the item names mentioned to be
+spoilers; such people are hereby warned. Acronyms and abbreviations in
+common use across Usenet as a whole are not covered; there are plenty
+of other FAQs out there that explain those.
+
+
+Some general abbreviations and usages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+rgrn            rec.games.roguelike.nethack (also r.g.r.n.).
+SLASH           Super Lotsa Added Stuff Hack - a variant of NetHack.
+SLASH'EM        Super Lotsa Added Stuff Hack: Extended Magic  - another,
+                  and the most commonly played, variant of NetHack.
+NHTNG           NetHack - The Next Generation - another variant of NetHack.
+vanilla         Not a variant of NetHack. The official DevTeam release
+                  version (the "default" flavour of the game for discussion).
+YKYBPTMNW...    You Know You've Been Playing Too Much NetHack When...
+                  (also YKYPNTLW... You know you've played NetHack too long
+                  (or: late) when...).
+IDHTS[C]IFOM    I Don't Have The Source [Code] In Front Of Me.
+UTSL            Use The Source, Luke.
+TDTTOE          The DevTeam Think of Everything.
+NHIN[A]D&D      NetHack Is Not [Advanced] Dungeons & Dragons (so don't
+                  expect it to necessarily work the same way).
+NHINRL          NetHack Is Not Real Life (so don't expect it to necessarily
+                  work that way either).
+DYWYPI?         Do You Want Your Possessions Identified?
+ESP             Extra-Sensory Perception; a synonym for telepathy.
+RNG             Random Number Generator (also Random Number God).
+foo             Metasyntactic variable replacing whatever's appropriate
+                  for the context. Eg, 'fooproof' means 'rustproof or
+                  fireproof or corrodeproof or rotproof'.
+b/u/c, buc      blessed/uncursed/cursed.
+MMV             Magic Memory Vault.
+MR              Magic resistance.
+MC              Magic cancellation (not the same thing).
+AK              Ascension Kit (the gear you consider indispensable for
+                  winning the game).
+NAO             nethack.alt.org, a public NetHack server.
+
+Yet another...
+~~~~~~~~~~~~~~
+YASD            Yet Another Stupid Death.
+YAAD            Yet Another Annoying Death.
+YAAP            Yet Another Ascension Post.
+YAFAP           Yet Another First Ascension Post.
+YAFM            Yet Another Funny Message.
+YAFMC           Yet Another Funny Message Combination.
+YAFP            Yet Another Funny Prompt.
+YANI            Yet Another New/Nifty Idea/Item.
+YAOI		Yet Another Old Idea/Item (a standard riposte to YANI. No
+                  relation to Japanese _yaoi_).
+
+Monsters, gods
+~~~~~~~~~~~~~~
+WoY, Wiz,       Wizard of Yendor (Yendor spelled backwards = Rodney).
+  Rodney         
+foocubus        incubus or succubus (also *cubus).
+footrice	chickatrice or cockatrice (also 'trice, *trice).
+A.O.            Amaterasu Omikami (Samurai lawful goddess).
+
+Levels and places
+~~~~~~~~~~~~~~~~~
+VotD            Valley of the Dead.
+VS              Vibrating Square.
+
+
+A note on object abbreviations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The following convention has become popular amongst many rgrn posters for
+object abbreviations: the (ASCII) symbol used within the game to represent
+the object precedes the abbreviation to make things clearer. So, for
+example, a potion of confusion would be abbreviated to "!PoC". However, the
+redundancy involved offends some people's sense of elegance, and you will
+find both PoC and !oC (not to mention PoConf) as alternative representations
+of the same item. Also, a lowercase 'b', 'u' or 'c' may sometimes be
+prepended to the abbreviation to denote blessed/uncursed/cursed status; for
+example, 'b?SoG' might be used to indicate a blessed scroll of genocide.
+
+The lists below only include the items most commonly referred to by
+abbreviations; but any object might be referred to by an abbreviation on
+the same general schema (usually only once context for it has been
+established).
+
+
+Amulets
+~~~~~~~
+"AoESP          Amulet of ESP
+"AoLS           Amulet of Life Saving
+"AoMB           Amulet of Magical Breathing
+"AoY            Amulet of Yendor
+"EotA           Eye of the Aethiopica (aka "Eye of the Tapioca")
+
+Weapons
+~~~~~~~
+*Brand          Fire Brand or Frost Brand
+Mojo            Mjollnir
+Stormy          Stormbringer
+ToM             Tsurugi of Muramasa
+Vorpy           Vorpal Blade
+
+Armour
+~~~~~~
+[DSM, [GDSM,    Dragon scale mail, with the colour specified as required.
+[SDSM, etc.       Beware, there are two G ones (Gray and Green; the former
+                  is usually meant) and two B ones (Black and Blue, ditto;
+                  and yes, we've heard all the succubus/bullwhip/iron chain
+                  jokes already).
+[LB, [BoL       Levitation Boots (Boots of Levitation)
+[SB, [BoS       Speed Boots (Boots of Speed)
+[WWB, [BoWW     Water Walking Boots (Boots of Water Walking)
+[CoMR           Cloak of Magic Resistance
+[GoD            Gauntlets of Dexterity
+[GoP            Gauntlets of Power
+[HoB            Helm of Brilliance
+[HoOA           Helm of Opposite Alignment
+[HoT            Helm of Telepathy
+[SoR            Shield of Reflection
+
+Scrolls
+~~~~~~~
+?SoC            Scroll of Charging
+?SoCM           Scroll of Create Monster or Scroll of Confuse Monster
+                  (make clear which one you mean!)
+?SoEA           Scroll of Enchant Armour
+?SoEW           Scroll of Enchant Weapon
+?SoG            Scroll of Genocide
+?SoI, ?SoID     Scroll of Identify
+?SoMM           Scroll of Magic Mapping
+?SoRC           Scroll of Remove Curse
+
+Spells and spellbooks
+~~~~~~~~~~~~~~~~~~~~~
++FoD            Finger of Death
++StF            Stone to Flesh
++BotD           Book of the Dead
+
+Potions
+~~~~~~~
+!PoEH           Potion of Extra Healing
+!PoFH           Potion of Full Healing
+!PoGA           Potion of Gain Ability
+!PoGL           Potion of Gain Level
+!PoOD           Potion of Object Detection
+
+Rings
+~~~~~
+=RoC            Ring of Conflict
+=RoL            Ring of Levitation
+=RoPC           Ring of Polymorph Control
+=RoTC           Ring of Teleport Control
+
+Wands
+~~~~~
+/WoW            Wand of Wishing
+/WoC            Wand of Cancellation or Wand of Cold
+                  (make clear which one you mean!)
+/WoCM           Wand of Create Monster
+/WoD            Wand of Death or Wand of Digging
+                  (make clear which one you mean!)
+/WoP            Wand of Polymorph or Wand of Probing
+                  (make clear which one you mean!)
+/WoT            Wand of Teleportation
+/WoUT           Wand of Undead Turning
+
+Tools
+~~~~~
+(BoH            Bag of Holding
+(UH             Unicorn Horn
+(EotO           Eyes of the Overworld
+(OoF            Orb of Fate
+(PYEC           Platinum Yendorian Express Card
+(BoO            Bell of Opening
+

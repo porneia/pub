@@ -1,0 +1,215 @@
+pot2-343.txt  Last edited 2006-05-16 for NetHack 3.4.3
+Potions, alchemy, and other miscellaneous properties in NetHack 3.4
+Compiled for 3.2.2 by Kevin Hugo.
+Updated for 3.4.3 by Dylan O'Donnell <psmith@spod-central.org>.
+
+Smoky and milky potions
+~~~~~~~~~~~~~~~~~~~~~~~
+Potions with the appearance "smoky" may release a djinni and lead to a
+wish.  Each time you or another monster quaff a smoky potion, there is a
+chance of creating a djinni, depending on the number of djinn that have
+already been created in the game:
+  DJINN:  0     1     2     3     4     5        n       >=120
+  PROB:  1/13  1/15  1/17  1/19  1/21  1/23  1/(13+2*n)    0
+
+When the djinni appears, the potion is used up and one of five outcomes
+can occur.  The relative chance of these outcomes depends on whether the
+smoky potion was blessed, uncursed, or cursed:
+  BLESSED  UNCURSED  CURSED  OUTCOME
+  ~~~~~~~  ~~~~~~~~  ~~~~~~  ~~~~~~~
+    80%       20%       5%   Grants one wish, then disappears.
+                             "I am in your debt.  I will grant one wish!"
+     5%       20%       5%   Remains as a pet.
+                             "Thank you for freeing me!"
+     5%       20%       5%   Remains as a peaceful monster.
+                             "You freed me!"
+     5%       20%       5%   Speaks, then vanishes.
+                             "It is about time!"
+     5%       20%      80%   Remains as a hostile monster.
+                             "You disturbed me, fool!"
+If the potion had been quaffed by a monster, you will only get a peaceful
+or vanishing djinni.  NOTE: There is no way to get a wish from the djinni
+other than the first outcome above.
+
+In a similar manner, potions with the appearance "milky" may summon a ghost.
+Each time you or another monster quaff a milky potion, there is a chance
+of creating a ghost, depending on the number of ghosts that have already
+been created in the game:
+  GHOSTS:  0     1     2     3     4     5        n       >=120
+  PROB:   1/13  1/15  1/17  1/19  1/21  1/23  1/(13+2*n)    0
+When the ghost appears, the potion is used up.  If the potion was quaffed
+by a monster, that monster is paralyzed for 3 turns.  Otherwise, if you
+are unblind, you are paralyzed for 3 turns.
+
+In either case, the effect of the potion does not take place (since there
+was no actual potion in the bottle to drink).
+
+There is a limit of 120 djinn (or ghosts) per game.  Beyond this limit,
+they are extinct and no more can be created.
+
+
+Cancelling and diluting potions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+There are several ways to turn potions into water.  If potions of sickness,
+see invisible, or fruit juice are hit by a wand or spell of cancellation,
+they become uncursed potions of fruit juice, with the same amount of
+dilution as before the cancellation.  Potions of oil and booze become
+uncursed but otherwise remain the same.  Other potions will become uncursed
+potions of water.
+
+You can also change potions of blindness, confusion, or hallucination
+into uncursed water -- or potions of sickness into fruit juice -- by
+#dipping a unicorn horn into these potions.  Note that if you had
+quaffed these potions, you would have suffered bad effects that could
+have been cured by the unicorn horn in any case.  You can also #dip an
+amethyst stone into booze to convert it into fruit juice ("a-methyst"
+means not intoxicated.) In either of these cases, only one potion
+will be converted, regardless of the number of potions in the inventory
+slot.
+
+Finally, you can turn any potion except acid into water by #dipping it
+into an uncursed potion of water or fountain (the latter may cause bad
+effects as well).  If you are over a pool or moat but not levitating,
+you can also #dip into that water.  Furthermore, if you swim under water
+or fall into water, your potions have a chance of getting wet. If you
+#dip a potion of acid or it gets wet it does 1 to 10 points of damage.
+
+Getting potions wet happens in two stages.  After one dipping, the
+potions will become diluted, but will have their same blessed state.
+Diluted potions have exactly their same effects as undiluted potions
+(with minor exceptions for booze and fruit juice).  Getting diluted
+potions wet again then converts them into uncursed water.  Note that
+water cannot be diluted.
+
+
+Holy water
+~~~~~~~~~~
+(Adapted from the spoiler "water" by Maurice Vliege.)
+
+Once you have potions of water, you can convert them to holy water at an
+altar with your same alignment.  Drop any unholy water or uncursed water
+that you wish to convert onto the altar, and #pray.  If your god was
+pleased with you, they will all be converted to holy water.
+
+To make unholy water, you must find an altar of a different alignment
+than your own that is not in Gehennom.  Drop any holy water or uncursed
+water that you wish to convert onto the altar, and #pray.  All of the
+potions will be converted to unholy water.  It does not matter if your
+god was pleased before, but your god will be upset after the prayer.
+
+Holy and unholy water may also be found randomly, may appear in bones
+piles from other characters, and can be wished for.  Holy water may be
+part of your initial inventory (Priests start with four).  A more obscure
+way to acquire holy or unholy water is to wield some uncursed potions of
+water, take off all other worn items, and read a non-cursed scroll of
+remove curse while confused.  You have a 25% chance of creating holy
+water and 25% chance of creating unholy water this way, and it doesn't
+need any altars! Blessed scrolls of remove curse will have the same
+effect on each item in your inventory individually (try splitting
+up the water into different slots by #naming); be careful of other
+items in inventory becoming cursed.
+
+Once you have holy water, you can uncurse any cursed item or bless any
+uncursed items by the dipping the item into a potion of holy water.
+Similarly, dipping a blessed item into unholy water makes it uncursed, and
+dipping an uncursed item into unholy water makes it cursed. (Dipping a
+blessed item into holy water or a cursed item into unholy water doesn't
+do anything in particular: "Interesting...".) In all cases where the
+status is changed, one of the potions of (un)holy water is used in the
+process.  By dipping several uncursed potions of water into a potion of
+(un)holy water, you can continue to make more (un)holy water indefinitely
+(as long as you have uncursed water).
+
+Dipping an item in holy or unholy water does NOT rust, blank, dilute,
+or otherwise damage it.
+
+
+Dipping and mixing potions
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+(Adapted from a posting by Paul Brinkley.)
+
+The effects of #dipping various objects into potions is summarized in the
+table below.  You are first prompted for the item to be DIPPED, and then
+the potion to dip it INTO.  One of the potions dipped into will be used up,
+unless there was no effect or the potions were cancelled by the dipping
+(unicorn horn or amethyst).  Except where shown, it doesn't matter if
+potions are diluted before dipping.
+
+You can mix two non-water potions (or groups of potions) of different types
+by dipping one into the other; this procedure is commonly referred to as
+"alchemy".  There is a 10% chance of an explosion (always if the DIPPED is
+cursed or acid) which makes you breathe vapors of the DIPPED potion, abuses
+your strength, and makes you lose one of each potion.  Otherwise, the
+DIPPED potion(s) may become a different type of potion, which will always
+be uncursed and diluted, and you use up one of the INTO potions.  The
+possible mixtures are also described in the table below.
+
+  DIPPED             INTO               RESULT
+  ~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~  ~~~~~~
+  cursed object      holy water         uncursed object
+  uncursed object    holy water         blessed object
+  blessed object     unholy water       uncursed object
+  uncursed object    unholy water       cursed object
+  acid               uncursed water     potion boils
+  undiluted potion   uncursed water     diluted potion
+  diluted potion     uncursed water     uncursed water
+  scroll/spellbook   uncursed water     blank scroll/spellbook (unless mail)
+  iron object        uncursed water     may rust
+  any potion         itself             "That is a potion bottle,
+                                         not a Klein bottle!"
+  any potion         same type          No effect.  "Interesting..."
+  ..................................................................
+  booze              enlightenment      confusion
+  booze              gain energy/level  hallucination
+  confusion          gain energy/level  1/3 enlightenment, 2/3 booze
+  enlightenment      booze              confusion
+  enlightenment      fruit juice        booze
+  enlightenment      levitation         2/3 gain level, 1/3 same as
+                                        "other combination" below
+  extra healing      gain energy/level  full healing
+  full healing       gain energy/level  gain ability
+  fruit juice        enlightenment      booze
+  fruit juice        gain energy/level  see invisible
+  fruit juice        sickness           sickness
+  fruit juice        speed              booze
+  gain energy/level  booze              hallucination
+  gain energy/level  confusion          1/3 enlightenment, 2/3 booze
+  gain energy/level  extra healing      full healing
+  gain energy/level  full healing       gain ability
+  gain energy/level  fruit juice        see invisible
+  gain energy/level  healing            extra healing
+  healing            gain energy/level  extra healing
+  healing            speed              extra healing
+  levitation         enlightenment      2/3 gain level, 1/3 same as
+                                        "other combination" below
+  sickness           fruit juice        sickness
+  speed              fruit juice        booze
+  speed              healing            extra healing
+  undiluted potion   other combination  1/2 evaporates, 1/4 sickness,
+                                        1/8 random potion, 1/8 water
+  diluted potion     other combination  uncursed water
+  ....................................................
+  unicorn horn       blindness,         uncursed water
+                     confusion,         (regardless of cursedness of horn,
+                     hallucination      as opposed to below results)
+  unicorn horn       sickness           fruit juice (uncursed or cursed)
+  amethyst           booze              fruit juice (uncursed or cursed)
+  missile weapon     sickness           poisoned weapon
+  poisoned weapon    healing,           unpoisoned weapon
+                     extra healing,
+                     full healing 
+  anything (other    polymorph          polymorphed object of same class
+  than X of poly)                       (may resist: "Nothing happens."
+                                        "Nothing seems to happen." if
+                                        polymorphs to same item)
+  anything           lit oil            Explosion and/or damage
+  weapon             cursed oil         Greasy fingers
+  damaged weapon     other oil          May lose one damage depending on type
+  oil/magic lamp     other oil          Lamp is filled and made non-magic
+  All other combinations                No effect.  "Interesting..."
+
+Acknowledgements
+~~~~~~~~~~~~~~~~
+Thanks to Bruce Cox for proofreading the original version of this file.
+Further corrections and clarifications provided by Big Al, Ken Cuvelier,
+David Goldfarb, Alex Pounds, and Irina Rempt.

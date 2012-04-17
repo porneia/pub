@@ -1,0 +1,268 @@
+drgn-343.txt  Last edited 2005-06-03 for NetHack 3.4.3
+The dragon resistances in NetHack 3.4
+Compiled by Dylan O'Donnell <psmith@spod-central.org>.
+
+There are nine basic colours of dragon in NetHack 3.4. These breathe
+eight different types of dragonbreath; a resistance can be acquired
+(either intrinsic or extrinsic) to each of these types, and these are
+therefore sometimes referred to as the "dragon resistances". This
+spoiler discusses how to acquire these resistances and the protection
+they give. Note that, as a general rule, any intrinsics acquired solely
+by experience level can be lost by being drained below that level.
+
+
+acid resistance
+  acquired by
+    Wearing:
+      yellow dragon scales or scale mail, or an alchemy smock.
+    Being polymorphed into:
+      spotted or ochre jelly, glass piercer, (baby) yellow dragon, green
+      mold, black naga (hatchling), gold or glass golem, or any of bmyP.
+  protects against
+    Acid attacks of ochre jellies, *yellow dragons, black nagas, Juiblex,
+    and the *Chromatic Dragon.
+   *Passive acid attacks of acid blobs, spotted and ochre jellies, and green
+    molds.
+    Damage from eating acidic corpses (acid blob, gelatinous cube,
+    spotted or ochre jelly, (baby) yellow dragon, green mold, black naga
+    (hatchling), and all P).
+    Damage from thrown or quaffed potions of acid.
+   * = may still corrode armour.
+
+cold resistance
+  acquired by
+    Wearing:
+      white dragon scales or scale mail, or a ring of cold resistance.
+    Eating:
+      gelatinous cube, winter wolf (cub), blue jelly, white dragon, brown
+      mold, frost giant, gray ooze, brown or black pudding, ice troll, yeti,
+      flesh golem, or the Chromatic Dragon; ring of cold resistance.
+        "You feel full of hot air."
+    Polymorphing into:
+      gelatinous cube, winter wolf (cub), freezing sphere, blue jelly, ice
+      vortex, Aleax, (baby) white dragon, silver dragon, earth elemental,
+      brown mold, frost giant, ice troll, xorn, yeti, flesh or iron golem,
+      ice devil, or any of yLMPWZ.
+    Reaching:
+      XL 1 as Valkyrie; XL 13 as Monk.
+        "You feel warm!"
+        "You feel cooler!" (level drain loss)
+    Wielding:
+      Frost Brand.
+    Granted when crowned.
+    May be lost by night-time gremlin attack.
+      "You feel cooler."
+  protects against
+   *Cold attacks of winter wolf (cub)s, freezing spheres, ice vortices,
+    silver and white dragons, all liches, ice trolls, ice devils, Asmodeus,
+    and the Chromatic Dragon.
+    Passive cold attacks of blue jellies and brown molds.
+   *Damage from Frost Brand's cold attack.
+   *Damage from zapped or broken wands of cold and the cone of cold spell.
+    Reduces slipping on ice.
+   * = may still freeze potions.
+
+disintegration resistance
+  acquired by
+    Wearing:
+      black dragon scales or scale mail.
+    Eating:
+      black dragon or the Chromatic Dragon.
+        "You feel very firm."
+        "You feel totally together, man." (hallucinating)
+    Polymorphing into:
+      energy vortex, black or yellow light, (baby) black dragon.
+  protects against
+    Disintegration attacks of black dragons and the Chromatic Dragon.
+   *Wide-angle disintegration beams of angry gods.
+   * = May still disintegrate armour.
+
+fire resistance
+  acquired by
+    Wearing:
+      red dragon scales or scale mail, or a ring of fire resistance.
+    Eating:
+      fire ant, gelatinous cube, pyrolisk, hell hound (pup), red dragon,
+      red mold, fire giant, red naga (hatchling), gray ooze, flesh golem,
+      the Wizard of Yendor, salamander, the Chromatic Dragon, Ixoth, or
+      Lord Surtur; ring of fire resistance.
+        "You feel a momentary chill."
+        "You be chillin'." (hallucinating)
+    Polymorphing into:  
+      fire ant, gelatinous cube, pyrolisk, hell hound (pup), flaming
+      sphere, steam or fire vortex, black or yellow light, (baby) red
+      dragon, fire elemental, red mold, fire giant, master lich, arch-lich,
+      red naga (hatchling), gray ooze, xorn, flesh or iron golem, horned
+      devil, succubus, incubus, barbed devil, marilith, vrock, hezrou,
+      bone devil, ice devil, nalfeshnee, pit fiend, balrog, or salamander.
+    Reaching:
+      XL 11 as Monk; XL 20 as Priest.
+        "You feel cool!"
+        "You feel warmer!" (level drain loss)
+    Wielding:
+      Fire Brand.
+    Carrying:
+      The Mitre of Holiness.
+    Granted when crowned.
+    May be lost by night-time gremlin attack.
+      "You feel warmer."
+  protects against
+   *Fire attacks of fire ants, pyrolisks, hell hound (pup)s, flaming
+    spheres, steam and fire vortices, red dragons, fire elementals, red
+    nagas, salamanders, the Chromatic Dragon, and Ixoth.
+    Passive fire attacks of fire elementals and red molds, 
+   *Damage from Fire Brand's fire attack.
+   *Damage from scrolls and zapped or broken wands of fire, and fireball
+    spell.
+    Damage from scalding hot water from a sink and lit potions of oil.
+   *Damage from the pillar of fire spell cast by monster.
+   *Reduces damage from fire traps and chest fire traps, and lava.
+   * = may still boil potions and burn armour, scrolls and spellbooks.
+
+magic resistance
+  acquired by
+    Wearing:
+      gray dragon scales or scale mail, or a cloak of magic resistance.
+    Polymorphing into:
+      (baby) gray dragon.
+    Wielding:
+      Magicbane.
+    Carrying:
+      Orb of Detection, Sceptre of Might, Magic Mirror of Merlin, Eyes of
+      the Overworld, Platinum Yendorian Express Card, or Eye of the
+      Aethiopica.
+  protects against
+    Magic missile attacks of Angels, gray dragons, Yeenoghu, and the
+    Chromatic Dragon.
+    Passive magic missile attack of the Oracle.
+    Prevents instadeath and reduces chance of damage from death attack
+    of Death.
+    Zapped wands of death.
+    Damage from zapped or broken wands of striking, magic missiles, and
+    broken wands of cancellation, create monster, digging, light
+    make invisible, polymorph, sleep, slow monster, speed monster,
+    teleportation, and undead turning; and spells of force bolt, magic
+    missile, and finger of death.
+    Scaring attacks of Magicbane; reduces chance of special effects.
+    "Touch of death", destroy armour, drain strength, and confusion spells
+    cast by monsters; paralysis and stunning spells' effect reduced to one
+    turn; psi bolt's and open wounds' damage halved.
+    Thrown potions of polymorph.
+    Damage from exploding spellbooks.
+    Polymorph, antimagic, teleport, and level teleport traps.
+    Reduces damage from cross-aligned artifact blast.
+    Reduces number of objects cursed from a "malignant aura"-type curse.
+
+poison resistance
+  acquired by
+    Wearing:
+      green dragon scales or scale mail, an alchemy smock, a ring of
+      poison resistance, or an amulet versus poison.
+    Eating:
+      killer or queen bee, soldier ant, giant beetle, quivering blob, 
+      gremlin, homunculus, quasit, tengu, blue jelly, white or gray or
+      black unicorn, xan, green dragon, brown or yellow or red mold,
+      shrieker, violet fungus, gray ooze, black or brown pudding, snake,
+      water moccasin, pit viper, cobra, flesh golem, nurse, Medusa, the
+      Wizard of Yendor, jellyfish, the Chromatic Dragon, Master Kaen, or
+      any of csN; amulet versus poison; ring of poison resistance.
+        "You feel healthy."
+        "You feel especially healthy." (already poison resistant through XL)
+    Polymorphing into:
+      killer or queen bee, soldier ant, giant beetle, werejackal, werewolf,
+      wererat, gremlin, manes, homunculus, lemure, quasit, tengu, blue
+      jelly, rabid rat, white or gray or black unicorn, couatl, Aleax,
+      vampire bat, (baby) green dragon, air or earth or fire or water
+      elemental, brown or yellow or red mold, shrieker, violet fungus, 
+      quantum mechanic, snake, water moccasin, pit viper, cobra, horned
+      devil, succubus, incubus, barbed devil, marilith, vrock, hezrou,
+      bone devil, ice devil, nalfeshnee, pit fiend, balrog, jellyfish, or
+      any of bcksvxyLMNPVWZ'.
+    Reaching:
+      XL 1 as Barbarian, Healer or an orc; XL 3 as Monk; XL 20 as Tourist.
+        "You feel healthy!" (Monk)
+        "You feel hardy!" (Tourist)
+    Granted when crowned.
+    May be lost by night-time gremlin attack.
+      "You feel a little sick!"
+  protects against
+    Poison attacks of killer and queen bees, soldier ants, quasits, rabid
+    rats, centipedes, giant spiders, scorpions, couatls, vampire bats,
+    green dragons, guardian nagas, snakes, water moccasins, pit vipers,
+    cobras, iron golems, Medusa, erinyes, bone devils, Orcus, Geryon,
+    Baalzebub, jellyfish, the Chromatic Dragon, and the Master Assassin. 
+    Effects of eating poisonous corpses: killer or queen bee, soldier ant,
+    giant beetle, werejackal, werewolf, wererat, gremlin, homunculus, rabid
+    rat, giant spider, scorpion, xan, vampire bat, (baby) green dragon,
+    yellow mold, guardian naga, green slime, quantum mechanic, snake, water
+    moccasin, pit viper, cobra, Medusa, jellyfish, salamander, the Chromatic
+    Dragon, Scorpius, and all k.
+    Damage from stinking clouds.
+    Prevents instakill and reduces damage from poisoned weapons and poison
+    dart traps, poison-spike pits, and poison gas/needle chest traps.
+    Reduces damage from "contaminated water" from a sink.
+    Reduces effects of potions of sickness and contact-poisoned spellbooks.
+
+shock resistance
+  acquired by
+    Wearing:
+      blue dragon scales or scale mail, or a ring of shock resistance.
+    Eating:
+      gelatinous cube, blue dragon, storm giant, black or brown pudding,
+      flesh golem, electric eel, or the Chromatic Dragon; ring of shock
+      resistance.
+        "Your health currently feels amplified!"
+        "You feel grounded in reality." (hallucinating)
+    Polymorphing into:
+      gelatinous cube, shocking sphere, energy vortex, grid bug, black or
+      yellow light, Aleax, (baby) blue dragon, storm giant, arch-lich, black
+      or brown pudding, green slime, flesh or iron golem, or electric eel.
+    Reaching:
+      XL 15 as Monk.
+        "You feel insulated!"
+        "You feel conductive!" (level drain loss)
+    Granted when crowned.
+  protects against
+   *Electricity attacks of shocking spheres, energy vortices, grid bugs,
+    blue dragons, electric eels, and the Chromatic Dragon.
+    Passive electricity attacks of energy vortices.
+   *Damage from Mjollnir's electricity attack.
+   *Damage from zapped or broken wands of lightning.
+   *Damage from lightning bolt spell cast by monster.
+    Lightning bolts from angry gods.
+   *Electricity traps on chests.
+    Reduces damage from electric-chair thrones.
+   * = may still destroy wands and rings.
+
+sleep resistance
+  acquired by
+    Wearing:
+      orange dragon scales or scale mail.
+    Eating:
+      gelatinous cube, homunculus, orange dragon, flesh golem, elf,
+      Woodland-elf, Green-elf, Grey-elf, elf-lord, Elvenking, or the
+      Chromatic Dragon; ring of free action.
+        "You feel wide awake."
+    Polymorphing into:
+      manes, homunculus, lemure, Aleax, vampire bat, (baby) orange dragon,
+      Woodland-elf, Green-elf, Grey-elf, elf-lord, Elvenking, salamander,
+      or any of bvyLMVWZ'
+    Reaching:
+      XL 1 as Monk; XL 4 as an elf.
+        "You feel awake!"
+        "You feel tired!" (level drain loss)
+    Granted when crowned.
+  protects against
+    Sleep attacks of homunculi, orange dragons, Nazgul, and the Chromatic
+    Dragon.
+    Spells of sleep, and the sleep effect of zapped or broken wands of
+    sleep.
+    Amulets of restful sleep.
+    Quaffed and thrown potions of sleeping.
+    Sleeping gas traps.
+
+
+Acknowledgements
+~~~~~~~~~~~~~~~~
+Corrections and clarifications provided by Michael Gusovsky, Nathan Moore,
+Joseph S. Myers, Kate Nepveu, and Irina Rempt.

@@ -1,0 +1,12 @@
+url: http://porneia.free.fr
+baseurl: /pub
+auto: false
+title: Porneia delights' random pages
+author: Porneia delights
+mail: porneia(at)free(point)fr
+subscribe_rss: /rss/rss_log.xml
+projects_dir: _notes
+permalink: /articles/:title.html
+markdown: rdiscount
+pygments: true
+exclude: ["Rakefile", "README.textile"]

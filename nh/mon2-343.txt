@@ -1,0 +1,450 @@
+mon2-343.txt  Last edited 2004-08-12 for NetHack 3.4.3
+Monster generation and disposal in NetHack 3.4
+Compiled by Dylan O'Donnell <psmith@spod-central.org>.
+
+SPECIES                DIF  FREQ  GRP  ALN  SIZE    WGT   NUTR  GEN  CORPSE%
+~~~~~~~~~~~~~~~~~~~~~~ ~~~  ~~~~  ~~~  ~~~  ~~~~~~  ~~~~  ~~~~  ~~~  ~~~~~~~
+a            giant ant   4    3   Sml    0  tiny      10    10  Yes     33
+a           killer bee   5    2   Lrg    0  tiny       1     5  Yes     33
+a          soldier ant   6    2   Sml    0  tiny      20     5  Yes     33
+a             fire ant   6    1   Sml    0  tiny      30    10  Yes     25
+a         giant beetle   6    3          0  large     10    10  Yes    100
+a            queen bee  12    X          0  tiny       1     5  Yes     25
+b            acid blob   2    2          0  tiny      30    10  Yes     33
+b       quivering blob   6    2          0  small    200   100  Yes     50
+b      gelatinous cube   8    2          0  large    600   150  Yes    100
+c          chickatrice   7    1   Sml    0  tiny      10    10  Yes     25
+c           cockatrice   8    5          0  small     30    30  Yes     50
+c             pyrolisk   8    1          0  small     30    30  Yes     33
+d               jackal   1    3   Sml    0  small    300   250  Yes     50
+d                  fox   1    1          0  small    300   250  Yes     33
+d               coyote   2    1   Sml    0  small    300   250  Yes     33
+d           werejackal   4    X         -7  small    300   250  No      33#
+d           little dog   3    1          0  small    150   150  Yes     33
+d                  dog   5    1          0  medium   400   200  Yes     33
+d            large dog   7    1          0  medium   800   250  Yes     33
+d                dingo   5    1          0  medium   400   200  Yes     33
+d                 wolf   6    2   Sml    0  medium   500   250  Yes     50
+d             werewolf   7    X         -7  medium   500   250  No      33#
+d                 warg   8    2   Sml   -5  medium   850   350  Yes     50
+d      winter wolf cub   7    2*  Sml   -5  small    250   200  Yes     50
+d          winter wolf   9    1*         0  large    700   300  Yes    100
+d       hell hound pup   9    1#  Sml   -5  small    200   200  Yes     33
+d           hell hound  14    1#         0  medium   600   300  Yes     33
+e            gas spore   2    1          0  small     10     0  Yes      0
+e         floating eye   3    5          0  small     10    10  Yes     50
+e      freezing sphere   8    2*         0  small     10     0  Yes      0
+e       flaming sphere   8    2          0  small     10     0  Yes      0
+e      shocking sphere   8    2          0  small     10     0  Yes      0
+f               kitten   3    1          0  small    150   150  Yes     33
+f             housecat   5    1          0  small    200   200  Yes     33
+f               jaguar   6    2          0  large    600   300  Yes    100
+f                 lynx   7    1          0  small    600   300  Yes     33
+f              panther   7    1          0  large    600   300  Yes    100
+f            large cat   7    1          0  small    250   250  Yes     33
+f                tiger   8    2          0  large    600   300  Yes    100
+g              gremlin   8    2         -9  small    100    20  Yes     50
+g             gargoyle   8    2         -9  medium  1000   200  Yes     50
+g      winged gargoyle  11    1        -12  medium  1200   300  Yes     33
+h               hobbit   2    2          6  small    500   200  Yes     50
+h                dwarf   4    3          4  medium   900   300  Yes     50
+h              bugbear   5    1         -6  large   1250   250  Yes    100
+h           dwarf lord   6    2          5  medium   900   300  Yes     50
+h           dwarf king   8    1          6  medium   900   300  Yes     33
+h          mind flayer  13    1         -8  medium  1450   400  Yes     33
+h   master mind flayer  19    1         -8  medium  1450   400  Yes     33
+i                manes   3    1   Lrg   -7  small    100     0  Yes      0
+i           homunculus   3    2         -7  tiny      60   100  Yes     33
+i                  imp   4    1         -7  tiny      20    10  Yes     25
+i               lemure   5    1#  Lrg   -7  medium   150     0  Yes      0
+i               quasit   7    2         -7  small    200   200  Yes     50
+i                tengu   7    3          7  small    300   200  Yes     50
+j           blue jelly   5    2          0  medium    50    20  Yes     50
+j        spotted jelly   6    1          0  medium    50    20  Yes     33
+j          ochre jelly   8    2          0  medium    50    20  Yes     50
+k               kobold   1    1         -2  small    400   100  Yes     33
+k         large kobold   2    1         -3  small    450   150  Yes     33
+k          kobold lord   3    1         -4  small    500   200  Yes     33
+k        kobold shaman   4    1         -4  small    450   150  Yes     33
+l           leprechaun   4    4          0  tiny      60    30  Yes     33
+m          small mimic   8    2          0  medium   300   200  Yes     50
+m          large mimic   9    1          0  large    600   400  Yes    100
+m          giant mimic  11    1          0  large    800   500  Yes    100
+n           wood nymph   5    2          0  medium   600   300  Yes     50
+n          water nymph   5    2          0  medium   600   300  Yes     50
+n       mountain nymph   5    2          0  medium   600   300  Yes     50
+o               goblin   1    2         -3  small    400   100  Yes     50
+o            hobgoblin   3    2         -4  medium  1000   200  Yes     50
+o                  orc   3    X   Lrg   -3  medium   850   150  Yes     33
+o             hill orc   4    2   Lrg   -4  medium  1000   200  Yes     50
+o           Mordor orc   5    1   Lrg   -5  medium  1200   200  Yes     33
+o             Uruk-hai   5    1   Lrg   -4  medium  1300   300  Yes     33
+o           orc shaman   5    1         -5  medium  1000   300  Yes     33
+o          orc-captain   7    1         -5  medium  1350   350  Yes     33
+p         rock piercer   4    4          0  small    200   200  Yes     50
+p         iron piercer   6    2          0  medium   400   300  Yes     50
+p        glass piercer   9    1          0  medium   400   300  Yes     33
+q                rothe   4    4   Sml    0  large    400   100  Yes    100
+q                mumak   7    1         -2  large   2500   500  Yes    100
+q            leocrotta   8    2          0  large   1200   500  Yes    100
+q               wumpus   9    1          0  large   2500   500  Yes    100
+q          titanothere  13    2          0  large   2650   650  Yes    100
+q       baluchitherium  15    2          0  large   3800   800  Yes    100
+q             mastodon  22    1          0  large   3800   800  Yes    100
+r            sewer rat   1    1   Sml    0  tiny      20    12  Yes     25
+r            giant rat   2    2   Sml    0  tiny      30    30  Yes     33
+r            rabid rat   4    1          0  tiny      30     5  Yes     25
+r              wererat   4    X         -7  tiny      40    30  No      25#
+r            rock mole   4    2          0  small     30    30  Yes     50
+r            woodchuck   4    X          0  small     30    30  Yes     33
+s          cave spider   3    2   Sml    0  tiny      50    50  Yes     33
+s            centipede   4    1          0  tiny      50    50  Yes     25
+s         giant spider   7    1          0  large    100   100  Yes    100
+s             scorpion   8    2          0  small     50   100  Yes     50
+t         lurker above  12    2          0  huge     800   350  Yes    100
+t              trapper  14    2          0  huge     800   350  Yes    100
+u        white unicorn   6    2          7  large   1300   300  Yes    100
+u         gray unicorn   6    1          0  large   1300   300  Yes    100
+u        black unicorn   6    1         -7  large   1300   300  Yes    100
+u                 pony   4    2          0  medium  1300   250  Yes     50
+u                horse   7    2          0  large   1500   300  Yes    100
+u             warhorse   9    2          0  large   1800   350  Yes    100
+v            fog cloud   4    2          0  huge       0     0  Yes      0
+v          dust vortex   6    2          0  huge       0     0  Yes      0
+v           ice vortex   7    1*         0  huge       0     0  Yes      0
+v        energy vortex   9    1          0  huge       0     0  Yes      0
+v         steam vortex   9    2#         0  huge       0     0  Yes      0
+v          fire vortex  10    1#         0  huge       0     0  Yes      0
+w       baby long worm   9    0          0  large    600   250  Yes    100
+w     baby purple worm   9    0          0  large    600   250  Yes    100
+w            long worm   9    2          0  gigant  1500   500  Yes    100
+w          purple worm  17    2          0  gigant  2700   700  Yes    100
+x             grid bug   1    3   Sml    0  tiny      15     0  Yes      0
+x                  xan   9    3          0  tiny     300   300  Yes     33
+y         yellow light   5    4          0  small      0     0  Yes      0
+y          black light   7    2          0  small      0     0  Yes      0
+z                zruty  11    2          0  large   1200   600  Yes    100
+A               couatl  11    1*  Sml    7  large    900     0  No       0
+A                Aleax  12    1*         7  medium  1450     0  No       0
+A                Angel  19    1*        12  medium  1450     0  No       0
+A               ki-rin  21    1*        15  large   1450     0  No       0
+A               Archon  26    1*        15  large   1450     0  No       0
+B                  bat   2    1   Sml    0  tiny      20    20  Yes     25
+B            giant bat   3    2          0  small     30    30  Yes     50
+B                raven   6    2          0  small     40    20  Yes     50
+B          vampire bat   7    2          0  small     30    20  Yes     50
+C       plains centaur   6    1          0  large   2500   500  Yes    100
+C       forest centaur   8    1         -1  large   2550   600  Yes    100
+C     mountain centaur   9    1         -3  large   2550   500  Yes    100
+D     baby gray dragon  13    0          0  huge    1500   500  Yes    100
+D   baby silver dragon  13    0          0  huge    1500   500  Yes    100
+D      baby red dragon  13    0          0  huge    1500   500  Yes    100
+D    baby white dragon  13    0          0  huge    1500   500  Yes    100
+D   baby orange dragon  13    0          0  huge    1500   500  Yes    100
+D    baby black dragon  13    0          0  huge    1500   500  Yes    100
+D     baby blue dragon  13    0          0  huge    1500   500  Yes    100
+D    baby green dragon  13    0          0  huge    1500   500  Yes    100
+D   baby yellow dragon  13    0          0  huge    1500   500  Yes    100
+D          gray dragon  20    1          4  gigant  4500  1500  Yes    100
+D        silver dragon  20    1          4  gigant  4500  1500  Yes    100
+D           red dragon  20    1         -4  gigant  4500  1500  Yes    100
+D         white dragon  20    1         -5  gigant  4500  1500  Yes    100
+D        orange dragon  20    1          5  gigant  4500  1500  Yes    100
+D         black dragon  20    1         -6  gigant  4500  1500  Yes    100
+D          blue dragon  20    1         -7  gigant  4500  1500  Yes    100
+D         green dragon  20    1          6  gigant  4500  1500  Yes    100
+D        yellow dragon  20    1          7  gigant  4500  1500  Yes    100
+E              stalker   9    3          0  large    900   400  Yes    100
+E        air elemental  10    1          0  huge       0     0  No       0
+E       fire elemental  10    1          0  huge       0     0  No       0
+E      earth elemental  10    1          0  huge    2500     0  No       0
+E      water elemental  10    1          0  huge    2500     0  No       0
+F               lichen   1    4          0  small     20   200  Yes     50
+F           brown mold   2    1          0  small     50    30  Yes     33
+F          yellow mold   2    2          0  small     50    30  Yes     50
+F           green mold   2    1          0  small     50    30  Yes     33
+F             red mold   2    1          0  small     50    30  Yes     33
+F             shrieker   2    1          0  small    100   100  Yes     33
+F        violet fungus   5    2          0  small    100   100  Yes     50
+G                gnome   3    1   Sml    0  small    650   100  Yes     33
+G           gnome lord   4    2          0  small    700   120  Yes     50
+G       gnomish wizard   5    1          0  small    700   120  Yes     33
+G           gnome king   6    1          0  small    750   150  Yes     33
+H                giant   8    X          2  huge    2250   750  Yes    100
+H          stone giant   8    1   Sml    2  huge    2250   750  Yes    100
+H           hill giant  10    1   Sml   -2  huge    2200   700  Yes    100
+H           fire giant  11    1   Sml    2  huge    2250   750  Yes    100
+H          frost giant  13    1*  Sml   -3  huge    2250   750  Yes    100
+H          storm giant  19    1   Sml   -3  huge    2250   750  Yes    100
+H                ettin  13    1          0  huge    1700   500  Yes    100
+H                titan  20    1          9  huge    2300   900  No     100
+H             minotaur  17    X          0  large   1500   700  Yes    100
+J           jabberwock  18    1          0  large   1300   600  Yes    100
+K         Keystone Kop   3    X   Lrg    9  medium  1450   200  Yes     33
+K         Kop Sergeant   4    X   Sml   10  medium  1450   200  Yes     33
+K       Kop Lieutenant   5    X         11  medium  1450   200  Yes     33
+K          Kop Kaptain   6    X         12  medium  1450   200  Yes     33
+L                 lich  14    1         -9  medium  1200     0  Yes      0
+L             demilich  18    1        -12  medium  1200     0  Yes      0
+L          master lich  21    1#       -15  medium  1200     0  Yes      0
+L            arch-lich  29    1#       -15  medium  1200     0  Yes      0
+M         kobold mummy   4    1         -2  small    400    50  Yes     33*#
+M          gnome mummy   5    1         -3  small    650    50  Yes     33*#
+M            orc mummy   6    1         -4  medium   850    75  Yes     33*#
+M          dwarf mummy   6    1         -4  medium   900   150  Yes     33*#
+M            elf mummy   7    1         -5  medium   800   175  Yes     33*#
+M          human mummy   7    1         -5  medium  1450   200  Yes     33*#
+M          ettin mummy   8    1         -6  huge    1700   250  Yes    100*#
+M          giant mummy  10    1         -7  huge    2050   375  Yes    100*#
+N   red naga hatchling   4    0          0  large    500   100  Yes    100
+N black naga hatchling   4    0          0  large    500   100  Yes    100
+N golden naga hatchlin   4    0          0  large    500   100  Yes    100
+N guardian naga hatchl   4    0          0  large    500   100  Yes    100
+N             red naga   8    1         -4  huge    2600   400  Yes    100
+N           black naga  10    1          4  huge    2600   400  Yes    100
+N          golden naga  13    1          5  huge    2600   400  Yes    100
+N        guardian naga  16    1          7  huge    2600   400  Yes    100
+O                 ogre   7    1   Sml   -3  large   1600   500  Yes    100
+O            ogre lord   9    2         -5  large   1700   700  Yes    100
+O            ogre king  11    2         -7  large   1700   750  Yes    100
+P            gray ooze   4    2          0  medium   500   250  Yes     50
+P        brown pudding   6    1          0  medium   500   250  Yes     33
+P        black pudding  12    1          0  large    900   250  Yes    100
+P          green slime   8    1#         0  large    400   150  Yes    100
+Q     quantum mechanic   9    3          0  medium  1450    20  Yes     50
+R         rust monster   8    2          0  medium  1000   250  Yes     50
+R         disenchanter  14    2#        -3  large    750   200  Yes    100
+S         garter snake   3    1   Lrg    0  tiny      50    60  Yes     25
+S                snake   6    2          0  small    100    80  Yes     50
+S       water moccasin   7    X   Lrg    0  small    150    80  Yes     33
+S            pit viper   9    1          0  medium   100    60  Yes     33
+S               python   8    1          0  large    250   100  Yes    100
+S                cobra  10    1          0  medium   250   100  Yes     33
+T                troll   9    2         -3  large    800   350  Yes    100
+T            ice troll  12    1*        -3  large   1000   300  Yes    100
+T           rock troll  12    1         -3  large   1200   300  Yes    100
+T          water troll  13    X         -3  large   1200   350  Yes    100
+T             Olog-hai  16    1         -7  large   1500   400  Yes    100
+U           umber hulk  12    2          0  large   1200   500  Yes    100
+V              vampire  12    1         -8  medium  1450   400  Yes     33*#
+V         vampire lord  14    1         -9  medium  1450   400  Yes     33*#
+V     Vlad the Impaler  18    X        -10  medium  1450     0  No       0
+W         barrow wight   7    1         -3  medium  1200     0  Yes      0
+W               wraith   8    2         -6  medium     0     0  Yes     50*
+W               Nazgul  17    1        -17  medium  1450     0  Yes      0
+X                 xorn  11    1          0  medium  1200   700  Yes     33
+Y               monkey   4    1          0  small    100    50  Yes     33
+Y                  ape   6    2   Sml    0  large   1100   500  Yes    100
+Y              owlbear   7    3          0  large   1700   700  Yes    100
+Y                 yeti   7    2          0  large   1600   700  Yes    100
+Y      carnivorous ape   8    1          0  large   1250   550  Yes    100
+Y            sasquatch   9    1          2  large   1550   750  Yes    100
+Z        kobold zombie   1    1         -2  small    400    50  Yes     33*#
+Z         gnome zombie   2    1         -2  small    650    50  Yes     33*#
+Z           orc zombie   3    1   Sml   -3  medium   850    75  Yes     33*#
+Z         dwarf zombie   3    1   Sml   -3  medium   900   150  Yes     33*#
+Z           elf zombie   4    1   Sml   -3  medium   800   175  Yes     33*#
+Z         human zombie   5    1   Sml   -3  medium  1450   200  Yes     33*#
+Z         ettin zombie   7    1         -4  huge    1700   250  Yes    100*#
+Z         giant zombie   9    1         -4  huge    2050   375  Yes    100*#
+Z                ghoul   5    1         -2  small    400     0  Yes      0
+Z             skeleton  14    X          0  medium   300     0  No       0
+'          straw golem   4    1          0  large    400     0  No       0
+'          paper golem   4    1          0  large    400     0  No       0
+'           rope golem   6    1          0  large    450     0  No       0
+'           gold golem   6    1          0  large    450     0  No       0
+'        leather golem   7    1          0  large    800     0  No       0
+'           wood golem   8    1          0  large    900     0  No       0
+'          flesh golem  10    1          0  large   1400   600  No     100
+'           clay golem  12    1          0  large   1550     0  No       0
+'          stone golem  15    1          0  large   1900     0  No       0
+'          glass golem  18    1          0  large   1800     0  No       0
+'           iron golem  22    1          0  large   2000     0  No       0
+@                human   2    X          0  medium  1450   400  No      33
+@              wererat   3    1         -7  medium  1450   400  No      33
+@           werejackal   3    1         -7  medium  1450   400  No      33
+@             werewolf   6    1         -7  medium  1450   400  No      33
+@                  elf  12    X         -3  medium   800   350  No      33
+@         Woodland-elf   6    2   Sml   -5  medium   800   350  Yes     50
+@            Green-elf   7    2   Sml   -6  medium   800   350  Yes     50
+@             Grey-elf   8    2   Sml   -7  medium   800   350  Yes     50
+@             elf-lord  11    2   Sml   -9  medium   800   350  Yes     50
+@            Elvenking  11    1        -10  medium   800   350  Yes     33
+@         doppelganger  11    1          0  medium  1450   400  Yes     33
+@                nurse  13    3          0  medium  1450   400  Yes     50
+@           shopkeeper  15    X          0  medium  1450   400  No      33
+@                guard  14    X         10  medium  1450   400  No      33
+@             prisoner  14    X          0  medium  1450   400  No      33
+@               Oracle  13    X          0  medium  1450   400  No      33
+@       aligned priest  15    X          0  medium  1450   400  No      33
+@          high priest  30    X          0  medium  1450   400  No      33
+@              soldier   8    1   Sml   -2  medium  1450   400  Yes     33
+@             sergeant  10    1   Sml   -3  medium  1450   400  Yes     33
+@           lieutenant  12    1         -4  medium  1450   400  Yes     33
+@              captain  14    1         -5  medium  1450   400  Yes     33
+@             watchman   8    X   Sml   -2  medium  1450   400  Yes     33
+@        watch captain  12    X         -4  medium  1450   400  Yes     33
+@               Medusa  25    X        -15  large   1450   400  No     100
+@     Wizard of Yendor  34    X          X  medium  1450   400  No      33
+@              Croesus  22    X         15  medium  1450   400  No      33
+                 ghost  12    X         -5  medium  1450     0  No       0
+                 shade  14    X          0  medium  1450     0  No       0
+&          water demon  11    X         -7  medium  1450     0  No       0
+&         horned devil   9    2#        11  medium  1450     0  No       0
+&             succubus   8    1         -9  medium  1450     0  No       0
+&              incubus   8    1         -9  medium  1450     0  No       0
+&               erinys  10    2#  Sml   10  medium  1450     0  No       0
+&         barbed devil  10    2#  Sml    8  medium  1450     0  No       0
+&             marilith  11    1#       -12  large   1450     0  No       0
+&                vrock  11    2#  Sml   -9  large   1450     0  No       0
+&               hezrou  12    2#  Sml  -10  large   1450     0  No       0
+&           bone devil  13    2#  Sml   -9  large   1450     0  No       0
+&            ice devil  14    2#       -12  large   1450     0  No       0
+&           nalfeshnee  15    1#       -11  large   1450     0  No       0
+&            pit fiend  16    2#       -13  large   1450     0  No       0
+&               balrog  20    1#       -14  large   1450     0  No       0
+&              Juiblex  26    X        -15  large   1500     0  No       0
+&             Yeenoghu  31    X        -15  large    900     0  No       0
+&                Orcus  36    X        -20  huge    1500     0  No       0
+&               Geryon  36    X         15  huge    1500     0  No       0
+&             Dispater  40    X         15  medium  1500     0  No       0
+&            Baalzebub  45    X         20  large   1500     0  No       0
+&             Asmodeus  53    X         20  huge    1500     0  No       0
+&           Demogorgon  57    X        -20  huge    1500     0  No       0
+&                Death  34    X          0  medium  1450     1  No     100
+&           Pestilence  34    X          0  medium  1450     1  No     100
+&               Famine  34    X          0  medium  1450     1  No     100
+&               djinni   8    X          0  medium  1500     0  No       0
+&            sandestin  15    1#        -5  medium  1500     0  No       0
+;            jellyfish   5    X          0  small     80    20  Yes     33
+;              piranha   6    X   Sml    0  small     60    30  Yes     33
+;                shark   9    X          0  large    500   350  Yes    100
+;            giant eel   7    X          0  huge     200   250  Yes    100
+;         electric eel  10    X          0  huge     200   250  Yes    100
+;               kraken  22    X         -3  huge    1800  1000  Yes    100
+:                 newt   1    5          0  tiny      10    20  Yes     33
+:                gecko   2    5          0  tiny      10    20  Yes     33
+:               iguana   3    5          0  tiny      30    30  Yes     33
+:       baby crocodile   4    0          0  medium   200   200  Yes     33
+:               lizard   6    5          0  tiny      10    40  Yes    100
+:            chameleon   7    2          0  tiny     100   100  Yes     33
+:            crocodile   7    1          0  large   1450   400  Yes    100
+:           salamander  12    1#        -9  medium  1500   400  No      33
+@         archeologist  12    X          3  medium  1450   400  No     100
+@            barbarian  12    X          0  medium  1450   400  No     100
+@              caveman  12    X          1  medium  1450   400  No     100
+@            cavewoman  12    X          1  medium  1450   400  No     100
+@               healer  12    X          0  medium  1450   400  No     100
+@               knight  12    X          3  medium  1450   400  No     100
+@                 monk  11    X          0  medium  1450   400  No     100
+@               priest  12    X          0  medium  1450   400  No     100
+@            priestess  12    X          0  medium  1450   400  No     100
+@               ranger  12    X         -3  medium  1450   400  No     100
+@                rogue  12    X         -3  medium  1450   400  No     100
+@              samurai  12    X          3  medium  1450   400  No     100
+@              tourist  12    X          0  medium  1450   400  No     100
+@             valkyrie  12    X         -1  medium  1450   400  No     100
+@               wizard  12    X          0  medium  1450   400  No     100
+@       Lord Carnarvon  22    X         20  medium  1450   400  No      33
+@               Pelias  22    X          0  medium  1450   400  No      33
+@        Shaman Karnov  22    X         20  medium  1450   400  No      33
+@          Hippocrates  22    X          0  medium  1450   400  No      33
+@          King Arthur  23    X         20  medium  1450   400  No      33
+@         Grand Master  30    X          0  medium  1450   400  No      33
+@          Arch Priest  30    X          0  medium  1450   400  No      33
+@                Orion  22    X          0  medium  1450   400  No      33
+@    Master of Thieves  24    X        -20  medium  1450   400  No      33
+@            Lord Sato  23    X         20  medium  1450   400  No      33
+@            Twoflower  22    X          0  medium  1450   400  No      33
+@                 Norn  23    X          0  medium  1450   400  No      33
+@    Neferet the Green  23    X          0  medium  1450   400  No      33
+&   Minion of Huhetotl  23    X        -14  large   1450     0  No       0
+@           Thoth Amon  22    X        -14  medium  1450     0  No       0
+D     Chromatic Dragon  23    X        -14  gigant  4500  1700  No     100
+H              Cyclops  23    X        -15  huge    1900   700  No     100
+D                Ixoth  22    X        -14  gigant  4500  1600  No     100
+@          Master Kaen  31    X        -20  medium  1450   400  No      33
+&               Nalzok  23    X       -127  large   1450     0  No       0
+s             Scorpius  17    X        -15  medium   750   350  No      33
+@      Master Assassin  20    X         18  medium  1450   400  No      33
+@     Ashikaga Takauji  19    X        -13  medium  1450     0  No       0
+H          Lord Surtur  19    X         12  huge    2250   850  No     100
+@             Dark One  20    X        -10  medium  1450     0  No       0
+@              student   7    X          3  medium  1450   400  No      33
+@            chieftain   7    X          0  medium  1450   400  No      33
+@          neanderthal   7    X          1  medium  1450   400  No      33
+@            attendant   7    X          3  medium  1450   400  No      33
+@                 page   7    X          3  medium  1450   400  No      33
+@                abbot   8    X          0  medium  1450   400  No      33
+@              acolyte   8    X          0  medium  1450   400  No      33
+@               hunter   7    X         -7  medium  1450   400  No      33
+@                 thug   7    X         -3  medium  1450   400  No      33
+@                ninja   7    X          3  medium  1450   400  No      33
+@                roshi   7    X          3  medium  1450   400  No      33
+@                guide   8    X          0  medium  1450   400  No      33
+@              warrior   7    X         -1  medium  1450   400  No      33
+@           apprentice   8    X          0  medium  1450   400  No      33
+
+
+This file was originally automatically generated.
+
+DIF is the monster's difficulty value. Monsters will start being eligible
+for random generation when the average of your experience level and your
+dungeon level is equal to DIF; they will be considered too weak for
+generation when your dungeon level is 7*DIF or greater. (For this purpose,
+once you have the Amulet of Yendor your dungeon level is considered to be
+that of the Sanctum, and in the endgame to be the depth of the Sanctum
+plus half your experience level.) The level of your god's appreciation of
+a sacrificed corpse is also dependent on the corpse's DIF.
+
+FREQ is the relative frequency of monster generation. An X in this field
+means the monster will not be randomly generated, and only appears in
+certain circumstances or on predefined levels. A monster with 0 frequency
+will only be randomly generated in a dungeon branch or on a dungeon level
+biased towards a specific alignment (not necessarily its own). '*' denotes
+monsters that will not be randomly generated in Gehennom; '#' monsters that
+will not be randomly generated outside it.
+
+The GRP field indicates if monsters are generated in large groups (2 to 11
+monsters at a time) or small groups (2 to 4 monsters at a time). These
+groups will be smaller if you are at a low (less than 5) experience level.
+Large-group monsters have a 1/3 chance of being generated in a small group
+instead; small-group monsters a 1/2 chance of being generated as
+singletons.
+
+ALN is the strength of alignment of the monster: positive numbers denote
+lawful monsters, negative chaotic, zero neutral. The Wizard of Yendor is
+non-aligned. Certain special levels and certain dungeon branches are biased
+towards creation of monsters of a specific alignment (see the NetHack
+Gazetteer for details); furthermore, lawful monsters will not be randomly
+generated in Gehennom.
+
+The SIZE field shows the physical size of the monster. Though establishing
+a realistic scale for NetHack isn't something that can be easily done, the
+following guidelines are given (metric conversion approximate):
+  SIZE  :   tiny      small     medium   large     huge       gigantic
+  Scale :   < 2'      2'-4'     4'-7'    7'-12'   12'-25'   "off the scale"
+        : (< 0.5m)  (0.5m-1m)  (1m-2m)  (2m-4m)   (4m-8m)
+
+WGT specifies the weight of the monster or its corpse (100 zorkmids weigh
+1). Statues of that monster weigh (1.5 * WGT). NUTR specifies the
+nutrition value of a corpse when eaten (a monster swallowed whole gives
+half its nutrition). GEN indicates if a monster is able to be genocided.
+
+CORPSE% gives the percentage chance of a monster leaving a corpse when
+killed (assuming the circumstances are such that it can leave a corpse at
+all; not disintegrated, digested, drowned, stoned...). No corpses will be
+left by monsters dying on the Rogue level. '#' indicates that the corpse
+left will be of a different monster (the human form of lycanthropes, the
+basic race for undead). Monsters marked with a '*' are less likely to
+leave corpses on levels with graveyards (for this purpose, the Castle and
+all levels of the Priest Quest are considered graveyard levels, as is any
+level on which undead have been summoned by the cursed Book of the Dead or
+Bell of Opening): 1/9 the chance if killed by you, 1/3 otherwise (eg, by a
+trap or another monster).
+
+
+Acknowledgements
+~~~~~~~~~~~~~~~~
+Corrections and clarifications provided by Roger Carbol, nyra, Shaman,
+Dan Shiovitz, Jonas Wolz, and Zwanth.

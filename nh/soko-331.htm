@@ -1,0 +1,1120 @@
+<!-- X-URL: http://steelypips.org/nethack/soko-331.html -->
+<!-- Date: Tue, 09 Jun 2009 01:20:30 GMT -->
+<!-- Last-Modified: Fri, 14 Apr 2006 04:10:07 GMT -->
+<BASE HREF="http://steelypips.org/nethack/soko-331.html">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator"
+content="HTML Tidy for Windows (vers 1st May 2002 [Terry's build]), see www.w3.org" />
+<meta http-equiv="Content-Type"
+content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>NetHack Sokoban spoiler</title>
+<link rel="StyleSheet" href="nh.css" type="text/css"
+media="screen, foo" />
+<link rel="StyleSheet" href="nhns.css" type="text/css"
+media="screen" />
+</head>
+<body>
+<h1>How to solve Sokoban levels in 3.3.1?</h1>
+
+<p>[<strong>Note</strong>: The Sokoban map did not change in 3.4.0 or 3.4.1,
+and this spoiler accordingly remains valid.]</p>
+
+<p style="text-align: center">by Boudewijn Waijers (<a
+href="mailto:kroisos@win.tue.nl">kroisos@win.tue.nl</a>),
+<br />
+ with contributions by various others.
+<br />
+</p>
+
+<p>HTML Conversion by Kate Nepveu (<a
+href="mailto:knepveu@steelypips.org">knepveu@steelypips.org</a>).
+<br />
+Created March 5, 2001.</p>
+
+<h2>Contents</h2>
+
+<ul>
+<li><a href="#intro">Introduction</a></li>
+
+<li><a href="#overview">Overview of Levels</a></li>
+
+<li>Solutions to Levels 
+<ul>
+<li><a href="#lev_1a">Level 1, version A</a></li>
+
+<li><a href="#lev_1b">Level 1, version B</a></li>
+
+<li><a href="#lev_2a">Level 2, version A</a></li>
+
+<li><a href="#lev_2b">Level 2, version B</a> [Ed: or an <a
+href="soko-alt.html">alternate version</a> by Jukka Lahtinen]</li>
+
+<li><a href="#lev_3a">Level 3, version A</a></li>
+
+<li><a href="#lev_3b">Level 3, version B</a></li>
+
+<li><a href="#lev_4a">Level 4, version A</a> [Ed: or an <a
+href="soko-alt.html">alternate version</a> by Jukka Lahtinen]</li>
+
+<li><a href="#lev_4b">Level 4, version B</a></li>
+</ul>
+</li>
+</ul>
+
+<p><a id="intro" name="intro"></a> Boulders are represented by
+capital letters (A, B, ...), to be able to reference them. To refer
+to a position on the map, the co-ordinates shown on top and on the
+left of the map in (X,Y) format are used. For example, the starting
+position on level 1, version A, is (7,5).</p>
+
+<p>If you are told to finish several boulders, you should finish
+them in the order in which they are mentioned.</p>
+
+<p>There are other solutions, for sure. Quite possibly there are
+faster solutions. I haven't counted the number of moves needed for
+any of the below solutions. If you have faster solution, don't
+hesitate to use it.</p>
+
+<p>Note that the Sokoban levels have other internal numbers than
+the ones that are used below, but starting with level 4 is quite
+confusing, even if you are moving up, not down. Here, level 1 is
+the first level you'll see in your game and level 4 is the last
+one, with the reward.</p>
+
+<p>A general tip: after you've finished a level, push all boulders
+that are left into corners where they are harmless. You wouldn't
+want yourself to accidentally move them when going back later and
+lock you in. Also, there might be something lying underneath
+them.</p>
+
+<hr />
+<p><a id="overview" name="overview"></a>Here is an
+<strong>overview</strong> of the Sokoban levels:</p>
+
+<p>[Note: Links are to the solutions.]</p>
+
+<div style="font-family: monospace">
+<pre>
+     <a href="#lev_1a">Level 1, version A.</a>                   <a
+href="#lev_1b">Level 1, version B.</a>
+
+       +----+  +---+                         +------+ +----+
+       |....|  |...|                         |&lt;|@...+-+....|
+       |.A..+--+.B.|                         |^|+.AB....C..|
+       |.C......D..|                         |^||..DE|.F.G.|
+       |..+-+@+-+E.|                         |^||....|.....|
+       +------+-+.--+                        |^|+----+H----|
+       |..^^^&lt;|.....|                        |^|    |......|
+       |..+---|F....|                        |^+----+......|
+       ++^|   |.G...|                        |..^^^^IJKL...|
+        |^+---+.H...|                        |..+---+......|
+        |..^^^^I.J..|                        +--+   +------+
+        |..+--------+
+        +--+
+
+
+     <a href="#lev_2a">Level 2, version A.</a>                   <a
+href="#lev_2b">Level 2, version B.</a>
+
++---------+       +---------+           +--+          +---------+
+|....|....+-+     |.........|          ++.@+------+   |.........|
+|..AB|CD...@|     |.........|          |..........|   |.........|
+|.....E...+-+     |.........|          |.A+---+B-.|   |.........|
+|....|....|       |....&lt;....|          |..|...|.C.|   |....&lt;....|
++-.--+-----+      |.........|          |.D.E....F-|   |.........|
+|..F.|.....|      |.........|          |.G..H..|..|   |.........|
+|.GH.|I.J.K|      |.........|          |.----I.++.|   |.........|
+|..L.....M.|      |.........|          |..J...K.|.++  |.........|
+|.NOP|Q..R.+---------------+|          |.--+L-...M.+-----------+|
+|....|..S.T.^^^^^^^^^^^^^^^.|          |...|..N-.O.^^^^^^^^^^^^.|
++---------------------------+          |..P......+--------------+
+                                       +---+..|..|
+                                           +-----+
+
+
+     <a href="#lev_3a">Level 3, version A.</a>                   <a
+href="#lev_3b">Level 3, version B.</a>
+
+    +------------------+                    +------+
+    |........|...|.....|                  +-+.|....|
+    |.AB..-CD|.-.|.....|                  |...A....+---------+
+    |..|.E.F.|GH.|.....|                  |.-.BC-DE|.|.......|
+    |-.|..-..|.-.|..&lt;..|                  |.FG-......|.......|
+    |...+-.......|.....|                  |.-..H.|...|.......|
+    |...|.I.-...+|.....|                  |....-I+-J-|.......|
+    |.J.|K.|...++|.....|                  |..KL..M...|...&lt;...|
+    |-L.|..+----------+|                  |.--...|...|.......|
+    |..M....^^^^^^^^^^.|                  |....-N+---|.......|
+    |...|.@+-----------+                  +-+..O.+----------+|
+    +------+                                |..P@^^^^^^^^^^^.|
+                                            +----------------+
+
+
+     <a href="#lev_4a">Level 4, version A.</a>                   <a
+href="#lev_4b">Level 4, version B.</a>
+
+ +------------------------+              +----------------------+
+ |@......^^^^^^^^^^^^^^^^.|              |..^^^^^^^^^^^^^^^^^^..|
+ |.......+--------------+.|              |..+-----------------+.|
+ +------.+----+         |.|            +--+.|                 |.|
+  |...........|         |.|            |..|A++  +----+        |.|
+  |.A.B.C.D.E.|         |.|            |.....+--|.N..|        |.|
+ +-------.----|         |.|            |.BC..|..|..O.|        |.|
+ |...F.G..H.I.|         |.|            ++..DE|...PQ.++        |.|
+ |...J........|         |.|             |F..G...|R..|   +-----|.|
+ +----.-------+   +-----|.|             |.HI.|..|..S| +-|.....|.|
+  |..K.L.M...|  +-|.....|.|             |.J.K+--|.T.| |.+.....|.|
+  |.....N....|  |.+.....|.|             |.......|..++ +-|.....|.|
+  |.O.P...Q.++  +-|.....|.|             +--+.L..|.++  |.+.....+.|
+ +------.---+   |.+.....+.|                +--.-+.|   +-|.....+-+
+ |..R.....|     +-|.....+-+                 |.M...|   |.+.....|
+ |........|     |.+.....|                   |@.|..|   +-|.....|
+ |...+----+     +-|.....|                   +-----+     +-----+
+ +---+            +-----+
+
+</pre>
+</div>
+
+<hr />
+<p>Here are the <strong>solutions</strong> to the levels:</p>
+
+<h3><a id="lev_1a" name="lev_1a"></a>Level 1, version A.</h3>
+
+<table summary="map and solution, level 1A" border="1"
+cellpadding="10">
+<tr valign="top">
+<td>
+<pre>
+            11111   
+   12345678901234
+ 1 +----+  +---+
+ 2 |....|  |...|
+ 3 |.A..+--+.B.|
+ 4 |.C......D..|
+ 5 |..+-+@+-+E.|
+ 6 +------+-+.--+
+ 7 |..^^^&lt;|.....|
+ 8 |..+---|F....|
+ 9 ++^|   |.G...|
+10  |^+---+.H...|
+11  |..^^^^I.J..|
+12  |..+--------+
+13  +--+
+
+</pre>
+</td>
+<td>
+<ol class="soko">
+<li>Push A right one square.</li>
+
+<li>Push C up one square.</li>
+
+<li>Push D right one square.</li>
+
+<li>Push D left to (4,4).</li>
+
+<li>Push E down to (11,8).</li>
+</ol>
+</td>
+</tr>
+
+<tr>
+<td colspan="2">The map now looks like this:</td>
+</tr>
+
+<tr valign="top">
+<td>
+<pre>
+            11111   
+   12345678901234
+ 1 +----+  +---+
+ 2 |....|  |...|
+ 3 |.CA.+--+.B.|
+ 4 |..D........|
+ 5 |..+-+&gt;+-+..|
+ 6 +------+-+.--+
+ 7 |..^^^&lt;|..@..|
+ 8 |..+---|F.E..|
+ 9 ++^|   |.G...|
+10  |^+---+.H...|
+11  |..^^^^I.J..|
+12  |..+--------+
+13  +--+
+
+</pre>
+</td>
+<td>
+<ol class="soko">
+<li>Push H left one square.</li>
+
+<li>Finish I, J, E, G, H, F, B, D, and C.</li>
+</ol>
+</td>
+</tr>
+</table>
+
+<p>One boulder (A) remains. The two scrolls at (3,12) and (4,12)
+are always scrolls of earth.</p>
+
+<hr />
+<h3><a id="lev_1b" name="lev_1b"></a>Level 1, version B.</h3>
+
+<table summary="map and solution, level 1B" border="1"
+cellpadding="10">
+<tr valign="top">
+<td>
+<pre>
+            111111   
+   123456789012345
+ 1 +------+ +----+
+ 2 |&lt;|@...+-+....|
+ 3 |^|+.AB....C..|
+ 4 |^||..DE|.F.G.|
+ 5 |^||....|.....|
+ 6 |^|+----+H----|
+ 7 |^|    |......|
+ 8 |^+----+......|
+ 9 |..^^^^IJKL...|
+10 |..+---+......|
+11 +--+   +------+
+
+</pre>
+</td>
+<td>
+<ol class="soko">
+<li>Push A down one square.</li>
+
+<li>Push B right to (11,3).</li>
+
+<li>Push H down to (10,8).</li>
+
+<li>Push J up one square.</li>
+
+<li>Finish I.</li>
+
+<li>Push L up one square.</li>
+
+<li>Finish K, J, H and L.</li>
+</ol>
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">The map now looks like this:</td>
+</tr>
+
+<tr valign="top">
+<td>
+<pre>
+            111111   
+   123456789012345
+ 1 +------+ +----+
+ 2 |&lt;|&gt;...+-+....|
+ 3 |^|+......BC..|
+ 4 |^||.ADE|.F.G.|
+ 5 |^||....|.....|
+ 6 |^|+----+.----|
+ 7 |^|    |......|
+ 8 |.+----+......|
+ 9 |@............|
+10 |..+---+......|
+11 +--+   +------+
+
+</pre>
+</td>
+<td>
+<ol class="soko">
+<li>Push C down one square.</li>
+
+<li>Push B left to (6,3).</li>
+
+<li>Push G down one square, then left to (10,5).</li>
+
+<li>Finish G.</li>
+
+<li>Finish C and F like G.</li>
+
+<li>Move B right to (11,3), then down two squares, then left to
+(10,5).</li>
+
+<li>Finish B.</li>
+
+<li>Move A up one square.</li>
+
+<li>Finish A like B.</li>
+</ol>
+</td>
+</tr>
+</table>
+
+<p>Two boulders (D and E) remain. The two scrolls at (2,10) and
+(3,10) are always scrolls of earth.</p>
+
+<hr />
+<h3><a id="lev_2a" name="lev_2a"></a>Level 2, version A.</h3>
+
+<table summary="map and solution, level 2A" border="1"
+cellpadding="10">
+<tr valign="top">
+<td>
+<pre>
+            11111111112222222222   
+   12345678901234567890123456789
+ 1 +---------+       +---------+
+ 2 |....|....+-+     |.........|
+ 3 |..AB|CD...@|     |.........|
+ 4 |.....E...+-+     |.........|
+ 5 |....|....|       |....&lt;....|
+ 6 +-.--+-----+      |.........|
+ 7 |..F.|.....|      |.........|
+ 8 |.GH.|I.J.K|      |.........|
+ 9 |..L.....M.|      |.........|
+10 |.NOP|Q..R.+---------------+|
+11 |....|..S.T.^^^^^^^^^^^^^^^.|
+12 +---------------------------+
+
+</pre>
+</td>
+<td>
+<ol class="soko">
+<li>Push E left to (3,4).</li>
+
+<li>Push L right to (9,9).</li>
+
+<li>Push R right one square.</li>
+
+<li>Finish T, S, M, R, K, J, and L.</li>
+
+<li>Finish N, O, P, G, and E.</li>
+
+<li>Push F left one square.</li>
+
+<li>Finish H.</li>
+
+<li>Push F up to (3,4).</li>
+
+<li>Finish F and A.</li>
+</ol>
+</td>
+</tr>
+</table>
+
+<p>Five boulders (B, C, D, I, and Q) remain.</p>
+
+<hr />
+<h3><a id="lev_2b" name="lev_2b"></a>Level 2, version B.</h3>
+
+<table summary="map and solution, level 2B" border="1"
+cellpadding="10">
+<tr valign="top">
+<td>
+<pre>
+            11111111112222222   
+   12345678901234567890123456
+ 1  +--+          +---------+
+ 2 ++.@+------+   |.........|
+ 3 |..........|   |.........|
+ 4 |.A+---+B-.|   |.........|
+ 5 |..|...|.C.|   |....&lt;....|
+ 6 |.D.E....F-|   |.........|
+ 7 |.G..H..|..|   |.........|
+ 8 |.----I.++.|   |.........|
+ 9 |..J...K.|.++  |.........|
+10 |.--+L-...M.+-----------+|
+11 |...|..N-.O.^^^^^^^^^^^^.|
+12 |..P......+--------------+
+13 +---+..|..|
+14     +-----+
+
+</pre>
+</td>
+<td>
+<ol class="soko">
+<li>Push B down two squares.</li>
+
+<li>Push C left one square.</li>
+
+<li>Push P right three squares, then up one square, to (7,11).</li>
+
+<li>Finish O.</li>
+
+<li>Push N down one square, then left to (3,12).</li>
+
+<li>Push M left one square.</li>
+
+<li>Push F up one square.</li>
+
+<li>Push B left two squares.</li>
+
+<li>Push K down two squares.</li>
+</ol>
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">The map now looks like this:</td>
+</tr>
+
+<tr valign="top">
+<td>
+<pre>
+            11111111112222222   
+   12345678901234567890123456
+ 1  +--+          +---------+
+ 2 ++.&gt;+------+   |.........|
+ 3 |..........|   |.........|
+ 4 |.A+---+.-.|   |.........|
+ 5 |..|...|CF.|   |....&lt;....|
+ 6 |.D.E.B...-|   |.........|
+ 7 |.G..H..|..|   |.........|
+ 8 |.----I.++.|   |.........|
+ 9 |..J.....|.++  |.........|
+10 |.--+L-@.M..+-----------+|
+11 |...|.PK-....^^^^^^^^^^^.|
+12 |.N.......+--------------+
+13 +---+..|..|
+14     +-----+
+
+</pre>
+</td>
+<td>
+<ol class="soko">
+<li>Push M right one square, then down to (11,11).</li>
+
+<li>Finish M.</li>
+
+<li>Push N right to (10,12), then up to (10,10).</li>
+
+<li>Finish N like M.</li>
+
+<li>Push K down one square, then left to (3,12).</li>
+
+<li>Finish K like N.</li>
+
+<li>Push P right one square, then down one square.</li>
+
+<li>Finish P like N.</li>
+
+<li>Push L down two squares, then left to (3,12).</li>
+
+<li>Finish L like N.</li>
+
+<li>Push I down one square, then right one square, then down to
+(8,12).</li>
+
+<li>Finish I like N.</li>
+
+<li>Push J right to (8,9), then down to (8,12).</li>
+
+<li>Finish J like N.</li>
+</ol>
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">The map now looks like this:</td>
+</tr>
+
+<tr valign="top">
+<td>
+<pre>
+            11111111112222222   
+   12345678901234567890123456
+ 1  +--+          +---------+
+ 2 ++.&gt;+------+   |.........|
+ 3 |..........|   |.........|
+ 4 |.A+---+.-.|   |.........|
+ 5 |..|...|CF.|   |....&lt;....|
+ 6 |.D.E.B...-|   |.........|
+ 7 |.G..H..|..|   |.........|
+ 8 |.----..++.|   |.........|
+ 9 |........|.++  |.........|
+10 |.--+.-.....+-----------+|
+11 |...|...-.........@.^^^^.|
+12 |.........+--------------+
+13 +---+..|..|
+14     +-----+
+
+</pre>
+</td>
+<td>
+<ol class="soko">
+<li>Push H left one square.</li>
+
+<li>Push B down one square, then right one square, then down to
+(8,12).</li>
+
+<li>Finish B.</li>
+
+<li>Push C down one square, then left two squares, to (7,6).</li>
+
+<li>Finish C like B.</li>
+
+<li>Push F left one square, then down one square, then left to
+(7,6).</li>
+
+<li>Finish F like C.</li>
+
+<li>Push G right one square.</li>
+
+<li>Push D up one square.</li>
+
+<li>Push E right two squares, to (7,6).</li>
+
+<li>Finish E like F.</li>
+</ol>
+</td>
+</tr>
+</table>
+
+<p>Four boulders (A, D, G and H) remain.</p>
+
+<hr />
+<h3><a id="lev_3a" name="lev_3a"></a>Level 3, version A.</h3>
+
+<table summary="map and solution, level 3A" border="1"
+cellpadding="10">
+<tr valign="top">
+<td>
+<pre>
+            11111111112   
+   12345678901234567890
+ 1 +------------------+
+ 2 |........|...|.....|
+ 3 |.AB..-CD|.-.|.....|
+ 4 |..|.E.F.|GH.|.....|
+ 5 |-.|..-..|.-.|..&lt;..|
+ 6 |...+-.......|.....|
+ 7 |...|.I.-...+|.....|
+ 8 |.J.|K.|...++|.....|
+ 9 |-L.|..+----------+|
+10 |..M....^^^^^^^^^^.|
+11 |...|.@+-----------+
+12 +------+
+
+</pre>
+</td>
+<td>
+<ol class="soko">
+<li>Push M left one square.</li>
+
+<li>Finish M.</li>
+
+<li>Push J right one square.</li>
+
+<li>Finish L, J, A and B.</li>
+
+<li>Push D down to (9,6).</li>
+
+<li>Finish I.</li>
+
+<li>Push K down two squares, then left to (3,10).</li>
+
+<li>Finish K.</li>
+
+<li>Push E up one square.</li>
+
+<li>Push F right one square, then up one square, to (9,3).</li>
+
+<li>Push E down one square, then left one square, to (5,4).</li>
+
+<li>Push E up one square, then left two squares.</li>
+
+<li>Finish E.</li>
+
+<li>Push C down one square, then left three squares, to (5,4).</li>
+
+<li>Finish C like E.</li>
+
+<li>Push D right two squares, then left to (8,6).</li>
+
+<li>Push D up two squares, then left to (5,4).</li>
+
+<li>Finish D like E.</li>
+</ol>
+</td>
+</tr>
+</table>
+
+<p>Three boulders (F, G and H) remain.</p>
+
+<hr />
+<h3><a id="lev_3b" name="lev_3b"></a>Level 3, version B.</h3>
+
+<table summary="Map and solution, level 3B" border="1"
+cellpadding="10">
+<tr valign="top">
+<td>
+<pre>
+            11111111112   
+   12345678901234567890
+ 1   +------+
+ 2 +-+.|....|
+ 3 |...A....+---------+
+ 4 |.-.BC-DE|.|.......|
+ 5 |.FG-......|.......|
+ 6 |.-..H.|...|.......|
+ 7 |....-I+-J-|.......|
+ 8 |..KL..M...|...&lt;...|
+ 9 |.--...|...|.......|
+10 |....-N+---|.......|
+11 +-+..O.+----------+|
+12   |..P@^^^^^^^^^^^.|
+13   +----------------+
+
+</pre>
+</td>
+<td>
+<ol class="soko">
+<li>Push O left two squares, to (4,11).</li>
+
+<li>Finish P and N.</li>
+
+<li>Push L down one square, to (5,9).</li>
+
+<li>Push O up one square, to (4,10).</li>
+
+<li>Finish L.</li>
+
+<li>Push K right one square, to (5,8).</li>
+
+<li>Finish K.</li>
+
+<li>Push O right one square, to (5,10).</li>
+
+<li>Finish O.</li>
+</ol>
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">The map now looks like this:</td>
+</tr>
+
+<tr valign="top">
+<td>
+<pre>
+            11111111112   
+   12345678901234567890
+ 1   +------+
+ 2 +-+.|....|
+ 3 |...A....+---------+
+ 4 |.-.BC-DE|.|.......|
+ 5 |.FG-......|.......|
+ 6 |.-..H.|...|.......|
+ 7 |....-I+-J-|.......|
+ 8 |......M...|...&lt;...|
+ 9 |.--...|...|.......|
+10 |....-.+---|.......|
+11 +-+....+----------+|
+12   |...&gt;...@.^^^^^^.|
+13   +----------------+
+
+</pre>
+</td>
+<td>
+<ol class="soko">
+<li>Push G down to (4,8), then one square right, to (5,8).</li>
+
+<li>Finish G.</li>
+
+<li>Push F one square right.</li>
+
+<li>Finish F like G.</li>
+
+<li>Push M two squares right, to (10,8), then left to (5,8).</li>
+
+<li>Finish M.</li>
+
+<li>Push J up two squares, to (10,5).</li>
+
+<li>Finish I.</li>
+
+<li>Push H right one square.</li>
+
+<li>Finish H.</li>
+
+<li>Push A right two squares, to (7,3).</li>
+
+<li>Push C down two squares, to (6,6).</li>
+
+<li>Finish C like H.</li>
+</ol>
+</td>
+</tr>
+</table>
+
+<p>Five boulders (A, B, D, E and J) remain.</p>
+
+<hr />
+<h3><a id="lev_4a" name="lev_4a"></a>Level 4, version A.</h3>
+
+<table summary="Map and solution, level 4A" border="1"
+cellpadding="10">
+<tr valign="top">
+<td>
+<pre>
+            11111111112222222   
+   12345678901234567890123456
+ 1 +------------------------+
+ 2 |@......^^^^^^^^^^^^^^^^.|
+ 3 |.......+--------------+.|
+ 4 +------.+----+         |.|
+ 5  |...........|         |.|
+ 6  |.A.B.C.D.E.|         |.|
+ 7 +-------.----|         |.|
+ 8 |...F.G..H.I.|         |.|
+ 9 |...J........|         |.|
+10 +----.-------+   +-----|.|
+11  |..K.L.M...|  +-|.....|.|
+12  |.....N....|  |.+.....|.|
+13  |.O.P...Q.++  +-|.....|.|
+14 +------.---+   |.+.....+.|
+15 |..R.....|     +-|.....+-+
+16 |........|     |.+.....|
+17 |...+----+     +-|.....|
+18 +---+            +-----+
+
+</pre>
+</td>
+<td>
+<ol class="soko">
+<li>Push A left one square.</li>
+
+<li>Push B left one square.</li>
+
+<li>Push C left one square.</li>
+
+<li>Push E right one square.</li>
+
+<li>Push D right one square.</li>
+
+<li>Push G to (9,8), then up three squares, then left one
+square.</li>
+
+<li>Finish G.</li>
+
+<li>Finish H and I like G.</li>
+
+<li>Push J left two squares, to (3,9).</li>
+
+<li>Finish F like G.</li>
+
+<li>Push N right three squares, to (11,12).</li>
+
+<li>Push L to (6,11), then up three squares.</li>
+
+<li>Finish L like G.</li>
+
+<li>Finish M and K like L.</li>
+
+<li>Push N left three squares, then up one square, to (8,11).</li>
+
+<li>Finish N like L.</li>
+</ol>
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<p>The map now looks like this:</p>
+</td>
+</tr>
+
+<tr valign="top">
+<td>
+<pre>
+            11111111112222222
+   12345678901234567890123456   
+ 1 +------------------------+
+ 2 |&gt;............@.^^^^^^^^.|
+ 3 |.......+--------------+.|
+ 4 +------.+----+         |.|
+ 5  |...........|         |.|
+ 6  |A.B.C...D.E|         |.|
+ 7 +-------.----|         |.|
+ 8 |............|         |.|
+ 9 |.J..........|         |.|
+10 +----.-------+   +-----|.|
+11  |..........|  +-|.....|.|
+12  |..........|  |.+.....|.|
+13  |.O.P...Q.++  +-|.....|.|
+14 +------.---+   |.+.....+.|
+15 |..R.....|     +-|.....+-+
+16 |........|     |.+.....|
+17 |...+----+     +-|.....|
+18 +---+            +-----+
+
+</pre>
+</td>
+<td>
+<ol class="soko">
+<li>Push R to (8,15), then up four squares.</li>
+
+<li>Finish R like L.</li>
+
+<li>Push Q to (8,13), then down three squares, then left to
+(3,16).</li>
+
+<li>Push Q up one square.</li>
+
+<li>Finish Q like R.</li>
+
+<li>Finish P and O like Q.</li>
+
+<li>Push J to (6,9), then down three squares.</li>
+
+<li>Finish J like L.</li>
+
+<li>Push C to (9,6), then down three squares.</li>
+
+<li>Finish C like J.</li>
+
+<li>Finish B and D like C.</li>
+</ol>
+</td>
+</tr>
+</table>
+
+<p>Two boulders (A and E) remain.</p>
+
+<p>There is a bag of holding in one of the small chambers ((17,12),
+(17,14) or (17,16)) next to the treasure zoo.</p>
+
+<hr />
+<h3><a id="lev_4b" name="lev_4b"></a>Level 4, version B.</h3>
+
+<table summary="map and solution, level 4B" border="1"
+cellpadding="10">
+<tr valign="top">
+<td>
+<pre>
+            11111111112222222   
+   12345678901234567890123456
+ 1   +----------------------+
+ 2   |..^^^^^^^^^^^^^^^^^^..|
+ 3   |..+-----------------+.|
+ 4 +--+.|    +---+        |.|
+ 5 |..|A++  ++...|        |.|
+ 6 |.....+--|.N..|        |.|
+ 7 |.BC..|..|..O.|        |.|
+ 8 ++..DE|...PQ.++        |.|
+ 9  |F..G...|R..|   +-----|.|
+10  |.HI.|..|..S| +-|.....|.|
+11  |.J.K+--|.T.| |.+.....|.|
+12  |.......|..++ +-|.....|.|
+13  +--+.L..|.++  |.+.....+.|
+14     +--.-+.|   +-|.....+-+
+15      |.M...|   |.+.....|
+16      |@.|..|   +-|.....|
+17      +-----+     +-----+
+
+</pre>
+</td>
+<td>
+<ol class="soko">
+<li>Push M right three squares, then up four squares.</li>
+
+<li>Push T up one square.</li>
+
+<li>Push S up two squares.</li>
+
+<li>Push Q up one square.</li>
+
+<li>Push P left three squares.</li>
+
+<li>Push G left two squares.</li>
+
+<li>Push D up two squares, then left one square.</li>
+
+<li>Finish A.</li>
+
+<li>Push B up one square.</li>
+
+<li>Push C right one square.</li>
+
+<li>Finish C.</li>
+
+<li>Push B down one square.</li>
+</ol>
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">The map now looks like this:</td>
+</tr>
+
+<tr valign="top">
+<td>
+<pre>
+   
+            11111111112222222   
+   12345678901234567890123456
+ 1   +----------------------+
+ 2   |....^^^^^^^^^^^^^^^^..|
+ 3   |..+-----------------+.|
+ 4 +--+.|    +---+        |.|
+ 5 |..|.++  ++...|        |.|
+ 6 |.@D..+--|.N..|        |.|
+ 7 |.B...|..|.QO.|        |.|
+ 8 ++...E|P....S++        |.|
+ 9  |FG.....|R..|   +-----|.|
+10  |.HI.|..|.T.| +-|.....|.|
+11  |.J.K+--|M..| |.+.....|.|
+12  |.......|..++ +-|.....|.|
+13  +--+.L..|.++  |.+.....+.|
+14     +--.-+.|   +-|.....+-+
+15      |.....|   |.+.....|
+16      |&gt;.|..|   +-|.....|
+17      +-----+     +-----+
+
+</pre>
+</td>
+<td>
+<ol class="soko">
+<li>Push D right one square.</li>
+
+<li>Finish D.</li>
+
+<li>Push B right two squares.</li>
+
+<li>Finish B.</li>
+
+<li>Finish I.</li>
+
+<li>Push E down one square, then left one square.</li>
+
+<li>Finish E.</li>
+
+<li>Push F up three squares, then right two squares.</li>
+
+<li>Finish F.</li>
+</ol>
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">The map now looks like this:</td>
+</tr>
+
+<tr valign="top">
+<td>
+<pre>
+            11111111112222222   
+   12345678901234567890123456
+ 1   +----------------------+
+ 2   |.......@.^^^^^^^^^^^..|
+ 3   |..+-----------------+.|
+ 4 +--+.|    +---+        |.|
+ 5 |..|.++  ++...|        |.|
+ 6 |.....+--|.N..|        |.|
+ 7 |.....|..|.QO.|        |.|
+ 8 ++....|P....S++        |.|
+ 9  |.G.....|R..|   +-----|.|
+10  |.H..|..|.T.| +-|.....|.|
+11  |.J.K+--|M..| |.+.....|.|
+12  |.......|..++ +-|.....|.|
+13  +--+.L..|.++  |.+.....+.|
+14     +--.-+.|   +-|.....+-+
+15      |.....|   |.+.....|
+16      |&gt;.|..|   +-|.....|
+17      +-----+     +-----+
+
+</pre>
+</td>
+<td>
+<ol class="soko">
+<li>Push G right one square.</li>
+
+<li>Finish G.</li>
+
+<li>Finish H and J like G.</li>
+
+<li>Push P down one square, then left three squares, to (5,9).</li>
+
+<li>Finish P.</li>
+
+<li>Push K to (6,9), then left one square.</li>
+
+<li>Finish K.</li>
+
+<li>Push L right one square, then up one square, then left two
+squares.</li>
+
+<li>Finish L like K.</li>
+</ol>
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">The map now looks like this:</td>
+</tr>
+
+<tr valign="top">
+<td>
+<pre>
+            11111111112222222   
+   12345678901234567890123456
+ 1   +----------------------+
+ 2   |.............@.^^^^^..|
+ 3   |..+-----------------+.|
+ 4 +--+.|    +---+        |.|
+ 5 |..|.++  ++...|        |.|
+ 6 |.....+--|.N..|        |.|
+ 7 |.....|..|.QO.|        |.|
+ 8 ++....|.....S++        |.|
+ 9  |.......|R..|   +-----|.|
+10  |....|..|.T.| +-|.....|.|
+11  |....+--|M..| |.+.....|.|
+12  |.......|..++ +-|.....|.|
+13  +--+....|.++  |.+.....+.|
+14     +--.-+.|   +-|.....+-+
+15      |.....|   |.+.....|
+16      |&gt;.|..|   +-|.....|
+17      +-----+     +-----+
+
+</pre>
+</td>
+<td>
+<ol class="soko">
+<li>Push T down one square.</li>
+
+<li>Push R to (11,8), then left three squares.</li>
+
+<li>Finish R like P.</li>
+
+<li>Finish M like R.</li>
+
+<li>Push T left one square.</li>
+
+<li>Finish T like R.</li>
+
+<li>Push N right one square.</li>
+
+<li>Push Q down to (12,9), then left one square.</li>
+
+<li>Finish Q like R.</li>
+
+<li>Push N left one square.</li>
+
+<li>Finish N like Q.</li>
+</ol>
+</td>
+</tr>
+</table>
+
+<p>Two boulders (O and S) remain.</p>
+
+<p>There is an amulet of reflection in one of the small chambers
+((17,11), (17,13) or (17,15)) next to the treasure zoo.</p>
+
+<hr />
+<p><a href="./">Up to the NetHack Page</a></p>
+</body>
+</html>
+

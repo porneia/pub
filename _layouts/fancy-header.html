@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>{{ page.title }}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+{% capture description %}{% if page.description %}{{ page.description }}{% endif %}{% endcapture %}{% if page.description %}<meta name="description" content="{{ description | strip_html | condense_spaces }}">{% endif %}
+{% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="{{ site.baseurl }}/general.css" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="Porneia delights' log RSS" href="{{ site.baseurl }}{{ site.subscribe_rss }}">
+</head>
+
+<body>
+
+<div id="page-container">
+<div id="content">
+
+<a href="{{ site.baseurl }}/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="{{ site.baseurl }}/img/porneia_ribbon3.png" alt="[Retournez sur la page d'accueil]"></a>
+
+<div id="header">
+
+{% if page.titleimage %}<img src="{{ page.titleimage }}" alt=[{{ page.title }}]>{% else %}<h1>{{ page.title }}</h1>{% endif %}
+
+{% if page.description %}<p>{{ page.description }}{% endif %}
+
+</div>
+
+<hr class="tinyflourishes">
+
+{{ content }}

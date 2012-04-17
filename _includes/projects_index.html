@@ -1,0 +1,11 @@
+{% if projects %}
+<dl>
+  {% for project in projects limit: 10 %}
+{% if forloop.first %}{% else %}<p>{% endif %}
+<dt><span class="notetitle" id="{{ project.date |date: "%m%d" }}">[<a href="archives/{{ project.date | date: "%Y" }}.html#{{ project.date | date: "%m%d" }}"><code>{{ project.date | date: "%Y/%m/%d" }}</code></a>] <b>{{ project.title }}</b></span>
+<dd>
+      {{ project.content }}
+</dd>
+{% endfor %}
+</dl>
+{% endif %}

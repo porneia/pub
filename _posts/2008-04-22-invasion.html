@@ -1,0 +1,98 @@
+---
+layout: post
+title: "Invasion!!1"
+date: 2008-04-22 23:33:52 +0200
+author: illov&aelig;
+mail: illovae[at]bk[dot]ru
+keywords: xpenguins, manchots, illovae
+license: "WTFPL(v2) - Beerware License"
+---
+<p>
+<span class="articleAuthor">Britney Gopherspace, 22 avril 2008,
+{{ page.author }}</span> &mdash;
+Vous en avez marre d'avoir trop de RAM qui vous sert à rien ? Allez
+alors aujourd'hui, on va laisser notre desktop se faire envahir par
+toute une armée de manchot grâce à une toute petite application, qui
+se nomme <a href="http://xpenguins.seul.org/" class="external"
+hreflang="en">xpenguins</a>. Des manchots, mais aussi, des Lemmings,
+ou autres Worms, en passant par les Simpsons ; y'a même
+celui-dont-on-ne-doit-pas-dire-le-nom qui s'amuse à essayer
+d'éradiquer nos chers OS préférés avec son sort Remplacement par
+OuinOuin-tout-pourri ; car en effet, xpenguins gère les thèmes (paye
+ta transition...).
+
+<p>
+Pour l'installation, rien de plus simple :
+
+<pre>
+# apt-get install xpenguins
+</pre>
+
+<p>
+ou sur gentoo :
+
+<pre>
+# emerge -va xpenguins
+</pre>
+
+<p>
+Je ne connais pas les autres distributions (ou si mal) donc je vous laisse
+vous référer à vos manuels.
+
+<p>
+Le joujou supporte pas mal d'option, on va commencer par lister les thèmes
+disponibles :
+
+<pre>
+$ xpenguins -l
+Big Penguins
+Bill
+Classic Penguins
+Lemmings
+Penguins
+Sonic the Hedgehog
+The Simpsons
+Turtles
+Winnie the Pooh
+Worms
+</pre>
+
+<p>
+Chez moi, j'ai ça. J'affectionne le thème Worms, alors voici ce que je
+rentre dans mon terminal :
+
+<pre>
+$ xpenguins -r -s --nice 0.80 1.00 -t Worms
+</pre>
+
+<p>
+L'option <code>-r</code> permet de gagner un peu de charge mémoire en
+disant à xpenguins de considérer toutes les fenêtres comme étant
+rectangulaire.  L'option <code>-s</code>, quant à elle, active le
+&quot;shoot à la souris&quot;.  En gros vous visez un ver et vous le
+dégommez en cliquant.
+
+<p>
+En ce qui concerne <code>--nice 0.80 1.00</code> : quand votre load
+average arrivera à 0.80, les Worms (ou manchots, ou n'importe quel
+autre thème que vous choisissez) commenceront à mourir, et à 1.00, ils
+mourront tous. Ceci permet d'éviter de faire ramer votre machine si
+vous lancez d'autres applications assez gourmandes. Pour faire cela
+xpenguins se réfèrent à <code>/proc/loadavg</code> toutes les 5
+secondes. Les Worms réapparaîtront quand votre load average sera
+redescendu en dessous de 0.80 (évidemment, changez ces valeurs selon
+vos besoins).
+
+<p>
+À noter que vous pouvez aussi définir un nombre plus important de
+Worms, avec l'option <code>-n</code> ; pour les autres options, je
+vous laisse avec la man ;)
+
+<p>
+Sachez enfin, que vous pouvez exploser, ou faire tomber les Worms en
+bougeant vos fenêtres :)
+
+<p>
+Pour finir, il existe un screesaver, je vous laisse aller faire un
+tour sur le <a href="http://xpenguins.seul.org/" class="external"
+hreflang="en">site d'xpenguins</a> pour voir ce qu'il en ait.

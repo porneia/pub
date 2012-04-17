@@ -1,0 +1,378 @@
+<HTML> 
+<head>
+<BASE HREF="base.html">
+ 
+<title> R1's Nethack page </title>
+<meta name="author" content="Erwan Grasland-Mongrain">
+</head> 
+
+<body BGCOLOR="#FFFFFF">
+
+<center><img src="nethack.png"></center>
+
+<center><h2><font color=green>Commandes de base</font></h2></center>
+
+<center><small>
+<a href="#move">Se déplacer</a> - 
+<a href="#ride">Utiliser une monture</a> 
+<br>
+<a href="#stairs">Changer de niveau</a> - 
+<a href="#doors">Portes</a> -
+<a href="#traps">Pièges</a>
+</small></center>
+<br>
+<br>
+
+
+
+
+<p><a name="move"></a><b><font color=blue>Comment se déplacer
+dans un donjon glauque ?</font></b>
+
+<p> Bon, vous voilà donc entré dans le donjon. Maintenant, il va falloir
+faire un peu d'exploration... Pour vous déplacer, vous devez utiliser
+l'une des possibilités suivantes : soit avec le pavé numérique (choix par
+défaut dans la version Windows notamment), soit avec les « fameuses »
+touches « <kbd>yuhjklbn</kbd> » (choix par défaut sur la version
+installée à l'ENS) familières aux utilisateurs de <a
+href="http://www.vim.org"><cite>vim</cite></a>. Dans le premier cas,
+aucune difficulté, la position de la touche par rapport au
+« <kbd>5</kbd> » vous indique la direction que vous emprunterez lorsque
+vous appuierez dessus. Dans le second cas, les touches
+« <kbd>hjkl</kbd> » servent respectivement à aller à gauche, en bas, en
+haut et à droite, tandis que les touches « <kbd>yubn</kbd> permettent
+d'aller respectivement dans les directions diagonales haut-gauche,
+haut-droite, bas-gauche et bas-droite. Le second sytème peut paraître un
+peu étrange, mais fonctionne très bien après un peu d'exercice
+(personnellement c'est d'ailleurs celui que je préfère). Vous pouvez
+changer la configuration par défaut en modifiant (ou créant) le fichier
+de configuration de Nethack (<code>defaults.nh</code> sous Windows,
+<code>.nethackrc</code> sous Unix entre autres) : il suffit d'ajouter ou
+de supprimer la ligne « <kbd>OPTIONS=num_pad</kbd> » (voir aussi <a
+href="avancees.html#options">le tutoriel sur les options</a>) 
+<p><table align=center>
+<tr><td><kbd>y</kbd></td><td> </td><td><kbd>j</kbd></td><td>
+</td><td><kbd>u</kbd></td><td> </td><td> </td><td>
+</td><td><kbd>7</kbd></td><td> </td><td><kbd>8</kbd></td><td>
+</td><td><kbd>9</kbd></td><td> </td></tr> <tr><td>
+</td><td><kbd>\</kbd></td><td><kbd>|</kbd></td><td><kbd>/</kbd></td><td>
+</td><td> </td><td> </td><td> </td><td>
+</td><td><kbd>\</kbd></td><td><kbd>|</kbd></td><td><kbd>/</kbd></td><td>
+</td><td> </td></tr>
+<tr><td><kbd>h</kbd></td><td><kbd>-</kbd></td><td><kbd>.</kbd></td><td><kbd>-</kbd></td><td><kbd>l</kbd></td><td>
+</td><td> </td><td>
+</td><td><kbd>4</kbd></td><td><kbd>-</kbd></td><td><kbd>5</kbd></td><td><kbd>-</kbd></td><td><kbd>6</kbd></td><td>
+</td></tr> <tr><td>
+</td><td><kbd>/</kbd></td><td><kbd>|</kbd></td><td><kbd>\</kbd></td><td>
+</td><td> </td><td> </td><td> </td><td>
+</td><td><kbd>/</kbd></td><td><kbd>|</kbd></td><td><kbd>\</kbd></td><td>
+</td><td> </td></tr> <tr><td><kbd>b</kbd></td><td>
+</td><td><kbd>k</kbd></td><td> </td><td><kbd>n</kbd></td><td> </td><td>
+</td><td> </td><td><kbd>1</kbd></td><td> </td><td><kbd>2</kbd></td><td>
+</td><td><kbd>3</kbd></td><td> </td></tr> </table>
+
+
+<p> Vous aurez sûrement remarqué que tant que vous n'appuyez sur
+aucune touche, rien ne se passe. En revanche, dès que vous vous
+déplacerez, votre <cite>pet</cite> (animal de compagnie), ainsi que les
+éventuels monstres en vue feront de même juste après. Le système de temps
+dans Nethack est ainsi fait de sorte qu'à tout moment vous pouvez vous
+arrêter et réfléchir, consulter votre inventaire ou encore demander des
+informations supplémentaire sur le monstre qui s'approche. Bref,
+<strong>tant que vous ne faites rien, le jeu est en pause, mais dès que
+vous faites la moindre action qui demande du temps</strong> (se déplacer,
+attaquer, mais aussi sortir un objet d'un sac ou boire une potion),
+<strong>le jeu avance de la même quantité de <cite>rounds</cite> qu'il
+vous a fallu pour effectuer cette action</strong>. Ainsi, si en étant
+<cite>Overtaxed</cite> vous avez eu besoin de dix <cite>rounds</cite>
+pour faire un pas, le lézard qui vous suivait aura eu dix fois l'occasion
+de vous mordre - ce qui peut s'avérer plus que suffisant pour vous
+tuer...
+
+<p> Ce mode de décompte du temps oblige à faire extrêmement attention à
+ce que l'on fait : il est ainsi fortement déconseillé d'appuyer très vite
+sur une touche de direction pour se déplacer, ou pire, de laisser une
+touche enfoncée pour traverser un couloir rapidement : il est tout à fait
+possible que vous tombiez sur un ennemi en route, et, le temps que vous
+vous rendiez compte de se qui se passe, vous avez échangé une dizaine de
+coups, ce qui peut être fatal pour peu que vous n'ayez plus beaucoup de
+points de vie ou que le monstre soit puissant. Il existe bien entendu
+beaucoup d'autres situations où ce genre de comportement vous coûtera
+très vraisemblablement la vie, <strong>prenez donc le temps d'observer votre
+entourage à chaque mouvement !</strong>
+
+<p> Mais alors, comment faire pour ne rien faire, c'est-à-dire laisser
+s'écouler du temps sans effectuer le moindre action ? La chose est bien
+entendu possible : il suffit d'appuyer sur la touche « <kbd>.</kbd> » (ou
+« <kbd>5</kbd> » si vous utilisez le pavé numérique) autant de fois que
+vous voulez attendre de <cite>rounds</cite>. Pour éviter la situation
+précédemment décrite (appui répété sur une touche), il existe un moyen de
+demander directement d'attendre un certain nombre de <cite>rounds</cite>
+de jeu : entrez le nombre souhaité (sans le pavé numérique si vous
+l'utilisez déjà pour vous déplacer...) puis appuyez sur la touche
+« <kbd>.</kbd> » : vous attendrez jusqu'à ce que ce nombre de
+<cite>rounds</cite> soit écoulé, sauf si un évènement quelconque (vous
+avez faim, un ennemi apparaît, etc.) vous interrompt avant. Ceci est
+généralisable à la plupart des commandes : si vous entrez un nombre suivi
+d'un commande, vous effectuerez celle-ci autant de fois que demandé, par
+exemple « <kbd>10l</kbd> » vous déplace de dix cases sur la droite (pour
+autant qu'il ne se passe rien d'imprévu durant ce mouvement). Attention
+quand même à ne pas utiliser cette commande trop vite : si vous entrez
+par erreur « <kbd>100.</kbd> » au lieu de « <kbd>10.</kbd> », vous
+attendrez (en principe) bel et bien 90 tours de trop, avec toutes les
+conséquences néfastes que cela peut avoir sur votre faim ou votre
+inventaire périssable.
+
+<p> Il toutefois existe d'autres moyens moins fastidieux de se déplacer
+sûrement sur de longues distances. La première consiste à utiliser les
+touches de déplacement « <kbd>YUHJKLNM</kbd> » en appuyant sur majuscule en
+même temps (fonctionne également avec le pavé numérique) : vous vous
+déplacerez alors d'un seul coup dans la direction choisie jusqu'à ce que
+vous heurtiez un mur ou quelque chose qui vous bloque la voie (un
+monstre ou un rocher (<cite>boulder</cite>) par exemple). Une autre
+possibilité consiste à appuyer sur la touche « <kbd>g</kbd> » avant
+d'indiquer votre direction. Dans ce cas, vous vous déplacerez comme
+précédemment de plusieurs cases dans la direction choisie, jusqu'à ce que
+vous tombiez sur quelque chose d'intéressant : un monstre ou un objet que
+vous n'aviez pas vu, une intersection, un piège, etc. C'est sûrement le
+moyen le plus sécuritaire d'avancer sur de longues distances, donc
+pensez-y la prochaine fois que vous devrez traverser des niveaux que vous
+connaissez déjà. Vous pouvez également utiliser « <kbd>G</kbd> » au
+lieu de « <kbd>g</kbd> » avant un déplacement, ou appuyer sur la touche
+« <kbd>&lt;Ctrl&gt;</kbd> » en même temps que vous vous déplacez, ce qui
+aura le même effet que précédemment, à l'exception du fait que vous ne
+vous arrêterez pas aux intersections. Enfin, la méthode la plus pratique
+quand vous remontez ou redescendez une série de niveaux connus consiste à
+utiliser la touche « <kbd>_</kbd> » (souligné), puis le type de case sur
+lequel vous souhaitez aller : par exemple « <kbd>&lt;</kbd> » pour un
+escalier descendant, « <kbd>&gt;</kbd> » pour un escalier montant. Le
+curseur (qui n'est <em>pas</em> votre personnage) se placera alors sur la
+case appropriée la plus proche. Vous pouvez alors utiliser vos touches de
+direction habituelles pour bouger ce curseur si désiré ; appuyez ensuite
+sur « <kbd>.</kbd> » ou « <kbd>5</kbd> » pour confirmer
+(ou « <kbd>&lt;Esc&gt;</kbd> » pour annuler) : votre personnage essaiera
+alors d'aller par le chemin le plus court à l'endroit où se trouvait
+votre curseur, s'arrêtant éventuellement s'il rencontre quelque chose
+d'imprévu en route.
+
+
+<p><a name="ride"></a><b><font color=blue>Utiliser une monture
+</font></b>
+
+<p> Si la majeure partie du temps vous vous déplacerez à pied, il est
+possible dans certains cas d'utiliser une monture. Pour cela, il faut
+remplir certaines conditions : d'abord la monture doit être apprivoisée
+(essayez donc de monter un cheval récalcitrant...), ensuite la monture
+doit avoir une morphologie adéquate (inutile d'essayer avec un blob, un
+serpent ou même un chien, donc), enfin, vous devez diposer d'une selle
+(<cite>saddle</cite>) pour votre animal. Une fois toutes ces conditions
+remplies, placez la selle sur votre monture (voir <a
+href="objets.html#tools">le tutoriel sur les objets</a>),
+positionnez-vous à côté d'elle et entrez la commande avancée
+<cite>#ride</cite> en appuyant sur les touches
+« <kbd>#ri&lt;Enter&gt;</kbd> », puis sur la touche correspondant à la
+direction dans laquelle elle se trouve. Si vous avez de la chance, vous
+parviendrez à la monter rapidement, sinon, vous pouvez toujours réessayer
+au tour suivant (mais gardez un oeil sur vos points de vie...).
+
+<p> Une fois sur le dos d'une créature, vous pouvez vous déplacer à votre
+guise et même attaquer, mais certaines actions telles qu'ouvrir ou fermer
+les portes, ou encore ramasser les objets au sol, vous seront interdites,
+éventuellement jusqu'à ce que vous atteigniez un niveau de maîtrise
+suffisant en <cite>riding</cite> (voir <a href="combat.html#xp">le
+tutoriel sur l'expérience</a>).
+
+<p> Toutefois, la plupart des créatures n'apprécient guère d'être ainsi
+triturées, essayez donc de ne pas trop abuser de cette possibilité, ou
+alors prenez grand soin de votre monture si vous ne voulez pas qu'un beau
+jour elle vous abandonne...
+
+<p> Pour vous entraîner, essayez de jouer un <cite>Knight</cite> : c'est une
+classe particulièrement adaptée à ce genre d'exercice, et vous démarrez
+toujours avec comme animal de compagnie un poney sellé.
+
+
+<p><a name="stairs"></a><b><font color=blue>Changer de niveau
+dans le donjon</font></b>
+
+<p><center><img src="stairs_up.png"> <img src="stairs_down.png"> <img
+src="ladder_up.png"> <img src="ladder_down.png"></center>
+<small><center>Des escaliers et des échelles qui montent ou qui
+descendent</center></small>
+
+<p> Pour changer de niveau dans le donjon, vous devrez vous placer
+sur les escaliers (ou parfois les échelles, dont le rôle est le même,
+seule l'apparence change) appropriés, et appuyer sur « <kbd>&lt;</kbd> »
+pour monter d'un étage, ou sur « <kbd>&gt;</kbd> » pour descendre d'un
+étage. Vous pouvez essayer cette commande sur la case sur laquelle vous
+vous trouviez lorsque vous avez commencé le jeu, c'est toujours un
+escalier montant, mais attention, comme il s'agit de l'escalier d'entrée
+(ou de sortie, selon le point de vue) du donjon, l'emprunter revient à
+terminer définitivement la partie (comme si vous étiez mort, à l'exception
+du fait que vous gagnez un peu plus de points). Le jeu vous demande quand
+même confirmation avant (« <samp>Beware, there will be no return! Still
+climb?</samp> ») ; comme il s'agit d'une partie d'essai, ce
+n'est pas trop grave si vous répondez « <kbd>y</kbd> » cette fois-ci,
+mais faites-y attention si un jour vous décidez de remonter un peu trop
+vite votre Valkyrie niveau 20...
+
+<p> Si le donjon est en grande partie linéaire, il existe certaines
+branches secondaires (se terminant souvent en impasses) que vous pouvez
+emprunter si vous le désirez. Le premier de ces embranchements se trouve
+relativement proche de l'entrée du donjon : lorsque vous tomberez sur un
+niveau contenant deux escaliers descendants, l'un vous mènera dans les
+Mines des Gnomes (<cite>Gnomish Mines</cite>), tandis que l'autre vous
+permettra de rester dans la branche principale du donjon.
+
+<p> Emprunter des escaliers est généralement un bon moyen d'échapper à
+des ennemis, même si certains sont capables de vous suivre s'ils se
+trouvent trop près de vous. De même, votre <cite>pet</cite> ne vous
+suivra au niveau suivant que s'il est suffisamment proche de vous au
+moment où vous prenez les escaliers.
+
+
+<p><a name="doors"></a><b><font color=blue>Les portes
+</font></b>
+
+<p> Maintenant que vous savez vous déplacer, promenez-vous dans le donjon
+jusqu'à ce que vous trouviez une porte fermée (si vous semblez coincé,
+regardez <a href="#secret">un peu plus loin</a> le paragraphe consacré
+aux portes secrètes). Si vous rencontrez des ennemis sur la route,
+ignorez-les et laissez votre <cite>pet</cite> les tuer pour vous. 
+
+<p><center><img src="door2.png"> <img src="door1.png"> <img
+src="door3.png"></center> <small><center>Une porte ouverte, fermée,
+détruite.</center></small>
+
+<p> Lorsque vous aurez trouvé une porte, placez-vous à une case de
+distance d'elle (peu importe la direction, même en diagonale). Le moyen
+le plus évident de la franchir consiste bien sûr à essayer de l'ouvrir,
+au cas où elle ne serait pas fermée à clé. Pour cela, c'est la touche
+« <kbd>o</kbd> » (pour <cite>(o)pen</cite>) que vous devez utiliser :
+appuyez sur cette touche, puis indiquez la direction dans laquelle se
+trouve la porte. Plusieurs cas de figure peuvent alors se présenter. La
+porte peut simplement s'ouvrir, dans ce cas elle n'est plus un obstacle
+et vous pouvez la franchir librement, sauf en diagonale. Vous pouvez
+également obtenir le message « <samp>The door resists!</samp> », ce qui
+signifie que malgré vos efforts, vous n'arrivez pas à ouvrir la porte (il
+s'agit vraisemblablement d'épaisses portes en bois, et les faire bouger
+n'est pas toujours facile...). Dans ce cas, réessayez jusqu'à ce que la
+porte s'ouvre. Enfin, la porte peut être fermée à clé, auquel cas vous
+obtenez le message « <samp>This door is locked</samp> ».
+
+<p> Si vous désirez ouvrir une porte fermée à clé, vous pouvez soit
+essayer de la crocheter, soit la défoncer. Dans le premier cas, il vous
+faudra trouver un instrument qui vous semble adapté (je ne vous en dit
+pas plus...), et l'utiliser sur la porte (voir <a
+href="objets.html#tools">le tutoriel sur les objets</a>) ; il est
+cependant relativement peu probable que ce soit le cas (surtout en début
+de partie). Il vous reste donc la manière forte... Pour défoncer une
+porte (ou plus généralement pour donner un coup de pied dans une
+direction), appuyez sur « <kbd>^d</kbd> », ou « <kbd>k</kbd> » (pour
+<cite>(k)ick</cite>) si vous utilisez les touches du pavé numérique pour
+vous déplacer. Si votre coup de pied est sans effet, vous obtenez le
+message « <samp>WHAMMM!!!</samp> », mais rien ne vous empêche de
+recommencer. Si vous réussissez, vous obtenez un message du genre «
+<samp>As you kick the door, it crashes open!</samp> », et la porte
+disparaît littéralement : ce carré devient alors un carré vide standard,
+que vous pouvez traverser même en diagonale. Enfin, vous pouvez également
+vous fouler la cheville en agissant de la sorte (« <samp>Dumb move! You
+strain a muscle.</samp> »), auquel cas vous ne pourrez plus donner de
+coup de pied jusqu'à ce que votre jambe aille mieux (« <samp>Your leg
+feels somewhat better.</samp> ») : marchez un peu ou attendez quelques
+tours avant de recommencer. Notez toutefois que défoncer un porte n'est
+pas quelque chose de particulièrement discret ni poli à l'égard des
+éventuels occupants pacifiques du donjon...
+
+<p> Pour refermer une porte (qui n'a pas été défoncée...), placez-vous
+comme précédemment à une case de distance d'elle, et appuyez sur
+« <kbd>c</kbd> » (pour <cite>(c)lose</cite>) suivi de la direction de la
+porte. Cela peut être particulièrement utile si vous êtes poursuivi par
+un ennemi incapable d'ouvrir une porte (sans bras par exemple)...
+
+<p> <a name="secret"> Il existe également dans le donjon des portes
+secrètes, c'est-à-dire des portes qui ont l'apparence de murs, et que
+vous ne détectez (en principe) qu'après une minutieuse inspection. Si
+vous pensez qu'il existe une porte secrète quelque part (c'est toujours
+le cas si une grande partie du niveau est inexplorée alors que vous avez
+parcouru tous les couloirs ou si vous êtes coincé dans un niveau sans
+trouver l'escalier descendant - attention toutefois, certains niveaux
+spéciaux peuvent avoir une forme particulière ou ne pas avoir d'issue
+autre que celle par laquelle vous êtes entrée, auquel cas revenez
+simplement en arrière et cherchez s'il n'y aurait pas un niveau avec
+<em>deux</em> escaliers descendants), placez-vous à côté de l'endroit où
+vous suspectez l'existence d'une porte secrète et appuyez sur la touche
+« <kbd>s</kbd> ». Il y a de fortes chances pour que rien ne se passe,
+mais vous n'avez aucun moyen de savoir si c'est parce que vous avez mal
+cherché ou si c'est parce qu'il n'y a effectivement rien. Pour augmenter
+vos chances de succès, tapez directement « <kbd>10s</kbd> » ou
+« <kbd>20s</kbd> » afin de diminuer la probabilité d'avoir cherché sans
+succès à un endroit où il y avait effectivement quelque chose. Si vous
+trouvez une porte secrète, celle-ci devien une porte tout ce qu'il y a de
+plus standard, éventuellement verrouillée.
+
+<p> Notez que la commande « <kbd>s</kbd> » sert en fait à chercher tout
+ce qui est caché, vous pouvez donc l'utiliser pour chercher des pièges,
+pour trouver des passages secrets (quand un long couloir se termine
+étrangement en cul-de-sac) ou encore pour tâtonner autour de vous lorsque
+vous êtes aveugle.
+
+
+<p><a name="traps"></a><b><font color=blue>Les pièges
+</font></b>
+
+<p><center><img src="trap1.png"> <img src="trap2.png"> <img
+src="trap3.png"></center>
+<small><center>Quelques pièges parmi les plus courants.</center></small>
+
+<p> Comme dans tout donjon glauque qui se respecte, il existe de nombreux
+pièges plus ou moins retors dans Nethack. Le plus courant est sans doute
+le trou dans le sol sommairement recouvert dans lequel vous pouvez tomber et
+rester coincé quelques tours. Comme indiqué plus haut, vous devez
+utiliser la commande « <kbd>s</kbd> » pour trouver un piège là où vous en
+suspectez la présence ; un piège dans lequel vous (ou toute autre
+créature que vous êtes capable de voir, y compris votre <cite>pet</cite>)
+tombez devient également immédiatement visible (ce qui ne l'empêche pas
+généralement de fonctionner à nouveau...). Pour pouvoir marcher en toute
+sécurité sur la case où se trouve le piège, vous pourrez parfois utiliser
+la commande avancée <cite>#untrap</cite> (désamorcer). Si votre clavier
+est équipé d'une touche « <kbd>&lt;Meta&gt;</kbd> » vous pouvez
+l'utiliser en tapant « <kbd>M-u</kbd> ». Si ce n'est pas le cas, vous
+devrez alors passer dans le menu des commandes avancées : appuyez sur les
+touches « <kbd>#u&lt;Enter&gt;</kbd> ». Enfin, si vous avez choisi de
+jouer avec le pavé numérique, vous pouvez directement appuyer sur la
+touche « <kbd>u</kbd> » Dans tous les cas, le jeu vous demande ensuite
+dans quelle direction se trouve le piège à désamorcer, tapez alors
+simplement la touche de direction associée.
+
+<p> Naturellement, vous vous doutez que cela ne fonctionne pas à tous les
+coups. Il se peut que vous n'arriviez simplement pas à désamorcer le
+piège : dans ce cas, rien ne vous empêche de réessayer. Vous pouvez
+également tomber dans le piège, avec des conséquences plus ou moins
+fâcheuses... Vous pouvez réussir à désamorcer le piège, et, dans certains
+cas, récupérer une partie du matériel utilisé par le piège (par exemple,
+les fléchettes qui devaient vous être tirées dessus). Enfin, il se peut
+également que le piège ne puisse pas être désamorcé (par exemple, comment
+désamorcer un trou dans le sol ?), mais attention, certains pièges
+impossibles à désamorcer par la commande <cite>#untrap</cite> peuvent
+l'être par d'autres méthodes : à vous de faire preuve d'astuce !
+
+<p> Si la plupart du temps les pièges sont déclenchés en marchant dessus,
+certains coffres ou portes peuvent aussi être directement piégés. Le seul
+moyen de les détecter est alors d'utiliser (avant d'ouvrir la porte ou le
+coffre...) la commande <cite>#untrap</cite> une fois placé sur la même
+case (pour les coffres et autres boîtes) ou sur une case voisine (pour
+les portes) : l'effet de cette commande est alors de détecter ce genre de
+pièges (attention, avec un pourcentage d'échec non nul), et
+éventuellement de les désamorcer (voir <a href="equip.html#boxes">le
+tutoriel sur les contenants</a>).
+
+<p><small><a href=equip.html>Lire le tutoriel suivant</a>
+<br><a href=index.html>Revenir à la liste des tutoriels</a></small>
+
+<p><hr>
+2003 - Erwan Grasland-Mongrain (<a
+href="../../mail.html">m'écrire...</a>)
+
+</body>
+</HTML>

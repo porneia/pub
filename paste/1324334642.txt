@@ -1,0 +1,521 @@
+  1  html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  2      margin: 0;
+  3      padding: 0;
+  4      border: 0;
+  5      font-size: 100%;
+  6      font: inherit;
+  7      vertical-align: baseline
+  8  }
+  9
+ 10  body {
+ 11      line-height: 1
+ 12  }
+ 13
+ 14  ol, ul {
+ 15      list-style: none
+ 16  }
+ 17
+ 18  table {
+ 19      border-collapse: collapse;
+ 20      border-spacing: 0
+ 21  }
+ 22
+ 23  caption, th, td {
+ 24      text-align: left;
+ 25      font-weight: normal;
+ 26      vertical-align: middle
+ 27  }
+ 28
+ 29  q, blockquote {
+ 30      quotes: none
+ 31  }
+ 32
+ 33  q: before, q: after, blockquote: before, blockquote: after {
+ 34      content: "";
+ 35      content: none
+ 36  }
+ 37
+ 38  a img {
+ 39      border: none
+ 40  }
+ 41
+ 42  article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+ 43      display: block
+ 44  }
+ 45
+ 46  .icones-sprite, .icones-creativecommons, .icones-erreur, .icones-facebook, .icones-flickr, .icones-logo, .icones-logoteam, .icones-message, .icones-note_de_musique, .icones-nuage, .icones-pinceau, .icones-porteeblue, .icones-rss, .icones-twitter, .icones-vimeo {
+ 47      background: url('../img/icones-s9a83c2fb34.png') no-repeat
+ 48  }
+ 49
+ 50  .icones-creativecommons {
+ 51      background-position: 0 0;
+ 52      height: 31px;
+ 53      width: 88px
+ 54  }
+ 55
+ 56  .icones-erreur {
+ 57      background-position: 0 -31px;
+ 58      height: 20px;
+ 59      width: 20px
+ 60  }
+ 61
+ 62  .icones-facebook {
+ 63      background-position: 0 -51px;
+ 64      height: 34px;
+ 65      width: 34px
+ 66  }
+ 67
+ 68  .icones-flickr {
+ 69      background-position: 0 -85px;
+ 70      height: 34px;
+ 71      width: 34px
+ 72  }
+ 73
+ 74  .icones-logo {
+ 75      background-position: 0 -119px;
+ 76      height: 205px;
+ 77      width: 900px
+ 78  }
+ 79
+ 80  .icones-logoteam {
+ 81      background-position: 0 -324px;
+ 82      height: 249px;
+ 83      width: 247px
+ 84  }
+ 85
+ 86  .icones-message {
+ 87      background-position: 0 -573px;
+ 88      height: 20px;
+ 89      width: 20px
+ 90  }
+ 91
+ 92  .icones-note_de_musique {
+ 93      background-position: 0 -593px;
+ 94      height: 128px;
+ 95      width: 128px
+ 96  }
+ 97
+ 98  .icones-nuage {
+ 99      background-position: 0 -721px;
+100      height: 420px;
+101      width: 420px
+102  }
+103
+104  .icones-pinceau {
+105      background-position: 0 -1141px;
+106      height: 48px;
+107      width: 48px
+108  }
+109
+110  .icones-porteeblue {
+111      background-position: 0 -1189px;
+112      height: 96px;
+113      width: 348px
+114  }
+115
+116  .icones-rss {
+117      background-position: 0 -1285px;
+118      height: 32px;
+119      width: 32px
+120  }
+121
+122  .icones-twitter {
+123      background-position: 0 -1317px;
+124      height: 34px;
+125      width: 34px
+126  }
+127
+128  .icones-vimeo {
+129      background-position: 0 -1351px;
+130      height: 34px;
+131      width: 34px
+132  }
+133
+134  .container_12 {
+135      margin-left: auto;
+136      margin-right: auto;
+137      width: 960px
+138  }
+139
+140  .grid_3 {
+141      display: inline;
+142      float: left;
+143      margin-left: 10px;
+144      margin-right: 10px;
+145      width: 220px
+146  }
+147
+148  .grid_4 {
+149      display: inline;
+150      float: left;
+151      margin-left: 10px;
+152      margin-right: 10px;
+153      width: 300px
+154  }
+155
+156  .grid_6 {
+157      display: inline;
+158      float: left;
+159      margin-left: 10px;
+160      margin-right: 10px;
+161      width: 460px
+162  }
+163
+164  .grid_8 {
+165      display: inline;
+166      float: left;
+167      margin-left: 10px;
+168      margin-right: 10px;
+169      width: 620px
+170  }
+171
+172  .grid_9 {
+173      display: inline;
+174      float: left;
+175      margin-left: 10px;
+176      margin-right: 10px;
+177      width: 700px
+178  }
+179
+180  .grid_12 {
+181      display: inline;
+182      float: left;
+183      margin-left: 10px;
+184      margin-right: 10px;
+185      width: 940px
+186  }
+187
+188  .alpha {
+189      margin-left: 0
+190  }
+191
+192  .omega {
+193      margin-right: 0
+194  }
+195
+196  .clear {
+197      clear: both
+198  }
+199
+200  .fleft {
+201      float: left
+202  }
+203
+204  .fright {
+205      float: right
+206  }
+207
+208  a {
+209      color: #330033
+210  }
+211
+212  body {
+213      font-size: 12px;
+214      background: #d9d9d9;
+215      font-family: Arial, Helvetica, sans-serif
+216  }
+217
+218  html {
+219      min-width: 960px
+220  }
+221
+222  html, body {
+223      height: 100%
+224  }
+225
+226  header {
+227      width: 100%;
+228      height: 205px;
+229      text-align: center;
+230      background: url('../img/bg-header.png') repeat-x
+231  }
+232
+233  .erreur_message {
+234      padding: 20px;
+235      margin: 20px 100px 15px 100px;
+236      width: 740px;
+237      -moz-box-shadow: 0px 0px 5px #333;
+238      -webkit-box-shadow: 0px 0px 5px #333;
+239      -o-box-shadow: 0px 0px 5px #333;
+240      box-shadow: 0px 0px 5px #333;
+241      -moz-border-radius: 5px;
+242      -webkit-border-radius: 5px;
+243      -o-border-radius: 5px;
+244      -ms-border-radius: 5px;
+245      -khtml-border-radius: 5px;
+246      border-radius: 5px
+247  }
+248
+249  .erreur_message p {
+250      margin: 5px 0 0 25px
+251  }
+252
+253  #message {
+254      position: absolute;
+255      z-index: 9999;
+256      background-color: #ffc;
+257      border: #cc0 solid 1px
+258  }
+259
+260  #erreur {
+261      position: absolute;
+262      z-index: 9999;
+263      background-color: #ffd2d3;
+264      border: #d20005 solid 1px
+265  }
+266
+267  #logo {
+268      width: 900px;
+269      height: 205px;
+270      margin-left: 30px
+271  }
+272
+273  #logo a {
+274      display: block;
+275      height: 205px
+276  }
+277
+278  #social {
+279      margin-top: 164px
+280  }
+281
+282  #social span {
+283      margin-right: 10px
+284  }
+285
+286  nav {
+287      background-color: #454545;
+288      width: 100%;
+289      float: left;
+290      padding: 10px 0 0 0;
+291      -moz-box-shadow: 3px 0px 5px #1c1a19;
+292      -webkit-box-shadow: 3px 0px 5px #1c1a19;
+293      -o-box-shadow: 3px 0px 5px #1c1a19;
+294      box-shadow: 3px 0px 5px #1c1a19;
+295      height: 40px
+296  }
+297
+298  nav ul {
+299      width: 790px;
+300      margin: 0 auto;
+301      padding: 0 20px
+302  }
+303
+304  nav li {
+305      list-style-type: none;
+306      display: inline
+307  }
+308
+309  nav a {
+310      float: left;
+311      font-size: 16px;
+312      line-height: 14px;
+313      color: #000000;
+314      text-decoration: none;
+315      padding: 12px 30px 0 30px;
+316      position: relative;
+317      text-shadow: 1px 1px 0 rgba(255,255,255,0.3);
+318      font-weight: bold;
+319      text-transform: uppercase
+320  }
+321
+322  nav a: hover, nav a.current {
+323      border-top: #c5c5c5 solid 4px;
+324      padding: 8px 30px 0 30px;
+325      color: #c5c5c5;
+326      text-shadow: 1px 1px 0 rgba(0,0,0,0.3)
+327  }
+328
+329  footer {
+330      background-color: #d9d9d9;
+331      width: 100%;
+332      padding-bottom: 20px
+333  }
+334
+335  footer p {
+336      margin: 5px
+337  }
+338
+339  footer a {
+340      text-decoration: none
+341  }
+342
+343  footer a: visited {
+344      text-decoration: none
+345  }
+346
+347  footer a: hover {
+348      text-decoration: underline
+349  }
+350
+351  footer ul {
+352      float: left;
+353      width: 140px;
+354      margin: 0 5px
+355  }
+356
+357  footer #copyright {
+358      text-align: right;
+359      margin: 30px 10px 0 0
+360  }
+361
+362  footer h3 {
+363      font-weight: bold;
+364      font-size: 14px;
+365      line-height: 1.2em;
+366      color: #000;
+367      font-style: italic;
+368      padding: 9px 0 0 0;
+369      margin-bottom: 11px;
+370      border-bottom: 1px dotted #000
+371  }
+372
+373  footer .icones-creativecommons {
+374      margin-right: 5px
+375  }
+376
+377  footer table {
+378      margin: 0 5px
+379  }
+380
+381  footer table td {
+382      padding: 2px 5px
+383  }
+384
+385  #breadcrumb {
+386      position: absolute;
+387      margin: -25px 0 0 10px;
+388      font-size: 0.9em
+389  }
+390
+391  #breadcrumb a {
+392      text-decoration: none
+393  }
+394
+395  #breadcrumb span {
+396      color: #d5d5d5
+397  }
+398
+399  #breadcrumb a: hover {
+400      text-decoration: underline
+401  }
+402
+403  .content {
+404      background-image: url('../img/silver_alum.png');
+405      padding: 30px 0
+406  }
+407
+408  aside {
+409      float: right;
+410      background-color: #777777;
+411      -moz-border-radius: 5px;
+412      -webkit-border-radius: 5px;
+413      -o-border-radius: 5px;
+414      -ms-border-radius: 5px;
+415      -khtml-border-radius: 5px;
+416      border-radius: 5px;
+417      -moz-box-shadow: 3px 3px 5px #1c1a19;
+418      -webkit-box-shadow: 3px 3px 5px #1c1a19;
+419      -o-box-shadow: 3px 3px 5px #1c1a19;
+420      box-shadow: 3px 3px 5px #1c1a19;
+421      color: #101010;
+422      padding: 10px 0
+423  }
+424
+425  aside h2 {
+426      text-transform: uppercase;
+427      font-size: 14px;
+428      margin: 10px;
+429      border-bottom: 1px dotted #000000
+430  }
+431
+432  aside p {
+433      margin: 5px
+434  }
+435
+436  aside span {
+437      display: block;
+438      margin: 5px auto
+439  }
+440
+441  article h1 {
+442      font-weight: bold;
+443      font-size: 20px;
+444      line-height: 45px;
+445      font-style: italic;
+446      padding: 9px 0 0 0;
+447      margin-bottom: 21px
+448  }
+449
+450  article p {
+451      font-size: 12px;
+452      line-height: 140%
+453  }
+454
+455  .porteeblue {
+456      margin: 30px 0 10px 135px
+457  }
+458
+459  .media .contener-audio {
+460      height: 40px
+461  }
+462
+463  .media div.audio {
+464      width: 302px;
+465      top: 26px;
+466      left: 5px;
+467      background-color: none;
+468      display: none
+469  }
+470
+471  .media .info {
+472      border: 0px;
+473      width: 450px;
+474      height: 40px;
+475      background-color: #000;
+476      right: 10px;
+477      color: #efefef;
+478      font: 14px;
+479      -moz-border-radius: 5px;
+480      -webkit-border-radius: 5px;
+481      -o-border-radius: 5px;
+482      -ms-border-radius: 5px;
+483      -khtml-border-radius: 5px;
+484      border-radius: 5px;
+485      border-radius: 5px;
+486      padding: 0 0 0 10px
+487  }
+488
+489  .media .menu-musique {
+490      margin: 20px 0 0 0;
+491      padding: 5px 8px 5px 5px;
+492      list-style: none;
+493      height: 300px;
+494      overflow-x: hidden;
+495      overflow-y: auto;
+496      background-color: #d5d5d5;
+497      -moz-border-radius: 5px;
+498      -webkit-border-radius: 5px;
+499      -o-border-radius: 5px;
+500      -ms-border-radius: 5px;
+501      -khtml-border-radius: 5px;
+502      border-radius: 5px
+503  }
+504
+505  .media li {
+506      border: 1px #4C4A4A solid;
+507      padding: 5px;
+508      margin: 5px 0 0 0;
+509      background-color: #191919;
+510      color: #d5d5d5;
+511      -moz-border-radius: 3px;
+512      -webkit-border-radius: 3px;
+513      -o-border-radius: 3px;
+514      -ms-border-radius: 3px;
+515      -khtml-border-radius: 3px;
+516      border-radius: 3px;
+517      -moz-box-shadow: 2px 2px 5px #555;
+518      -webkit-box-shadow: 2px 2px 5px #555;
+519      -o-box-shadow: 2px 2px 5px #555;
+520      box-shadow: 2px 2px 5px #555
+521  }

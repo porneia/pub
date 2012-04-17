@@ -1,0 +1,670 @@
+---
+layout: post
+title: "Shaarli et ses drôles de liens"
+date: 2012-02-12 01:27:01 +01:00
+author: illov&aelig; et al.
+mail: illovae[at]bk[dot]ru
+keywords: Shaarli, php, clone, alternative, delicious, lien, URL, marque-page, auto-hébergement, illovae
+license: "BY-ND"
+---
+<p>
+<div style="font-size:x-small;line-height:1em;">
+[Les captures d'écran utilisées dans cet article ont été réalisées
+par <a href="http://sebsauvage.net"
+style="text-decoration:none;">sebsauvage</a>. Les sections &quot;Aux
+petits oignons&quot; et &quot;Ajoutez un lien tout simplement&quot; du
+présent article sont respectivement une traduction littérale de la
+section &quot;In-source configuration&quot; et une libre adaptation de
+la section &quot;Sharing a link&quot; originellement écrite en anglais
+par <a href="http://sebsauvage.net"
+style="text-decoration:none;">sebsauvage</a> et disponible sur le site
+du projet. Le tout restant soumis aux termes de
+la <a href="http://creativecommons.org/licenses/by-nc/3.0/"
+style="text-decoration:none;">licence Creative Commons Attribution -
+Non Commercial 3.0 Unported</a> (CC BY-NC 3.0), la traduction et
+l'adaptation y compris]
+</div>
+
+<hr style="border:0;height:1px;background:#AAA;">
+
+<p>
+<span class="articleAuthor">Porneia delights, 12 février 2012,
+{{ page.author }}</span> &mdash; Lorsqu'un internaute butine sur la
+toile, il lui arrive relativement souvent de vouloir conserver
+certaines <abbr title="Uniform Resource Locator">URLs</abbr>, qui
+d'une discussion animée sur un forum, qui d'un article
+intéressant, <del>qui d'un lien sur megaupload</del>, qui encore d'une
+image amusante. Les navigateurs intrègrent dans leurs grandes
+majorités une fonction de marque-page qui nous permet de retrouver
+aisément ces fameux liens. Certains ont poussé l'idée en développant
+le concept de
+<a href="http://fr.wikipedia.org/wiki/Marque-page_(informatique)#Marque-page_social_.28Social_bookmarking.29"
+class="wikipedia" hreflang="fr"><em>Marque-page social (Social
+bookmarking)</em></a> qui consiste à enregistrer et organiser ses
+marque-pages non plus au sein du navigateur mais en ligne via un service
+gratuit &mdash; généralement. Bien que le terme de <em>Social
+bookmarking</em> ne soit apparu qu'en 2003 sous l'impulsion de del.ico.us,
+Scout Project nous présentait dans son
+<a href="http://www.mail-archive.com/scout-report@hypatia.cs.wisc.edu/msg00038.html"
+class="external" hreflang="en">rapport numéro 18 volume 6</a> un des
+premiers sites du genre sortie alors en 1996 :
+<a href="http://web.archive.org/web/19961221004258/http://www.itlist.com/"
+class="external" hreflang="en">itList</a>. Déjà à cette époque itList
+disposait de différentes fonctions dont la principale était de partager
+publiquement certains de ses marque-pages &mdash; sinon tous &mdash; en
+envoyant un simple email et de permettre aux autres internautes de les
+commenter ou de les noter. Il était possible dès lors de faire des
+recherches dans tous les marque-pages publics, de voir les mieux notés et
+les plus commentés &mdash; de façon général ou par catégorie &mdash;
+<a href="http://web.archive.org/web/19970103180749/http://www.itlist.com/explain.html"
+class="external" hreflang="en">et d'autres choses encore</a>
+(non <a href="http://www.reddit.com" class="external"
+hreflang="en">reddit</a> n'a rien inventé).
+
+<p>
+Ces services d'antan, aujourd'hui disparus, ont fait des petits bien
+connus tel que <a href="http://delicious.com/" class="external"
+hreflang="en">delicious</a>, <a href="http://pinboard.in/"
+class="external" hreflang="en">pinboard</a> ou
+même <a href="http://www.diigo.com/" class="external"
+hreflang="en">diigo</a> ; la
+<a href="http://en.wikipedia.org/wiki/List_of_social_bookmarking_websites"
+class="wikipedia" hreflang="en">liste n'étant pas exhaustive</a>. Si nous
+souhaitons partager et organiser nos liens nous avons donc le choix parmi
+un nombre conséquent de services en ligne centralisés, fermés et/ou
+privateurs... avec tous les problèmes que cela entraîne. Certains sont
+lourds et lents à charger. D'autres sont buggés. Vous ne savez pas
+nécessairement comment lesdits services utilisent ce qui est finalement un
+résumé de vos promenades <em>httpèsque</em>, ce qui n'est pas pour réjouir
+les plus paranoïaques d'entre nous &mdash; il paraîtrait même,
+<a href="https://addons.mozilla.org/en-US/firefox/addon/tamper-data/"
+class="external" hreflang="en">Tamper Data</a> à l'appui, que l'un d'entre
+eux par le truchement de son addon pour Firefox suit à la
+trace <em>tous</em> les liens que vous visitez (oui même ceux que vous
+n'ajoutez pas à votre compte de gestion de marque-pages en ligne... Le
+<a href="http://fr.wikipedia.org/wiki/Data_mining" class="wikipedia"
+hreflang="fr">data mining</a> n'a pas de limite). De plus que ferez-vous
+quand Disney, ayant remarqué que l'un des utilisateurs partage des liens
+de <a href="http://www.laquadrature.net/fr/ACTA" class="external"
+hreflang="fr">Mickey</a> ayant des conduites sexuelles avec Minnie
+prohibées par l'État du Texas,
+<a href="http://www.numerama.com/magazine/21334-megaupload-ferme-par-le-fbi-ses-hommes-cle-arretes.html"
+class="external" hreflang="fr">fera fermer sans préavis</a> le service en
+question,
+<a href="http://www.numerama.com/magazine/21442-les-fichiers-de-megaupload-effaces-a-partir-de-jeudi.html"
+class="external" hreflang="fr">détruisant par la même les précieux
+liens</a> récoltés au fur et à mesure de vos mois ou années de recherche
+et privant subséquemment vos amis de vos découvertes hebdomadaires ? Je
+veux dire à part pleurer à chaudes larmes et à grand bruit tout en
+appuyant frénétiquement sur le bouton rouge feu de <abbr title="High Orbit Ion Cannon">HOIC</abbr> ?
+
+<p>
+C'est là qu'intervient
+<a href="http://sebsauvage.net/wiki/doku.php?id=php:shaarli"
+class="external" hreflang="en">Shaarli</a>.
+
+<h2 class="articleHeadline">&laquo;&nbsp;Eh ! Bonjour les filles
+  !&nbsp;&raquo; &ndash; &laquo;&nbsp;Bonjour Shaarliiiii
+  !&nbsp;&raquo;</h2>
+
+<p>
+<img title="Shaarli logo" style="float:left;margin-right:15px;"
+  alt="[Shaarli logo]" src="{{ site.url }}{{ site.baseurl }}/img/shaarli00.png">
+<b>Libre et sauvage</b>
+&brvbar; <a href="http://sebsauvage.net/wiki/doku.php?id=php:shaarli"
+class="external" hreflang="en">Shaarli</a> est une application en PHP (5.1
+minimum) partagée sous la licence
+<a href="http://www.opensource.org/licenses/zlib-license.php"
+class="external" hreflang="en">zlib/libpng OSI</a> et développée
+par <del>Bosley</del> <a href="http://sebsauvage.net" class="external"
+hreflang="fr">sebsauvage</a> qui le décrit lui-même comme <em>le clone
+personnel, minimaliste, super-rapide, sans base de donnée de
+delicious</em>. Autrement dit c'est une alternative libre et ouverte aux
+services suscités, simple d'utilisation, très légère, facilement
+déployable et qui ne manquera pas de ravir les convaincus de
+l'<a href="http://www.auto-hebergement.fr/" class="external"
+hreflang="fr">auto-hébergement</a>. Le projet Shaarli a été ouvert
+<a href="http://sebsauvage.net/rhaa/index.php?2011/09/16/09/29/58-adieu-delicious-diigo-et-stumbleupon-salut-shaarli-"
+class="external" hreflang="fr">en septembre 2011</a> et est actuellement
+en version beta &mdash; il est cependant parfaitement stable et robuste.
+
+<p>
+<b>Une alternative sérieuse</b> &brvbar; La principale fonction de Shaarli
+est bien sûr de sauvegarder des marque-pages tant public que privé. Vous
+avez la possibilité de les parcourir par pages ou de les filtrer par
+tags. Chaque marque-page à son lien permanent et son QR-Code qui renvoient
+vers son titre et sa description complète (sans limite de taille). Vous
+pouvez les diffuser par <abbr title="Really Simple Syndication">RSS</abbr> et Atom ; le support du protocole
+<a href="https://code.google.com/p/pubsubhubbub/" class="external"
+hreflang="en">PubSubHubbub</a> est aussi présent. L'importation et
+l'exportation sont bien sûr prévues. Shaarli dispose d'un nuage de tags
+mais aussi d'un <em>mur d'images</em> (des miniatures étant
+automatiquement générées pour différents services tel
+que <a href="http://imgur.com" class="external" hreflang="en">imgur</a>,
+<a href="http://imageshack.us" class="external"
+hreflang="en">imageshack</a>, <a href="http://www.flickr.com"
+class="external" hreflang="en">flickr</a>,
+<a href="http://www.youtube.com" class="external"
+hreflang="en">youtube</a>, etc). De plus, très récemment, sebsauvage a
+ajouté ce qu'il nomme un <em>Shaarli daily</em>, n'étant rien d'autre
+qu'une présentation des liens du jour reprenant l'architecture d'un
+journal papier. Vous pouvez voir le rendu de tout cela sur le
+<a href="http://sebsauvage.net/links" class="external"
+hreflang="fr">shaarli personnel</a> du développeur qui partage un peu
+moins de 10,000 liens &mdash; le tout restant parfaitement fluide.
+
+<p>
+<b>Quelques détails techniques</b> &brvbar; Shaarli se veut être une
+application qui respecte le principe <abbr title="Keep It Simple, Stupid!">KISS</abbr>. Aussi son architecture est des plus
+simples. Principalement nous avons un <code>index.php</code> contenant le
+code, un répertoire <code>data/</code> contenant les fichiers de
+l'utilisateur, un répertoire <code>inc/</code> contenant des extras
+(<abbr title="Cascading Style Sheets">CSS</abbr>, javascript, etc.),
+un répertoire <code>images/</code> et un répertoire <code>tpl/</code> qui
+vous permet de <a href="http://sebsauvage.net/links/?cXlseQ"
+class="external" hreflang="fr">customiser l'apparence de votre shaarli</a>
+. Ce dernier point est permis grâce à l'utilisation
+de <a href="http://www.raintpl.com/" class="external"
+hreflang="en">RainTPL</a>, le fameux moteur de template. Tous les
+marque-pages ainsi que leurs commentaires et tags sont stockés au sein
+d'un fichier qui, selon les estimations du développeur, ne prend que 150Kb
+de place pour 1315 liens ; le choix d'utiliser un fichier unique permet
+ainsi de mettre en place un système de sauvegarde des plus basiques. Grâce
+à ces éléments, Shaarli est extrêment léger.
+
+<p>
+<b>Des mesures de sécurité</b> &brvbar; En ce qui concerne la sécurité, il
+se <a href="http://sebsauvage.net/links/?ab8vlg" class="external"
+hreflang="fr">protége des attaques de type brute force</a> en banissant au
+quatrième échec de login l'adresse IP du présumé attaquant pour une durée
+de 30 minutes grâce à trois fonctions : ban_loginFailed, ban_loginOk et
+ban_canLogin ; mais notez qu'il peut toujours parcourir les
+marque-pages. Remarquez d'ailleurs que le
+fichier <code>data/log.txt</code> contient toutes les activités liées aux
+tentatives de connexions. Shaarli a aussi une protection contre le
+<a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery"
+class="wikipedia" hreflang="en"><abbr title="Cross-site Request Forgery">XSRF</abbr></a>
+(le détournement d'un cookie de session). Un
+fichier <code>.htaccess</code> est présent pour protéger les données de
+l'utilisateur (le dossier <code>data/</code>). La base de donnée des liens
+est un tableau sérialisé, compressé avec deflate, encodée en base64 et
+sauvegarder à l'état de commentaire dans un fichier PHP ; cela offrant une
+protection supplémentaire au cas où le serveur ne supporterait pas
+les <code>.htaccess</code>. Enfin par rapport au mot de passe, il
+est hashé tout d'abord ;
+<a href="http://sebsauvage.net/links/?eZfWSA" class="external"
+hreflang="fr">sebsauvage de plus utilise un</a>
+<a href="http://phpsec.org/articles/2005/password-hashing.html"
+class="external" hreflang="en">salt</a>. Il est stocké ensuite sous cette forme
+dans un fichier PHP au sein du dossier <code>data/</code> lui-même étant
+protégé par son <code>.htaccess</code> donc.
+
+<p>
+<b>De la question de l'installation</b> &brvbar; Elle se résoud en
+trois courtes minutes, c'est de celles que l'on écarte. Il vous suffit
+de récupérer l'archive
+&mdash; <a href="http://sebsauvage.net/files/shaarli.zip"
+class="external">shaarli.zip</a> (ce lien pointe toujours vers la
+dernière version à jour)
+(<a href="{{ site.url }}{{ site.baseurl }}/links/source/shaarli_0.0.38beta.zip">miroir de la version
+0.0.38beta</a> <span class="littletxt">(zip, 348ko)</span>) &mdash; et
+de la décompresser dans un dossier sur votre serveur web (attention
+tout va se décompresser dans le répertoire courant, veuillez à bien
+exécuter l'opération dans un dossier vierge) ; ou bien, selon, envoyer
+le dossier en question via <abbr title="File Transfer Protocol">FTP</abbr>
+/<abbr title="SSH File Transfer Protocol">SFTP</abbr> sur
+votre espace distant. Dirigez-vous enfin vers l'adresse où vous avez
+installé votre shaarli :
+
+<p>
+<img class="imgborder" title="Première connection à Shaarli"
+     style="display:block;margin:0 auto;" alt="[Première connection à
+     Shaarli]" src="{{ site.url }}{{ site.baseurl }}/img/shaarli01.png">
+
+<p>
+Une fois les champs remplis à votre convenance, il vous demande de vous
+connecter. Vous pourrez alors ajouter votre premier lien en cliquant
+simplement sur &quot;Add link&quot;. D'ailleurs, à propos de la langue,
+Shaarli n'est pour le moment officiellement disponible qu'en anglais, même
+si la gestion des traductions ne sauraient tarder. Cependant M-o-o-n-FR,
+un enthousiaste de la communauté, a mis à notre disposition le
+<a href="http://l49v2m.1fichier.com/" class="external"
+hreflang="fr">dossier <code>tpl/</code> traduit par ses soins en
+français</a>. Pour en profiter il vous suffit simplement de remplacer le
+contenu de votre dossier <code>tpl/</code> par celui de l'archive. Enfin,
+si c'est encore trop long pour vous et/ou que vous êtes un peu feignant,
+VoidAndAny
+nous <a href="http://voidandany.free.fr/index.php/script-de-mise-a-jour-de-shaarli/"
+class="external" hreflang="fr">a écrit un petit script en bash</a> pour
+automatiser tout cela (à adapter selon vos besoins).
+
+<p>
+<b>Mettre à jour son shaarli</b> &brvbar; La mise à jour de Shaarli
+est relativement simple. Typiquement il suffit de récupérer l'archive
+de la dernière version et d'écraser le contenu de votre shaarli avec
+la nouvelle version. Cependant prenez garde à deux choses. Pensez à
+préserver votre dossier <code>data/</code> qui contient entre autres
+choses importantes tous vos marques-pages. De plus pour ceux qui ont
+changé leur thème, conservez absolument votre
+dossier <code>tpl/</code> ainsi que vos <abbr title="Cascading Style Sheets">CSS</abbr> du dossier <code>inc/</code> au risque de perdre
+vos arrangements. Le projet Shaarli ne dispose pas encore de dépôt
+officiel git/svn/whatever (mais sebsauvage va bientôt craquer sous la
+pression des utilisateurs, ne vous en faîtes pas). En attendant
+<a href="http://share.aldarone.fr/?ePcLAg" class="external"
+hreflang="fr">Alda met à disposition les sources de Shaarli sur son
+propre dépôt</a> pour nous permettre de mettre à jour plus
+simplement. <ins datetime="2012-02-13T14:31:12+00:00">MàJ du 13
+février 2012 14:31 UTC : une version
+<a href="http://blog.planet-libre.org/2012/02/13/nouveau-sur-le-planet-libre-les-breves-de-la-semaine/"
+class="external" hreflang="fr">un peu modifiée pour le Planet
+Libre</a> dispose de
+son <a href="https://github.com/theclimber/bilbo-shaarli"
+class="external" hreflang="en">dépôt sur un github</a> maintenu
+par <a href="http://www.theclimber.be/" class="external"
+hreflang="en">theClimber</a></ins>.
+
+<p>
+<b>Du côté de la distribution</b> &brvbar; Il sera aussi bientôt possible
+de faire l'installation et les mises à jour de Shaarli au travers des
+gestionnaires de paquets de vos différentes distributions. Probablement
+sous Ubuntu tout d'abord,
+<a href="https://launchpad.net/~emilien-klein" class="external"
+hreflang="en">Emilien Klein</a> s'occupant de la page
+sur <a href="https://launchpad.net/shaarli" class="external"
+hreflang="en">Launchpad</a>. Celui-ci cherche d'ailleurs en ce
+<a href="http://lists.debian.org/debian-mentors/2012/01/msg00280.html"
+class="external" hreflang="en">moment même un sponsor debian</a>
+(actuellement
+en <a href="http://lists.debian.org/debian-mentors/2012/01/threads.html#00280"
+class="external" hreflang="en">discussion</a>) afin de soumettre
+le <a href="http://mentors.debian.net/package/shaarli" class="external"
+hreflang="en">paquet debian</a> qu'il a construit. De son côté, Pascal
+Bellard a rédiger <a href="http://cook.slitaz.org/cooker.cgi?pkg=shaarli"
+class="external" hreflang="en">une recette pour le cooker de
+SliTaz</a>. <a href="http://www.netbsd.org/docs/software/packages.html"
+class="external" hreflang="en">pkgsrc</a> n'est pas en reste grâce aux
+efforts de <a href="http://igm.univ-mlv.fr/~fauberte/" class="external"
+hreflang="fr">Frédéric Fauberteau</a> qui l'a intégré dans
+la <a href="http://pkgsrc.se/wip/shaarli" class="external"
+hreflang="en">branche CURRENT de pkgsrc-wip</a>. Enfin, un projet de
+construction d'un
+<a href="Http://forums.fedora-fr.org/viewtopic.php?pid=485531#p485531"
+class="external" hreflang="fr">paquet pour fedora</a> a aussi vu le
+jour à l'initiative
+de <a href="http://plus.google.com/108776295304527484975"
+class="external" hreflang="fr">Frédéric Thouin</a> mais semble
+malheureusement stagner pour le
+moment. <ins datetime="2012-02-12T20:11:17+00:00">MàJ du 12 février
+2012 20:11 UTC : Robin Hahling répare un oubli en commentaire en
+précisant qu'il a créé et maintient un
+<a href="http://aur.archlinux.org/packages.php?ID=56085"
+class="external" hreflang="en">paquet pour Archlinux</a> ; merci à
+lui.</ins>
+
+<p>
+<b>Ajoutez un lien, tout simplement</b> &brvbar; Il existe une méthode
+plus simple que d'aller sur votre shaarli à chaque fois que vous souhaitez
+y ajouter des liens. Dans le menu, cliquez sur &quot;Tools&quot; puis
+faîtes glisser le bouton &quot;Shaare link&quot; dans votre barre de
+marque-pages (compatible avec Firefox, Opera, Chrome et Safari) :
+
+<p>
+<img class="imgborder" title="Faîtes glisser le bouton Shaare link"
+     style="display:block;margin:0 auto;" alt="[Faîtes glisser le bouton
+     Shaare link]" src="{{ site.url }}{{ site.baseurl }}/img/shaarli02.png">
+
+<p>
+Lorsque vous êtes sur une page qui vous intéresse et que vous souhaitez la
+diffuser avec votre shaarli, cliquez alors simplement sur le bouton
+&quot;Shaare link&quot; :
+
+<p>
+<img class="imgborder" title="Cliquez sur Shaare link"
+     style="display:block;margin:0 auto;" alt="[Cliquez sur Shaare link]"
+     src="{{ site.url }}{{ site.baseurl }}/img/shaarli03.png">
+
+<p>
+Il ne vous reste plus qu'à remplir les différents champs :
+
+<p>
+<img class="imgborder" title="Les champs lors de l'ajout"
+     style="display:block;margin:0 auto;" alt="[Les champs lors de
+     l'ajout]" src="{{ site.url }}{{ site.baseurl }}/img/shaarli04.png">
+
+<p>
+Les champs &quot;<abbr title="Uniform Resource Locator">URL</abbr>&quot; et &quot;Title&quot; se remplissent
+automatiquement afin de vous faciliter la tâche. De plus, le champ
+&quot;Tags&quot; supporte l'auto-complétion (requiert PHP 5.2).
+
+<p>
+<b>Des cas d'exception pour free.fr et 1and1</b> &brvbar; En parlant
+d'auto-complétion. Si vous êtes hebergé
+chez <a href="http://pageperso.free.fr/" class="external"
+hreflang="fr">free.fr</a> vous ne pourrez pas en bénéficier car les
+serveurs n'ont que PHP 5.1 à disposition. Toujours pour les pages persos,
+pour faire fonctionner Shaarli il va vous falloir renommer le
+fichier <code>index.php</code> en <code>index.php5</code> ou alors,
+alternativement, créez à la main à la racine de votre dossier contenant
+votre shaarli un fichier <code>.htaccess</code> contenant :
+
+<pre>
+php 1
+SetEnv PHP_VER 5
+</pre>
+
+<p>
+De plus, toujours pour free.fr mais aussi en ce qui concerne le
+prestataire de service <a href="http://www.1and1.fr" class="external"
+hreflang="fr">1and1</a> et dans le cas où vous utiliseriez le
+&quot;Add link&quot; de la page principale, vous devrez remplir
+vous-même le champ pour &quot;Title&quot; étant donné qu'ils ont
+désactivés la possibilité de télécharger un fichier via HTTP (il n'y a
+par contre aucun problème si vous utilisez le bouton &quot;Shaare
+link&quot; depuis votre barre personnelle). À cause de cet état de
+fait, vous ne pourrez non plus bénéficier des miniatures de certains
+services (comme imgur par exemple) &mdash; Shaarli ne pouvant
+télécharger les images pour les réduire...
+
+<p>
+<b>De l'utilité &laquo;&nbsp;des choses pour ce qu'elles sont et non pour
+ce qu'elles paraissent&nbsp;&raquo;</b> &brvbar; Cette citation reprise à
+<a href="http://www.atlantico.fr/decryptage/anonymous-gamins-bricoleurs-etat-megaupload-hackers-attaque-cyberespace-benjamin-bayart-273658.html?page=0,0"
+class="external" hreflang="fr">Benjamin Bayart</a> me permet d'introduire
+quelques indices que nous fournit sebsauvage pour tirer le plus grand
+parti de son outils. Tout d'abord comme un pastebin (privé et/ou public)
+dans lequel vous pouvez coller du texte à volonté. Pour cela ajouter
+simplement un lien en laissant le champ &quot;<abbr title="Uniform Resource Locator">URL</abbr>&quot; vide ; ce qui aura pour effet de
+faire pointer l'entrée sur elle-même. Vous pouvez de la même manière
+envisager aussi d'utiliser Shaarli comme un twitter ou un identi.ca. En
+poussant le raisonnement plus loin, Shaarli peut même être appréhender
+comme un moteur de blog réduit à sa fonction la plus élémentaire. D'un
+autre côté, Shaarli peut être un remplaçant dynamique aux fameux billets
+&quot;En vrac&quot; ; ou permet plus simplement de garder des traces des
+veilles professionnelles quotidiennes. Ou, comme le fait sebsauvage
+lui-même, remplir toutes ces fonctions à la fois... Certains utilisateurs
+en commentaires du projet ont même expliqués qu'ils utilisaient Shaarli au
+sein d'un réseau local d'entreprise afin que les employés puissent
+partager entre eux des informations, des conseils et des liens utiles,
+mais aussi des mèmes ou des privates jokes ; épargnant ainsi les boîtes
+mails déjà bien remplies.
+
+<p>
+<b>Aux petits oignons</b> &brvbar; En ce qui concerne les possibilités de
+configuration, elles sont multiples. Tout se déroule
+dans <code>data/options.php</code> (le fichier n'existe pas, vous devez le
+créer) et s'organise de cette manière :
+
+<pre>
+&lt;?php
+$GLOBALS['config']['LINKS_PER_PAGE'] = 30;
+$GLOBALS['config']['HIDE_TIMESTAMPS'] = true;
+$GLOBALS['config']['ENABLE_THUMBNAILS'] = false;
+?&gt;
+</pre>
+
+<p>
+Les paramètres (que vous retrouverez sur
+<a href="http://sebsauvage.net/wiki/doku.php?id=php:shaarli#in-source_configuration"
+class="external" hreflang="en">la section idoine du projet</a>) sont
+les suivants &mdash; <b>paramètres</b> (<em>valeur par défaut</em>) :
+
+<ul>
+  <li><b>DATADIR</b> (<em>'data'</em>) : le nom du dossier dans lequel
+    Shaarli enregistre ses données. Vous pouvez le modifier pour une
+    sécurité accrue.
+  <li><b>CONFIG_FILE</b>
+    (<em>$GLOBALS['config']['DATADIR'].'/config.php'</em>) : le nom du
+    fichier utilisé pour sauvegarder l'identifiant de connexion et le mot
+    de passe.
+  <li><b>DATASTORE</b>
+    (<em>$GLOBALS['config']['DATADIR'].'/datastore.php'</em>) : le nom du
+    fichier qui contient la base de donnée des marque-pages.
+  <li><b>LINKS_PER_PAGE</b> (<em>20</em>) : nombre par défaut de
+    marque-pages affichés par page.
+  <li><b>IPBANS_FILENAME</b>
+    (<em>$GLOBALS['config']['DATADIR'].'/ipbans.php'</em>) : le nom du
+    fichier où sont stockées les tentatives de login, les connexions et
+    les IP bannies.
+  <li><b>BAN_AFTER</b> (<em>4</em>) : nombre de tentative de login avant
+    que l'adresse IP ne soit bannie.
+  <li><b>BAN_DURATION</b> (<em>1800</em>) : durée du bannissement (en
+    secondes) (1800 secondes correspond à 30 minutes).
+  <li><b>OPEN_SHAARLI</b> (<em>false</em>) : si vous passez cette option à
+    <em>true</em> n'importe qui aura la possibilité d'ajouter, de
+    modifier, d'effacer, d'importer ou d'exporter des marque-pages et cela
+    sans être identifier.
+  <li><b>HIDE_TIMESTAMPS</b> (<em>false</em>) : si vous passez cette
+    option à <em>true</em>, la date et l'heure de chaque lien ne seront
+    plus affiché (ceci incluant le flux <abbr title="Really Simple Syndication">RSS</abbr>).
+  <li><b>ENABLE_THUMBNAILS</b> (<em>true</em>) : activer ou désactiver les
+    miniatures pour les images et les vidéos.
+  <li><b>CACHEDIR</b> (<em>'cache'</em>) : le dossier dans lequel les
+    miniatures seront stockées.
+  <li><b>ENABLE_LOCALCACHE</b> (<em>true</em>) : si vous avez un quota
+    limité pour votre espace web, vous pouvez passer cette option
+    à <em>false</em> : Shaarli ne générera alors plus de miniatures qui
+    ont besoin d'être mise dans le cache local (vimeo, flick, etc.). Les
+    miniatures seront toujours visibles pour les services qui n'utilisent
+    pas ce cache (youtube, imgur, dailymotion, imageshack).
+  <li><b>UPDATECHECK_FILENAME</b>
+    (<em>$GLOBALS['config']['DATADIR'].'/lastupdatecheck.txt'</em>) : le
+    nom du fichier utilisé pour stocker le numéro de la dernière version à
+    jour de Shaarli.
+  <li><b>UPDATECHECK_INTERVAL</b> (<em>86400</em>) : le délai entre deux
+    vérifications d'une nouvelle version de Shaarli (en secondes) (86400
+    secondes font 24 heures). Notez que si vous ne vous identifiez pas
+    pendant une semaine, Shaarli ne vérifiera pas si une nouvelle version
+    est disponible pendant tout ce temps.
+</ul>
+
+<p>
+<b>Avoir son propre thème</b> &brvbar; Comme déjà évoqué, Shaarli utilise
+le moteur de gabarit pour PHP <a href="http://www.raintpl.com/"
+class="external" hreflang="en">RainTPL</a>. Il serait fastidieux de
+rentrer dans les détails de la modification du
+<a href="http://sebsauvage.net/links/" class="external"
+hreflang="fr">thème par défaut</a>. Aucune connaissance en PHP n'est
+requise ; il vous faudra par contre des notions, même simple, en
+HTML+<abbr title="Cascading Style Sheets">CSS</abbr>. Vous n'aurez à
+modifier que les fichiers présents dans <code>tpl/</code> ainsi que
+le <abbr title="Cascading Style Sheets">CSS</abbr>
+dans <code>inc/</code> (<code>user.css</code> étant là pour
+ça). Dans <code>tpl/</code> les fichiers sont <em>découpés</em> selon
+leur fonction dans les pages
+(<code>page.footer.html</code>, <code>page.header.html</code>, <code>tagcloud.html</code>,
+etc.) Pour les plus néophytes d'entre nous, faîtes simplement
+attention à ne pas toucher aux contenus entre accolades, ceux-ci
+faisant explicitement appel au code contenu
+dans <code>index.php</code>. Pour finir voici d'ailleurs quelques
+réalisations d'utilisateurs de Shaarli :
+<a href="http://share.aldarone.fr/" class="external"
+   hreflang="fr">share.aldarone.fr</a>,
+<a href="http://lamecarlate.net/links/" class="external"
+   hreflang="fr">lamecarlate.net/links</a>,
+<a href="http://marienfressinaud.fr/shaarli/" class="external"
+   hreflang="fr">marienfressinaud.fr/shaarli</a>,
+<a href="http://sensini42.free.fr/shaarli/" class="external"
+   hreflang="fr">sensini42.free.fr/shaarli</a> (ou même encore
+   <a href="{{ site.url }}{{ site.baseurl }}/links/">le
+   nôtre</a>). <ins datetime="2012-02-13T17:39:12+00:00">MàJ du 13
+   février 2012 17:39 UTC : il y a aussi celui-ci
+   : <a href="http://anadrark.com/links/" class="external"
+   hreflang="fr">anadrark.com/links</a></ins>.
+
+<h2 class="articleHeadline">Quelques observations et autres remarques</h2>
+
+<p>
+<b>&laquo;&nbsp;Commit early, commit often!&nbsp;&raquo;</b> &brvbar; Vous
+l'aurez compris je l'espère au travers de cet article que Shaarli, en
+restant simple d'utilisation, permet de remplir une multitude de
+fonction. Sebsauvage a su construire autour de lui de par ses commits
+réguliers et son écoute attentive une communauté sympathique et
+enthousiaste. Vous pouvez retrouver par ailleurs
+<a href="http://sebsauvage.net/wiki/doku.php?id=php:shaarli:discussion"
+class="external" hreflang="fr">les discussions et les demandes d'aide</a>
+des différents utilisateurs et contributeurs ; et si vous souhaitez
+participer à la conversation pour demander ou de l'aide en cas de problème
+ou une fonction particulière veillez avant tout s'il vous plaît à ce que
+les premiers n'ont pas déjà été résolus en lisant attentivement la
+<a href="http://sebsauvage.net/wiki/doku.php?id=php:shaarli#faq"
+class="external" hreflang="en"><abbr title="Frequently Asked Questions">FAQ</abbr></a> et que les secondes n'aient pas déjà été
+soumises en parcourant la liste des
+<a href="http://sebsauvage.net/wiki/doku.php?id=php:shaarli:ideas"
+class="external" hreflang="en">idées et corrections</a>.
+
+<p>
+<b>Un fichier pour les gouverner tous</b> &brvbar; Un des premiers
+questionnements récurrents a porté sur la partie technique de Shaarli,
+notamment sur le fait qu'il n'utilise pas de base de donnée tel que
+SQLite, sur son orientation &laquo;&nbsp;un seul fichier&nbsp;&raquo; et
+sur les conséquences en terme de rapidité. Sur
+l'<a href="http://sebsauvage.net/wiki/doku.php?id=php:shaarli:discussion"
+class="external" hreflang="fr">espace de discussion</a>, sebsauvage y
+répond lui-même :
+
+<p>
+<blockquote>
+J'aurais pu utiliser SQLite (que j'aime beaucoup), c'est vrai. Je le
+passerai peut-être à SQLite. C'est juste que je me méfie : certains
+hébergeurs ne le supportent pas, ou n'ont que SQLite2. Et puis je voulais
+tester un peu les limites de cette approche sous forme de fichier. Mais
+bon même avec 7200 liens, ça tourne assez bien (le fichier fait 1,1 Mo, et
+vue sa taille il est déjà dans le cache disque de l'OS : autrement dit, ça
+ne doit même pas provoquer d'I/O disque à la consultation, juste du CPU).
+</blockquote>
+
+<p>
+<b>De la question du multi-utilisateur</b> &brvbar; Dans un autre
+ordre d'idée, une des requêtes que l'on retrouve assez souvent est la
+création d'un environnement multi-utilisateurs pour Shaarli. Le
+shaarli du Porneia delights est utilisé par plusieurs personnes. Nous
+utilisons tous le même compte pour ajouter nos liens ; ce qui convient
+parfaitement à notre fonctionnement et notre philosophie car nous ne
+ressentons pas le besoin de nous individualiser pour publier (sauf en
+ce qui concerne les articles). Mais c'est loin d'être la norme bien
+évidemment &mdash; je pense notamment à cette personne évoquée plus
+haut qui parlait de l'utilisation d'un shaarli au sein d'une
+entreprise ; dans ce contexte, le multi-utilisateur prend du
+sens. Sachez que cette question sera peut-être envisagée par
+sebsauvage mais nécessite évidemment un travail certain.
+
+<p>
+<b>Des alternatives à l'alternative</b> &brvbar; Il existe bien sûr
+d'autres outils pour partager les liens. De manière non-exhaustive on
+peut penser à <a href="http://lehollandaisvolant.net/tout/linx/"
+class="external" hreflang="fr">linx</a>,
+<a href="http://sourceforge.net/projects/semanticscuttle/"
+class="external" hreflang="en">SemanticScuttle</a>,
+<a href="http://www.frech.ch/online-bookmarks/" class="external"
+hreflang="en">Online-Bookmarks</a> (abandonné ?) mais aussi
+à <a href="http://saming.free.fr/links/" class="external"
+hreflang="fr">Links</a>.
+
+<p>
+<b>Retour vers le shaarli</b> &brvbar; Comparé aux différents services
+centralisés présentés en introduction, Shaarli a comme nous l'avons vu des
+avantages non négligeables. Certains d'entre vous regretterons peut-être
+l'absence de fonctions commme la possibilité pour les visiteurs de
+commenter les liens ou de leur attribuer un &quot;up&quot; ou un
+&quot;down&quot; (à la manière de reddit). De plus, aucune structure n'est
+encore effectivement présente pour qu'un shaarli discute avec un autre
+shaarli ; l'idée de permettre aux différents utilisateurs d'un shaarli
+d'importer un lien depuis un autre shaarli, par l'intermédiaire de ce que
+l'on pourrait nommer un <em>via</em>, a été soumise et sebsauvage ne
+manqera certainement pas de l'intégrer. Mais ce à quoi je pense va plus
+loin que cela : en tant qu'utilisateurs de Shaarli nous nous sommes
+amusés, comme d'autres sûrement, à chercher les shaarli qui peuplent le
+web (<a href="{{ site.url }}{{ site.baseurl }}/bazaar/shaarli_online.html" hreflang="fr"><em>Où est
+Shaarli</em></a><a href="{{ site.url }}{{ site.baseurl }}/img/waldo-store.jpg"><em> ?</em></a>). Il y en
+a un certain nombre déjà. Je suis donc presque quotidiennement plusieurs
+shaarli via mon agrégateur de flux ou en les visitant à la main. Ne
+serait-ce pas sympathique de pouvoir suivre les shaarlis que l'on aime (ou
+même tous par défaut ?) <em>directement</em> depuis notre shaarli
+personnel (qui reste toujours plus ou moins ouvert dans un onglet en coin)
+&mdash; en les interconnectant grâce à PubSubHubbub peut-être ? Nous
+aurions ainsi une sorte de <em>Front page of teh Shaarli</em>. Mieux
+encore, imaginons qu'il soit possible de faire une recherche de liens sur
+tous les shaarlis disponibles sur la toile, ou sur ceux qui souhaitent que
+l'on puisse faire des recherches sur leur shaarli tout du moins ? Pouvoir
+noter et commenter les liens des autres depuis notre shaarli personnel ?
+Oui je parle bien d'un reddit en plus simple et surtout décentralisé. Je
+vous avoue sans détour que je n'ai pas la moindre idée des possibilités
+effectives de réalisation de telles idées sans rendre Shaarli totalement
+obsèse, mais il est possible que d'autres que moi ont dû les avoir et
+envisage peut-être des solutions pour les ajouter. Peut-être proposer
+l'intégration d'un système de plugin ? Mais dans ce cas, le projet
+s'écarterait du &laquo;&nbsp;tout en un fichier&nbsp;&raquo;. Cela aurait
+cependant l'avantage de garder le Shaarli de base aussi fin que possible
+tout en laissant aux utilisateurs la possibilité de développer leurs
+propres modules qui ne viendrait pas interférer et alourdir le fichier
+central. Mais peut-être que d'une certaine manière ces
+idées <a href="http://sebsauvage.net/links/?FO70-A" class="external"
+hreflang="fr">vont à l'encontre de l'esprit du projet</a>.
+
+<p>
+<b>ShaarCLI Project</b> &brvbar; Dans un tout autre ordre d'idée, une
+fonction qui m'intéresserait serait de pouvoir publier sur le shaarli
+du Porneia delights via mon terminal &mdash; mais je risque de voir
+cela réalisé relativement rapidement. En effet sebsauvage projette de
+permettre l'ajout de liens depuis d'autres applications web
+(<ins datetime="2012-02-13T18:02:12+00:00">MàJ du 13 février 2012
+18:02 UTC : en passant VoidAndAny nous explique
+<a href="http://voidandany.free.fr/index.php/partager-un-lien-dans-shaarli-directement-depuis-google-reader/"
+class="external" hreflang="fr">comment lier Google Reader et
+Shaarli</a></ins>). Je ne sais pas s'il va se tourner vers le
+développement d'une API qui dès lors me permettra de joindre un
+shaarli depuis la ligne de commande par l'intermédiaire d'un petit
+script bash, ou depuis Emacs par l'intermédiaire
+d'un <em>shaarli-mode</em>, mais permettra aussi de développer des
+applications pour téléphone intelligent par exemple. Mais
+bon <em>confer</em> la dernière ligne du point précédent...
+
+<p>
+<b>Point de vue personnel</b> &brvbar; J'aimerai enfin terminer cet
+article par mon expérience personnelle vis-à-vis de Shaarli. Il a tout
+d'abord répondu à un besoin et il est enfantin à appréhender, ce qui
+est tout à fait appréciable bien sûr. Mais je dois dire que ce projet
+&laquo;&nbsp;à l'échelle humaine&nbsp;&raquo; m'a surtout permis de me
+familiariser avec le PHP, language que je souhaitais aborder depuis
+déjà quelques temps. Je me suis plongé dans les entrailles de Shaarli
+alors que je voulais, en décembre et tandis que RainTPL n'avait pas
+encore été intégré, modifier le thème par défaut &mdash; hardcodé à
+l'époque donc &mdash; pour qu'ils correspondent à l'esthétique du
+Porneia delights. Le code est relativement simple à comprendre et bien
+documenté (en tout cas d'un point de vue de néophyte) et sa taille m'a
+permis d'avoir une vision d'ensemble sans un labeur excessif ; même si
+des <a href="http://bohwaz.net/p/PHP-affreux" class="external"
+hreflang="fr">personnes plus expertes ont des avis qui diffèrent</a>
+(notez la réponse de l'intéressé en commentaire). J'ai ainsi pu me
+familiariser avec ce language presque même sans que je m'en rendisse
+compte, de façon tout à fait ludique et avec un résultat directement
+visible et pratique. Les auto-didactes savent comme il peut être
+difficile de trouver un projet qui nous convienne, nous motive et
+surtout qui respecte les <em>bonnes pratiques</em> de programmation
+dans un language donné (quoique j'ai l'impression qu'avec le PHP on
+trouve beaucoup plus de n'importe quoi sur Internet comparé aux autres
+languages, mais je me trompe peut-être). Bien sûr je n'ai pas les
+compétences encore pour réellement apporter ma contribution au code ou
+même pour le critiquer (au sens noble du terme) ; mais en local, il me
+permet déjà d'avoir du fun tout en essayant de mettre en forme des
+idées qui me traverse l'esprit. Plus encore que la possibilité de
+partager simplement et librement des liens avec le reste du monde, je
+suis reconnaissant envers sebsauvage pour m'avoir permis de cocher
+cette entrée dans ma TODO list tout en m'amusant. Ses compétences, sa
+gentillesse et sa proximité avec la communauté sont de plus des
+qualités enthousiasmantes.
+
+<hr style="border:0;height:1px;background:#AAA;">
+
+<p>
+<b>tl;dr</b>
+&brvbar; <a href="http://sebsauvage.net/wiki/doku.php?id=php:shaarli"
+class="external" hreflang="en">Shaarli</a> est une alternative libre à
+delicious sans base de donnée et requiérant PHP 5.1. Vous pouvez le
+récupérer via ce
+<a href="http://sebsauvage.net/files/shaarli.zip"
+class="external">lien</a>. Décompressez-le dans un dossier vide. Pointez
+l'URL dans votre navigateur pour commencer à l'utiliser. Faîtes glisser le
+bouton &quot;Shaare link&quot; (menu &quot;Tools&quot;) dans votre barre
+personnelle pour une meilleure expérience d'utilisation. Ayez du
+fun. Partagez-le.

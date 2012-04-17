@@ -1,0 +1,196 @@
+room-343.txt  Last edited 2003-12-17 for NetHack 3.4.3
+Special rooms, shops, and level sounds in NetHack 3.4
+Compiled by Dylan O'Donnell <psmith@spod-central.org>.
+
+This spoiler only considers the special rooms that can be generated
+randomly in the main Dungeons of Doom. Certain special levels have
+their own predefined special rooms (shops in Minetown and the Tourist
+Quest, zoos in Sokoban and the Wizard's Tower, and many others).
+
+
+Special rooms
+~~~~~~~~~~~~~
+The usual name describing the room is given first, then in brackets
+the chance of creation, the range of Dungeon Levels within the
+Dungeons of Doom in which the room is eligible to be created, and any
+other constraints on generation. Following this is a list of messages
+(level sounds) which may be given when on a level which has that room,
+and messages given when entering the room (as opposed to greetings
+from its occupant, if any).
+
+The chances listed are cumulative; once one type of special room has
+been created, no others are eligible to be created, and they are
+considered in order. No special rooms from this list will be created
+on the Oracle, Big Room, Rogue, Medusa or Castle levels.
+
+
+Shop (3/DL, DL 2+, not below Medusa, suitable room)
+  "You hear someone cursing shoplifters."
+  "You hear the chime of a cash register."
+  "You hear Neiman and Marcus arguing!" (hallucinating)
+  "This shop appears to be deserted." (entering, no shopkeeper)
+  Contains a shopkeeper and stock. See the section "Shops" below for
+  what that stock may consist of.
+
+Throne room (1/6, DL 5+)
+  "You hear the tones of courtly conversation."
+  "You hear a sceptre pounded in judgment."
+  "Someone shouts "Off with <his/her> head!""
+  "You hear Queen Beruthiel's cats!" (hallucinating)
+  "You enter an opulent throne room!" (entering)
+  Contains a throne and a chest. Filled with sleeping monsters selected
+  (according to depth) from the classes koCDGHT and bugbears.
+
+Leprechaun hall (1/8, DL 6+, leprechauns not genocided/extinct)
+  No level sounds.
+  "You enter a leprechaun hall!" (entering)
+  Filled with sleeping leprechauns and gold.
+
+Zoo (1/7, DL 7+)
+  "You hear a sound reminiscent of an elephant stepping on a peanut."
+  "You hear a sound reminiscent of a seal barking."
+  "You hear Doctor Doolittle!" (hallucinating)
+  "Welcome to David's treasure zoo!" (entering)
+  Filled with random sleeping monsters and gold.
+
+Temple (1/5, DL 9+)
+  No level sounds.
+  "You have a forbidding feeling." (entering, priest of different 
+     alignment to altar) 
+  "You have a strange forbidding feeling." (entering, priest present, 
+     cross-aligned or your alignment worse than -3) 
+  "You experience a strange sense of peace." (entering, priest present
+     otherwise)
+  "You have an eerie feeling..." (entering, lost priest)
+  "You feel like you are being watched." (entering, lost priest)
+  "A shiver runs down your <spine>." (entering, lost priest)
+  Contains an altar and a priest or priestess aligned with it.
+  If in a co-aligned temple and your alignment is better than -4, you
+  receive sanctuary; monsters will not enter, and monsters already in
+  the temple will not attack you directly (although they can still use
+  ranged attacks). Some monsters (Riders, high priests, all A) ignore
+  sanctuary.
+  
+Beehive (1/5, DL 10+, killer bees not genocided/extinct)
+  "You hear a low buzzing."
+  "You hear an angry drone."
+  "You hear bees in your bonnet!" (hallucinating, wearing helmet)
+  "You hear bees in your (nonexistent) bonnet!" (hallucinating, no helmet)
+  "You enter a giant beehive!" (entering)
+  Contains lumps of royal jelly (created on roughly 1/3 squares). Filled
+  with sleeping killer bees and one sleeping queen bee.
+
+Graveyard (1/6, DL 12+)
+  "You suddenly realize it is unnaturally quiet."
+  "The <hair> on the back of your <neck> stands up."
+  "The <hair> on your <head> seems to stand up." (hallucinating)
+  "You have an uncanny feeling..." (entering between 0100-2359)
+  "<Run> away! <Run> away!" (entering between 0000-0059)
+  Contains corpses (created on roughly 1/5 of squares), chests or boxes
+  (1/10) and graves (1/5). Filled with sleeping monsters selected
+  (according to depth) from the classes ZV&, wraiths, and ghosts.
+
+Anthole (1/8, DL 13+)
+  No level sounds.
+  "You enter an anthole!" (entering)
+  Contains food (created on roughly 1/3 of squares). Filled with sleeping
+  giant ants, soldier ants or fire ants (equal chances of each).
+
+Barracks (1/4, DL 15+, soldiers not genocided/extinct)
+  "You hear blades being honed."
+  "You hear loud snoring."
+  "You hear dice being thrown."
+  "You hear General MacArthur!" (hallucinating)
+  "You enter a military barracks!" (entering)
+  "You enter an abandoned barracks." (entering, empty)
+  Contains chests or boxes (created on roughly 1/20 of squares). Filled
+  with sleeping monsters selected (according to depth) from soldiers,
+  sergeants, lieutenants, and captains.
+
+Swamp (1/6, DL 16+)
+  "You hear mosquitoes!"
+  "You smell marsh gas!"
+  "You hear Donald Duck!" (hallucinating)
+  "It looks rather muddy down here." (entering)
+  "It feels rather humid down here." (entering, blind)
+  Up to five rooms on the level become swamp rooms, with a chequered
+  pattern of pools possibly containing giant eels, electric eels, or
+  piranhas, alternating with dry land possibly containing a random
+  fungus.
+
+Cockatrice nest (1/8, DL 17+, cockatrices not genocided/extinct)
+  No level sounds.
+  "You enter a disgusting nest!" (entering)
+  Contains statues of player-monsters (created on roughly 1/3 of squares)
+  containing up to four random items. Filled with sleeping cockatrices.
+
+Vault (independent approximately 35% chance)
+  "You hear the footsteps of a guard on patrol."
+  "You hear Ebenezer Scrooge!" (hallucinating)
+  "You hear someone searching." (looted)
+  "You hear someone counting money." (unlooted)
+  "You hear the quarterback calling the play." (unlooted, hallucinating)
+  2x2 isolated room containing gold (amount depending on depth). May
+  contain the portal to Fort Ludios (1/3 chance for each vault created
+  between level 11 and Medusa, except on the level with the Quest portal,
+  unless portal already created).
+
+Miscellaneous level sounds
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+"You hear bubbling water." (fountain)
+"You hear water falling on coins." (fountain)
+"You hear the splashing of a naiad." (fountain)
+"You hear a soda fountain!" (fountain, hallucinating)
+"You hear a slow drip." (sink)
+"You hear a gurgling noise." (sink)
+"You hear dishes being washed!" (sink, hallucinating)
+"You hear a strange wind." (Oracle)
+"You hear convulsive ravings." (Oracle)
+"You hear snoring snakes." (Oracle)
+"You hear someone say "No more woodchucks!"" (Oracle, hallucinating)
+"You hear a loud ZOT!" (Oracle, hallucinating)
+
+
+Shops
+~~~~~
+
+Shops have a base 3/DL chance of being created between level 2 and
+Medusa, provided there is a suitable room to put them in (no stairs,
+only one door), and provided that there are enough rooms on the level
+to start with (minimum 3, 4 for a branch level). Note that this means
+that there will always be a shop on each of levels 2 and 3 if the
+conditions are right (which in practice turns out to only be the case
+about 45% of the time).
+
+There are eleven types of shop; of these, one (lighting) can only
+appear in Minetown. Their probabilities of random creation and their
+stock distribution are:
+
+SHOP                            PROB  STOCK
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:~~~~~:~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+general                        : 44% : 100% random
+used armor dealership          : 14  : 90% armour, 10% weapons
+second-hand bookstore          : 10  : 90% scrolls, 10% spellbooks
+liquor emporium                : 10  : 100% potions
+antique weapons outlet         :  5  : 90% weapons, 10% armour
+delicatessen                   :  5  : 83% food, 5% fruit juice, 5% water,
+                               :     :  4% booze, 3% ice box
+jewelers                       :  3  : 85% rings, 10% gems, 5% amulets
+quality apparel and accessories: *3  : 90% wands, 5% leather gloves,
+                               :     :  5% elven cloak
+hardware store                 :  3  : 100% tools
+rare books                     : *3  : 90% spellbooks, 10% scrolls
+lighting store                 :  0  : 40% tallow candle, 32% wax candle,
+                               :     :  10% oil lamp, 5% brass lantern,
+                               :     :  3% magic lamp
+
+PROB is the percentage chance of a random shop being of this type.
+Shops with probabilities marked * may not be larger than 20 squares;
+if they would otherwise be (about half the time), they are converted
+into general stores instead.
+
+
+Acknowledgements
+~~~~~~~~~~~~~~~~
+Corrections and clarifications provided by Eva Myers, Robert Schneck, and
+Seraphim.

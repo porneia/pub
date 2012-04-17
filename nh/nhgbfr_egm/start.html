@@ -1,0 +1,403 @@
+<HTML> 
+<head>
+<BASE HREF="start.html">
+ 
+<title> R1's Nethack page </title>
+<meta name="author" content="Erwan Grasland-Mongrain">
+</head> 
+
+<body BGCOLOR="#FFFFFF">
+
+<center><img src="nethack.png"></center>
+
+<center><h2><font color=green>Présentation de l'interface</font></h2></center>
+
+<center><small>
+<a href="#intro">Introduction</a> -
+<a href="#welcome">Bienvenue !</a> -
+<a href="#quit">Quitter et sauver</a>
+<br>
+<a href="#help">Aide</a> -
+<a href="#explore">Le mode exploration</a>
+</small></center>
+<br>
+<br>
+
+<p><a name="intro"></a><b><font color=blue>Quelques conseils
+préliminaires...</font></b>
+
+<p> Certaines captures d'écran peuvent ne pas correspondre exactement à
+ce que vous observez dans votre partie : selon la version avec laquelle
+vous jouez, l'interface peut être légèrement différente (surtout si vous
+jouez en mode ASCII ou avec la version Falcon's Eye).
+
+<p> Dans tous les tutoriels, les conventions suivantes seront utilisées :
+
+<ul>
+<li> « <kbd>a</kbd> » signifie appuyer sur la touche « a ».
+
+<li> « <kbd>A</kbd> » signifie appuyer sur les touches « Shift » et « a »
+en même temps.
+
+<li> « <kbd>^t</kbd> » signiifie appuyer sur les touches « Ctrl » et « t »
+en même temps.
+
+<li> « <kbd>M-a</kbd> » signifie appuyer sur les touches « Meta »
+(disponible sur certains claviers Unix) et « a » en même temps.
+
+<li> « <kbd>d1j,</kbd> » signifie appuyer successivement sur les touches
+« d », « 1 », « j » et « , ».
+
+<li> « <kbd>&lt;Esc&gt;</kbd> » signifie appuyer sur la touche « Esc »
+(ou « Echap » sur les claviers azerty).
+
+<li> « <kbd>#a&lt;Enter&gt;</kbd> » signifie appuyer successivement sur
+les touches « # », « a » et « Enter ».
+</ul>
+
+<p> Quelques remarques si vous jouez à l'ENS. Nethack est installé sur
+les stations Sun de l'école, mais pas sur les PC FreeBSD (les machines
+noires). Si vous en avez la possibilité, lancez-le sur un Ultra5, ça ira
+un peu plus vite que sur les Sparc. Mais n'oubliez pas dans tous les cas
+que <strong>VOUS N'AVEZ PAS LA PRIORITÉ SUR CEUX QUI TRAVAILLENT</strong>
+(voir à ce sujet <a
+href=http://www.eleves.ens.fr/tuteurs/unix/jeux.html>la page des jeux</a>
+sur le site des tuteurs). Ceci exclut notamment les parties en infi la
+journée, ou en salle S autour de l'heure du pot. Il est bon de savoir
+aussi que les fichiers de sauvegarde ne sont pas communes entre les
+différentes salles informatiques, et que vous ne pouvez donc pas par
+exemple simplement commencer une partie en infi et la continuer en salle
+S.
+
+<p> Maintenant, installez-vous confortablement, apportez quelques
+provisions (le temps passe souvent plus vite que ce que l'on croit...),
+munissez-vous éventuellement d'un dictionnaire français/anglais (Nethack
+n'est malheureusement pas disponible en français, et il serait stupide de
+mourir parce que vous ne savez pas ce qu'est une <cite>wand of
+lightning</cite>), et lancez le programme. Pour les utilisateurs de Windows
+ou Mac, cela ne devrait pas poser de problème ; depuis une station de
+l'ENS, tapez simplement « <kbd>nethack -tiles</kbd> » (le
+« <kbd>-tiles</kbd> » indiquant que vous souhaitez jouer en mode
+graphique - si vous préférez jouer avec les caractères ASCII, oubliez
+cette option).
+
+<p><a name="welcome"></a><b><font color=blue>Welcome to
+Nethack !</font></b>
+
+<p> Normalement, le programme vous demande votre nom (à l'ENS il suppose
+directement que votre nom est votre login), puis s'il doit générer
+automatiquement un personnage pour vous. Répondez oui (« <kbd>y</kbd> ») à
+cette question pour le moment. Un petit texte introductif sur l'objet de
+votre quête s'affiche alors.
+
+<p> Vous apprenez que l'<cite>Amulet of Yendor</cite>, le plus puissant de
+tous les artefacts existants, a été dérobée en des temps immémoriaux par
+le dieu maléfique Moloch, qui l'a enfermée au plus profond des Enfers,
+loin dans le Labyrinthe (le donjon souterrain dans lequel vous venez de
+pénétrer). Votre destin est de retrouver cette amulette et de l'offrir
+à votre dieu pour lui permettre de dominer les autres dieux - ou de
+mourir dans votre quête. Le jour J est enfin arrivé, et vous voilà à
+l'entrée du Labyrinthe...
+
+<p> Pour le moment, votre écran devrait ressembler à ça :
+
+<p> <center><img src=start.jpg></center>
+
+<p> Votre personnage est le seul humanoïde normalement présent à l'écran,
+vous ne devriez pas avoir de mal à le repérer. À côté de vous se
+trouve normalement un animal apprivoisé (<cite>tame</cite>), un chaton, un
+chiot, voire un poney selon votre classe, reconnaissable au petit coeur
+qui se trouve au-dessus de lui. À l'inverse de la plupart des monstres
+que vous pouvez trouver dans le donjon, celui-ci ne vous attaquera jamais
+(en principe), et même mieux, il vous aidera à attaquer vos ennemis (sans
+grand discernement toutefois). Attention, il se peut très bien que vous
+rencontriez plus tard des chats ou des chiens tout à fait semblables au
+vôtre, qui n'auront aucune raison d'être apprivoisés...
+
+<p> En haut de l'écran se trouve la fenêtre de dialogue. C'est là que
+sont inscrits tous les messages se rapportant à votre environnement : si
+vous voyez un objet par terre, si vous entendez un bruit particulier, si
+vous vous sentez soudainement malade, etc. Inutile de dire que vous
+devriez toujours avoir un oeil sur cette fenêtre... Au début, vous avez
+simplement un message de bienvenue qui vous permet de savoir exactement
+quel est votre nom, votre alignement, votre sexe, votre race et votre classe
+(sur l'image ci-dessus, respectivement Erwan, chaotique, masculin, elfe
+et magicien).
+
+
+<p> <a name="stats">En bas de l'écran (en haut sur certaines autres
+versions) se trouvent la plupart des informations relatives à votre
+personnage : 
+
+<ul>
+<li> Erwan The Evoker : son nom suivi de votre rang (ici, Evoker signifie
+magicien de niveau 1).
+
+<li> St, Dx, Co, In, Wi, Ch : ses caractéristiques. Plus leur valeur est
+élevée (sur une échelle de 3 à 18 pour les humains), plus votre
+personnage est compétent. La force (St) de votre personnage détermine
+notamment la quantité de dommages que vous faites au combat et le poids
+que vous pouvez transporter ; à la différence des autres caractéritiques,
+elle peut prendre des valeurs intermédiaires entre 18 et 19, notées 18/xx
+(où xx varie entre 00 et 99). La dextérité (Dx) affecte vos chances de
+toucher un ennemi, de désarmer un piège ou encore de réaliser certaines
+tâches minutieuses. La constitution (Co) influe sur votre capacité à
+récupérer naturellement de vos blessures et de votre fatigue.
+L'intelligence (In) vous permet d'apprendre des sorts, et de les lancer
+plus ou moins efficacement, pour les classes telles que le magicien ou le
+voleur. La sagesse (Wi) (qui n'a <em>a priori</em> rien à voir avec votre
+intelligence) détermine votre vitesse de récupération de votre magie, et
+gouverne l'aptitude à lancer des sorts pour les classes telles que le
+prêtre ou le chevalier. Enfin, le charisme (Ch) influe sur le
+comportement de certaines créatures à votre égard, ainsi que sur le prix
+des objets que vous pouvez trouver chez les marchands.
+
+<li> chaotic : son alignement, c'est-à-dire son comportement général
+vis-à-vis du monde qui l'entoure .<cite>Lawful</cite> signifie en gros
+respecter l'ordre établi et faire régner la justice, <cite>chaotic</cite>
+n'avoir aucune contrainte de conduite et essayer de détruire les
+structures existantes, et <cite>neutral</cite> trouver un équilibre entre ces
+deux extrêmes et chercher à faire du profit personnel. Plus
+pragmatiquement les monstres de même alignement que vous auront tendance
+à vous laisser en paix (voir aussi <a href="go.html#sexe">le tutoriel sur
+le choix de votre personnage</a>.
+
+<li> Dlvl : la profondeur du niveau dans lequel vous vous trouvez (0 est
+le sol terrestre, 1 le premier niveau du donjon, -10 est le paradis...)
+
+<li> $ : votre argent, exprimé en <cite>zorkmids</cite>, l'unité monétaire en
+vigueur dans Nethack. Un <cite>zorkmid</cite> vaut une pièce d'or (voir
+aussi <a href="objets.html#gold">le tutoriel sur les objets</a>).
+
+<li> HP : vos points de vie actuels, suivis entre parenthèses de vos
+points de vie maximaux (au-delà desquels votre vie ne remontera pas dans
+les conditions habituelles). Lorsque vous êtes blessé d'une quelconque
+manière (y compris psychiquement), vos points de vie diminuent ; à 0
+points de vie vous mourez (attention, la mort est définitive à Nethack,
+c'est-à-dire que si vous mourez , vous n'avez d'autre choix que de tout
+reprendre depuis le début : gardez toujours un oeil sur votre total de
+points de vie...)
+
+<li> Pw : vos points de mana actuels, suivis entre parenthèses de vos
+points de mana maximaux. Lorsque vous lancez un sort, vos points de mana
+diminuent d'un total dépendant de la puissance du sort ; à 0 points de
+mana vous ne pouvez plus jeter de sort jusqu'à ce qu'ils soient remontés
+à un niveau suffisant.
+
+<li> AC : votre classe d'armure. Sans armure, vous avez naturellement une
+AC de 10 ; chaque pièce d'armure que vous porterez diminuera ce total,
+rendant ainsi plus difficile pour vos ennemis de vous toucher (voir aussi
+<a href="objets.html#armors">le tutoriel sur les objets</a>).
+
+<li> Exp : votre niveau d'expérience, parfois précédé ou suivi du nombre
+de points d'expérience que vous avez accumulés. Vous gagnez un certain
+nombre de points d'expérience entre autres chaque fois que vous
+anéantissez un ennemi, qui dépend de la difficulté et de la dangerosité
+de cet ennemi. Changez de niveau vous apporte de nombreux bonus en terme
+de jeu : points de vie et de mana supplémentaires, plus grande habilité
+au combat, etc. (voir aussi <a href="combat.html#xp">le tutoriel sur
+l'expérience</a>).
+
+<li> T : le nombre de <cite>rounds</cite> que vous avez passés dans le
+donjon. Un round correspond au temps qu'il vous faut pour effectuer la
+plupart des actions - ouvrir une porte, frapper un ennemi, vous déplacer
+d'une case... -, bien que dans certains cas vous pourrez effectuer
+plusieurs actions dans un même rounds, ou à l'inverse vous prendrez
+plusieurs rounds pour effectuer les actions habituelles ; c'est notamment
+le cas quand vous êtes encombré (<cite>Burdened</cite>) , ou pire,
+surchargé (<cite>Stressed</cite>, <cite>Strained</cite> voire
+<cite>Overtaxed</cite>) : à éviter à tout prix ! (voir aussi <a
+href="base.html#move">le tutoriel sur le mouvement</a>)
+
+<li> Dans certains cas, vous aurez également des informations
+supplémentaires sur l'état de votre personnage si celui-ci n'est pas dans
+son état « normal ». Ainsi, vous pouvez voir le taux de remplissage de
+son estomac (<cite>Satiated</cite> signifie qu'il a trop mangé,
+<cite>Hungry</cite> qu'il a faim, <cite>Weak</cite> qu'il manque physiquement de
+nourriture et <cite>Fainting</cite> qu'il en perd pafois momentanément
+conscience - après c'est la mort). La faim est une cause de décès
+relativement fréquente en début de partie chez les débutants, faites-y
+attention... Vous pouvez voir aussi son encombrement (voir le point
+précédent) s'il porte plus que sa force ne peut le supporter : encore une
+fois, évitez d'être même <cite>Burdened</cite>, il vaut mieux abandonner un
+casque que d'encaisser deux fois plus de coups par vos adversaire...
+Enfin, vous pouvez également être confus (<cite>Conf</cite>), ce qui vous
+empêche d'utiliser des objets et des sorts correctement, assommé
+(<cite>Stun</cite>), ce qui vous empêche de vous déplacer correctement,
+malade (<cite>FoodPois</cite> si c'est à cause de la nourriture,
+<cite>Ill</cite> dans tous les autres cas), ce qui vous tuera en quelques
+rounds si vous n'êtes pas soigné immédiatement, aveugle
+(<cite>Blind</cite>), ce qui vous empêche de voir où se trouvent les murs
+autour de vous et de lire quoi que ce soit, et enfin en train
+d'halluciner (<cite>Hall</cite>), ce qui remplace aléatoirement chaque
+tour tout objet et toute créature dans le champ de vision par une autre
+(et quelques autres effets du même genre...).
+</ul>
+
+<ul><br></ul><a name="quit"></a><b><font color=blue>Sauver et quitter
+</font></b>
+
+<p> Une partie complète (jusqu'à l'ascension, c'est-à-dire, la réalisation de
+votre quête) de Nethack pouvant durer plusieurs dizaines d'heures, il est
+à peu près inconcevable de faire une partie d'une traite (quoique...).
+Cependant, pour ajouter du piment au jeu, la mort est définitive à
+Nethack, pas question de laisser les joueurs traîner une dizaine de
+sauvegardes à chaque partie au cas où ils décèderaient stupidement ! La
+solution intermédiaire retenue consiste à <strong>n'autoriser qu'une
+seule sauvegarde à la fois</strong>, qui n'est enregistrée que lorsque le
+jeu est quitté, et qui est détruite lorsque le jeu est relancé :
+impossible de tricher (<em>a priori...</em>).
+
+<p> Les petits malins auront déjà compris qu'il suffit de copier leur
+sauvegarde avant de relancer la partie pour contourner cet obstacle
+(<cite>savescumming</cite> en anglais). Certes, personne n'ira fouiller
+votre disque dur. Mais sachez que cela est <em>très</em> mal vu de la
+part des autres joueurs de Nethack, puisque dès lors, le jeu devient
+trivial, et ne présente plus aucun intérêt, sa difficulté étant un de ses
+grands atouts. D'un point de vue purement ludique, cela retire également
+beaucoup d'intérêt au jeu, car le style de jeu est très différent selon
+si l'on sait qu'on a moyen de revenir en arrière ou non. Prenons une
+analogie avec une partie d'échec contre un ordinateur. Vous avez deux
+manières de gagner une partie : soit vous jouez (et perdez) souvent, vous
+lisez des livres, vous discutez, vous réfléchissez à vos erreurs, et, peu
+à peu, vous vous améliorez, et vous finissez par battre l'ordinateur.
+Soit, dès que vous perdez, vous reprenez quelques mouvements plus tôt. Si
+vous perdez à nouveau, vous reprenez au même endroit, ou un peu plus tôt,
+jusqu'à ce que, par chance, vous finissiez par gagner. Il va de soi que
+vous n'apprendrez jamais à jouer aux échecs avec la seconde méthode :
+c'est la même chose pour Nethack.
+
+<p> Perdre un personnage avancé est parfois râlant, mais c'est le
+meilleur moyen pour vous obliger à faire attention la prochaine fois que
+vous vous trouverez dans une situation similaire... Et puis, vous pouvez
+aussi crier votre désespoir sur Usenet
+(<samp>rec.games.roguelike.nethack</samp>), de bonnes âmes vous
+consoleront et vous diront quoi faire dans de telles situations à
+l'avenir.. Certains joueurs considèrent toutefois qu'il est autorisé
+conserver une sauvegarde au cas où le jeu planterait : oui, mais 1)
+Nethack inclut un dispositif pour retrouver les parties qui plantent, le
+<cite>recover</cite> (normalement automatiquement installé dans la
+version 3.4.1), car votre jeu est sauvegardé sous une forme spéciale
+chaque fois que vous changez de niveau dans le donjon, et 2) quand on
+vient de mourir bêtement dans une partie très avancée et que l'on a une
+sauvegarde pas trop loin, grande est la tentation de la récupérer comme
+si ne rien n'était... En bref, même si ce n'est pas à proprement parler
+tricher, il vaut mieux éviter (et croyez-moi, réussir sa première
+ascension « sans parachute » vaut largement l'effort de volonté que cela
+nécessite). En revanche, <strong>utiliser le mode exploration (voir <a
+href="#explore">plus bas)</a> est non seulement autorisé, mais également
+fortement recommandé</strong> !
+
+<p> Venons-en au concret. Pour sauver, appuyez simplement sur
+« <kbd>S</kbd> », puis « <kbd>y</kbd> » pour confirmer. Et voilà,
+c'est tout ! Le programme s'est normalement terminé, et vous pouvez
+passer à autre chose. La prochaine fois que vous lancerez Nethack, vous
+reprendrez votre partie à l'endroit exact où vous l'aviez laissée.
+Comment, alors, avoir plusieurs parties de Nethack en cours ? La
+première solution consiste tout simplement à finir avec une personnage
+avant d'en commencer un autre... De toutes façons, soit votre partie se
+termine rapidement, dans ce cas, recommencez-en une avec une autre classe
+si c'est ce que vous désirez, soit votre partie s'allonge, auquel cas
+elle devient intéressante et vous n'aurez pour rien au monde envie de la
+laisser... Il tout de même possible d'avoir plusieurs personnages, en
+leur donnant ds noms différents. Sous Windows (par exemple), cela se fait
+directement en entrant un autre nom dans la boîte de dialogue au
+démarrage ; sous Unix il faut lancer Nethack en tapant <kbd>nethack
+-u&lt;name&gt;</kbd>, où <kbd>&lt;name&gt;</kbd> est le nom de votre
+personnage. Vous aurez alors bien sûr droit à une nouvelle sauvegarde
+pour ce personnage.
+
+<p> Vous pouvez aussi quitter le jeu sans sauvegarder (pour recommencer
+une partie depuis le début par exemple, si vous estimez avoir commis une
+irréparrable erreur dans votre partie). Il existe trois moyens de le
+faire : soit mourir (évidemment...), soit remonter les escaliers du
+premier niveau, ceux par lesquels vous êtes arrivé dans le donjon (voir
+<a href="base.html#stairs">le tutoriel sur le mouvement</a>), soit entrer
+la commande <cite>#quit</cite>. Pour cela, appuyez sur
+« <kbd>#q&lt;Enter&gt;</kbd> » (si vous êtes équipé d'un clavier avec
+une touche « Meta », « <kbd>M-q</kbd> » fonctionne aussi). Dans tous
+les cas, le jeu vous demande alors confirmation (heureusement...), puis
+si vous désirez des statistiques sur votre partie : « <samp>Do you want
+your possessions identified? [ynq]</samp> ». Si cela ne vous intéresse
+pas, tapez « <kbd>q</kbd> », le programme s'arrêtera là. Sinon, vous
+aurez à taper « <kbd>y</kbd> » pour « oui » ou « <kbd>n</kbd> »
+pour « non » après chaque question : « <samp>Do you want your
+possessions identified?</samp> » si vous voulez identifier tous les
+objets de votre inventaire, « <samp>Do you want to see your
+attributes?</samp> » pour voir toutes les caractéristiques spéciales que
+vous avez accumulées dans la partie (par exemple, si vous étiez résistant
+au froid ou si vous étiez en mauvais termes avec votre dieu), « <samp>Do
+you want a list of species genocided? [ynq] (n)</samp> » pour voir le
+cas échéant les monstres que vous avez <cite>génocidés</cite> (par des
+moyens magiques), et « <samp>Do you want to see your conduct?</samp> »
+pour voir toutes les conduites spéciales que vous avez respectées
+jusqu'alors (voir <a href="avancees.html#conducts">le tutoriel sur les
+conduites</a>). Ensuite, un bref résumé de l'état de votre partie au
+moment de quitter et la manière dont la partie s'est terminée s'affiche.
+Finalement, le tableau des <cite>hi-scores</cite> s'affiche, avec
+(peut-être !) votre classement. Le score est un indicateur du niveau que
+vous avez atteint lorsque la partie s'est terminée : il tient compte de
+l'expérience accumulée, de la profondeur du donjon que vous avez atteint,
+des objets précieux que vous avez éventuellement collectés, et de la
+façons dont la partie s'est terminée (si vous sortez volontairement du
+donjon, vous obtenez plus de points que si vous êtes mort).
+
+
+<p><a name="help"></a><b><font color=blue>À l'aide !</font></b>
+
+<p> L'objectif de ce tutoriel est de vous familiariser avec les commandes
+de Nethack. Cependant, il est fort probable que vous ne vous souveniez
+pas de la signification de toutes les touches, surtout au début. En cas
+de trou de mémoire, appuyez sur la touche « <kbd>?</kbd> » pour ouvrir le
+menu d'aide (si vous jouez avec le pavé numérique, la touche
+« <kbd>h</kbd> » devrait également fonctionner). Diverses aides sont
+disponibles, mais celle que vous utiliserez quasi exclusivement est la
+deuxième, à savoir la liste de toutes les commandes. Appuyez simplement
+sur « <kbd>b</kbd> » pour l'afficher, et « <kbd>&lt;Enter&gt;</kbd> » pour la
+fermer.
+
+<p> Il se peut également que vous recherchiez de l'aide sur un objet
+présent à l'écran que vous n'arrivez pas à identifier ou sur lequel vous
+désireriez avoir plus d'informations. La commande « <kbd>/</kbd> » peut
+vous être utile : si vous appuyez sur cette touche, puis « <kbd>y</kbd> »,
+le jeu se suspend et un curseur apparaît sur la case où vous vous
+trouvez. Déplacez alors ce curseur avec les touches habituelles (voir le
+tutoriel suivant) sur la case sur laquelle vous désirez des détails, puis
+appuyez sur « <kbd>.</kbd> ». Un petit texte apparaît alors et vous donne
+quelques informations sommaires. Éventuellement, vous pouvez aussi
+obtenir plus d'infos (si cette option est activée, voir <a
+href="avancees.html#options">le tutoriel sur les options</a>) lorsque le
+message « <samp>More info?</samp> » apparaît. Quand vous avez terminé,
+appuyez sur « <kbd>&lt;Enter&gt;</kbd> » pour sortir du mode aide.
+
+
+<p><a name="explore"></a><b><font color=blue>Le mode
+exploration</font></b>
+
+<p> Nethack est un jeu long et complexe, il se peut que vous ayez envie
+d'expérimenter certaines choses sans risquer de perdre votre partie. Le
+mode exploration est fait pour ça : à tout moment, vous pouvez appuyer
+sur « <kbd>X</kbd> » pour y entrer (irréversiblement, attention donc).
+<strong>En mode exploration, vous ne pouvez pas mourir</strong> : quand
+vous arrivez à une situation où ce devrait être le cas, le message
+« Die? » apparaît, et vous n'avez qu'à répondre « <kbd>n</kbd> » pour
+continuer tranquillement votre partie. Mieux encore, vous pouvez
+directement lancer Nethack avec l'option <kbd>-X</kbd> (<kbd>nethack
+-X</kbd>) pour commencer une nouvelle partie en mode exploration, auquel
+cas vous aurez droit à une <cite>wand of wishing</cite> dans votre
+inventaire de départ (essayez-la après avoir jeté un coup d'oeil au <a
+href="objets.html#wands">tutoriel sur les objets</a> et vous comprendrez
+pourquoi c'est un cadeau inestimable...). La seule contrepartie à
+utiliser le mode exploration est que votre score ne sera pas enregistré
+lorsque vous déciderez de terminer la partie (c'est la moindre des
+choses...), alors n'hésitez pas à y avoir recours !
+
+<p><small><a href=base.html>Lire le tutoriel suivant</a>
+<br><a href=index.html>Revenir à la liste des tutoriels</a></small>
+
+<p><hr>
+2003 - Erwan Grasland-Mongrain (<a
+href="../../mail.html">m'écrire...</a>)
+
+</body>
+</HTML>

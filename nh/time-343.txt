@@ -1,0 +1,64 @@
+time-343.txt  Last edited 2005-10-03 for NetHack 3.4.3
+The effects of real-world time, date and moon phase in NetHack 3.4
+Compiled for 3.1.3 by Boudewijn Waijers.
+Edited for 3.4.3 by Dylan O'Donnell <psmith@spod-central.org>.
+
+NetHack is aware of the time in the real world (or, at least, what it's
+told about it by your system clock). Certain particular times have
+effects on gameplay.
+
+Moon phases and dates
+~~~~~~~~~~~~~~~~~~~~~
+The date is only checked when the game is started or restored; if you
+keep playing without saving, you'll continue to see the effects even
+after the relevant period has passed (or not see the effects even
+though it has been reached). NetHack divides the month into eight
+phases of three or four days each: thus the full and new moon will be
+reported for a rather longer time than your calendar might depict.
+
+Full moon: - you have a chance of not being able to tame dogs at night
+             (but you will still make them peaceful and you may try
+             again).
+           - your dog won't whine, yip, bark, or growl, but will always
+             howl when you chat at it, at night (likewise werecreatures).
+           - your baseline luck is increased by one.
+           - werecreatures are usually in their wereform, especially
+             at night.
+
+New moon:  - there is NO effect on your baseline luck.
+           - if you are hit by a cockatrice's or chickatrice's special
+             hissing attack, and you are NOT carrying a lizard corpse
+             in your main inventory, you will always start turning to
+             stone. Normally, there is only a 1/10 chance.
+
+Friday the 13th:
+           - your baseline luck is decreased by one. Note that prayers
+             will be rejected while you have negative luck, so until
+             you manage to redress this, dangerous situations will be
+             that much more dangerous.
+
+If Friday 13th happens to be a full moon, the -1 and +1 to baseline
+luck will cancel out. See gems-343.txt for more discussion of how luck
+is calculated.
+
+
+Time
+~~~~
+Night (22:00 - 05:59):
+           - your chance of changing into a werecreature when you are a
+             lycanthrope is 1/60 instead of 1/80 per move.
+           - you have a chance of not being able to tame dogs when
+             the moon is full (but you will still make them peaceful
+             and you may try again).
+           - gremlins can only steal intrinsics at night.
+           - werecreatures can summon more easily.
+           - your dog won't whine, yip, bark, or growl, but will always
+             howl when you chat at it, when it is full moon.
+           - werecreatures are more likely to be in their wereform,
+             particularly when it is full moon.
+
+Midnight (0:00 - 0:59):
+           - undead do twice as much damage;
+           - you get a different message when entering a graveyard
+             ("Run away!  Run away!" instead of "You have an uncanny
+	     feeling...").

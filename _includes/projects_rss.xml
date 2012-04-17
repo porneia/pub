@@ -1,0 +1,14 @@
+{% if projects %}
+{% for project in projects limit: 6 %}
+<item>
+<title>{{ project.title }}</title>
+<link>http://porneia.free.fr/pub/archives/{{ project.date | date: "%Y" }}.html#{{ project.date | date: "%m%d" }}</link>
+<guid>http://porneia.free.fr/pub/archives/{{ project.date | date: "%Y" }}.html#{{ project.date | date: "%m%d" }}</guid>
+<pubDate>{{ project.date | date: "%Y-%m-%dT%H:%M:%S%z" }}</pubDate>
+<dc:creator>Porneia delights</dc:creator>
+<description><![CDATA[
+{{ project.content }}
+]]></description>
+</item>
+{% endfor %}
+{% endif %}

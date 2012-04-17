@@ -1,0 +1,1758 @@
+<HTML> 
+<head>
+<BASE HREF="monsters.html">
+ 
+<title> R1's Nethack page </title>
+<meta name="author" content="Erwan Grasland-Mongrain">
+<meta http-equiv="Reply-to" content="Erwan.Grasland-Mongrain@ens.fr">
+</head> 
+
+<body BGCOLOR="#FFFFFF">
+
+<ul><center><img src="../nethack.png"></center></ul>
+<br>
+
+<ul><center><h2><font color=green>Combattre les monstres efficacement</font></h2></center></ul>
+
+<p> Imaginez la situation suivante... Vous vous promenez tranquillement
+dans le donjon, réduisant en charpie ces pauvres <cite>newts</cite>,
+<cite>grid bugs</cite> et autres <cite>jackals</cite> en déplorant la
+facilité avec laquelle vous vous débarassez de vos ennemis. Soudain, vous
+tombez sur un espèce d'oeil flottant qui bouge incroyablement lentement.
+Ha, vous dites-vous, encore une de ces stupides créatures de bas étage
+tout juste bon à nourrir mon chat ! Et là, fatale erreur, vous lui
+donnez un coup d'épée. « <samp>Do you want your possessions
+identified?</samp> ». Tué par un newt, alors que vous étiez paralysé par
+ce stupide oeil flottant... Ne me dites pas que cela ne vous est jamais
+arrivé (ou alors, c'est que vous n'avez pas assez joué à Nethack - vous
+ne devriez pas être en train de lire ces pages !)... Si beaucoup de
+monstres se contentent de vous taper dessus à l'épée ou au gourdin (c'est
+déjà pas mal !), certains vous réservent un sort... spécial, qui peut
+s'avérer désagréable si vous n'êtes pas prévenu.
+
+<ul><br></ul><a name="low"></a><h4><font color=blue>Monstres rencontrés
+en debut de partie</font></h4>
+
+<p> Voici un petit aperçu des dangers liés aux monstres qui vous guettent
+dans le début de votre partie. « Début de partie » est assez vague,
+mettons qu'il recouvre à peu près ce que vous pouvez rencontrer dans les
+premiers niveux du donjon et des Mines des Gnomes. Il s'agit certes d'une
+toute petite partie du donjon, mais vu que c'est là que surviennent la
+quasi-totalité des décès lorsqu'on commence à jouer à Nethack...
+
+<ul><br></ul><a
+name="blobs1"></a><h4><cite>Blobs</cite>, <cite>jellies</cite>,
+<cite>eyes</cite> &amp; <cite>molds </cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="blobs1.png"></td>
+<td><cite><small>acid blob</small></cite></td>
+<td><img src="blobs2.png"></td>
+<td><cite><small>gelatinous cube</small></cite></td>
+<td><img src="spheres1.png"></td>
+<td><cite><small>gaz spore</small></cite></td>
+<td><img src="eyes1.png"></td>
+<td><cite><small>floating eye</small></cite></td>
+<td><img src="jellies1.png"></td>
+<td><cite><small>blue jelly</small></cite></td>
+<td><img src="jellies2.png"></td>
+<td><cite><small>spotted jelly</small></cite></td>
+</tr><tr>
+<td><img src="molds1.png"></td>
+<td><cite><small>lichen</small></cite></td>
+<td><img src="molds2.png"></td>
+<td><cite><small>brown mold</small></cite></td>
+<td><img src="molds3.png"></td>
+<td><cite><small>yellow mold</small></cite></td>
+<td><img src="molds4.png"></td>
+<td><cite><small>green mold</small></cite></td>
+<td><img src="molds5.png"></td>
+<td><cite><small>red mold</small></cite></td>
+<td><img src="molds6.png"></td>
+<td><cite><small>violet fungus</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Toutes ces créatures se caractérisent par le fait qu'elles bougent
+très peu - si elles en sont capables - et qu'elles ne vous infligent
+que des dégâts très limités - si elles sont capables d'attaquer -
+lorsqu'elles vous touchent. Où est le problème alors ? Leur danger
+provient du fait qu'elles possèdent des attaques <em>passives</em>
+redoutables si vous les attaquez au corps-à-corps : les <cite>acid
+blobs</cite>, les <cite>green molds</cite> et les <cite>spotted
+jellies</cite> vous aspergent d'acide, les <cite>blue jellies</cite> et
+les <cite>brown mold</cite> vous infligent des dégâts de froid élevés,
+les <cite>floating eyes</cite> et, dans une moindre mesure, les
+<cite>gelatinous cubes</cite>, peuvent vous paralyser, les <cite>gas
+spore</cite> explosent en infligeant des dommages à toutes les créatures
+situées sur les cases adjacentes, les <cite>red mold</cite> vous
+infligent des dégâts de feu élevés, les <cite>violet fungus</cite> et les
+<cite>lichens</cite> vous forcent à rester sur votre case, et les
+<cite>yellow molds</cite> vous étourdissent. Cependant, il n'y a aucun
+risque à les attaquer à distance ou avec des sorts, autre que celui
+d'abîmer ou de perdre votre projectile (attaques acides, digestion par un
+<cite>gelatinous cube</cite>). Même s'il peut sembler plus simple de les
+laisser là où ils sont, il y a de nombreux avantages à les attaquer quand
+même : la plupart (à l'exception des <cite>violet fungus</cite> et des
+<cite>yellow molds</cite>, qui vous font halluciner) ont une petite
+chance de vous conférer une aptitude spéciale (résistance au froid, au
+feu, à l'électricité ou au poison, télépathie, etc.), et les lichens
+peuvent se conserver indéfiniment sans pourrir.
+
+<ul><br></ul><a name="cats1"></a><h4><cite>Cats &amp; dogs</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="cats1.png"></td>
+<td><cite><small>kitten</small></cite></td>
+<td><img src="cats2.png"></td>
+<td><cite><small>housecat</small></cite></td>
+<td><img src="cats3.png"></td>
+<td><cite><small>large cat</small></cite></td>
+<td><img src="dogs1.png"></td>
+<td><cite><small>little dog</small></cite></td>
+<td><img src="dogs2.png"></td>
+<td><cite><small>dog</small></cite></td>
+<td><img src="dogs3.png"></td>
+<td><cite><small>large dog</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Comme votre <cite>pet</cite> de départ, ces animaux sont plus
+dangereux qu'ils n'en ont l'air à cause de leur rapidité : ils bougent
+souvent deux fois par tour, et infligent des dommages non négligeables à
+chaque attaque. Le plus simple pour s'en débarasser consiste à les
+apprivoiser en leur lançant une <cite>tripe ration</cite> ou un
+<cite>fortune cookie</cite> (non maudit). Attention, il est déconseillé
+de manger les cadavres de chiens ou de chats (ce sont de si mignons
+animaux...).
+
+<ul><br></ul><a name="demons1"></a><h4><cite>Demons</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="demons1.png"></td>
+<td><cite><small>homunculus</small></cite></td>
+<td><img src="demons2.png"></td>
+<td><cite><small>quasit</small></cite></td>
+<td><img src="demons3.png"></td>
+<td><cite><small>water demon</small></cite></td>
+<td><img src="demons4.png"></td>
+<td><cite><small>succubus</small></cite></td>
+<td><img src="demons5.png"></td>
+<td><cite><small>incubus</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Les premiers démons que vous pourrez rencontrer ne sont généralement
+pas bien méchants, mais certains sont susceptibles de causer des
+problèmes : les <cite>homunculus</cite>, qui peuvent vous endormir, et
+les <cite>quasits</cite> qui peuvent vous drainer votre dextérité. En
+revanche, les <cite>water demons</cite> sont relativement puissants, et
+surtout peuvent invoquer d'autres <cite>water demons</cite>, voire même
+des démons majeurs tels que <cite>Yeenoghu</cite> ou
+<cite>Juiblex</cite>. Heureusement, le seul moyen de les faire apparaître
+consiste à boire ou tremper un objet dans une fontaine : évitez donc de
+le faire sans une très bonne raison... Notez que les corps de démons
+(quand ils en laissent) sont empoisonnés.
+
+<p> Les <cite>incubus</cite> et les <cite>succubus</cite> ne peuvent
+en règle générale être rencontrés en début de partie que lorsque vous
+donnez des coups de pieds aux lavabos. Si vous pouvez parfois tirer
+bénéfice d'une rencontre avec un de ces démons, il y a bien souvent plus
+de chances pour que vous subissiez des pénalités (baisse de niveau ou de
+caractéristique, vol de de votre or, etc.). En outre, ils vous enlèvent
+automatiquement vos armures (sauf si vous avez un charisme élevé), ce qui
+peut s'avérer dangereux si vous ne pensez pas à les remettre ensuite...
+
+<ul><br></ul><a name="insects1"></a><h4><cite>Insects</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="insects1.png"></td>
+<td><cite><small>soldier ant</small></cite></td>
+<td><img src="insects2.png"></td>
+<td><cite><small>killer bee</small></cite></td>
+<td><img src="insects3.png"></td>
+<td><cite><small>giant ant</small></cite></td>
+<td><img src="insects4.png"></td>
+<td><cite><small>fire ant</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Une des causes les plus fréquentes de décès en début de partie... Ces
+insectes apparaissent en petit groupe, ce qui est d'autant plus gênant
+qu'un seul aurait souvent suffi à vous tuer... De plus, les <cite>killer
+bees</cite> et les <cite>soldier ants</cite> ont une attaque empoisonnée,
+tandis que les <cite>fire ants</cite> ont une attaque de feu (attention à
+vos parchemins et autres potions !). Bref, pensez à Elbereth,
+attaquez-les à distance (inutile d'essayer de leur échapper, ils sont
+plus rapides que vous) d'ici à ce qu'ils vous atteignent, et n'hésitez à
+pas à vider des baguettes magiques sur eux (<cite>sleep</cite> marche
+généralement plutôt bien). Les corps de ces insectes sont bien entendus
+empoisonnés, même s'ils ont une petite chance (qu'il vaut mieux laisser
+passer en général) de vous donner la résistance au poison dans
+l'opération.
+
+<ul><br></ul><a name="leprechauns1"></a><h4><cite>Leprechauns</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="leprechauns1.png"></td>
+<td><cite><small>leprechaun</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Rien de bien méchant ici non plus, la seule attaque de ces monstres
+consistant à vous voler votre or et à se téléporter ensuite. Pour vous en
+débarrasser, déposez votre or quelque part (ou dans un sac) avant de
+l'attaquer, ainsi il se téléportera beaucoup plus rarement. Évitez aussi
+de manger leurs corps si vous n'avez pas l'aptitude <cite>teleport
+control</cite>, si vous ne voulez pas vous téléporter intempestivement
+n'importe où ensuite...
+
+<ul><br></ul><a name="lights1"></a><h4><cite>Lights</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="lights1.png"></td>
+<td><cite><small>yellow light</small></cite></td>
+<td><img src="lights2.png"></td>
+<td><cite><small>black light</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Deux « monstres » kamikazes, qui se précipitent vers vous et vous
+explosent dessus. Le premier vous fait ensuite halluciner, le second vous
+aveugle, pendant un nombre de tours assez conséquent. Comme ils bougent à
+peu près à la même vitesse que vous, il est difficile de leur échapper.
+Vous pouvez essayer de les attaquer à distance (et au contact quand ils
+ne sont plus qu'à une case) avant qu'ils n'explosent, ou espérer qu'ils
+exploseront au mauvais endroit (si vous êtes invisible ou que vous portez
+une <cite>cloak of displacement</cite>)...
+
+<ul><br></ul><a name="mimics1"></a><h4><cite>Mimics</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="200">
+<tr>
+<td><img src="mimics1.png"></td>
+<td><cite><small>small mimic</small></cite></td>
+<td><img src="mimics2.png"></td>
+<td><cite><small>large mimic</small></cite></td>
+<td><img src="mimics3.png"></td>
+<td><cite><small>giant mimic</small></cite></td>
+<td><img src="mimics4.png"></td>
+<td><small>Une <cite>mimic</cite> déguisée en coffre...</small></td>
+</tr>
+</table>
+
+<p> On peut trouver généralement ces monstres dans les magasins, où ils
+ont l'apparence de banals objets (généralement des coffres), voire
+parfois de portes ou d'escaliers. Mais si vous tenter de vous déplacer
+sur la case où se trouve une mimique, celle-ci vous attaquera en essayant
+de vous immobiliser. Si cela se produit, pensez à écrire Elbereth !
+
+<ul><br></ul><a name="nymphs1"></a><h4><cite>Nymphs</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="nymphs1.png"></td>
+<td><cite><small>wood nymph</small></cite></td>
+<td><img src="nymphs2.png"></td>
+<td><cite><small>water nymph</small></cite></td>
+<td><img src="nymphs3.png"></td>
+<td><cite><small>mountain nymph</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Un peu comme les <cite>leprechauns</cite>, les <cite>nymphs</cite> ne
+vous font pas de dommage direct : elles se contentent de vous voler un
+ou plusieurs objet avant de se téléporter. Mais, à l'inverse des
+<cite>leprechauns</cite>, elles sont la cause indirecte de beaucoup de
+décès prématurés : il suffit que l'une commence par vous voler votre arme
+et/ou votre armure pour que vous soyez tout de suite plus vulnérable, et
+pour lui faciliter ensuite les choses la fois suivante où elle tentera de
+vous voler quelque chose, etc. Il est relativement courant de se
+retrouver ainsi complètement dépouillé de son inventaire en quelques
+centaines de tours... Et si les ennemis n'ont pas raison de vous
+rapidement, la nymphe sait utiliser la plupart des baguettes magiques que
+vous possédiez - <cite>digging</cite>, <cite>magic missile</cite>...
+Pensez donc ici encore à écrire Elbereth, à l'attaquer à distance le plus
+tôt possible et à laisser votre <cite>pet</cite> s'en débarasser. Comme
+pour les <cite>leprechauns</cite>, évitez de manger un corps de nymphe si
+vous n'avez pas l'aptitude <cite>teleport control</cite>.
+
+<ul><br></ul><a name="insects1"></a><h4><cite>Insects</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="puddings1.png"></td>
+<td><cite><small>gray ooze</small></cite></td>
+<td><img src="puddings3.png"></td>
+<td><cite><small>black pudding</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Les <cite>gray oozes</cite> ne sont pas très dangereux, néanmoins ils
+peuvent aussi abîmer armes et armures. Leurs corps sont comestibles et
+peuvent conférer entre autres la résistance au poison.
+
+<p> La seule manière de rencontrer un <cite>black pudding</cite> en début
+de partie est de donner des coups de pieds aux lavabos. Ils ne sont pas
+très rapides, mais plutôt puissants, abîment les armes et les armures
+qu'ils touchent, et surtout se divisent lorsque vous les frappez avec une
+arme tranchante. Une bonne raison de ne laisser les lavabos en paix, au
+moins lorsque votre niveau d'expérience est faible...
+
+<ul><br></ul><a name="quadrupedes1"></a><h4><cite>Quadrupedes</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="quadrupedes1.png"></td>
+<td><cite><small>rothe</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> La famille des quadrupèdes (<cite>rothes</cite>, <cite>mumakil</cite>,
+<cite>leocrottas</cite>...) est particulièrement redoutable en début de
+partie, et dispute avec celle des insectes, le titre de plus grand tueur
+de personnages en début/milieu de partie... Heureusement, seuls les
+<cite>rothes</cite> peuvent être rencontrés en tout début de partie. Ils
+sont relativement puissants pour leur niveau, bougent plutôt rapidement,
+et apparaissent en groupes de 2 à 4 individus, donc méfiez-vous en...
+
+<ul><br></ul><a name="snakes1"></a><h4><cite>Snakes</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="snakes1.png"></td>
+<td><cite><small>water mocassin</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Les <cite>gartner snakes</cite> que vous pouvez rencontrer en début
+de partie ne sont absolument pas dangereux ; en revanche, évitez les
+<cite>water mocassins</cite> comme la peste ! Ils apparaissent en groupe
+de 2 à 11 individus, sont plutôt méchants et ont une attaque
+empoisonnée... Par chance, comme les <cite>water demons</cite>, vous ne
+pouvez normalement pas en rencontrer si vous ne jouez pas avec les
+fontaines (boire dedans, y tremper quelque chose, etc.).
+
+<ul><br></ul><a name="werecreatures1"></a><h4><cite>Werecreatures</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="200">
+<col span=1 width="16">
+<col span=1 width="200">
+<col span=1 width="16">
+<col span=1 width="200">
+<tr>
+<td><img src="werecreatures2h.png"></td>
+<td><small><cite>werejackal</cite> en forme humaine</small></td>
+<td><img src="werecreatures3h.png"></td>
+<td><small><cite>werewolf</cite> en forme humaine</small></td>
+<td><img src="werecreatures1h.png"></td>
+<td><small><cite>wererat</cite> en forme humaine</small></td>
+</tr><tr>
+<td><img src="werecreatures1a.png"></td>
+<td><small><cite>werejackal</cite> en forme animale</small></td>
+<td><img src="werecreatures2a.png"></td>
+<td><small><cite>werewolf</cite> en forme animale</small></td>
+<td><img src="werecreatures3a.png"></td>
+<td><small><cite>wererat</cite> en forme animale</small></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Outre le fait que leurs attaques est relativement puissante, les
+créatures-garous régénèrent leurs points de vie rapidement, peuvent
+appeler à l'aide des <cite>jackals</cite>, des <cite>rats</cite> ou des
+<cite>wolfs</cite>, ne respectent pas Elbereth dans leur forme humaine,
+et peuvent vous transmettre la lycanthropie... Réjouissant, n'est-ce
+pas ? N'oubliez pas non plus que manger leurs corps vous transmettra la
+lycanthropie aussi, et que c'est une très mauvaise idée de les sacrifier
+si vous êtes vous-même un humain.
+
+<ul><br></ul><a name="mid"></a><h4><font color=blue>Monstres rencontrés
+en milieu de partie</font></h4>
+
+<p> Si votre personnage a passé le cap meurtrier des premiers niveaux et
+atteint ce que l'on pourrait appeler le « milieu de partie », ne
+désespérez pas, un paquet de nouveau monstres se chargera de corriger
+cette erreur ;-) Par « personnage de milieu de partie », j'entends
+<em>grosso-modo</em> un personnage de niveau autour de 10, qui se promène
+dans les Mines des Gnomes au-delà de la ville, ou en-deça de l'Oracle
+dans le donjon régulier.
+
+<ul><br></ul><a name="apes2"></a><h4><cite>Apes</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="apes1.png"></td>
+<td><cite><small>ape</small></cite></td>
+<td><img src="apes2.png"></td>
+<td><cite><small>owlbear</small></cite></td>
+<td><img src="apes3.png"></td>
+<td><cite><small>yeti</small></cite></td>
+<td><img src="apes4.png"></td>
+<td><cite><small>carnivorous ape</small></cite></td>
+<td><img src="apes5.png"></td>
+<td><cite><small>sasquatch</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Toutes ces créatures attaquent au corps-à-corps et infligent des
+dommages plutôt élevés ; de plus, les <cite>apes</cite> et les
+<cite>carnivorous apes</cite> apparaissent en petites bandes, et les
+<cite>owlbears</cite> et les <cite>carnivorous apes</cite> sont capables
+de vous attraper et de vous immobiliser. Heureusement, Elbereth suffit à
+les faire vous relâcher et s'enfuir...
+
+<ul><br></ul><a name="centaurs2"></a><h4><cite>Centaurs</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="centaurs1.png"></td>
+<td><cite><small>plains centaur</small></cite></td>
+<td><img src="centaurs2.png"></td>
+<td><cite><small>forest centaur</small></cite></td>
+<td><img src="centaurs3.png"></td>
+<td><cite><small>mountain centaur</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Les centaures sont rapides, plutôt résistants, et aiment attaquer à
+distance (ce qui limite l'efficacité d'Elbereth). Méfiez-vous en, ils ont
+de nombreux décès sur la conscience !
+
+<ul><br></ul><a name="cockatrices2"></a><h4><cite>Cockatrices</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="cockatrices1.png"></td>
+<td><cite><small>chickatrice</small></cite></td>
+<td><img src="cockatrices2.png"></td>
+<td><cite><small>cockatrice</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Ces créatures sont lentes, infligent peu de dommages, et ont peu de
+points de vie. Néanmoins, elles sont redoutées même à la toute fin du jeu
+par les joueurs les plus expériementés. Pourquoi ? Parce qu'elles sont
+la source d'un nombre incalculable de morts instantanées par
+pétrification (je dirais une quarantaine de méthodes différentes...).
+D'abord, l'une des attaques de la <cite>cockatrice</cite> (ou de leur
+version réduite, la <cite>chickatrice</cite>) a une chance de vous pétrifier
+lentement (en quelques tours), à moins que vous ne mangiez un corps de
+lézard ou d'<cite>acid blob</cite> entretemps. Ensuite, tout contact avec
+un corps de cockatrice, vivante ou non, suffit à vous tuer instantanément.
+Les cas les plus classiques sont : en frapper une à mains nues, en
+manger une, en ramasser une sans gants ou encore en trouver une en
+tâtonnant sans gants (lorsque vous êtes aveugle). Enfin, certains ennemis
+sont capables de ramasser leurs corps pour vous frapper avec (ce qui a le
+même effet que si une <cite>cockatrice</cite> vous frappait directement).
+Bref, si une <cite>cockatrice</cite> ou un corps de
+<cite>cockatrice</cite> traîne dans les environs, vérifiez plusieurs fois
+que vous portez des gants, ne jouez pas avec, etc.
+
+<p> Je n'inventorierai pas ici tous les moyens de mourir à cause d'une
+<cite>cockatrice</cite> (je ne voudrais pas vous gâcher ce plaisir), mais
+être extrêmement précautionneux lorsqu'une de ces créatures se montre
+devrait suffire à limiter la casse. Notez que vous pouvez ramasser les
+corps de cockatrices pour pétrifier les ennemis avec, mais je vous assure
+que vous renoncerez à cette possibilité sitôt que vous aurez perdu deux
+ou trois personnages prometteurs à la suite d'un accident... La
+<cite>cockatrice</cite> est une des seules créatures qui peut tuer un
+personnage « correctement équipé » en fin de partie : méditez
+là-dessus...
+
+<ul><br></ul><a name="demons2"></a><h4><cite>Demons</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="demons4.png"></td>
+<td><cite><small>succubus</small></cite></td>
+<td><img src="demons5.png"></td>
+<td><cite><small>incubus</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Comme précédemment, sauf qu'à partir d'un certain niveau, ces démons
+peuvent être générés aléatoirement (sans toucher aux lavabos quoi).
+Attention aux <cite>succubi</cite> vous enlevant vos gants alors que
+vous avez un corps de <cite>cockatrice</cite> en main par exemple...
+
+<ul><br></ul><a name="elementals2"></a><h4><cite>Elementals</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="elementals1.png"></td>
+<td><cite><small>stalker</small></cite></td>
+<td><img src="elementals2.png"></td>
+<td><cite><small>air elemental</small></cite></td>
+<td><img src="elementals3.png"></td>
+<td><cite><small>fire elemental</small></cite></td>
+<td><img src="elementals4.png"></td>
+<td><cite><small>earth elemental</small></cite></td>
+<td><img src="elementals5.png"></td>
+<td><cite><small>water elemental</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Les <cite>stalkers</cite> sont des monstres de puissance moyenne,
+mais qui possèdent la désagréable propriété d'être invisibles... Notez
+que manger un corps de cette créature vous assomme, mais vous rend
+également temporairement invisible, voire définitivement si vous étiez
+déjà temporairement invisible (mais attention, dans ce cas vous aurez du
+mal à rentrer dans un magasin...).
+
+<p> Pas grand-chose à craindre des <cite>earth elementals</cite> et des
+<cite>water elementals</cite> (autre que leur attaque physique, plutôt
+méchante en passant...) ; en revanche les <cite>fire elementals</cite>
+infligent, comme vous pouvez vous en douter, des dégâts de feu (ce qui
+peut abîmer votre inventaire), et surtout les <cite>air elementals</cite>
+peuvent vous engloutir, ce qui est <em>très</em> pénible. Si cela vous
+arrive, n'attendez pas d'avoir 3 points de vie restants pour considérer
+la situation : essayez de zapper toutes vos baguettes (y compris
+<cite>teleportation</cite>) et de boire toutes vos potions « utiles »
+le plus tôt possible ; n'oubliez pas de prier en cas de besoin. La
+meilleure solution semble être d'écrire Elbereth (<em>avant</em> d'être
+englouti...) et de l'attaquer à distance. Ou de fuir, bien entendu.
+
+<ul><br></ul><a name="felines2"></a><h4><cite>Felines</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="felines1.png"></td>
+<td><cite><small>jaguar</small></cite></td>
+<td><img src="felines2.png"></td>
+<td><cite><small>lynx</small></cite></td>
+<td><img src="felines3.png"></td>
+<td><cite><small>panthera</small></cite></td>
+<td><img src="felines4.png"></td>
+<td><cite><small>tiger</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Rien de bien particulier avec ces monstres, excepté le fait qu'ils
+soient rapides et que leurs attaques (3 par tour...) soient plutôt
+meurtrières...
+
+<ul><br></ul><a name="gargoyles2"></a><h4><cite>Gargoyles</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="gargoyles1.png"></td>
+<td><cite><small>gremlin</small></cite></td>
+<td><img src="gargoyles2.png"></td>
+<td><cite><small>gargoyle</small></cite></td>
+<td><img src="gargoyles3.png"></td>
+<td><cite><small>winged gargoyle</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Les <cite>gremlins</cite> ne sont pas très méchants (si l'on excepte
+le fait qu'ils se multiplient à une vitesse terrifiante au contact de
+l'eau...), mais sont capables de vous <em>voler</em> des aptitudes chaque
+tour (résistance au feu, télépathie, protection divine, etc.), vous
+obligeant à les récupérer par un autre moyen. Très pénible parfois...
+
+<p> Les <cite>gargoyles</cite> et les <cite>winged gargoyles</cite>
+combinent une attaque puissante (3 par tour...) avec une AC très faible
+(-4 et -2) et une grande rapidité. Une fois de plus, Elbereth devrait
+toutefois permettre de vous tirer d'affaire dans la plupart des cas...
+
+<ul><br></ul><a name="horses2"></a><h4><cite>Horses</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="horses1.png"></td>
+<td><cite><small>white unicorn</small></cite></td>
+<td><img src="horses2.png"></td>
+<td><cite><small>gray unicorn</small></cite></td>
+<td><img src="horses3.png"></td>
+<td><cite><small>black unicorn</small></cite></td>
+<td><img src="horses4.png"></td>
+<td><cite><small>pony</small></cite></td>
+<td><img src="horses5.png"></td>
+<td><cite><small>horse</small></cite></td>
+<td><img src="horses6.png"></td>
+<td><cite><small>warhorse</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Les chevaux ne devraient pas constituer une menace sérieuse à ce
+niveau du jeu (encore que les <cite>warhorses</cite> sont plutôt
+puissants et rapides...), mais si vous deviez avoir un problème avec l'un
+d'eux, pensez à leur jeter une carotte ou un corps de lichen par exemple
+pour l'apprivoiser.
+
+<p> En revanche, les licornes peuvent s'avérer problématiques par leur
+rapidité et la force de leurs attaques. Mais plusieurs parades s'offrent
+à vous. D'abord, les licornes de votre alignement (<cite>white</cite> =
+<cite>lawful</cite>, <cite>gray</cite> = <cite>neutral</cite>,
+<cite>black</cite> = <cite>chaotic</cite>) seront toujours pacifiques,
+donc pas de souci de ce côté-là. Ensuite, une licorne ne vous attaquera
+pas à moins que vous ne bougiez juste à côté d'elle. Enfin, en cas de
+problème, une licorne peut être pacifiée en lui jetant une gemme de
+valeur nommée ou identifiée comme telle (avec des effets hasardeux sur
+votre chance cependant). L'intérêt d'attaquer les licornes est de pouvoir
+en manger une (ce qui a une chance de vous conférer la très convoitée
+résistance au poison) et surtout de vous approprier sa corne, un objet
+extrêmement utile dans la suite du jeu pour soigner la plupart des
+troubles qui peuvent vous affecter (aveuglement, maladie, etc.)
+
+<ul><br></ul><a name="jellies2"></a><h4><cite>Jellies</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="jellies3.png"></td>
+<td><cite><small>ochre jelly</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Ces <cite>jellies</cite> un peu plus puissantes que les autres peuvent
+vous engloutir (comme les <cite>air elementals</cite>), ce qui les rend
+plutôt dangereux, d'autant qu'ils vous infligent des dommages d'acide
+passifs chaque fois que vous les attaquez au contact. Cependant, ils
+restent moins dangereux que les <cite>air elementals</cite>.
+
+<ul><br></ul><a name="nagas2"></a><h4><cite>Nagas</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="nagas1.png"></td>
+<td><cite><small>black naga</small></cite></td>
+<td><img src="nagas2.png"></td>
+<td><cite><small>red naga</small></cite></td>
+<td><img src="nagas3.png"></td>
+<td><cite><small>golden naga</small></cite></td>
+<td><img src="nagas4.png"></td>
+<td><cite><small>guardian naga</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Pas de révélation fracassante pour les <cite>black</cite> et
+<cite>red nagas</cite>, qui vous infligeront des dommages d'acide et de
+feu respectivement. En revanche, méfiez-vous des <cite>guardian
+nagas</cite>, qui peuvent vous paralyser et vous empoisonner, et surtout
+des <cite>golden nagas</cite>, capables de jeter des sorts très ennuyeux
+tels que <cite>destroy armour</cite> et <cite>curse</cite>.
+
+<ul><br></ul><a name="orcs2"></a><h4><cite>Orcs</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="orcs1.png"></td>
+<td><cite><small>Mordor orc</small></cite></td>
+<td><img src="orcs2.png"></td>
+<td><cite><small>Uruk-hai</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Le seul point intéressant à noter avec ces orcs (qui apparaissent
+souvent en meute de 2 à 11 individus, par ailleurs) est qu'ils utilisent
+parfois des armes et des missiles empoisonnés, ce qui peut tuer
+instantanément un personnage non résistant au poison...
+
+<ul><br></ul><a name="puddings2"></a><h4><cite>Puddings</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="puddings2.png"></td>
+<td><cite><small>brown pudding</small></cite></td>
+<td><img src="puddings3.png"></td>
+<td><cite><small>black pudding</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Les <cite>black puddings</cite>, qui peuvent désormais être générés
+aléatoirement, sont rejoints par les <cite>brown puddings</cite>,
+capables de faire pourrir le bois et le cuir, et qui se divisent
+également lorsqu'ils sont frappés avec une arme tranchante.
+
+<ul><br></ul><a name="quadrupedes2"></a><h4><cite>Quadrupedes</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="quadrupedes2.png"></td>
+<td><cite><small>mumak</small></cite></td>
+<td><img src="quadrupedes3.png"></td>
+<td><cite><small>leocrotta</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> La famille des <cite>quadrupedes</cite> s'étend avec ces tueurs en
+série de personnages... Si les <cite>mumakil</cite> sont heureusement
+plutôt lents, ce n'est pas le cas des <cite>leocrottas</cite> qui se
+feront un plaisir de vous réduire en charpie si vous ne pensez pas à vous
+protéger d'un Elbereth salvateur... 
+
+<ul><br></ul><a name="nemesis2"></a><h4><cite>Quest Nemesis</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="144">
+<col span=1 width="16">
+<col span=1 width="144">
+<col span=1 width="16">
+<col span=1 width="144">
+<col span=1 width="16">
+<col span=1 width="144">
+<col span=1 width="16">
+<col span=1 width="144">
+<tr>
+<td><img src="nemesis_minion.png"></td>
+<td><cite><small>The Minion of Huhetotl</small></cite></td>
+<td><img src="nemesis_thothamon.png"></td>
+<td><cite><small>Thoth Amon</small></cite></td>
+<td><img src="nemesis_chromatic.png"></td>
+<td><cite><small>The Chromatic Dragon</small></cite></td>
+<td><img src="nemesis_cyclops.png"></td>
+<td><cite><small>Cyclops</small></cite></td>
+<td><img src="nemesis_ixoth.png"></td>
+<td><cite><small>Ixoth</small></cite></td>
+</tr><tr>
+<td><img src="nemesis_masterkaen.png"></td>
+<td><cite><small>Master Kaen</small></cite></td>
+<td><img src="nemesis_nalzok.png"></td>
+<td><cite><small>Nalzok</small></cite></td>
+<td><img src="nemesis_scorpius.png"></td>
+<td><cite><small>Scorpius</small></cite></td>
+<td><img src="nemesis_masterassassin.png"></td>
+<td><cite><small>The Master Assassin</small></cite></td>
+<td><img src="nemesis_ashikaga.png"></td>
+<td><cite><small>Ashikaga Takauji</small></cite></td>
+</tr><tr>
+<td><img src="nemesis_masterofthieves.png"></td>
+<td><cite><small>The Master of Thieves</small></cite></td>
+<td><img src="nemesis_lordsurtur.png"></td>
+<td><cite><small>Lord Surtur</small></cite></td>
+<td><img src="nemesis_darkone.png"></td>
+<td><cite><small>The Dark One</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> L'objectif de votre Quête est de tuer l'un de ces monstres (selon
+votre classe). Bien évidemment, ils sont généralement un peu plus
+costauds que les monstres réguliers... Chacun a ses forces et ses
+faiblesses propres, et il serait fastidieux de décrire une stratégie
+adaptée à chaque Quête, mais voici au moins un bref aperçu de leurs
+principales caractéristiques (tous sont en plus résistants à la
+pétrification) :
+<ul>
+<li>The Minion of Huhetotl : lance des sorts (y compris <cite>summon
+nasties</cite>...).
+<li>Thoth Amon : lance des sorts.
+<li>The Chromatic Dragon : possède toutes les résistances des dragons (feu,
+froid, électricité, sommeil, acide, pétrification, magie, poison,
+désintégration), possède l'aptitude « réflection ». Lance des sorts.
+Peut utiliser n'importe quel souffle de dragon.
+<li>Cyclops : frappe fort...
+<li>Ixoth : inflige des dommages de feu. Lance des sorts.
+<li>Master Kaen : sûrement le plus dangereux de tous les <cite>Quest
+Nemesis</cite>... Frappe fort, lance des sorts, AC très basse (-10). 
+<li>Nalzok : lance des sorts.
+<li>Scorpius : attaque venimeuse (rend malade).
+<li>The Master Assassin : attaque empoisonnée.
+<li>Ashikaga Takauji : possède souvent le <cite>Tsurugi of
+Muramasa</cite>, qui a 5 % de chances de vous tuer instantanément à
+chaque coup...
+<li>The Master of Thieves : aucune attaque spéciale.
+<li>Lord Surtur : aucun problème normalement...
+<li>The Dark One : résistance à la magie, lance des sorts.
+</ul>
+
+<ul><br></ul><a name="shapechangers2"></a><h4><cite>Shape changers</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="shapechangers1.png"></td>
+<td><cite><small>chameleon</small></cite></td>
+<td><img src="shapechangers2.png"></td>
+<td><cite><small>doppleganger</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Comme vous pouvez vous en douter, les <cite>chameleons</cite>
+peuvent prendre l'apparence d'une autre créature (incluant ses aptitudes
+spéciales...), ce qui peut générer des liches pour s'occuper de votre
+pauvre personnage de niveau 10... Si cela se produit, fuyez en attendant
+qu'il se transforme en quelque chose d'un peu moins terrifiant !
+
+<p> Les <cite>dopplegangers</cite> fonctionnent un peu sur le même
+principe, mais se restreignent à imiter des personnages comme vous
+(<cite>barbarians</cite>, <cite>valkyries</cite>, etc.), sauf que cette
+fois-ci vous ne pouvez pas vraiment attendre qu'il se transforme en
+quelque chose de moins puissant...
+
+<ul><br></ul><a name="spheres2"></a><h4><cite>Insects</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="spheres2.png"></td>
+<td><cite><small>freezing sphere</small></cite></td>
+<td><img src="spheres3.png"></td>
+<td><cite><small>flaming sphere</small></cite></td>
+<td><img src="spheres4.png"></td>
+<td><cite><small>shocking sphere</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Un autre groupe de créatures « kamikazes ». Ils explosent dès
+qu'ils vous rencontrent, vous infligeant des dommages non négligeables si
+vous n'avez pas la résistance appropriée, et détruisant une partie de
+votre inventaire « sensible » (potions, parchemins, anneaux...).
+
+<ul><br></ul><a name="trolls2"></a><h4><cite>Trolls &amp; Umber
+hulks</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="trolls1.png"></td>
+<td><cite><small>troll</small></cite></td>
+<td><img src="trolls2.png"></td>
+<td><cite><small>ice troll</small></cite></td>
+<td><img src="trolls3.png"></td>
+<td><cite><small>rock troll</small></cite></td>
+<td><img src="trolls4.png"></td>
+<td><cite><small>water troll</small></cite></td>
+<td><img src="trolls5.png"></td>
+<td><cite><small>olog-hai</small></cite></td>
+<td><img src="umberhulks1.png"></td>
+<td><cite><small>umber hulk</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Relativement méchants à la base, les <cite>trolls</cite> de toutes
+saveurs possèdent la désagréable propriété de revenir d'entre les
+morts (exceptés les <cite>umber hulks</cite>, qui ne sont pas vraiment
+des trolls)... Pour éviter cela, vous pouvez les manger, les sacrifier, les
+placer dans un contenant, ou encore les mettre en conserve. De plus, les
+<cite>olog-hais</cite> et les <cite>umber ulks</cite> ont un regard
+étourdissant.
+
+<ul><br></ul><a name="vortexes2"></a><h4><cite>Vortexes</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="vortexes1.png"></td>
+<td><cite><small>dust vortex</small></cite></td>
+<td><img src="vortexes2.png"></td>
+<td><cite><small>ice vortex</small></cite></td>
+<td><img src="vortexes3.png"></td>
+<td><cite><small>energy vortex</small></cite></td>
+<td><img src="vortexes4.png"></td>
+<td><cite><small>steam vortex</small></cite></td>
+<td><img src="vortexes5.png"></td>
+<td><cite><small>fire vortex</small></cite></td>
+</tr>
+</table>
+
+<p> Comme les <cite>air elementals</cite>, ces « monstres » vous
+engloutissent et vous infligent à vous et à votre inventaire des dommages
+appropriés (les <cite>steam vortexes</cite> infligeant des dommages de
+feu, et les <cite>dust vortexes</cite> se contentant de vous aveugler).
+Heureusement, si vous disposez de la résistance appropriée, ils sont
+inoffensifs et peuvent même servir à vous reposer au mileu d'une
+bataille...
+
+<ul><br></ul><a name="wolfs2"></a><h4><cite>Wolfs</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="wolfs1.png"></td>
+<td><cite><small>wolf</small></cite></td>
+<td><img src="wolfs2.png"></td>
+<td><cite><small>warg</small></cite></td>
+<td><img src="wolfs3.png"></td>
+<td><cite><small>winter wolf cub</small></cite></td>
+<td><img src="wolfs4.png"></td>
+<td><cite><small>winter wolf</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Ces monstres ne sont pas extrêmement méchants, mais apparaissent en
+petit groupe, ce qui les rend un peu plus redoutables. De plus, les
+<cite>winter wolf</cite> et les <cite>winter wolf cub</cite> sont
+capables de cracher un souffle de glace, avec les effets habituels
+(gel de potions, dommages annulés en cas de résistance au froid, etc.)
+
+<ul><br></ul><a name="wraiths2"></a><h4><cite>Wraiths</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="wraiths1.png"></td>
+<td><cite><small>barrow wight</small></cite></td>
+<td><img src="wraiths2.png"></td>
+<td><cite><small>wraith</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Ces créatures sont capables de vous drainer des niveaux (comme les
+<cite>vampires</cite>, mais ceux-ci apparaissent normalement plus loin
+dans le jeu), et de jeter des sorts pénibles dans le cas des <cite>barrow
+wights</cite>. Portez toujours une cape ou une robe quelconque pour
+diminuer les chances de succès d'une telle attaque ! Si cela se produit
+malgré tout, fuyez avant qu'une deuxième attaque de ce genre ne se
+reproduise et allez tuer un monstre (ce qui vous fera revenir à votre
+niveau antérieur) avant de revenir combattre ! Notez par ailleurs que
+manger un corps de <cite>wraith</cite> vous donne un niveau
+supplémentaire.
+
+<ul><br></ul><a name="high"></a><h4><font color=blue>Monstres rencontrés
+en fin de partie</font></h4>
+
+<p> Si vous avez passé le cap du « milieu de partie » (en gros le
+niveau de la Méduse), vous devriez en principe avoir un équipement plus
+que raisonnable grâce à la <cite>wand of wishing</cite> du Château
+(<cite>dragon scale mail</cite>, <cite>speed boots</cite>, votre artefact
+de quête, etc.), vous rendant quasiment invincible contre toute attaque
+physique. Bien évidemment, quelques surprises vous attendent encore...
+
+<ul><br></ul><a name="angels3"></a><h4><cite>Angelic beings</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="angels1.png"></td>
+<td><cite><small>couatl</small></cite></td>
+<td><img src="angels2.png"></td>
+<td><cite><small>angel</small></cite></td>
+<td><img src="angels3.png"></td>
+<td><cite><small>ki-rin</small></cite></td>
+<td><img src="angels4.png"></td>
+<td><cite><small>archon</small></cite></td>
+</tr>
+</table>
+
+<p> Les <cite>couatls</cite> ne sont en général pas très dangereux ;
+cependant, ils peuvent vous attraper et vous noyer si vous êtes à
+proximité de l'eau (voir la section sur les monstres aquatiques). Les
+<cite>angels</cite> et les <cite>ki-rins</cite> peuvent poser problème si
+vous n'êtes pas suffisamment équipé au moment de les rencontrer, mais
+n'apparaissent que très rarement avant le Plan Astral. En revanche, les
+<cite>archons</cite> (que vous ne devriez pas rencontrer avant la toute
+fin du jeu) sont extrêmement dangereux, même pour un personnage
+suréquipé, et constituent l'une des seules créatures susceptible de tuer
+un personnage de fin de jeu en réduisant ses points de vie à 0. Ils sont
+bien entendu également capables de lancer des sorts (y compris d'invoquer
+d'autres créature incluant un autre <cite>archon</cite>...), et ont un
+regard étourdissant. Notez que toutes ces créatures sont généralement
+pacifiques (sauf sur le Plan Astral) si vous êtes <cite>lawful</cite>.
+
+<ul><br></ul><a name="aquatics3"></a><h4><cite>Aquatic monsters</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="aquatics1.png"></td>
+<td><cite><small>giant eel</small></cite></td>
+<td><img src="aquatics2.png"></td>
+<td><cite><small>electric eel</small></cite></td>
+<td><img src="aquatics3.png"></td>
+<td><cite><small>kraken</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Ces monstres sont plutôt rares, et n'apparaissent qu'à certains
+endroit bien déterminés (Plan Élémentaire de l'eau, douves du Château et
+de la Tour du Magicien, niveau de la Méduse et de Juiblex, etc.). Leur
+principal danger est qu'ils peuvent vous attraper si vous êtes au bord ou
+au-dessus de l'eau et vous noyer au tour suivant, causant une mort
+immédiate... Pour éviter cela, tuez-les à distance sans vous approcher de
+l'eau, ou téléportez le monstre ou votre personnage s'il venait à se
+faire attraper. Enfin, les <cite>electric eels</cite> peuvent vous
+envoyer des décharges électriques et ainsi détruire certains de vos
+anneaux (attention donc si vous lévitez au-dessus de l'eau grâce à un
+simple anneau...).
+
+<ul><br></ul><a name="demons3"></a><h4><cite>Démons</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="demons6.png"></td>
+<td><cite><small>nalfeschnee</small></cite></td>
+<td><img src="demons7.png"></td>
+<td><cite><small>balrog</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> La plupart des démons ne sont absolument pas dangereux au moment où
+vous les rencontrez, avec l'équipement adapté. Les <cite>balrogs</cite>
+méritent d'être mentionnés car ils sont un peu plus puissants que les
+autres, et sont donc susceptibles de vous faire perdre quelques points de
+vie avant de mourir, et les <cite>nalfeschnees</cite> car elles sont
+capables de lancer des sorts, incluant <cite>summon nasties</cite>. À
+moins que vous ne jouiez avec la version 3.4.0 sans avoir génocidé les
+liches, cela ne devrait pas être un problème.
+
+<ul><br></ul><a name="dragons3"></a><h4><cite>Dragons</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="dragons1.png"></td>
+<td><cite><small>baby gray dragon</small></cite></td>
+<td><img src="dragons2.png"></td>
+<td><cite><small>baby silver dragon</small></cite></td>
+<td><img src="dragons3.png"></td>
+<td><cite><small>baby red dragon</small></cite></td>
+<td><img src="dragons4.png"></td>
+<td><cite><small>baby white dragon</small></cite></td>
+<td><img src="dragons5.png"></td>
+<td><cite><small>baby orange dragon</small></cite></td>
+<td><img src="dragons6.png"></td>
+<td><cite><small>baby black dragon</small></cite></td>
+</tr><tr>
+<td><img src="dragons7.png"></td>
+<td><cite><small>baby blue dragon</small></cite></td>
+<td><img src="dragons8.png"></td>
+<td><cite><small>baby green dragon</small></cite></td>
+<td><img src="dragons9.png"></td>
+<td><cite><small>baby yellow dragon</small></cite></td>
+<td><img src="dragons10.png"></td>
+<td><cite><small>gray dragon</small></cite></td>
+<td><img src="dragons11.png"></td>
+<td><cite><small>silver dragon</small></cite></td>
+<td><img src="dragons12.png"></td>
+<td><cite><small>red dragon</small></cite></td>
+</tr><tr>
+<td><img src="dragons13.png"></td>
+<td><cite><small>white dragon</small></cite></td>
+<td><img src="dragons14.png"></td>
+<td><cite><small>orange dragon</small></cite></td>
+<td><img src="dragons15.png"></td>
+<td><cite><small>black dragon</small></cite></td>
+<td><img src="dragons16.png"></td>
+<td><cite><small>blue dragon</small></cite></td>
+<td><img src="dragons17.png"></td>
+<td><cite><small>green dragon</small></cite></td>
+<td><img src="dragons18.png"></td>
+<td><cite><small>yellow dragon</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> À chaque type dragon sont attribuées une couleur, une attaque
+spéciale et la résistance associée, ce qui les rend potentiellement
+dangereux dans le cas où vous ne disposez pas de cette résistance (mais
+la plupart des dragons peuvent vous la conférer si vous les mangez).
+Les couleurs et attaques correspondantes sont : <cite>gray</cite> pour
+les attaques magiques, <cite>silver</cite> pour les attaques avec des
+rayons (la résistance associée étant l'aptitude à réfléchir les rayons),
+<cite>red</cite> pour les attaques de feu, <cite>white</cite> pour les
+attaques de froid, <cite>orange</cite> pour les attaques de sommeil,
+<cite>black</cite> pour les attaques de désintégration, <cite>blue</cite>
+pour les attaques d'électricité, <cite>green</cite> pour les attaques de
+poison et <cite>yellow</cite> pour les attaques acides (ces dragons
+disposant en plus de la résistance à l'acide de la résistance à la
+pétrification). Notez que les <cite>blue dragons</cite> vous aveuglent
+lorsqu'ils crachent de l'électricité (même si vous êtes <cite>shock
+resistant</cite>), et que les <cite>black dragons</cite> peuvent
+désintégrer vos armures si vous n'avez pas de moyen de réfléchir son
+rayon (<cite>amulet of reflection</cite>, <cite>silver dragon scale
+mail</cite>, <cite>shield of reflection</cite>, etc.), même si vous êtes
+vous-même résistant à la désintégration.
+
+<ul><br></ul><a name="ghosts3"></a><h4><cite>Ghosts</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="ghosts1.png"></td>
+<td><cite><small>shades</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Ces monstres, que vous ne rencontrerez normalement que dans la ville
+d'Orcus, sont immunisés à toute attaque physique, sauf si vous les
+attaquez avec une arme en argent (<cite>silver saber</cite> notamment).
+De plus, ils sont capables de vous paralyser ou de vous ralentir.
+
+<ul><br></ul><a name="giants3"></a><h4><cite>Giants</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="giants1.png"></td>
+<td><cite><small>titan</small></cite></td>
+<td><img src="giants2.png"></td>
+<td><cite><small>minotaur</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> La plupart des géants ne sont pas vraiment dangereux, même pour un
+personnage de milieu de partie. Cependant, les <cite>minotaurs</cite>
+rencontrés dans les Enfers frappent relativement fort (3 fois par round),
+donc gardez toujours un oeil sur vos points de vie lorsque vous en
+combattez un (même s'il ne devrait pas y avoir de problème en général, au
+vu de la faible AC (6) qu'ils ont). Les <cite>titans</cite> ne sont pas
+aussi puissants, mais sont capables de lancer des sorts et donc
+d'invoquer des créatures, ce qui les rend particulièrement dangereux en
+« début de fin de partie », par exemple au niveau de la Méduse où vous
+avez une chance sur deux d'en rencontrer un. Si vous êtes
+<cite>lawful</cite>, il y a toutefois de bonnes chances pour qu'ils
+soient pacifiques.
+
+<ul><br></ul><a name="priests3"></a><h4><cite>Priests</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="priests1.png"></td>
+<td><cite><small>aligned priest</small></cite></td>
+<td><img src="priests2.png"></td>
+<td><cite><small>high priest</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Normalement, tous les prêtres que vous rencontrerez jusqu'au
+sanctuaire de Moloch sont générés pacifiques (sauf dans certains Quêtes,
+où vous pouvez trouver des prêtres de Moloch aggressifs). La plupart des
+prêtres que vous rencontrerez ensuite (dans le sanctuaire et dans le Plan
+Astral) sont capables d'invoquer des nuées d'insectes, ce qui les rend
+parfois pénibles à atteindre ; cependant, ils offrent une bonne
+protection contre les <cite>Riders</cite>, qui ne peuvent alors plus vous
+atteindre.
+
+<ul><br></ul><a name="jabberwocks3"></a><h4><cite>Jabberwocks</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="jabberwocks1.png"></td>
+<td><cite><small>jabberwock</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Un peu comme les <cite>minotaurs</cite>, les <cite>jabberwocks</cite>
+infligent des dommages élevés (avec 4 attaques par tour) ; ils ne posent
+toutefois généralement pas trop de problèmes.
+
+<ul><br></ul><a name="liches3"></a><h4><cite>Liches</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="liches1.png"></td>
+<td><cite><small>lich</small></cite></td>
+<td><img src="liches2.png"></td>
+<td><cite><small>demilich</small></cite></td>
+<td><img src="liches3.png"></td>
+<td><cite><small>master lich</small></cite></td>
+<td><img src="liches4.png"></td>
+<td><cite><small>arch-lich</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Les monstres les plus dangereux parmi ceux pouvant être génocidés...
+Toutes les liches sont capables de lancer des sorts (et ne s'en priveront
+pas...), incluant <cite>summon nasties</cite> (ce qui peut appeler
+d'autres liches, causant dans la version 3.4.0 des invocations en chaînes
+qui remplissaient l'écran plus vite que vous ne pouviez le vider...),
+<cite>destroy armor</cite> et <cite>curse</cite> notamment, et infligent
+des dégâts de froid. De plus, elles peuvent se téléporter lorsque leurs
+points de vie sont bas, et les récupèrent très rapidement. Si vous avez
+un <cite>scroll of genocide</cite> à perdre, n'hésitez pas...
+
+<ul><br></ul><a name="lizards3"></a><h4><cite>Lizards</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="lizards1.png"></td>
+<td><cite><small>newt</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Non, je plaisante...
+
+<ul><br></ul><a name="mindflayers3"></a><h4><cite>Mind flayers</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="mindflayers1.png"></td>
+<td><cite><small>mind flayer</small></cite></td>
+<td><img src="mindflayers2.png"></td>
+<td><cite><small>master mind flayer</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Les <cite>mind flayers</cite> possèdent des tentacules capables de
+vous dévorer le cerveau lorsqu'ils vous attaquent au contact, réduisant
+ainsi votre intelligence et vous faisant oublier de nombreuses choses,
+incluant des cartes de niveaux, des sorts, des objets que vous savez
+identifier, etc. S'ils réduisent votre intelligence à 0, vous mourrez, et
+même une <cite>amulet of life saving</cite> ne vous aidera pas. Enfin,
+ils peuvent vous attaquer depuis n'importe où dans le niveau en émettant
+des ondes psychiques. Heureusement, ils sont plutôt lents, et respectent
+Elbereth : n'hésitez pas à les attaquer à distance !
+
+<ul><br></ul><a name="puddings3"></a><h4><cite>Puddings</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="puddings4.png"></td>
+<td><cite><small>green slime</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Un peu dans le même esprit que les <cite>cockatrices</cite>, les
+<cite>green slimes</cite> peuvent vous tuer en vous transformant en peu à
+peu en <cite>green slime</cite> à votre tour. Si cela se produit,
+brûlez-vous (avec une <cite>wand of fire</cite> par exemple), ou vous
+mourrez en quelques tours. Évidemment, ils ne sont pas comestibles...
+Heureusement, ils sont bien moins effrayants que les
+<cite>cockatrices</cite> car ils ne vous tuent pas avec un simple
+contact lorsqu'ils sont morts...
+
+<ul><br></ul><a name="riders3"></a><h4><cite>Riders</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="riders_death.png"></td>
+<td><cite><small>Death</small></cite></td>
+<td><img src="riders_pestilence.png"></td>
+<td><cite><small>Pestilence</small></cite></td>
+<td><img src="riders_famine.png"></td>
+<td><cite><small>Famine</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Les Cavaliers de l'Apocalypse, que vous rencontrerez sur le Plan
+Astral (si vous vous posez la question, <cite>War</cite>, c'est vous à ce
+stade du jeu...). Pour un combattant au corps-à-corps, <cite>Death</cite> est
+sans doute le moins dangereux : certes ses attaques réduisent votre
+maximum de points de vie, mais à ce stade du jeu ce n'est plus aussi
+vital, et il ne possède pas énormément de points de vie (à moins que vous
+ne lui zappiez des <cite>wands of death</cite> dessus ou que vous ne lui
+lanciez des sorts de <cite>finger of death</cite>, bien sûr...).
+<cite>Famine</cite> vous affame chaque fois qu'elle réussit une
+attaque : ayez donc toujours sur vous des sources de nutrition
+rapidement accessibles (<cite>C-rations</cite>, <cite>K-rations</cite>,
+etc.) si vous ne voulez pas mourir de faim en deux tours ! Enfin,
+<cite>Pestilence</cite> vous rend malade à chaque attaque réussie :
+fuyez-la le plus vite possible si vous n'avez pas de moyen de vous
+soigner ! Heureusement, <cite>Famine</cite> et <cite>Pestilence</cite>
+sont vulnérables aux <cite>wands of death</cite> et au <cite>finger of
+death</cite>.
+
+<ul><br></ul><a name="rustmonsters3"></a><h4><cite>Rust monsters</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="rustmonsters1.png"></td>
+<td><cite><small>rust monster</small></cite></td>
+<td><img src="rustmonsters2.png"></td>
+<td><cite><small>disenchanter</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Comme leurs noms l'indiquent, les <cite>rust monsters</cite> font
+rouiller tout objet en fer qu'ils touchent (armes et armures notamment),
+tandis que les <cite>disenchanters</cite> réduisent l'enchantement de
+toute arme ou armure qu'ils touchent (ce qui est gênant quand votre
+artefact enchanté à +7 redescend tout doucement à +0...). Attaquez-les à
+distance ou, mieux, avec des sorts !
+
+<ul><br></ul><a name="uniques3"></a><h4><cite>Unique monsters</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="uniques_asmodeus.png"></td>
+<td><cite><small>Asmodeus</small></cite></td>
+<td><img src="uniques_baalzebub.png"></td>
+<td><cite><small>Baalzebub</small></cite></td>
+<td><img src="uniques_demogorgon.png"></td>
+<td><cite><small>Demogorgon</small></cite></td>
+<td><img src="uniques_dispater.png"></td>
+<td><cite><small>Dispater</small></cite></td>
+<td><img src="uniques_geryon.png"></td>
+<td><cite><small>Geryon</small></cite></td>
+<td><img src="uniques_juiblex.png"></td>
+<td><cite><small>Juiblex</small></cite></td>
+</tr><tr>
+<td><img src="uniques_medusa.png"></td>
+<td><cite><small>Medusa</small></cite></td>
+<td><img src="uniques_orcus.png"></td>
+<td><cite><small>Orcus</small></cite></td>
+<td><img src="uniques_vlad.png"></td>
+<td><cite><small>Vlad the Impaler</small></cite></td>
+<td><img src="uniques_wizard.png"></td>
+<td><cite><small>The Wizard of Yendor</small></cite></td>
+<td><img src="uniques_yeenoghu.png"></td>
+<td><cite><small>Yeenoghu</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Une belle brochette de « Boss » que vous risquez de rencontrer dans
+votre aventure... Ils possèdent quasiment tous l'aptitude à se téléporter
+sur les escaliers pour régénérer leurs points de vie, et tous les princes
+démons peuvent invoquer d'autres démons ou un autre prince démon chaque
+fois qu'ils vous attaquent ; très peu d'entre eux respectent Elbereth.
+Détaillons un peu leurs aptitudes spécifiques :
+<ul>
+<li><cite>Asmodeus</cite> : Un prince démon, présent dans toutes les
+parties, pas vraiment dangereux...
+<li><cite>Baalzebub</cite> : Pareil que pour <cite>Asmodeus</cite>, mais
+celui-ci possède un regard étourdissant assez pénible.
+<li><cite>Demogorgon</cite> : Sûrement le monstre le plus puissant du
+jeu... Ce prince démon possède 4 attaques par tour, chacune d'elle
+pouvant vous rendre malade, de nombreux points de vie, une vitesse
+raisonnable, et une attaque étourdissante... Heureusement, il n'apparaîtra
+que s'il a été invoqué par un autre démon, et respecte Elbereth !
+<li><cite>Dispater</cite> : Un autre prince démon, pas vraiment
+dangereux, que l'on rencontre rarement.
+<li><cite>Geryon</cite> : Pareil que pour <cite>Dispater</cite>...
+<li><cite>Juiblex</cite> : Un prince démon habitant un marais dans les
+Enfers, qui peut vous engloutir et vous rendre malade.
+<li><cite>Medusa</cite> : Présente sur une île un peu au-dessus du
+Château, <cite>Medusa</cite> peut vous transformer en pierre d'un simple
+regard... Heureusement, elle peut facilement être vaincue : vous
+connaissez la légende de Persée ?
+<li><cite>Orcus</cite> : Un prince démon habitant une ville fantôme dans
+les Enfers. Pas particulièrment dangereux, si l'on excepte le fait qu'il
+possède une <cite>wand of death</cite>, et qu'il sait s'en servir... Mais
+à ce niveau du jeu, il serait suicidaire de ne pas être résistant à la
+magie !
+<li><cite>Vlad the Impaler</cite> : Un vampire qui traîne dans une tour
+quelque part dans les Enfers. Pas vraiment un problème.
+<li><cite>The Wizard of Yendor</cite> : D'abord situé dans sa Tour au
+fond des Enfers, il vous poursuivra sans relâche une fois que vous lui
+aurez volé son <cite>Book of the Dead</cite>, la mort ne suffisant pas à
+l'arrêter... Il est capable de lancer de nombreux sorts (<cite>summon
+nasties</cite>, <cite>curse</cite>, etc.), de vous voler votre artefact
+de Quête et l'Amulet of Yendor si vous l'avez (ou la substituer par une
+imitation en plastique...), ou encore de se dédoubler. Heureusement, il
+n'est pas résistant aux <cite>wands of death</cite> ou à <cite>finger of
+death</cite>...
+<li><cite>Yeenoghu</cite> : Un prince démon, qui n'apparaît pas dans
+toutes les parties, qui vous attaquera avec le sort de <cite>magic
+missile</cite>. Notez qu'il est résistant à la magie.
+</ul>
+
+<ul><br></ul><a name="trappers3"></a><h4><cite>Trappers</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="trappers1.png"></td>
+<td><cite><small>lurker above</small></cite></td>
+<td><img src="trappers2.png"></td>
+<td><cite><small>trapper</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Invisibles jusqu'à ce que vous bougiez sur leur case, ces créatures
+vous attaquent en vous engloutissant et vous digérent peu à peu. Si
+vous êtes engloutis, sortez rapidement : au bout de quelques tours, vous
+serez complètement digéré, indépendamment de vos points de vie restants !
+Notez qu'ils digèrent en un seul tour toutes les autres créatures (votre
+<cite>pet</cite> par exemple...).
+
+<ul><br></ul><a name="worms3"></a><h4><cite>Worms</cite></h4>
+
+<p><table align="center">
+<colgroup>
+<col span=1 width="16">
+<col span=1 width="116">
+<tr>
+<td><img src="worms1.png"></td>
+<td><cite><small>purple worm</small></cite></td>
+</tr>
+</colgroup>
+</table>
+
+<p> Un peu comme les <cite>trappers</cite>, les <cite>purple worms</cite>
+peuvent vous engloutir et vous digérer. Heureusement, ceux-ci sont
+immédiatement visibles ; en compensation, ils sont un peu plus
+rapides...
+
+
+<br>
+<p> Voilà, vous avez fait connaissance avec les hôtes les moins
+recommandables du donjon... Réjouissant n'est-ce pas ? Maintenant,
+l'objectif c'est d'arriver à tous les rencontrer « pour de vrai » - et
+optionnellement, y survivre... Je tiens à remercier Dylan O'Donnell et
+Kevin Hugo pour leurs <cite>spoilers</cite> sur les monstres qui m'ont
+beaucoup aidé à me souvenir de toutes ces charmantes créatures...
+
+<p><a href=liste.html>Revenir à la liste des tutoriels</a>
+
+
+<p><hr>
+2003 - Erwan Grasland-Mongrain (<a
+href="mailto:erwan.grasland-mongrain@ens.fr">grasland@clipper.ens.fr</a>)
+
+</body>
+</HTML>

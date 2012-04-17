@@ -1,0 +1,53 @@
+Nov 20 22:13:34 shyla kernel: [76483.095610] INFO: rcu_sched_state detected stall on CPU 0 (t=15434 jiffies)
+Nov 20 22:13:34 shyla kernel: [76483.095610] sending NMI to all CPUs:
+Nov 20 22:13:34 shyla kernel: [76483.095610] NMI backtrace for cpu 0
+Nov 20 22:13:34 shyla kernel: [76483.095610] Modules linked in: acpi_cpufreq mperf cpufreq_powersave cpufreq_stats cpufreq_conservative cpufreq_userspace joydev hdaps input_polldev uinput fuse nfsd nfs lockd fscache auth_rpcgss nfs_acl sunrpc loop firewire_sbp2 snd_hda_codec_analog i915 drm_kms_helper snd_hda_intel snd_hda_codec thinkpad_acpi snd_seq_midi snd_rawmidi snd_hwdep drm i2c_algo_bit snd_pcm_oss snd_mixer_oss snd_seq_midi_event arc4 snd_seq snd_pcm i2c_i801 iwl3945 snd_seq_device snd_timer psmouse pcmcia i2c_core iwl_legacy mac80211 cfg80211 yenta_socket snd_page_alloc pcmcia_rsrc pcmcia_core rng_core rfkill ac battery power_supply snd soundcore serio_raw evdev nsc_ircc tpm_tis nvram tpm irda tpm_bios button crc_ccitt video processor ext3 jbd mbcache mmc_block sg sd_mod crc_t10dif ata_generic uhci_hcd ata_piix libata sdhci_pci sdhci e1000e thermal thermal_sys firewire_ohci scsi_mod ehci_hcd mmc_core firewire_core crc_itu_t usbcore [last unloaded: scsi_wait_scan]
+Nov 20 22:13:34 shyla kernel: [76483.095610] 
+Nov 20 22:13:34 shyla kernel: [76483.095610] Pid: 0, comm: swapper Not tainted 3.0.0-1-686-pae #1 LENOVO 1707A31/1707A31
+Nov 20 22:13:34 shyla kernel: [76483.095610] EIP: 0060:[<c1158071>] EFLAGS: 00000807 CPU: 0
+Nov 20 22:13:34 shyla kernel: [76483.095610] EIP is at paravirt_read_tsc+0x1/0xd
+Nov 20 22:13:34 shyla kernel: [76483.095610] EAX: 00192b82 EBX: 00002710 ECX: c1345511 EDX: 00192b81
+Nov 20 22:13:34 shyla kernel: [76483.095610] ESI: 00192b82 EDI: 00000000 EBP: c13f8900 ESP: c13c1e98
+Nov 20 22:13:34 shyla kernel: [76483.095610]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+Nov 20 22:13:34 shyla kernel: [76483.095610] Process swapper (pid: 0, ti=c13c0000 task=c13eefa0 task.ti=c13c0000)
+Nov 20 22:13:34 shyla kernel: [76483.095610] Stack:
+Nov 20 22:13:34 shyla kernel: [76483.095610]  c13f8900 c11580ee 00002710 c13f8880 00000000 c13f8900 c11580ab c101bbaf
+Nov 20 22:13:34 shyla kernel: [76483.095610]  f6403854 c107953b c1352aaf c1352b96 00000000 00003c4a 00000000 00000800
+Nov 20 22:13:34 shyla kernel: [76483.095610]  00000000 00000000 00000000 c13c1f7c c10799f7 c13eefa0 c104106a f6403710
+Nov 20 22:13:34 shyla kernel: [76483.095610] Call Trace:
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c11580ee>] ? delay_tsc+0x18/0x54
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c11580ab>] ? __delay+0x6/0x7
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c101bbaf>] ? arch_trigger_all_cpu_backtrace+0x4d/0x5a
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c107953b>] ? __rcu_pending+0x5f/0x254
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c10799f7>] ? rcu_check_callbacks+0x6a/0x90
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c104106a>] ? update_process_times+0x2a/0x53
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c1058078>] ? tick_sched_timer+0x61/0x8e
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c104e4b0>] ? __run_hrtimer+0x99/0x10d
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c1058017>] ? tick_nohz_handler+0xd5/0xd5
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c104ed83>] ? hrtimer_interrupt+0xe3/0x1cb
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c101b15e>] ? smp_apic_timer_interrupt+0x56/0x65
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c12ae6a9>] ? apic_timer_interrupt+0x31/0x38
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c10500d8>] ? sched_clock_local+0x82/0x12f
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c10500e0>] ? sched_clock_local+0x8a/0x12f
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c1057df0>] ? arch_local_irq_enable+0x2/0x7
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c1007730>] ? cpu_idle+0xb1/0xb8
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c1424708>] ? start_kernel+0x339/0x33f
+Nov 20 22:13:34 shyla kernel: [76483.095610] Code: 66 8b 16 8d 76 02 66 89 17 8d 7f 02 74 07 c1 e2 10 8a 16 88 17 01 d0 83 d0 00 5e 5f 5b c3 90 90 90 90 90 90 90 90 90 90 90 90 55 
+Nov 20 22:13:34 shyla kernel: [76483.095610] Call Trace:
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c11580ee>] ? delay_tsc+0x18/0x54
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c11580ab>] ? __delay+0x6/0x7
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c101bbaf>] ? arch_trigger_all_cpu_backtrace+0x4d/0x5a
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c107953b>] ? __rcu_pending+0x5f/0x254
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c10799f7>] ? rcu_check_callbacks+0x6a/0x90
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c104106a>] ? update_process_times+0x2a/0x53
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c1058078>] ? tick_sched_timer+0x61/0x8e
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c104e4b0>] ? __run_hrtimer+0x99/0x10d
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c1058017>] ? tick_nohz_handler+0xd5/0xd5
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c104ed83>] ? hrtimer_interrupt+0xe3/0x1cb
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c101b15e>] ? smp_apic_timer_interrupt+0x56/0x65
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c12ae6a9>] ? apic_timer_interrupt+0x31/0x38
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c10500d8>] ? sched_clock_local+0x82/0x12f
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c10500e0>] ? sched_clock_local+0x8a/0x12f
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c1057df0>] ? arch_local_irq_enable+0x2/0x7
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c1007730>] ? cpu_idle+0xb1/0xb8
+Nov 20 22:13:34 shyla kernel: [76483.095610]  [<c1424708>] ? start_kernel+0x339/0x33f

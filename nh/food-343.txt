@@ -1,0 +1,380 @@
+food-343.txt  Last edited 2010-02-03 for NetHack 3.4.3
+Food and hunger in NetHack 3.4
+Compiled for 3.2.2 by Kevin Hugo.
+Updated for 3.4.3 by Dylan O'Donnell <psmith@spod-central.org>.
+
+FOOD                      COST  WGT  PROB   NUTR  NUTR/WGT  TIME
+~~~~~~~~~~~~~~~~~~~~~~~ : ~~~~  ~~~  ~~~~ : ~~~~  ~~~~~~~~  ~~~~
+Meat                    :                 :
+  meatball              : $  5    1    0  :    5      5       1
+  meat ring             :    5    1    0  :    5      5       1
+  meat stick            :    5    1    0  :    5      5       1
+  egg                   :    9    1   85  :   80     80       1
+  tripe ration          :   15   10  140  :  200     20       2
+  huge chunk of meat    :  105  400    0  : 2000      5      20
+  corpse                :    5  vary   0  : vary    vary    vary
+Fruits and vegetables   :                 :
+  kelp frond            :    6    1    0  :   30     30       1
+  eucalyptus leaf       :    6    1    3  :   30     30       1
+  clove of garlic       :    7    1    7  :   40     40       1
+  sprig of wolfsbane    :    7    1    7  :   40     40       1
+  apple                 :    7    2   15  :   50     25       1
+  carrot                :    7    2   15  :   50     25       1
+  pear                  :    7    2   10  :   50     25       1
+  banana                :    9    2   10  :   80     40       1
+  orange                :    9    2   10  :   80     40       1 
+  melon                 :   10    5   10  :  100     20       1
+  slime mold            :   17    5   75  :  250     50       1
+People food             :                 :
+  fortune cookie        :    7    1   55  :   40     40       1
+  candy bar             :   10    2   13  :  100     50       1
+  cream pie             :   10   10   25  :  100     10       1
+  lump of royal jelly   :   15    2    0  :  200    100       1
+  pancake               :   15    2   25  :  200    100       2
+  C-ration              :   20   10    0  :  300     30       1
+  K-ration              :   25   10    0  :  400     40       1
+  cram ration           :   35   15   20  :  600     40       3
+  food ration (gunyoki) :   45   20  380  :  800     40       5
+  lembas wafer          :   45    5   20  :  800    160       2
+  tin                   :    5   10   75  : vary    vary    vary
+
+Comestibles are listed above by category, then by increasing nutrition.
+Japanese names of items are listed in parentheses ().  The COST field
+denotes the base price of each item.  WGT specifies the weight (100
+zorkmids weighs 1).
+
+Food comprises 20% of all randomly-generated items in the main dungeon,
+15% in containers, 22% on the  Rogue level, and 16% in hell.  PROB is the
+relative probability of each subtype.  Eggs not laid by you have a
+roughly 1/3 probability of hatching.  Tins are 1/6 spinach and are 5%
+blessed, 90% uncursed, and 5% cursed.  All other comestibles will be
+generated uncursed.
+
+The nutrition of each item is listed under NUTR.  The cost of all items
+are based on the nutrition by the formula COST = (NUTR / 20) +5, with
+fractions rounded off.  Note that several previously archived spoilers
+did not correctly round their costs.  The ratio of nutrition to weight
+is listed in the NUTR/WGT column; lembas wafers have the best ratio.
+The amount of time needed to completely eat an item is given under TIME.
+
+
+Hunger and nutrition
+~~~~~~~~~~~~~~~~~~~~
+(Adapted from the spoiler "food" by Bryan Butler and J. Ali Harlow.)
+
+Each of the following conditions is checked on the turns shown; if it is
+the case, then you lose one more point of nutrition that turn.  Rings
+and amulets cause additional hunger as shown; the only exception is a
+ring that can be charged but is at +0. A ring of slow digestion prevents
+base ordinary food consumption, but still causes ring hunger.  You can
+therefore consume a maximum of 64 nutrition in 20 turns (if all of these
+conditions were met).
+  HOW OFTEN      CAUSE
+  ~~~~~~~~~~~~~  ~~~~~
+  Each turn      Ordinary food consumption, if carnivorous or herbivorous
+                 and not wearing a ring of slow digestion. When asleep,
+                 only about 10% as much is needed.
+  Odd turns      Regeneration from anything other than an artifact.
+  Odd turns      Encumbrance is stressed or worse.
+  Even turns     Hunger intrinsic (e.g., from a ring).
+  Even turns     Conflict from anything other than an artifact.
+  Turn 4 of 20   Ring worn on left hand (except a +0 ring).
+  Turn 8 of 20   Amulet worn.
+  Turn 12 of 20  Ring worn on right hand (except a +0 ring).
+  Turn 16 of 20  Carrying the Amulet of Yendor.
+
+Naturally, eating some food will make you gain the amount of nutrition
+in the food.  Your level of nutrition is described as follows:
+  2000 or more           Death from choking (under certain circumstances)
+  1000 or more           Satiated
+   150 to  999           Not hungry
+    50 to  149           Hungry
+     0 to   49           Weak
+  Below zero             Fainting
+  Below (-200)-(20*CON)  Death from starvation
+
+
+Corpses
+~~~~~~~
+(Adapted from the spoiler "corpses", by Boudewijn Waijers and
+Peter Snelling.)
+
+When a monster is killed, the probability of leaving a corpse depends on
+several factors:
+  PROB  CONDITIONS
+  ~~~~  ~~~~~~~~~~
+    0%  Killed by digestion or disintegration.
+    0%  Killed by stoning (creates a statue instead).
+    0%  Corpses are never generated on the Rogue level.
+    0%  Non-flesh golems leave objects instead of a corpse.
+    0%  Some monsters never leave a corpse (e.g., Vlad, liches).
+  100%  Lizards, monsters of large size or bigger.
+  100%  The Riders and player-monsters on the Astral Plane.
+   1/2  Frequent monster that is not tiny
+   1/3  Monster appears infrequently or is tiny (but not both).
+   1/4  Monster both appears infrequently and is tiny.
+There is a further reduction of the above chances for undead creatures
+that die on a graveyard level: by 1/9 if it was killed by you or by
+1/3 if it was not killed by you (e.g., by a trap or another monster).  
+This means that wraiths have a better chance of leaving a corpse if you
+lead them to a stairway and let them follow you to a non-graveyard
+level, a technique called "wraith luring". For this purpose, the
+Castle and all levels of the Priest Quest are considered graveyard
+levels, as is any level on which undead have been summoned by the 
+cursed Book of the Dead or Bell of Opening.
+
+The nutrition, weight, and time needed to eat corpses is determined by
+the type of monster.  The blessed/cursed status of corpses adjusts how
+fast they become tainted; corpses on an ice surface age half as fast,
+corpses do not age while in iceboxes, and lizard and lichen corpses
+never become tainted (though they do become too old for sacrifice).
+Vampires, mummies, and zombies leave corpses that are already considered
+old.  Tainted corpses do not provide either nutrition or intrinsics.
+
+(Adapted from a spoiler by Sascha Wostmann.)
+
+You can acquire useful intrinsics by eating certain corpses or tins.
+The blessed/cursed status does *not* change the likelihood of getting
+an intrinsic.  If the monster has more than one conferrable intrinsic,
+one is randomly picked, with equal probability among all possible.
+The CHANCE that the picked intrinsic is conferred varies among the
+different intrinsics; some are based on the level of the monster (LEV).
+If you get the intrinsic, you will get a MESSAGE (the second one if
+you are hallucinating).
+  INTRINSIC          CHANCE  MESSAGE
+  ~~~~~~~~~~~~~~~~~  ~~~~~~  ~~~~~~~
+  Fire resistance    LEV/15  "You feel a momentary chill."
+                             "You be chillin'."
+  Sleep resistance   LEV/15  "You feel wide awake"
+  Cold resistance    LEV/15  "You feel full of hot air"
+  Disintegration     LEV/15  "You feel very firm."
+    resistance               "You feel totally together, man."
+  Shock resistance   LEV/15  "Your health currently feels amplified!"
+                             "You feel grounded in reality."
+  Poison resistance  LEV/15  "You feel healthy."
+                             ("You feel especially healthy." if you had
+                             previously acquired non-permanent poison
+                             resistance by other means.)
+                             Note: 25% better chance if killer bee or
+                             scorpion.
+  Teleport           LEV/10  "You feel very jumpy."
+                             "You feel diffuse."
+  Teleport control   LEV/12  "You feel in control of yourself."
+                             "You feel centered in your personal space."
+  Telepathy           100%   "You feel a strange mental acuity."
+                             "You feel in touch with the cosmos."
+        
+Some corpses or tins have additional effects:
+  :bjDFNP  If you eat a lizard or any acidic monster, a possible stoning
+           process is stopped.
+           "You feel limber" (non-hallucinating)
+           "What a pity - you just ruined a future piece of art!"
+           (hallucinating with charisma <= 15)
+           "What a pity - you just ruined a future piece of fine art!"
+           (hallucinating with charisma > 15)
+
+  :  Eating a lizard has the supplemental effect of reducing stunning
+     or confusion timeouts to 2 turns, if higher.
+
+  :  Eating a newt ("eye of newt") may cause you to gain 1 to 3 energy
+     (2/3 chance, always if at two-thirds maximum energy or below). If
+     this would take you above your maximum energy, there is a 1/3 chance
+     that your maximum energy will be increased by one.
+       "You feel a mild buzz."
+
+  :@ Eating a chameleon or doppelganger makes you polymorph once.
+     (Eating doppelgangers may also be considered cannibalism if you
+     are human.)
+
+  h  a (master) mind flayer has a 50% chance of increasing your INT by
+     one. Otherwise, it confers telepathy.
+
+  m  Eating a mimic makes you mimic a pile of gold (or, if hallucinating,
+     an orange) for some turns, unless you have unchanging. The larger the
+     mimic the longer you imitate. During this time, you are shown as a
+     $-sign or %-sign.  If you are attacked, you revert to your previous
+     form.
+
+  yB Eating a bat will make you stunned for 30 (more) turns, or 60 (more)
+     turns for a giant bat.  In theory, this also holds for yellow lights
+     (but they don't leave corpses in recent versions).
+
+  E  When you eat a stalker's corpse and you are not invisible, you'll
+     become invisible for 50 to 149 turns. If you're already invisible,
+     you become permanently invisible and get the "see invisible"
+     intrinsic.  In both cases, you are stunned for 60 (more) turns.
+
+  F@ If the monster has a stun or hallucination attack or is a violet
+     fungus, you get hallucination for (another) 200 turns.
+
+  H  Eating a giant, stone giant, hill giant, fire giant, frost giant,
+     storm giant, or Lord Surtur will increase your strength.  If you
+     had less than 18 strength, then you have a 19/24 chance of gaining
+     one point, or a 1/24 chance each of gaining 2 to 6 points.  If you
+     had 18 strength or more, then you gain 1 to 10 points (equally
+     likely), or just one point if you had strength 18/85 or more, up to
+     18/** (or your racial maximum if lower).
+
+  P  Eating a green slime's corpse (unless polymorphed into a green slime,
+     a salamander, a flaming sphere, or a fire vortex or elemental; or you
+     have unchanging or were being slimed already) will slime you to death
+     in 10 turns.
+
+  Q  A quantum mechanic's corpse makes you toggle your speed.  If you
+     were not currently fast, you'll get fast; otherwise, you lose the
+     speed.
+
+  W  Eating a wraith's corpse lets you gain a level (unless the corpse
+     is rotten and rots away completely).
+
+  df If you eat any of little dog, dog, large dog, kitten, housecat, or
+     large cat, you'll get the intrinsic "aggravate monster" unless you
+     are a Caveman or an orc.  "You feel that eating the <monster> was a
+     bad idea."
+
+  c@ If you eat a cockatrice, chickatrice, or Medusa's corpse and you
+     are neither stoning resistant nor are you polymorphed into a golem,
+     you'll be instantly killed by stoning.
+
+  @hGK  Eating something of your own species (Kops are human) is 
+        considered cannibalism unless you are a Caveman or an orc.  You
+        get the intrinsic "aggravate monster" and lose 2 to 5 luck.
+
+  @  Eating a were-creature makes you a lycanthrope of the same kind and
+     may be considered cannibalism if you are human.
+
+  @  Eating a nurse heals you up to max hitpoints and may be considered
+     cannibalism if you are human.
+
+  &  Eating Death, Pestilence or Famine is instantly fatal.
+
+
+Tins
+~~~~
+(Adapted from a spoiler by Sascha Wostmann.)
+
+You get up to 50 moves to open a tin; otherwise, you give up. If you are
+wielding a tin opener, it takes one turn; any dagger or crysknife, 3
+turns; or a pick-axe or axe, 6 turns. Failing this, if you have greasy
+fingers the tin will be dropped (if carried), otherwise it will take
+10+d(500/(DEX+STR)) turns to open (18/xx strengths being mapped to the
+range 19-21).  Blessed tins "open like magic" in one turn.  Cursed tins
+have a 1/8 chance of exploding and will always contain rotten food, so
+they won't give any nutrition but will make you even more hungry. 
+
+Tins made by you with a tinning kit are always homemade if not cursed. 
+All other tins are one of these fifteen possibilities: pureed (500),
+deep fried (60), homemade (50), pickled (40), soup (20), stir fried (80),
+candied (100), boiled (50), dried (55), szechuan (70), french fried (40),
+sauteed (95), broiled (80), smoked (50), or rotten (-50).  The number in
+the parentheses is the nutrition value of each.  You cannot tell in
+advance what type a given tin is.
+
+When you eat deep fried or french fried food, you get slippery fingers
+for up to 15 rounds, making you drop your wielded weapon.  You can shorten
+the time by (a)pplying a towel.  Don't forget to pick your weapon up again.
+
+You can obtain intrinsics from eating tins, with the same chance that
+you would have from eating the monster's corpse.  Note that the chance
+of getting an intrinsic does not change if the tin is blessed or
+cursed.
+
+One of the most useful tins is the tin of spinach. If the tin is cursed,
+you lose strength equivalent to eating a giant corpse.  Otherwise,
+eating the spinach "makes you feel like Popeye" (or Swee'pea while
+hallucinating) and gives you more strength equivalent to a giant corpse.
+Tins of spinach have a nutrition of 600.
+
+
+Other food
+~~~~~~~~~~
+(Adapted from a spoiler by Sascha Wostmann.)
+
+Eating a sprig of wolfsbane cures lycanthropy.
+
+A carrot cures blindness.  Ever seen a rabbit with glasses? (It won't
+help with being creamed or envenomed, though.)
+
+Eating a fortune cookie gives you a rumor. You can also just (r)ead it
+without eating the cookie. The rumour is from the true file if the
+cookie is blessed, the false file if cursed, or either if uncursed.
+
+Eating a lump of royal jelly increases (decreases if cursed) your
+strength by one. If the jelly was cursed, you lose up to 20 hit points,
+otherwise you gain up to 20 HP and your wounded legs heal. If your
+actual HP would become higher than your maximum HP, there is a 1/17
+chance of increasing your maximum HP by one.
+
+Eating a cockatrice egg is a real bad idea if you're not polymorphed
+into something that resists stoning.  However, they are very useful when
+thrown at monsters.
+
+Eating green slime is also an extremely bad idea unless you're polymorphed
+into something fiery or a slime yourself (or have unchanging).
+
+Eating a eucalyptus leaf cures sickness or vomiting. They can also be
+a)pplied to give the effect of a tin whistle (cursed or uncursed) or a
+magic whistle (blessed; this has a 1/49 chance of unblessing the leaf).
+
+Eating tripe may make you vomit (50% chance) unless you are a Caveman
+or an orc, or polymorphed into a carnivorous non-humanoid.
+
+In addition to eating them, cream pies may be thrown to blind their target,
+or you can a)pply one directly to blind yourself.
+
+
+Eating objects
+~~~~~~~~~~~~~~
+(Adapted from a spoiler by Sascha Wostmann.)
+
+There are some conditions before you can eat an object. If you are
+polymorphed into a metallivore (rock mole, rust monster, or xorn), you
+may eat objects made of metal.
+
+If you are polymorphed into a gelatinous cube, the object is organic,
+and the object doesn't contain other objects, you may eat it.  This is
+different for real gelatinous cubes, which can eat a container and hold
+the non-organic contents of that container engulfed.  So when such a
+beasty eats your chest with all the artifacts, you may find them on its
+corpse.
+
+You can never eat Unique Items such as the Amulet or the invocation
+artifacts.
+
+Eating something that isn't actually food always takes only one move.
+The code addresses this issue by stating, "[We don't want] to deal with
+partly eaten plate mails, players who polymorph back to human in the
+middle of their metallic meal, etc...."
+
+Eating rings has a 1/3 chance of conferring the intrinsic of the ring.
+Eating amulets has a 1/5 chance of having an effect.  Not all intrinsics
+can be acquired this way.  See the spoilers "amul-343.txt" and
+"ring-343.txt".
+
+When you eat a leash with a monster on the other side, this monster gets
+unleashed.
+
+If you eat the iron ball or the chain while you are punished, the
+punishment is gone. If you eat the chain, the ball is still available to
+use as a weapon or to throw.
+
+When you try to eat something rustproof while being polymorphed into a
+rust monster, you spit it out non-rustproof and get stunned a few rounds.
+
+Eating a poisoned weapon has the same effect as eating poisonous corpses.
+You get poisoned if you're not resistant.
+
+Eating a non-cursed trident exercises wisdom. (This is apparently a
+US-centric pun having something to do with a brand of chewing gum.)
+"That was pure chewing satisfaction!"
+
+Eating a non-cursed flint stone exercises constitution. "Yabba-dabba
+delicious!" (Note however that there are no monsters capable of eating
+flint stones in the present version.)
+
+Acknowledgements
+~~~~~~~~~~~~~~~~
+Thanks to Bruce Cox for proofreading the original version of this file.
+Further corrections and clarifications by Kieron Dunbar, Stephen S. Lee,
+Topi Linkala, Jim Monk, Ryan Murray, Rast, Robert R. Schneck, StarChaser,
+Mike Stevenson, and Boudewijn Waijers.

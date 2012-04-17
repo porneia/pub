@@ -1,0 +1,858 @@
+---
+layout: post
+title: "GNU Screen Powaa !!1"
+author: illov&aelig;
+mail: illovae[at]bk[dot]ru
+commentaire: Une version de cet article est aussi disponible sur <a href="http://u-classroom.net/cours/logiciels/gnu_screen_powaa.html" class="external" hreflang="fr">u-classroom.net</a>
+keywords: gnu, linux, unix, logiciels, libres, open, source, shell, ubuntu, fedora, debian, redhat, centos, screen, tty, terminal, tutorial, tutoriel, tuto, howto, cours, classroom
+license: "BY-NC-SA"
+---
+<p>
+<span class="articleAuthor">u-classroom.net, 2007/11/28, {{ page.author }}</span>
+&mdash; Il y a trois ans, j'avais fait un cours
+sur l'outils GNU Screen pour le canal d'apprentissage
+#u-classroom@irc.freenode.net. Ce cours a été présenté trois années de
+suite et a donc quelque peu évolué.  Suite au cours de cette année, il
+a été mis en forme dans une page html que voici.
+
+<h2 class="articleHeadline">Changelog</h2>
+
+<div class="changelog">
+
+<p>
+<dl>
+<dt>
+Wed, 31 Aug 2011 18:03:25 +0200 by illovae
+<dd>
+<ul>
+<li>HTML 5
+<li>corrections orthographiques
+<li>ajout des logs du cours
+</ul>
+<p>
+<dt>
+Thu, 26 Mar 2009 02:35:41 +0100 by illovae
+<dd>
+<ul>
+<li>ajout de la section : Pense-bête (merci à Off`)
+</ul>
+<p>
+<dt>
+Fri, 08 Aug 2008 17:48:50 +0200 by illovae
+<dd>
+<ul>
+<li>ajout d'un doctype : HTML 3.2
+<li>reformatage du code HTML
+<li>corrections de typos
+</ul>
+<p>
+<dt>
+Thu, 28 Nov 2007 00:18:04 +0200 by illovae
+<dd>
+<ul>
+<li>mise en ligne
+</ul>
+</dl>
+
+</div> <!-- end changelog -->
+
+<h2 class="articleHeadline">Licence</h2>
+
+<p>
+Ce cours, sous forme de tutorial, a été présenté lors d'une session
+sur le canal francophone d'<a href="http://u-classroom.net"
+class="external" hreflang="fr">u-classroom.net</a>. Il est sous
+licence <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/legalcode"
+class="external" hreflang="en">CC-by-nc-sa</a> ce qui signifie que
+vous pouvez le copier, modifier, distribuer à volonté pourvu que vous
+n'en fassiez pas un usage commercial et que vous citiez l'auteur
+original en ajoutant un lien vers le cours original. De plus, tout ou
+partie de votre production reprenant ce cours devra elle aussi
+respecter la même licence que ce présent document. Pour plus
+d'informations, veuillez s'il vous plaît vous reporter au texte de la
+licence.
+
+<hr class="rishes">
+
+<br>
+
+<h1 class="articleHeadline">GNU Screen Powaa !!1 par illovae</h1>
+
+<h2 class="articleHeadline">Plan</h2>
+
+<p>
+  <ul>
+    <li>1 &ndash; <a href="#t1">Présentation de l'outils GNU Screen</a>
+    <li>2 &ndash; <a href="#t2">Premier pas : se familiariser avec les raccourcis clavier</a>
+    <li>3 &ndash; <a href="#t3">Personnalisation : éditer ~/.screenrc</a>
+    <li>4 &ndash; <a href="#t4">Utilisation avancée</a>
+      <ul>
+        <li>4.1 &ndash; <a href="#t41">Encore et toujours des raccourcis clavier</a>
+        <li>4.2 &ndash; <a href="#t42">Myriade de screen</a>
+        <li>4.3 &ndash; <a href="#t43">Et quelques tips pour votre ~/.screenrc</a>
+      </ul>
+    <li>5 &ndash; <a href="#t5">Pour aller plus loin</a>
+    <li>6 &ndash; <a href="#t6">Stuffs and thanks</a>
+    <li>7 &ndash; <a href="#t7">Pense-bête</a>
+    <li>8 &ndash; <a href="#t8">FAQ</a>
+    <li>9 &ndash; <a href="#t9">Log</a>
+    <li>10 &ndash; <del>mon screenrc</del>
+</ul>
+
+<h2 class="articleHeadline" id="t1">1 &ndash; Présentation de l'outils GNU
+Screen</h2>
+
+<p>
+Screen est un émulateur virtuel de terminal et un complet gestionnaire de
+fenêtre pour votre terminal. Il prend réellement toute son envergure dans
+un tty d'ailleurs (c'est-à-dire en dehors de votre interface graphique
+permise par X.org).
+
+<p>
+Avec cet outils vous pouvez créer plusieurs terminaux virtuels,
+naviguer entres eux. Screen dispose de toutes les fonctionnalités des
+terminaux &quot;modernes&quot;, c'est-à-dire entre autres un buffer
+d'historique, le support des caractères accentués, de l'ANSI...
+
+<p>
+Screen devient très intéressant aussi lors de connections entre
+ordinateurs.  Vous lancez l'application foobar dans un screen sur
+l'ordinateur A. Vous allez à la fac ou ailleurs, vous vous connecter avec
+ssh sur cet ordinateur A et <em>récupérer</em> au travers de screen votre
+application foobar.
+
+<p>
+Pour information, screen a initialement été écrit par Oliver
+Laumann. J'ai spécifié dans le titre <em>GNU</em> car en effet c'est
+un projet qui a été réaliser avec le soutien de GNU, et ai distribué,
+bien sûr, sur sa licence. Il existe d'autres outils du même genre tel
+que tmux qui est développé sous BSD License, ou encore dtach qui
+reprend les éléments principaux de screen. On pourra aussi aborder à
+la fin de ce cours, le gestionnaire de fenêtre pour terminal Twin si
+le coeur vous en dit.
+
+<p>
+Simplement pour conclure cette introduction, sachez que ce qui va vous
+être présenté ce soir permet une utilisation de screen comme un window
+manager, car c'est la façon dont je l'utilise personnellement. À moins
+d'être un véritable CLI user comme certains fans de crypto que je connais
+;) vous n'utiliserez jamais toutes les informations qui vous seront
+donnés. Donc prenez soin de penser les choses, et à les adapter à vos
+propres besoins :)
+
+<h2 class="articleHeadline" id="t2">2 &ndash; Premier pas : se familiariser
+avec les raccourcis clavier</h2>
+
+<p>
+Rien ne vaut la pratique pour apprendre à utiliser un outils. Ce cours
+nécessite que vous n'ayez pas encore de <code>.screenrc</code> (on va
+en faire un dans la troisième partie du cours). Ne vous inquiétez pas,
+hormis quelques raccourcis clavier important à retenir (quatre ou
+cinq) vous pouvez vous laissez porter :)
+
+<p>
+Une chose est à savoir : screen est <em>dirigeable</em> au travers de
+raccourcis clavier qui tous doivent commencer par <em>ctrl et a</em>
+pressé simultanément, noté dans ce cours <code>C-a</code>.
+
+<p>
+En sus les commandes que vous aurez à taper seront précédées
+d'un <code>$</code> et seront toujours affichées par moi sur une seule et
+unique ligne, exemple :
+
+<p>
+<code>$ echo "une seule et unique ligne"</code>
+
+<p>
+Enfin tout ce qui doit être écrit/collé dans un fichier est affiché :
+
+{% highlight bash %}
+variable option
+{% endhighlight %}
+
+<p>
+Allez en route pour l'aventure ; on ouvre un terminal et on lance
+screen :
+
+<p>
+<code>$ screen</code>
+
+<p>
+Il est gentil, il vous dit bonjour tout ça, et vous convie de presser la
+barre espace ou la touche Entrée pour continuer. Je vous laisse procéder.
+Une fois fait, vous vous retrouvez simplement dans un terminal tout ce
+qu'il y a de plus banal. On va rentrer une commande pour se situer :
+
+<p>
+<code>$ echo &quot;je suis dans screen&quot;</code>
+
+<p>
+Bien. On va maintenant pressez simultanément donc notre <code>C-a</code>
+puis <code>d</code>. Vous voyez la différence ? Screen vous gratifie d'un
+''detached'' (voyez le rapport avec ''d'' du raccourci) pour vous
+signifier qu'il est ''détaché''. On peut d'ailleurs le voir simplement en
+faisant un :
+
+<p>
+<code>$ screen -ls</code>
+
+<p>
+On y voit le pid du votre session screen, où il se trouve, un Multi
+(qui est un des modes de screen, nous y reviendrons) ainsi qu'un
+''detached''.  Maintenant nous allons &quot;rattacher notre
+screen&quot; en faisant un :
+
+<p>
+<code>$ screen -r</code>
+
+<p>
+Accrochez-vous, on va partir à l'aventure là : on créé une seconde fenêtre
+à notre screen. Combinaison de touches <code>C-a c</code> (pour
+''create'') et hop on y est. Pour nous repérer, faisons un :
+
+<p>
+<code>$ echo &quot;je suis dans ma seconde fenêtre screen&quot;</code>
+
+<p>
+On va jongler entre les deux fenêtres, pour cela il existe plusieurs
+façons, mais pour le moment, je ne vais vous en montrer qu'une seule, les
+autres viendront un peu plus tard dans le cours, vous comprendrez
+pourquoi. <code>C-a p</code> (pour ''previous'') et <code>C-a n</code>
+(pour ''next'').
+
+<p>
+<strong>Résumé :</strong>
+<ul>
+<li><code>screen</code> pour lancer l'outils ;
+<li><code>C-a d</code> pour détacher ;
+<li><code>screen -r</code> pour rattacher ;
+<li><code>C-a c</code> pour créer une nouvelle fenêtre ;
+<li><code>C-a n</code> pour la fenêtre suivante ;
+<li><code>C-a p</code> pour la fenêtre précédente.
+</ul>
+
+<p>
+Screen intègre un dispositif d'affichage histoire de se repérer entre
+toutes ces fenêtres. Vous pouvez voir les fenêtres en cours en faisant
+un <code>C-a C-w</code> ou <code>C-a w</code> (pour une raison inconnue,
+la seconde ne fonctionne pas chez moi ; le <code>w</code> étant pour
+''window'') et en bas elles s'afficheront. Pour connaître le numéro de
+votre fenêtre en cours ainsi que son titre <code>C-a N</code> (pour
+''Number'').
+
+<p>
+Tout bon window manager doit être capable de vous afficher l'heure
+n'est-ce pas ? Aucun problème : <code>C-a t</code> vous l'indiquera (en
+plus de deux trois autres infos : date host et load average par ordre
+d'apparition).
+
+<h2 class="articleHeadline" id="t3">3 &ndash; Personnalisation : éditer
+~/.screenrc</h2>
+
+<p>
+Bon, ces premiers pas fait, imaginez-vous naviguer entre sept ou huit
+fenêtres dans votre screen. Pas très très pratique hein ? Heureusement, on
+va personnaliser screen histoire d'y voir un peu plus clair.
+
+<p>
+On va fermer nos screens, et on va le faire comme on ferme un terminal, en
+tapant simplement exit dans les deux terminaux virtuels. Quand screen sera
+fermé, il vous le signalera d'un <code>screen is terminating</code>.
+
+<p>
+Nous allons donc éditer^Wcréer un fichier <code>.screenrc</code> à la
+racine de notre $HOME :
+
+<p>
+<code>$ vi ~/.screenrc</code>
+
+<p>
+Créé le avec n'importe quel éditeur de texte bien sûr, vous êtes libres.
+Cependant je vous conseille d'éviter OpenOffice, un peu lourd pour ça à
+mon goût... Voilà celle là elle est faite :&gt;
+
+<p>
+Je vais vous donner les éléments les plus importants à mon sens pour
+ce qu'on fait. À la fin du cours et si vous êtes
+sages <strong>et</strong> que ça arrête de discuter dans le fond :p je
+vous donnerai mon <code>screenrc</code> qui fait pas loin de 200
+lignes commentaires compris bien sûr, on est poilus, mais pas des ours
+non plus =)
+
+<p>
+Pour rappel, les # signifient que la ligne est <em>commentée</em> et donc
+qu'elle ne sera pas prise en compte par le <code>.screenrc</code>.
+
+
+{% highlight bash %}
+# j'aime quand ça parle
+verbose on
+# pour activer tout le temps le multiuser
+multiuser on
+# avec la sonnerie audible même depuis les autres fenêtres
+bell "Bell in window %^G"
+# sonnerie visuelle on
+vbell on
+# on enlève le copyright au lancement, ça saoule à force quand même
+startup_message off
+# je veux un scrollback conséquent (de 10 000 lignes)
+defscrollback 10000
+# Maintenant on va "décorer" screen et le rendre un peu plus utilisable ;)
+caption always "%{wk}%h %=%c"
+hardstatus alwayslastline "%{=b}%{G}Screen(s): %{w}%-Lw%n%f* %t%{-}%{w}%+Lw%=%{G}Connected to %H"
+activity "Activity in %t(%n)"
+{% endhighlight %}
+
+<p>
+Sachez aussi qu'une bonne partie des options définies dans
+le <code>.screenrc</code> peuvent être émise en option lors du
+lancement de screen (mais ça ne sera effectif <em>que</em> pour la
+session de screen que vous lancerez).
+
+<p>
+Bon les histoires de caption, hardstatus et activity sont très très
+personnalisables. Et ce n'est pas forcément facile à prendre en main comme
+ça. Rien que pour les histoires de couleurs et d'agencement &ndash; qui ne
+sont pas très ergonomique au premier abord. Sachez que dans le screenrc
+que je vous fournirai en fin de cours, il y a plusieurs exemples qui vous
+aideront à trouver, à faire ce que vous en voulez.
+
+<p>
+Attention, l'exemple ci-dessus est fait pour un terminal qui a un fond
+noir ? Y a-t-il des gens (à part Lutin huhu) qui ont un terminal sur fond
+blanc ? Je ne vais pas pouvoir m'attarder plus sur le sujet, car ça
+mériterai presque un cours entier à lui tout seul.
+
+<p>
+On va voir ce que ça donne ? On enregistre notre
+nouveau <code>.screenrc</code>, on ferme son éditeur et on lance
+screen.
+
+<p>
+Description de ce que l'on a à l'écran :
+
+<p>
+<ul>
+<li>La ligne tout en bas est le 'hardstatus' de tout à l'heure ;
+<li>Celle juste au-dessus la caption ;
+<li>Vous ne verrez activity que si... ? Bah alors personne ne suis plus ?
+</ul>
+
+<p>
+Nous allons créer une nouvelle fenêtre : <code>C-a c</code> ; vous voyez
+dans votre hardstatus qu'elle s'affiche. Observons d'un peu plus prêt : à
+côté de la fenêtre vous avez un <code>*</code> pour vous signifier où vous
+êtes, tandis que le <code>-</code> sert à vous indiquer d'où vous venez. À
+noter que vous verrez un <code>!</code> quand il se passera quelque chose
+dans une fenêtre où vous n'êtes pas et qui requiert votre attention.
+
+<p>
+Créons une troisième fenêtre : <code>C-a c</code>. Souvenez-vous pour vous
+déplacer entre les fenêtres <code>C-a p</code> et <code>C-a n</code>. Vous
+remarquerez d'ailleurs que la première fenêtre porte le
+numéro <code>0</code> : oui un nerd ça commence à compter depuis 0 :]
+
+<p>
+Revenons tous donc à la fenêtre 0. C'est pas très drôle tous
+ces <code>bash</code> en bas ? ou tous ces <code>zsh</code>
+ou <code>tsh</code> pour ceux qui utilise un autre shell. Pour se repérer,
+on peut faire mieux. Et je le démontre mesdames(?), mesdemoiselles (???)
+et messi^Wnerds poilus.
+
+<p>
+Sous vos yeux, nous allons, oui je vous le dit comme ça me vient :
+renommer le nom de cette fenêtre =O
+
+<p>
+Pour ce faire faites un <code>C-a A</code> (un a majuscule oui vous lisez
+bien). Hop vous voyez apparaître un petit encart vert au-dessus de la
+caption qui vous invite à entrer un nom. Faites-vous plaisir et renommez
+donc cette fenêtre.
+
+<p>
+Mais ce n'est pas terminé et la magie continue. On n'a que trois fenêtres
+là, mais si on en avait 8 ? Vous vous voyez vous taper des <code>C-a
+n</code> et <code>C-a p</code> à tour de bras pour aller vite voir ce qui
+réclame votre attention ? Certes non. Sautons de la fenêtre 0 à la fenêtre
+2 en faisant un <code>C-a 2</code>. Enfin on peut revenir simplement à la
+fenêtre dans laquelle nous étions juste avant (c'est à dire la 0) en
+faisant un <code>C-a C-a</code>.
+
+<p>
+Une dernière petite astuce pour naviguer entre vos fenêtres : <code>C-a
+&quot;</code> (la touche 3 sans shift).
+
+<p>
+Bien ici, on peut dire qu'on sait se débrouiller avec screen, que ce soit
+commme un véritable window manager (avec les histoires de hardstatus pour
+avoir un feedback de screen) ou simplement comme terminal que l'on peut
+mettre en avant, ou laisser travailler en arrière plan.
+
+<h2 class="articleHeadline" id="t4">4 &ndash; Utilisation avancée</h2>
+
+<p>
+On va quand même essayer de faire deux trois petits trucs sympathiques et
+qui vont pouvoir vous être utile dans diverses situations.
+
+<h3 class="articleHeadline" id="t41">4.1 &ndash; Encore et toujours des
+raccourcis clavier...</h3>
+
+<p>
+Et oui que voulez-vous, screen est à base de clavier... Bah mangez-en
+c'est bon :D Donc on est dans notre screen à trois fenêtres, on va en
+profiter pour voir une fonctionnalité en plus. Mettez-vous dans la fenêtre
+0 (<code>C-a 0</code>) puis faites un <code>C-a S</code> (pour ''split'').
+Vous voyez ça <em>coupe</em> en deux votre screen, votre curseur est en
+haut. C'est pas forcément flagrant là mais bon. Tapez quelque chose pour
+bien vous situer (un <code>ls</code> par exemple).
+
+<p>
+On va passer à l'espace inférieur en faisant un <code>C-a
+&lt;tab&gt;</code> (la touche TAB). Ensuite on va aller depuis cette
+espace sur la fenêtre 1 : <code>C-a 1</code>. Pour revenir à la fenêtre en
+haut, faites : <code>C-a &lt;tab&gt;</code> ; ATTENTION : si vous
+faites <code>C-a 0</code>, ça va afficher la fenêtre aussi dans la fenêtre
+du bas, vous l'aurez en double. Je vous laisse imaginer les possibilités
+que cela va vous procurer.
+
+<p>
+Ces deux espaces sont de taille égale, on peut y remédier en passant une
+commande à screen, soyez attentif. On fait un <code>C-a :</code> (deux
+points) pour rentrer dans le <em>mode commande</em> (comme pour changer le
+nom de la fenêtre m'voyez) puis tapez <code>resize 20</code> (par exemple)
+où 20 est le nombre de lignes que l'on veut pour cet espace.
+
+<p>
+Si vous voulez vous débarrasser des espaces créés (sans pour autant tuer
+les fenêtre) faites un <code>C-a Q</code>. Bien sûr, cette commande ne
+marche <em>que</em> si vous avez des splits ;)
+
+<p>
+Maintenant, quelques fonctionnalités de screen un peu plus dans la veine
+d'un window manager : les deux trois trucs (genre <code>C-a t</code> pour
+voir l'heure) ne nous servent plus ici étant donné que l'on affiche le
+tout grâce au caption (ou hardstatus selon les préférences).
+
+<p>
+Vous êtes dans votre tty, peinard, quand soudain vous devez vous éloigner
+de votre ordinateur. Vous allez vous prendre la tête à <code>C-a d</code>
+puis fermer votre session pour être sûr que personne ne vienne bidouiller
+dans vos affaires ? Que neni mon bon seigneur : <code>C-a x</code> lockera
+votre screen jusqu'à votre retour. Votre mot de passe utilisateur est
+requis pour retrouver votre travail.
+
+<p>
+Bon on va sortir un peu de screen. En passant, remarquez qu'une fenêtre
+peut venir à freezer, à ne plus répondre sans raison apparente, vous
+pouvez la tuer avec un simple <code>C-a k</code> (il vous faudra
+confirmer).
+
+<p>
+Quoi d'autres sinon ? Je vois rien de plus sinon quittez tout, tout de
+suite : <code>C-a \</code> (obtenu en faisant AltGr+8). Là aussi il vous
+demande confirmation. Allez-y donc, fermez tout.
+
+<h3 class="articleHeadline" id="t42">4.2 &ndash; Myriade de screen</h3>
+
+<p>
+Si vous êtes comme moi, vous allez finir par lancer plusieurs screens en
+même temps. Je ne vais pas trop m'étendre sur cette partie, mais juste
+vous donnez deux ou trois informations pratiques. Allez on relance un
+screen, dedans, on fais un :
+
+<p>
+<code>$ echo "screen #1"</code>
+
+<p>
+Petit <code>C-a d</code> pour s'en détacher (notez le ''detached'' pour
+être sûr) puis on va ouvrir un nouveau screen mais cette fois-ci on va lui
+donner un nom :
+
+<p>
+<code>$ screen -S "ceci est un nom"</code>
+
+<p>
+Les &quot; sont importantes car notre titre contient des espaces, sans
+cela on peut s'en passer ; et encore une fois un <code>C-a d</code> pour
+s'en détacher (et encore notez le ''detached'' tout ça :)) Examinons la
+situation :
+
+<p>
+<code>$ screen -ls</code>
+
+<p>
+On liste les screen et on retrouve comme la première fois le fait
+qu'on voit le premier screen avec son pid impossible à retenir ainsi
+que notre second screen qui porte &quot;ceci est un
+nom&quot;. Remarquez que si vous faites un <code>screen -r</code> il
+ne va pas être très content parce qu'il ne saura pas lequel ouvrir.
+
+<p>
+Deux solutions qui sont fonctions de ce que vous voulez s'offre à vous :
+
+<p>
+<ul>
+  <li><p>Tout d'abord, vous choisissez d'ouvrir tel screen. Rien de
+    plus simple, notez le nom, ou le pid et un simple :<br> <code>$
+    screen -r &quot;ceci est un nom&quot;</code><br>vous rendra la
+    main. Petite astuce supplémentaire : si le nom de votre screen est
+    le seul à commencer par un 'c' au lieu de taper le nom entier vous
+    pouvez taper la ou les premières lettres uniques à votre session
+    screen (ça marche aussi avec le pid), c'est-à-dire faire juste un
+    :<br><code>$ screen -r c</code>
+  <li><p>Ou encore vous voulez récupérer la dernière session que vous avez
+    créé et qui est disponible, c'est-à-dire détaché, dans ce cas il
+    suffira de :<br><code>$ screen -RR</code><br> Ce qui signifie
+    'rattacher et utiliser la première session pour cela' (oui votre
+    dernière session créée, qui s'affiche en premier dans la liste...
+    Tout le monde suit ? :&gt; )
+</ul>
+
+<p>
+Comme dit en introduction, screen devient très pratique lors d'une
+connection à distance. Vous êtes parti de chez vous sans détacher votre
+screen, vous vous logguer de la fac sur votre machine et <em>Oh
+misère</em> vous vous rendez compte de votre oubli. Pas grave, on va
+d'abord détaché votre screen (avec l'option <code>-d</code>) et le
+rattacher (avec l'option <code>-r</code> donc) ce qui nous donne un :
+
+<p>
+<code>$ screen -d -r</code>
+
+<p>
+Oui on aurait pu le faire en deux fois, <code>screen -d</code> pour
+détacher et <code>screen -r</code> pour rattacher, mais bon le nerd n'aime
+pas perdre son temps ;) Bien sûr vous pouvez spécifier le screen à
+détacher :
+
+<p>
+<code>$ screen -d &quot;ceci est un nom&quot;</code>
+
+<p>
+Le clou du spectacle : toujours dans le cadre d'une connexion ssh, vous
+êtes chez vous, et vous avez besoin d'aide. Vous vous débrouillez pour
+qu'un copain se connecte à votre ordinateur en ssh, et lui demandez de
+faire un :
+
+<p>
+<code>$ screen -x</code>
+
+<p>
+Et hop vous vous retrouvez tous les deux ensembles dans le même screen et
+chacun peut voir ce que l'autre y fait... S'unir dans l'amour au travers
+de screen. Mais que demande le peuple en plus ? Sinon du pain et des
+jeux... :&gt;
+
+<p>
+Ah sachez que ceci ne peut marcher uniquement qu'en mode multi, mais bon
+comme on l'a défini plus haut à 'on' par défaut dans notre .screenrc...
+
+<h3 class="articleHeadline" id="t43">4.3 &ndash; Et quelques tips pour
+votre ~/.screenrc</h3>
+
+<p>
+Je vais terminer cette partie sur quelques tips pour votre screenrc. Par
+défaut, quand vous ouvrez screen, il vous crée une fenêtre qui porte le
+nom de l'application, <code>bash</code> pour la peine. Peut-être avez-vous
+envie que screen vous lance des applications tout seul comme un grand ? Il
+suffit de rajouter ceci dans votre <code>~/.screenrc</code> :
+
+{% highlight console %}
+screen 0 mutt -y
+screen 1 w3m www.google.fr
+screen 2 ssh 192.168.3.2
+screen 3 centericq
+{% endhighlight %}
+
+<p>
+La fenêtre portera alors le nom de votre application. Attention cependant,
+en tuant, fermant cette fenêtre, vous arrêterez inévitablement
+l'application lancée dedans.
+
+<p>
+Encore un autre petit truc qui me paraît intéressant. Les keys binding ;
+comprennez configuration des raccourcis clavier. Alors là aussi, vous
+pouvez laisser votre imagination flannée.
+
+<p>
+Les raccourcis par défaut pour commencer : je trouve le <code>C-a k</code>
+dangereux, car on a vite fait de dérapper donc :
+
+{% highlight bash %}
+# j'enleve le raccourci falacieux
+bind k
+# et j'en rajoute un autre
+bind 'K' kill
+{% endhighlight %}
+
+<p>
+Ici <code>C-a k</code> ne marche plus on le remplace par <code>C-a
+K</code> (qui nécessite d'avoir la touche shift pressée (oui elle a un
+train à prendre...). Enfin, vous pouvez lancer des applications de la même
+manière :
+
+{% highlight bash %}
+bind 'T' screen - t Todo vim $HOME/repos/todo
+{% endhighlight %}
+
+<p>
+Traduction : quand je fais un <code>C-a T</code>, screen m'ouvre une
+nouvelle fenêtre portant le nom de Todo et exécutant vim (n'oubliez pas ce
+que l'on a vu ci-dessus, vous tuez, quittez cette fenêtre et l'application
+disparaît dans un souffle avec elle).
+
+<p>
+Et encore un petit sympas :
+
+{% highlight bash %}
+bind \# colon "number "
+{% endhighlight %}
+
+<p>
+Celui là permet de changer aisément le nombre de votre fenêtre en cours
+grâce à <code>C-a #&lt;numero&gt;</code>
+
+<h2 class="articleHeadline" id="t5">5 &ndash; Pour aller plus loin</h2>
+
+<p>
+Voilà donc, on a fait un grand tour de screen, mais sachez que j'ai
+évidemment omis de vous parler de pas mal de choses. Une de ces choses les
+plus importantes est la possibilité de copié/collé de screen. De nos
+jours, tout le monde à une souris à porter de la main, et je vous avoue,
+bien que farouche CLI user, la façon de procéder de screen n'est pas des
+plus simples à prendre en main (comparé à un surligne/clic_milieu) (même
+en tty, grâce à gpm). Veuillez cependant noter que pour entrer dans le
+mode copie, il vous suffit de faire un <code>C-a &lt;echap&gt;</code>,
+mode qui vous permettra aussi de vous balader dans l'historique de votre
+fenêtre screen en remontant simplement à l'aide des flêches
+directionnelles. Quand vous voudrez sortir de ce mode, pressez simplement
+votre touche &lt;echap&gt; à nouveau.
+
+<p>
+Pour ce qui est des options que l'on passe à screen quand on le lance,
+sauf celle que je vous ai donné, je n'en utilise aucune, et je m'en sort
+très bien, mais libre à vous d'aller voir si quelques unes ne pourraient
+pas éveiller votre intérêt.
+
+<p>
+Screen permet aussi de logguer dans un fichier tout ce qui se passe en son
+sein. Je n'ai jamais utiliser cette fonction.
+
+<p>
+Enfin, je vous laisse consulter le manuel de screen afin de connaître
+toutes les subtilités du <code>~/.screenrc</code> ; il y a énormément de
+possibilités, et beaucoup d'entre elles, pour une utilisation de screen
+optimale, mériterait votre attention :)
+
+<h2 class="articleHeadline" id="t6">6 &ndash; Stuffs and thanks</h2>
+
+<p>
+<strong>Mes sources pour ce cours :</strong>
+
+<p>
+<code>$ man screen</code><br>
+<code>$ lynx http://www.gnu.org/software/screen/</code><br>
+<code>$ lynx http://fr.wikipedia.org/wiki/GNU_Screen</code>
+
+<p>
+<strong>Remerciements :</strong>
+
+<p>
+Merci à gapz d'avoir exacerbé mon goût pour CLI et de m'avoir montré
+screen.<br>
+Merci aux fondateurs de la classroom et à ceux qui y ont contribués sans qui
+ce channel et ces sessions n'existeraient pas.<br>
+Merci à tous les habitués d'#u-classroom qui la font vivre par leurs
+expériences et leurs présences.<br>
+Merci à vous qui suivez les sessions, car sans vous non plus classroom
+n'aurait pas de sens ; et qui avez suivi ce cours, j'espère qu'il vous a
+plu.<br>
+Encore merci à vous tous :)
+
+<h2 class="articleHeadline" id="t7">7 &ndash; Pense-bête</h2>
+
+<p>
+Une petite section confectionnée par Off` du canal
+#u-classroom@irc.freenode.net. Il a regroupé les principales commandes du
+cours afin de pouvoir les retrouver plus facilement. Les voici :
+
+<ul>
+<li>C-a d &rarr; Détache le screen.
+<li>C-a c &rarr; Crée une nouvelle fenêtre.
+<li>C-a p &rarr; Revient a la fenêtre précédente.
+<li>C-a n &rarr; Va à la fenêtre suivante.
+<li>C-a w &rarr; Affiche les fenêtres en bas du terminal.
+<li>C-a &lt;numéro&gt; &rarr; Envoie à la fenêtre N.
+<li>C-a N &rarr; Affiche en bas la fenêtre dans laquelle vous êtes.
+<li>C-a t &rarr; Affiche l'heure en bas du terminal.
+<li>C-a A &rarr; Renomme la fenêtre actuelle.
+<li>C-a C-a &rarr; Revient à la fenêtre où vous êtiez.
+<li>C-a &quot; &rarr; Naviguer entre les fenêtres.
+<li>C-a S &rarr; Coupe une fenêtre verticalement.
+<li>C-a &lt;tab&gt; &rarr; Passe à l'espace inférieur (quand on a split).
+<li>C-a : &rarr; Passe en mode commande.
+<li>C-a :resize &lt;nombre&gt; &rarr; Change la taille du split.
+<li>C-a Q &rarr; Ferme les régions d'une fenêtre.
+<li>C-a x &rarr; Lock le screen. (mot de passe user).
+<li>C-a k &rarr; Tue une fenêtre (besoin de confirmer).
+<li>C-a \ &rarr; Quitte screen. (besoin de confirmer).
+</ul>
+
+<h2 class="articleHeadline" id="t8">8 &ndash; FAQ</h2>
+
+<p>
+<strong>Q1</strong> : <em>Peux-tu nous citer des exemples d'utilisation de
+screen autre qu'en window manager ?</em>
+
+<p>
+Il est vrai que ce cours est très orienté. Cependant, peu de gens utilise
+screen de cette façon. La manière la plus courante est de créer une
+session screen en lui attribuant un nom, et de lancer une unique
+application dedans que l'on pourra détacher et récupérer à volonté. Par
+exemple en nommant votre session 'irc' et en lancant irssi dedans. Vous
+pourrez ainsi vous délogguer et éteindre votre écran, votre client irc
+tournera toujours en tâche de fond.
+
+<p>
+<strong>Q2</strong> : <em>Peux-tu nous donner des exemples d'applications
+à utiliser avec screen ?</em>
+
+<p>
+Screen est un émulateur virtuel de terminal. Donc toutes les applications
+que vous pouvez utiliser habituellement dans votre terminal sont
+parfaitement utilisable avec screen : irssi pour client irc, rtorrent pour
+client torrent, tail pour voir défilier vos logs (avec l'option -f),
+newsbeuter comme rss feeder, imcom ou centerirq comme client de messagerie
+instantanée.
+
+<p>
+<strong>Q3</strong> : <em>J'ai entendu dire que skateinmars faisait du
+roller en cachette. Est-ce vrai ?</em>
+
+<p>
+Question hors-sujet... Cela dit, oui, c'est parfaitement vrai.
+
+<p>
+<strong>Q4</strong> : <em>La fonction 'window manager' de screen ne
+m'intéresse pas trop. Par contre, j'éprouve un vif intérêt pour la
+fonction de détachement de screen laquelle j'aime utliser pour mon client
+irc. Y a-t-il une solution plus légère pour moi ne remplissant que cette
+tâche ?</em>
+
+<p>
+Tout à fait, et je vous renvoie pour cela vers l'outils bien nommé
+<code>dtach</code>
+
+<p>
+<strong>Q5</strong> : <em>J'ai eu l'occasion de rencontrer mr_pouit IRL
+(id est dans la vraie vie). Pourquoi est-il aussi poilu ?</em>
+
+<p>
+Question hors-sujet à nouveau. De plus il paraît indécent que je réponde à
+sa place, vous n'aurez qu'à lui poser la question franchement lors de
+votre prochaine rencontre IRL.
+
+<p>
+<strong>Q6</strong> : <em>Est-il vrai que gpocentek a un penchant sévère
+pour l'alcool ?</em>
+
+<p>
+Désolé, je ne fais pas dans le potin.
+
+<p>
+<strong>Q7</strong> : <em>Je me retrouve bien embêté. J'ai eu l'idée de
+lancer un screen dans un autre screen. Et quand je fais <code>C-a d</code>
+il me détache mon screen principal, et non le screen que j'y ai mis
+dedans. Comment puis-je me sortir de cette situation ?</em>
+
+<p>
+C'est très simple, et pour comprendre nous allons reprendre les choses
+depuis le départ. Je lance un screen #1. Pour le détacher, je
+fais <code>C-a d</code>. Jusqu'ici rien de nouveau. Maintenant dans mon
+screen #1 je lance un autre screen, que l'on nommera screen #2. Pour
+détacher le screen #2 qui se trouve dans le screen #1, il faut simplement
+faire <code>C-a a d</code> (remarquez le <code>a</code> supplémentaire).
+Si vous avez l'idée de lancer un screen #3 dans le screen #2 se trouvant
+lui même dans le screen #1 et que vous voulez détacher uniquement le
+screen #3, il suffit de faire <code>C-a a a d</code> (remarquez à nouveau
+le <code>a</code> supplémentaire). Et vous pouvez faire cela à l'infini.
+Notez que pour éviter de s'embrouiller et si vous utilisez screen sur
+votre ordinateur client et sur votre ordinateur serveur, il vous suffit de
+redéfinir par exemple le binding pour détacher sur votre ordinateur
+serveur, en utilisant par exemple la touche <code>b</code>. Ainsi si vous
+voulez détacher votre screen sur votre ordinateur client, vous faites
+comme d'habitude <code>C-a d</code> et si vous voulez détacher votre
+screen sur l'ordinateur serveur (qui se trouve dans le screen de votre
+ordinateur client) au lieu de faire redondance sur les a, vous n'avez plus
+qu'à faire <code>C-a b</code>.
+
+<p>
+<strong>Q8</strong> : <em>Ce cours est réalisé à la perfection, est-ce
+naturel ?</em>
+
+<p>
+Oui, certains naissent avec des grandes capacités, j'aime en faire
+profiter les autres.
+
+<p>
+<strong>Q9</strong> : <em>Ce cours m'a donné envie et j'ai des choses à
+faire partager. Est-il possible aussi pour moi de mettre en place et faire
+une session sur #u-classroom ?</em>
+
+<p>
+Et bien tout dépend de la nature de votre envie et ce que vous entendez
+par ''faire partager''. Cependant, si cela concerne l'utilisation d'un
+outils libre, ou un apprentissage qui concerne des domaines aussi variés
+qu'invraisemblable (depuis le fonctionnement de l'http au bidouillage du
+noyau hurd) vous êtes le ou la bienvenue sur le canal #u-classroom se
+trouvant sur le réseau irc Freenode. Pour des requêtes d'ordre plus
+sexuelle, veuillez-vous adresser en priorité à gapz, merci.
+
+<p>
+<strong>Q10</strong> : <em>Bonjour, j'ai vu qu'on pouvait poser des
+questions ici. Je suis un peu perdu(e) et inquièt(e) alors je me lance :
+mon chat a une boule sur le front qui s'est ouverte en plaie et dont du pu
+sort en continue. L'odeur est très désagréable, mais il n'a pas l'air de
+souffrir plus que ça. Que dois-je faire pour mon animal ?</em>
+
+<p>
+Comme vous vous en doutez, le pu signifie que c'est infecté, de surcroît
+si l'odeur vous apparaît comme étant très dérangeante. Dans un premier
+temps, nettoyez le pu qui sort à l'aide d'un mouchoir en papier, sans trop
+appuyer sur la boule. Recommencez l'opération jusqu'à ce que ça se calme.
+L'idéal sera de l'emmener chez le vétérinaire qui pourra lui donner des
+antibiotiques. Cependant, ce service n'étant pas donné, vous pouvez vous
+procurer une antibiotique à application cutanée chez votre pharmacien en
+lui précisant la nature du problème de votre chat (attention, certains
+antibiotique fonctionnant pour l'être humain sont à éviter au plus haut
+point chez le chat, prenez conseil chez votre pharmacien). À raison de
+deux applications de cette crême antibiotique à l'endroit de la plaie par
+jour (selon le médicament, vérifiez la posologie), cela devrait s'estomper
+au bout de quelques jours. L'odeur est un bon indice d'évolution de
+l'infection. Si cela ne s'arrange pas et que vous tenez à votre chat,
+allez voir un vétérinaire et parlez lui de vos problèmes d'argent,
+peut-être sera-t-il compréhensif. N'hésitez pas à en faire plusieurs
+jusqu'à en trouver un qui soit dans un bon jour.
+
+<p>
+<strong>Q11</strong> : <em>J'aime aussi utiliser mon screen de la même
+facon que toi, c'est-à-dire en window manager avec le nom de mes
+différentes fenêtres en bas. J'utilise d'ailleurs toujours les mêmes noms
+de fenêtres. Il m'arrive souvent d'éteindre mon ordinateur et donc quand
+je le rallume, à chaque fois je suis obligé de recréer chacune des
+fenêtres à la main et de les renommer à la main. Est-ce qu'il n'y a pas
+une façon d'automatiser tout cela ?</em>
+
+<p>
+Bien sûr que si, et on utilise un peu la même technique que pour lancer
+des applications automatiquement à l'ouverture de screen. Dans ton
+~/.screenrc il suffit de rajouter des lignes de ce genre : <code>screen -t
+UnNom UnChiffre</code>. Tu le fais autant de fois que tu veux en changeant
+''UnNom UnChiffre'' par le nom que tu désires ainsi que le numéro de
+fenêtre désiré pour ce nom là (n'oublions pas que le premier chiffre à
+mettre est 0 et non 1 ;)).
+
+<h2 class="articleHeadline" id="t9">9 &ndash; Log</h2>
+
+<p>
+<a href="{{ site.url }}{{ site.baseurl }}/paste/1334088333.txt">2007-11-28-screen.log</a>

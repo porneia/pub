@@ -1,0 +1,100 @@
+sink-343.txt  Last edited 2004-07-15 for NetHack 3.4.3
+Effects of kicking and quaffing from sinks in NetHack 3.4
+Compiled by Dylan O'Donnell <psmith@spod-central.org>.
+
+Quaffing from sinks
+~~~~~~~~~~~~~~~~~~~
+11/20: No effect. One of the following messages:
+        "You take a sip of (very) <hot|warm|cold> water."
+        "You hear clanking from the pipes..."
+        "You hear snatches of song from among the sewers..."
+        "From the murky drain, a hand reaches up... --oops--" (only if
+          hallucinating)
+
+1/20: If you are fire resistant, no effect; otherwise, you lose d6 hit
+      points.
+        "You take a sip of scalding hot water."
+        "It seems quite tasty." (fire resistant)
+
+1/20: A sewer rat is generated (unless genocided or extinct).
+        "Eek!  There's a sewer rat in the sink!" (unblind)
+        "Eek!  There's something squirmy in the sink!" (blind)
+        "The sink seems quite dirty." (genocided or extinct)
+
+1/20: You suffer the effect of quaffing a random uncursed potion (other
+      than water).
+        "Some <potion appearance> liquid flows from the faucet." (unblind)
+        "Some odd liquid flows from the faucet." (blind)
+
+1/20: If you have already acquired a ring from this sink (by quaffing or
+      kicking), no effect; otherwise, a random ring is created and your
+      wisdom exercised.
+        "You find a ring in the sink!"
+        "Some dirty water backs up in the drain." (already got one)
+
+1/20: The sink becomes a fountain.
+        "The pipes break!  Water spurts out!"
+
+1/20: A water elemental is created (unless extinct).
+        "The water moves as though of its own will!"
+        "But it quiets down." (extinct)
+
+1/20: You gain one experience point.
+        "Yuk, this water tastes awful."
+
+1/20: You vomit and your hunger is increased.
+        "Gagg... this tastes like sewage!  You vomit."
+
+1/20: If you have unchanging, no effect; otherwise, you polymorph.
+        "This water contains toxic wastes!"
+        "You undergo a freakish metamorphosis!" (polymorph)
+
+
+Kicking sinks
+~~~~~~~~~~~~~
+4/5: Your dexterity is exercised.
+       "Klunk!  The pipes vibrate noisily."
+
+1/5: Something else, as follows:
+
+  If you haven't yet got a black pudding from the sink, 1/3 chance of
+  one being generated and your dexterity being exercised.
+    "A <black> ooze gushes up from the drain!" (unblind)
+    "You hear a gushing sound." (blind)
+
+  If you didn't get a pudding and haven't yet had a dish washer, 1/3
+  chance of one being summoned (an incubus if a female humanoid,
+  a succubus if a male humanoid, otherwise an equal chance of either),
+  and your dexterity being exercised.
+    "The dish washer returns!" (unblind)
+    "Something returns!" (blind), and
+
+  If you didn't get either of the above, 1/3 chance of a random ring
+  being created provided the sink hasn't yet given one through kicking or
+  quaffing, and your wisdom and dexterity being exercised.
+    "Flupp!  Muddy waste pops up from the drain." (unblind)
+    "Flupp!  You hear a sloshing sound." (blind)
+    "You see a ring shining in its midst." (unblind, ring created)
+
+  If you didn't get any of the above, you get a hurt foot. Your dexterity
+  and strength are abused, there is a 1/3 chance of your right leg being
+  hurt for 5 to 10 turns, and you lose d5 HP (d3 HP if your constitution
+  is greater than 15).
+    "Ouch! That hurts!"
+
+
+Other sink effects
+~~~~~~~~~~~~~~~~~~
+Sinks, as the name suggests, will cause anything in the air above them
+to fall to the floor: thrown weapons, or you when levitating (inflicting
+d8 + 24 - CON damage, plus d3 for each weapon or stack of weapons on the
+square). Dropping rings onto a sink will usually cause them to be lost
+down it, with a message that may enable you to identify the ring; see
+ring-343.txt for a list of these effects. Digging down on a sink square
+will convert it into a fountain as in the quaffing result above ("The
+pipes break!  Water spurts out!").
+
+
+Acknowledgements
+~~~~~~~~~~~~~~~~
+Corrections and clarifications provided by Topi Linkala and Seraph.

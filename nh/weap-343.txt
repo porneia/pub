@@ -1,0 +1,815 @@
+weap-343.txt  Last edited 2007-05-03 for NetHack 3.4.3
+Weapons, weapon skills, and combat modifiers in NetHack 3.4
+Compiled for 3.2.2 by Kevin Hugo.
+Updated for 3.4.3 by Dylan O'Donnell <psmith@spod-central.org>.
+
+WEAPON (Table 1)            COST  WGT  PROB   MATL  APPEARANCE
+~~~~~~~~~~~~~~~~~~~~~~~~~ : ~~~~  ~~~  ~~~~ : ~~~~  ~~~~~~~~~~
+Dagger                    :                 :
+  orcish dagger           : $ 4    10   12  : IRON  crude dagger
+  dagger                  :   4    10   30  : IRON  --
+  silver dagger           :  40    12    3  : SILV  --
+  athame                  :   4    10    0  : IRON  --
+  elven dagger            :   4    10   10  : WOOD  runed dagger
+Knife                     :                 :
+  worm tooth              :   2    20    0  : NONE  --
+  knife           (shito) :   4     5   20  : IRON  --
+  stiletto                :   4     5    5  : IRON  --
+  scalpel                 :   6     5    0  : METL  --
+  crysknife               : 100    20    0  : MINL  --
+Axe                       :                 :
+  axe                     :   8    60   40  : IRON  --
+  battle-axe              :  40   120*  10  : IRON  double-headed axe
+Pick-axe                  :                 :
+  pick-axe                :  50   100  tool : IRON  --
+  dwarvish mattock        :  50   120*  13  : IRON  broad pick
+Short sword               :                 :
+  orcish short sword      :  10    30    3  : IRON  crude short sword
+  short sword (wakizashi) :  10    30    8  : IRON  --
+  dwarvish short sword    :  10    30    2  : IRON  broad short sword
+  elven short sword       :  10    30    2  : WOOD  runed short sword
+Broadsword                :                 :
+  broadsword   (ninja-to) :  10    70    8  : IRON  --
+  runesword               : 300    40    0  : IRON  runed broadsword
+  elven broadsword        :  10    70    4  : WOOD  runed broadsword
+Long sword                :                 :
+  long sword              :  15    40   50  : IRON  --
+  katana                  :  80    40    4  : IRON  samurai sword
+Two-handed sword          :                 :
+  two-handed sword        :  50   150*  22  : IRON  --
+  tsurugi                 : 500    60*   0  : METL  long samurai sword
+Scimitar                  :                 :
+  scimitar                :  15    40   15  : IRON  curved sword
+Saber                     :                 :
+  silver saber            :  75    40    6  : SILV  --
+Club                      :                 :
+  club                    :   3    30   12  : WOOD  --
+  aklys                   :   4    15    8  : IRON  thonged club
+Mace                      :                 :
+  mace                    :   5    30   40  : IRON  --
+Morning star              :                 :
+  morning star            :  10   120   12  : IRON  --
+Flail                     :                 :
+  flail        (nunchaku) :   4    15   40  : IRON  --
+  grappling hook          :  50    30  tool : IRON  iron hook
+Hammer                    :                 :
+  war hammer              :   5    50   15  : IRON  --
+Quarterstaff              :                 :
+  quarterstaff            :   5    40*  11  : WOOD  staff
+Polearm                   :                 :
+  partisan                :  10    80*   5  : IRON  vulgar polearm
+  fauchard                :   5    60*   6  : IRON  pole sickle
+  glaive       (naginata) :   6    75*   8  : IRON  single-edged polearm
+  bec-de-corbin           :   8   100*   4  : IRON  beaked polearm
+  spetum                  :   5    50*   5  : IRON  forked polearm
+  lucern hammer           :   7   150*   5  : IRON  pronged polearm
+  guisarme                :   5    80*   6  : IRON  pruning hook
+  ranseur                 :   6    50*   5  : IRON  hilted polearm
+  voulge                  :   5   125*   4  : IRON  pole cleaver
+  bill-guisarme           :   7   120*   4  : IRON  hooked polearm
+  bardiche                :   7   120*   4  : IRON  long poleaxe
+  halberd                 :  10   150*   8  : IRON  angled poleaxe
+Spear                     :                 :
+  orcish spear            :   3    30   13  : IRON  crude spear
+  spear                   :   3    30   50  : IRON  --
+  silver spear            :  40    36    2  : SILV  --
+  elven spear             :   3    30   10  : WOOD  runed spear
+  dwarvish spear          :   3    35   12  : IRON  stout spear
+Javelin                   :                 :
+  javelin                 :   3    20   10  : IRON  throwing spear
+Trident                   :                 :
+  trident                 :   5    25    8  : IRON  --
+Lance                     :                 :
+  lance                   :  10   180    4  : IRON  --
+Bow                       :                 :
+  orcish bow              :  60    30   12  : WOOD  crude bow
+  bow                     :  60    30   24  : WOOD  --
+  elven bow               :  60    30   12  : WOOD  runed bow
+  yumi                    :  60    30    0  : WOOD  long bow
+  orcish arrow            :   2     1   20  : IRON  crude arrow
+  arrow                   :   2     1   55  : IRON  --
+  silver arrow            :   5     1   12  : SILV  --
+  elven arrow             :   2     1   20  : WOOD  runed arrow
+  ya                      :   4     1   15  : METL  bamboo arrow
+Sling                     :                 :
+  sling                   :  20     3   40  : LEAT  --
+  flintstone              :   1    10  gems : MINL  --
+  other rocks/gems/glass  : vary  vary gems : vary  --
+Crossbow                  :                 :
+  crossbow                :  40    50   45  : WOOD  --
+  crossbow bolt           :   2     1   55  : IRON  --
+Dart                      :                 :
+  dart                    :   2     1   60  : IRON  --
+Shuriken                  :                 :
+  shuriken                :   5     1   35  : IRON  throwing star
+Boomerang                 :                 :
+  boomerang               :  20     5   15  : WOOD  --
+Whip                      :                 :
+  bullwhip                :   4    20    2  : LEAT  --
+  rubber hose             :   3    20    0  : PLAS  --
+Unicorn horn              :                 :
+  unicorn horn            : 100    20* tool : BONE  --
+Two weapon combat         :  --    --  none : NONE  --
+Riding                    :  --    --  none : NONE  --
+Bare-handed combat        :  --    --  hand : NONE  --
+Martial arts              :  --    --  hand : NONE  --
+
+
+WEAPON (Table 2)            ABCH KMPRaRo STVW  +HIT  SDAM SAVG  LDAM   LAVG
+~~~~~~~~~~~~~~~~~~~~~~~~~ : ~~~~ ~~~~~~~ ~~~~  ~~~~  ~~~~ ~~~~  ~~~~~~ ~~~~
+Dagger                    : bbbs b--E E  bEEE   
+  orcish dagger           :                     +2   d3    2.0  d3      2.0
+  dagger                  :                     +2   d4    2.5  d3      2.0
+  silver dagger           :                     +2   d4    2.5  d3      2.0
+  athame                  :                     +2   d4    2.5  d3      2.0
+  elven dagger            :                     +2   d5    3.0  d3      2.0
+Knife                     : b-sE b--s E  ss-s   
+  worm tooth              :                          d2    1.5  d2      1.5
+  knife           (shito) :                          d3    2.0  d2      1.5
+  stiletto                :                          d3    2.0  d2      1.5
+  scalpel                 :                     +2   d3    2.0  d3      2.0
+  crysknife               :                     +3   d10   5.5  d10     5.5
+Axe                       : -Es- s--s -  -bEs   
+  axe                     :                          d6    3.5  d4      2.5
+  battle-axe              :                          d8+d4 7.0  d6+2d4  8.5
+Pick-axe                  : Esb- b--b -  -bs-   
+  pick-axe                :                          d6    3.5  d3      2.0
+  dwarvish mattock        :                     -1   d12   6.5  d8+2d6 11.5
+Short sword               : bE-s s--b E  EEsb   
+  orcish short sword      :                          d5    3.0  d8      4.5
+  short sword (wakizashi) :                          d6    3.5  d8      4.5
+  dwarvish short sword    :                          d7    4.0  d8      4.5
+  elven short sword       :                          d8    4.5  d8      4.5
+Broadsword                : -s-- s--- s  sbs-   
+  broadsword   (ninja-to) :                          2d4   5.0  d6+1    4.5
+  runesword               :                          2d4   5.0  d6+1    4.5
+  elven broadsword        :                          d6+d4 6.0  d6+1    4.5
+Long sword                : -s-- E--- s  EbE-   
+  long sword              :                          d8    4.5  d12     6.5
+  katana                  :                     +1   d10   5.5  d12     6.5
+Two-handed sword          : -E-- s--- b  EbE-   
+  two-handed sword        :                          d12   6.5  3d6    10.5
+  tsurugi                 :                     +2   d16   8.5  d8+2d6 11.5
+Scimitar                  : ss-b b--- s  bsb-   
+  scimitar                :                          d8    4.5  d8      4.5
+Saber                     : Eb-b s--- s  bsb-   
+  silver saber            :                          d8    4.5  d8      4.5
+Club                      : ssEs b-E- s  ---s   
+  club                    :                          d6    3.5  d3      2.0
+  aklys                   :                          d6    3.5  d3      2.0
+Mace                      : -sEb s-E- s  -b-b   
+  mace                    :                          d6+1  4.5  d6      3.5
+Morning star              : -sb- s-Eb b  -b--   
+  morning star            :                          2d4   5.0  d6+1    4.5
+Flail                     : -bs- b-Es b  sb--   
+  flail        (nunchaku) :                          d6+1  4.5  2d4     5.0
+  grappling hook          :                          d2    1.5  d6      3.5
+Hammer                    : -Es- b-Eb b  -bE-   
+  war hammer              :                          d4+1  3.5  d4      2.5
+Quarterstaff              : sbEE -bEb -  bbbE   
+  quarterstaff            :                          d6    3.5  d6      3.5
+Polearm                   : --sb s-ss b  sbss   
+  partisan                :                          d6    3.5  d6+1    4.5
+  fauchard                :                          d6    3.5  d8      4.5
+  glaive       (naginata) :                          d6    3.5  d10     5.5
+  bec-de-corbin           :                          d8    4.5  d6      3.5
+  spetum                  :                          d6+1  4.5  2d6     7.0
+  lucern hammer           :                          2d4   5.0  d6      3.5
+  guisarme                :                          2d4   5.0  d8      4.5
+  ranseur                 :                          2d4   5.0  2d4     5.0
+  voulge                  :                          2d4   5.0  2d4     5.0
+  bill-guisarme           :                          2d4   5.0  d10     5.5
+  bardiche                :                          2d4   5.0  3d4     7.5
+  halberd                 :                          d10   5.5  2d6     7.0
+Spear                     : -sEb sbss b  bbsb   
+  orcish spear            :                          d5    3.0  d8      4.5
+  spear                   :                          d6    3.5  d8      4.5
+  silver spear            :                          d6    3.5  d8      4.5
+  elven spear             :                          d7    4.0  d8      4.5
+  dwarvish spear          :                          d8    4.5  d8      4.5
+Javelin                   : --sb sbsE -  bbbb
+  javelin                 :                          d6    3.5  d6      3.5
+Trident                   : -ssb b-sb -  -bbb   
+  trident                 :                          d6+1  4.5  3d4     7.5
+Lance                     : ---- E-b- -  sbs-   
+  lance                   :                          d6    3.5  d8      4.5
+Bow                       : -bs- b-bE -  Eb--   
+  orcish bow              :                          d2    1.5  d2      1.5
+  bow                     :                          d2    1.5  d2      1.5
+  elven bow               :                          d2    1.5  d2      1.5
+  yumi                    :                          d2    1.5  d2      1.5
+  orcish arrow            :                          d5    3.0  d6      3.5
+  arrow                   :                          d6    3.5  d6      3.5
+  silver arrow            :                          d6    3.5  d6      3.5
+  elven arrow             :                          d7    4.0  d6      3.5
+  ya                      :                     +1   d7    4.0  d7      4.0
+Sling                     : s-Es --bE -  -bbs   
+  sling                   :                          d2    1.5  d2      1.5
+  flintstone              :                          d6    3.5  d6      3.5
+  other rocks/gems/glass  :                          d3    2.0  d3      2.0
+Crossbow                  : ---- sbbE E  -b--   
+  crossbow                :                          d2    1.5  d2      1.5
+  crossbow bolt           :                          d4+1  3.5  d6+1    4.5
+Dart                      : b--E --bE E  -E-E   
+  dart                    :                          d3    2.0  d2      1.5
+Shuriken                  : ---s -bbs s  Eb-b   
+  shuriken                :                     +2   d8    4.5  d6      3.5
+Boomerang                 : E-E- --bE -  -b--   
+  boomerang               :                          d9    5.0  d9      5.0
+Whip                      : E--- ---b -  -b--   
+  bullwhip                :                          d2    1.5  1       1.0
+  rubber hose             :                          d4    2.5  d3      2.0
+Unicorn horn              : s-bE --s- -  -s--   
+  unicorn horn            :                     +1   d12   6.5  d12     6.5
+Two weapon combat         : bb-- s--- E  Ess-   
+Riding                    : bb-- E--b b	 sbsb		    
+Bare-handed combat        : EMMb E-bb E  -sEb        d2    1.5  d2      1.5
+Martial arts              : ---- -G-- -  M---        d4    2.5  d4      2.5
+					    
+Weapons are listed above first by skill class, then by increasing damage.
+Alternative Japanese names are listed in parentheses ().  The COST field
+denotes the base price of each weapon.  WGT specifies the weight (100
+zorkmids weighs 1); an asterisk (*) signifies that the weapon requires
+two hands to wield.
+
+Weapons comprise 10% of all randomly-generated items in the main dungeon,
+0% in containers, 12% on the Rogue level, and 20% in hell.  PROB is the
+relative probability of each subtype.  If an object is mergable, then
+6d6 (6 to 36) quantity is generated.  Weapons have a roughly 10% chance
+of being blessed, roughly 10% of being cursed, and roughly 10% chance of
+a non-zero enchantment (exponentially distributed).  Poisonable weapons
+(all arrows, crossbow bolts, darts, and shuriken) have a 1% chance of
+being generated poisoned.  Pick axes, unicorn horns, grappling hooks,
+gems, glass, rocks, two-weapon combat, riding, bare-handed combat, and
+martial arts are also listed here for their weapon skills and damage,
+even though they are not technically weapons.
+
+The MATL column describes the material of the weapon.  This affects
+whether the weapon can be damaged (eroded); see the section below to
+find out how to repair and prevent damage.
+
+    MATL  DESCRIPTION                      ERODES?
+    ~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  ~~~~~~~
+    BONE  Horn or bone                     No
+    IRON  Iron                             Rusts/Corrodes
+    LEAT  Leather                          Burns/Rots
+    METL  Other metal                      No
+    MINL  Mineral                          No
+    NONE  Not an item or unusual material  No
+    PLAS  Plastic or rubber                No
+    SILV  Silver                           No
+    WOOD  Wood                             Burns/Rots
+
+Some character classes know the true identity of some or all weapons at
+the start of the game.  Weapons whose identity has not yet been established
+will have the APPEARANCE listed.
+
+Each character class has a limit to the amount of skill that can be
+obtained in each weapon class.  The maximum skill level is noted under
+the ABCH KMPRaRo STVW columns: - for restricted (cannot advance beyond
+unskilled), b for basic skill, s for skilled, E for expert, M for master,
+and G for grand master.  Weapon skills are explained further below.
+
+Finally, information about each weapon's ability to hit and cause damage
+is listed.  A few weapons have an additional bonus to hit, listed in the
++HIT column.  The base amount of damage to small ("tiny", "small", and
+"medium") and large ("large", "huge", and "gigantic") monsters is given
+in the SDAM and LDAM fields, and is expressed in terms of die rolls.
+For example, 2d6 means 2 dice which can each range from 1 to 6, for a
+total from 2 to 12.  The average amount of damage (useful for comparing
+weapons) against small and large monsters is given under SAVG and LAVG.
+
+
+Weapon skills
+~~~~~~~~~~~~~
+    "First lesson," Jon said. "Stick them with the pointy end."
+        -- George R.R. Martin, "A Game of Thrones"
+
+The table of weapons above is organized by "skill classes".  Continued
+use of a weapon gives you practice in its skill class.  With enough
+practice in a skill class and experience levels, you may have the
+opportunity to advance your skill level in that skill class.  This will
+in turn lead to an improvement in your chance to hit and the damage
+produced by weapons in that class.
+
+               NEEDED        WEAPON       2-WEAP   
+SKILL LEVEL   HITS  EXP    +HIT +DAM    +HIT +DAM  
+~~~~~~~~~~~   ~~~~  ~~~    ~~~~ ~~~~    ~~~~ ~~~~  
+Unskilled       0    0      -4   -2      -9   -3   
+Basic          20    1       0    0      -7   -1   
+Skilled        80    2      +2   +1      -5    0   
+Expert        180    3      +3   +2      -3   +1   
+
+               NEEDED        RIDING     BARE-HAND   MARTIAL
+SKILL LEVEL   HITS  EXP    +HIT +DAM      +DAM       +DAM
+~~~~~~~~~~~   ~~~~  ~~~    ~~~~ ~~~~    ~~~~~~~~~   ~~~~~~~
+Unskilled       0    0      -2    0         0         +1 
+Basic          20    1      -1    0        +1         +3 
+Skilled        80    1       0   +1        +1         +4 
+Expert        180    2       0   +2        +2         +6 
+Master        320    2      --   --        +2         +7 
+Grand master  500    3      --   --        +3         +9 
+
+There are specifically two requirements needed to advance a skill class:
+a number of successful hits by any weapon in the skill class and a
+number of experience levels.  A hit is considered successful if it
+causes more than one point of damage to a monster, regardless if the
+weapon is wielded or thrown.  The particular damage value used for this
+determination is described in "Calculating damage" below.
+
+The number of HITS needed to advance to a particular SKILL LEVEL is shown
+in the tables above; this is cumulative from the beginning of the game
+(although if you start at basic level in a skill you will be pre-credited
+with the 20 hits needed to achieve it). For advancing riding skill, 100
+turns spent moving is equivalent to one hit.
+
+The other criterion used to advance skill levels is experience levels.
+Each time you gain an experience level, you earn a "skill slot" that is
+used up when you an advance a skill.  Thus you can earn a maximum of 29
+skill slots, by advancing from level 1 to level 30.  If you lose an
+experience level, you lose the associated skill slot; if that skill slot
+was used to enhance a skill, you will lose the most recently earned skill
+and are refunded the remaining skill slots from that skill level. 
+
+The tables above also lists the number of additional EXPerience levels
+(skill slots) needed to advance to that skill level (note the difference
+between the two tables).  Unlike the number of hits, this number is not
+cumulative.  Thus, it takes 2 skill slots to advance a weapon from basic
+to skilled, no matter if you started with it as basic or unskilled.  Note
+that these slots are shared with spell skills.
+
+When you start the game, you will have basic skill for the weapons and
+weapon-tools in your initial inventory, have basic skill in bare-handed
+combat if you can advance it beyond expert, basic skill in riding if a 
+Knight, and will be unskilled in all other weapon categories.  When you
+reach the point when you can advance a skill category, you will see the
+message, "You feel more confident in your (weapon/fighting) skills."
+You can then advance the skill using the #enhance command (alt-e on some
+systems).  You may choose to not advance a skill level if you want to
+reserve the skill slots for a different skill. After advancing a skill,
+if you are ready to advance another skill (possibly the same one), you
+will get the message "You feel you could be more dangerous!"  The
+#enhance command can also be used at any time to check your current skill
+levels.
+
+Of course, there are limits to how much you can advance a particular
+skill category.  Each character class has different maximum levels for
+each skill category, as can be seen in weapons table 2 above.  These
+differences help to distinguish the various character classes late in
+the game.  For example, note that many of the fighter classes have skill
+with swords, whereas Priests are restricted from edged weapons but are
+good with bludgeons and missiles.  Note that you can usually advance your
+starting weapons and your Quest Artifact (if it is a weapon) to expert
+skill.
+
+The term "restricted" is used to describe skill categories that are
+permanently unskilled.  They do not appear in the #enhance menu, although
+you will see skills that are unskilled and can be advanced.  If you
+receive an artifact weapon from crowning or sacrificing, and the
+artifact's skill category is restricted, then the restriction will be
+removed and you will be able to advance that skill to basic level; only
+hits made after the unrestriction count towards this advancement.
+
+Note that only character classes who are unrestricted in two-weapon
+skill are able to use the #twoweapon command in their unpolymorphed
+form.
+
+Weapon skills affect your game by adding a bonus to your chance to hit
+and your damage.  The WEAPON +HIT and +DAM columns in the table above
+shows the amount of this bonus for each skill level. 
+
+If you attack a monster while not wielding any weapon, you will cause
+either bare-handed damage (d2) or martial arts (d4) damage.  You only
+cause one or the other, depending on your character class.  These skills
+can be enhanced just like weapon skills -- even to levels beyond those
+of weapons (master and grand master) -- and have their own +DAMage bonuses.
+The martial arts bonus also applies when attacking a monster by kicking it.
+
+
+Calculating the chance to hit
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+(Adapted from the spoiler "weapons", by Robert DeLoura and
+Boudewijn Waijers.)
+
+There are four ways to attack a monster with a weapon.  You can hit the
+monster directly by wielding the weapon and stepping into that monster's
+square.  If no weapon is wielded, you use your bare-handed or martial
+arts skill.  Second, you can use the throw command to throw a weapon or
+any other object (just type the object's inventory letter), or the fire
+command to throw the object currently in your quiver.  Missiles (such as
+arrows) are fired from launchers (such as bows) by wielding the launcher
+and throwing the missile.  Third, you can kick an object at a monster, or
+just kick a monster in an adjacent square. Finally, you can apply a
+wielded polearm (lances are, for combat purposes, considered polearms) at
+a monster at a distance: if your skill in that weapon is basic or worse,
+the monster must be exactly two squares away orthogonally; if skilled, it
+may also be a knight's-move away; if expert (can only apply to lances),
+anywhere at two moves' distance.
+
+It is possible that you may hit with more than one weapon in a turn:
+* If you are using two-weapon combat, then if your primary weapon hits and
+  is not destroyed in the process, and the monster is not dislodged from its
+  position, your secondary weapon also automatically hits. 
+* When firing any arrows from any bow, bolts from a crossbow, stones from a
+  sling, or throwing daggers, darts or shuriken, there may be a chance that
+  several get shot in one turn. The maximum number starts at 1, and receives
+  the following additions:
+  +   1 if you are skilled in the weapon.
+  +   2 if you are expert in the weapon.
+  +   1 if you are a Ranger, a Rogue throwing daggers, or a Samurai firing
+      ya from a yumi.
+  +   1 if you are an elf firing elven arrows from an elven bow.
+  +   1 if you are an orc firing orcish arrows from an orcish bow.
+  +   If this results in a maximum higher than the number of missiles you
+      have, the maximum is reduced to that number.
+  The number actually fired on any given turn is d(maximum). This can be
+  capped by giving a numerical prefix to the fire or throw command; doing
+  so will only decrease, never increase the number you fire.
+
+Your chance to hit is based on the sum of the following items.  The larger
+the number, the better your chance to hit.
+
+The following are added to all attacks:
++   The target monster's armor class.
++   Your experience level, or your hit dice if you are polymorphed.
++   Your total numerical luck, which can range from -13 to +13.
++   A bonus based on your dexterity (see DEXT +HIT in the table below).
++   Your increase accuracy bonus (such as from rings).
++   1 if you are in elven form and are attacking an orc (any o or orcish
+    undead).
++   2 if the target monster was asleep.  It will awaken, whether you hit
+    or miss it.
++   4 if the target monster was paralyzed.  There is a 10% chance that
+    the monster will be unfrozen.
+
+The following are added only when attacking a monster directly with
+a wielded weapon or bare-handed (melee attacks):
++   1 bonus for attacking directly.
++   A bonus based on your strength (see STRENGTH +HIT in the table
+    below).
++   1 if you are XL 1 or 2 (game-balancing beginner's luck).
++   -1 if you are burdened, -3 if stressed, -5 if strained.  You cannot
+    attack in any way if you are overtaxed or overloaded.
++   -3 if you are trapped.
++   2 if the target monster was stunned.
++   2 if the target monster was fleeing.
++   -20 if you are a Monk wearing body armour.
++   If you are a barehanded Monk not wearing body armour or a shield, 2
+    plus your experience level divided by three.
+
+The following are added only when attacking by throwing, firing or
+kicking a weapon, or applying a polearm (long- and medium-range attacks):
++   -1 penalty for attacking from a distance.
++   +2 to -4, depending on your distance to the target monster.
++   -2 to +5, depending on the size of the target monster.
++   2 with a heavy iron ball.
++   4 with a boomerang.
++   2 with throwing weapons (daggers (except athames), knives (except
+    scalpels and worm teeth), spears, javelins, war hammers, aklys, darts,
+    shuriken).
++   -2 with non-throwing weapons.
++   6 with a boulder.
++   1 if you are an elf or Samurai wielding any bow and shooting any arrow.
+    This bonus is 2 when an elf uses an elven bow or a Samurai uses a yumi.
++   Some gloves are a hindrance if you wield any bow class.  Gauntlets of
+    power are -2, and gauntlets of fumbling are -3.
++   -4 if you throw or kick a missile without wielding a matching
+    launcher:
+        LAUNCHER(S)                  MISSILE(S)
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        orcish bow, bow, elven bow,  orcish arrow, arrow, silver arrow,
+          yumi                         elven arrow, ya
+        sling                        gems and stones
+        crossbow                     crossbow bolt
++   Enchantment of the launcher you are wielding, if you threw or kicked
+    a matching missile.
++   -1 if your launcher is damaged, -2 if it is very damaged, or -3 if
+    it is thoroughly damaged.  This only applies when you kick or throw
+    a matching missile.
++   An artifact launcher +HIT bonus, if any applies.
+
+If the target monster is being attacked with a weapon or weapon-tool --
+your (primary) wielded one when attacking directly or with a polearm, or
+the missile if thrown or kicked -- there are additional bonuses based on
+that object:
++   The object's enchantment.
++   The object type's to-hit bonus.  See +HIT in weapons table 2.
++   A weapon skill +HIT bonus if not using two weapons; see WEAPON +HIT
+    in the weapon skills table above, for the current skill level of
+    that weapon.
++   A penalty if using two weapons and/or riding while poorly skilled;
+    see 2-WEAP +HIT and RIDING +HIT in the weapon skills table above.
+    (For the former purpose, your skill is considered to be the lower of
+    your actual two-weapon skill and your skill in your primary weapon.)
++   An additional -2 if using two weapons while riding, regardless of skill.
++   2 for blessed weapon(-tool) against a demon or undead monster.
++   2 for weapons in spear class against X, D, J, N, or H.
++   2 for a trident against snakes or sea monsters out of water.
++   4 for a trident against any swimmer in water.
++   2 for weapons in pick-axe class against xorns and earth elementals.
++   An artifact +HIT bonus, if any applies.
+
+A die from 1 to 20 is rolled and compared to the to-hit total.  If the
+die roll is less than the to-hit total (or equal when throwing or
+kicking), you hit the monster and inflict damage as described below;
+otherwise, you miss the monster.  The die roll is also used in determining
+if certain "chance" artifact effects occur (e.g., beheading or Magicbane's
+special attacks).
+
+There are also some special cases.  If you are swallowed or engulfed by
+a monster, then direct or thrown attacks always succeed, although you
+will be unable to kick or apply polearms.  Unicorns will always catch
+gems and glass that is thrown or kicked at them, causing no damage. Your
+Quest Leader will always catch your Quest Artifact, and return it to you
+if peaceful.
+
+Here is the table of attribute adjustments:
+                  STRENGTH   DEXT   :                   STRENGTH   DEXT
+  ATTRIBUTE      +HIT  +DAM  +HIT   :   ATTRIBUTE      +HIT  +DAM  +HIT
+  ~~~~~~~~~~~~~  ~~~~  ~~~~  ~~~~   :   ~~~~~~~~~~~~~  ~~~~  ~~~~  ~~~~
+        3         -2    -1    -3    :   18/76 - 18/90   +2    +4    --
+     4 to  5      -2    -1    -2    :   18/91 - 18/99   +2    +5    --
+     6 to  7      -1     0    -1    :       18/**       +3    +6    --
+     8 to 14       0     0     0    :        19         +3    +6    +5
+       15          0     0    +1    :        20         +3    +6    +6
+       16          0    +1    +2    :        21         +3    +6    +7
+       17         +1    +1    +3    :        22         +3    +6    +8
+       18         +1    +2    +4    :        23         +3    +6    +9
+  18/01 - 18/50   +1    +3    --    :        24         +3    +6   +10
+  18/51 - 18/75   +2    +3    --    :        25         +3    +6   +11
+
+
+Calculating damage
+~~~~~~~~~~~~~~~~~~
+(Adapted from the spoiler "weapons", by Robert DeLoura and
+Boudewijn Waijers.)
+
+If you hit directly without wielding anything, you inflict either bare-
+handed base damage (d2) or martial arts base damage (d4). No base damage
+occurs against shades. If the base damage is more than one point, you
+exercise that weapon skill.  Added to this is a d4 bonus if wearing
+blessed gloves while fighting undead or demons, or d20 if wearing a silver
+ring(s) and no gloves while fighting a silver-hating monster.  There is
+also a small chance of stunning your opponent and causing it to stagger
+back a space (if it can); this will only happen if you are wearing neither
+body armour nor shield and are in your natural form.
+
+Damage from weapons, weapon-tools, gems, stones, ball, or chain is the
+total of the following:
++   Impacting object's base damage (SDAM or LDAM above, accordingly)
++   Impacting object's enchantment (weapon and weapon-tool only)
+------------------------------------------------------------------------
+=   Subtotal A
+#   Subtotal A is set to zero if attacking thick-skinned creature with
+    item made of venom, wax, food, paper, cloth, or leather (namely, a
+    bullwhip).  Thick-skinned creatures include: gargoyle, winged gargoyle,
+    all mimics, mumak, titanothere, baluchitherium, mastodon, all baby and
+    adult dragons (D), earth elemental, all baby and adult nagas (N), xorn,
+    skeleton, gold golem, wood golem, clay golem, stone golem, glass golem,
+    iron golem, horned devil, barbed devil, shark, crocodile, salamander,
+    Chromatic Dragon, and Ixoth.
+#   Subtotal A is set to zero if attacking a shade without silver.
+#   Heavy iron ball sets subtotal A to 1-25, depending on weight.
++   d4 if using a blessed item against undead or demon.  Undead include
+    all liches (L), all mummies (M), all vampires (V), all wraiths/wights
+    (W), all zombies (Z), ghosts, and shades.  Demons are all & except
+    Death, Pestilence, Famine, the mail daemon, djinn, and sandestins.
+    This bonus can't be doubled.
++   d4 if using an axe or battle axe against a wooden creature (namely,
+    wood golems).  This bonus can't be doubled.
++   d20 if silver weapon against silver-hating creature.  These include
+    all were-creatures (in both human and creature form); all vampires
+    (V); all demons (&) except Death, Pestilence, Famine, the mail
+    daemon, djinn, and sandestins; shades; and all imps (i) except 
+    tengu.  This bonus can't be doubled.
++   erosion penalty from whichever of rust/fire damage or rot/corrosion
+    damage is greater (-1 = damaged, -2 = very damaged, -3 = thoroughly 
+    damaged). This won't reduce subtotal B beyond 1.
+------------------------------------------------------------------------
+=   Subtotal B.  This is the value that must be greater than one for the
+    hit to be counted toward a weapon skill.
++   If you are a Rogue in natural form hitting a fleeing monster, aren't
+    stuck or using two weapons, and subtotal B is more than one point,
+    you strike from behind with an additional random damage from 1 to
+    your experience level.
++   2d10 for a successful joust (2d2 if with a secondary weapon). This
+    bonus can't be doubled. To joust successfully, you need to hit with a
+    lance in melee while riding (and not fumbling or stunned), and the
+    chance is dependent on your skill in lance (or, if two-weaponing, the
+    lower of your skill in two-weapon combat and in lance): 20% at
+    unskilled, 40% at basic, 60% at skilled, 80% at expert. The monster
+    will be stunned for a turn and thrown back a square (if possible).
+    There is a small chance that the lance will break (dependent on your
+    Luck). Successfully jousting will always exercise your weapon skill.
++   1 if you're a Samurai using ya with a yumi, or are an elf using elven
+    arrows with an elven bow. Polymorph doesn't count.
++   Artifact damage bonus, doubling, and/or special attacks.  This may
+    apply only against certain creatures.  See art1-343.txt.
+------------------------------------------------------------------------
+=   Total damage
+Hitting directly with a launcher, hitting directly with a missile, using
+the wrong missile with a launcher, or using a polearm at close range
+(unless mounted) causes only d2 damage (zero against shades) and does not
+exercise your weapon skill. If you attack directly with a boomerang,
+there's a chance (decreasing with higher Luck) that the boomerang
+breaks, causing another 1 point of damage (no damage to shades).
+
+Damage from other objects are as follows.  No weapon skills are exercised.
+  OBJECT            DAMAGE
+  ~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  corpses           2 to 8, depending on size.  Cockatrice/chickatrice
+                    corpses (nicknamed "rubber chickens") turn monsters
+                    to stone, or do no damage if monster is stoning-
+                    resistant.
+  eggs              1, penalize luck if you laid it, and no increase
+                    damage bonus.
+                    Cockatrice/chickatrice eggs (nicknamed "stoning
+                    grenades") turn monsters to stone, or do no damage
+                    if monster is stoning-resistant.
+  clove of garlic   1, makes undead (but NOT demons) flee for 2d4 (more)
+                    turns.
+  cream pie,        0, blinds target; no increase damage bonus.
+    blinding venom  
+  acid venom        2d6 to monsters not acid resistant; no increase
+                    damage bonus.
+  potions           See pot1-343.txt.
+  expensive camera  0, breaks camera, no increase damage bonus.
+  mirror            1, breaks mirror (even on shades) with a -2 penalty
+                    to your luck.
+  boulder           d20.
+  heavy iron ball   1 to 25, depending on weight and subject to rusting.
+  iron chain        d4+1, subject to rusting.
+  other objects     1 to 6, depending on weight. Silver objects receive
+                    a +d20 bonus against a silver-hating creature (see
+                    above for list).
+
+Additional damage can occur to all of the above attacks (even against
+shades; however, the first two bonuses are not applied if your current
+damage total is less than one):
++   Your increase damage bonus (such as from rings), unless if noted
+    above.
++   The STRENGTH +DAM bonus from the attributes adjustment table above.
+    This won't occur if you aren't allowed the increase damage bonus, or
+    if you're firing a missile from a launcher.
++   If you scored a hit that exercises a weapon skill, the +DAM bonus
+    for that weapon skill or for two-weapon combat skill (and for
+    riding skill if applicable, unless using two weapons). If fighting
+    with two weapons, your skill for this purpose is considered to be the
+    lower of your actual two-weapon skill and your skill in the single
+    weapon scoring the hit.
++   If you hit a non-poison-resistant monster with a fired poisoned
+    missile, there's a 10% chance of an instant kill, else you inflict d6
+    more damage.
+Your total damage is limited from being negative.  If you are allowed an
+increase damage bonus, you will score at least 1 point of damage.
+
+When you attack a monster and are polymorphed into a creature, you usually
+use the attacks of your polymorphed form.  However, if you are in a form
+that can use a weapon, are wielding something, and attempt a weapon,
+claw, kick, bite, sting, touch, butt, or tentacle attack, then you will
+attack with the wielded object instead.
+
+You may sometimes shatter your opponent's weapon if you are wielding a
+two-handed weapon, or are a Samurai wielding a katana with nothing in your
+off-hand. Your skill with your weapon must be skilled or better.  The chance
+depends upon your weapon's erosion and the ability of your opponent's weapon
+to resist; it is about 2.5% under the best circumstances.  This attack also
+causes the monster to flee for 2d3 (more) turns.
+
+Some monsters fight back passively when attacked.  Also, when a black or
+brown pudding is hit directly with an iron weapon, it will be cloned
+after taking damage.
+
+
+What's the relationship between launcher and missile modifiers?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A very brief summary (for the full details, see the above two sections) of
+which effects enchantments, erosions, and artifact combat bonuses will have
+when using a launcher and missile in the correct combination:
+
+MODIFIER                           TO HIT    DAMAGE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:~~~~~~~~~~~~~~~~~~
+Launcher enchantment            :   YES        NO    
+Launcher erosion                :   YES        NO
+Launcher artifact to-hit bonus  :   YES        NO
+Launcher artifact damage bonus  :   N/A       N/A
+Missile enchantment             :   YES       YES
+Missile erosion                 :    NO       YES
+Missile artifact to-hit bonus   :   YES        NO
+Missile artifact damage bonus   :    NO       YES
+
+
+Choosing an early weapon
+~~~~~~~~~~~~~~~~~~~~~~~~
+Most players know that the best weapons in NetHack are artifacts (see
+art1-343.txt and art2-343.txt).  However, you usually won't find a good
+artifact weapon until you are well into a game.  Which weapons should you
+use until then?
+
+The best general advice is to use the same weapon preferences that
+monsters use.  Their choices of wielded weapons for hand-to-hand combat,
+from most to least preferred, are as follows:
+  cockatrice/chickatrice corpse, tsurugi, runesword, dwarvish mattock,
+  two-handed sword, battle-axe, katana, unicorn horn, crysknife, trident,
+  long sword, elven broadsword, broadsword, scimitar, silver saber, morning
+  star, elven short sword, dwarvish short sword, short sword, orcish short
+  sword, mace, axe, dwarvish spear, silver spear, elven spear, spear,
+  orcish spear, flail, bullwhip, quarterstaff, javelin, aklys, club,
+  pick-axe, rubber hose, war hammer, silver dagger, elven dagger, dagger,
+  orcish dagger, athame, scalpel, knife, worm tooth.
+
+If monsters can attack you from a distance with a ranged weapon or
+polearm, they will use them in the following order:
+  halberd, bardiche, spetum, bill-guisarme, voulge, ranseur, guisarme,
+  glaive, lucern hammer, bec-de-corbin, fauchard, partisan, lance,
+  dwarvish spear, silver spear, elven spear, spear, orcish spear, javelin,
+  shuriken, ya, silver arrow, elven arrow, arrow, orcish arrow, crossbow
+  bolt, silver dagger, elven dagger, dagger, orcish dagger, knife, flint
+  stone, rock, loadstone, luckstone, dart, boomerang (not yet implemented),
+  cream pie.
+
+Classes that are good fighters usually start with good weapons (for
+example, BKRaSV), but other classes may want to switch to a different
+type of weapon as soon as possible.  During the first few levels of the
+game, you can #untrap dart and arrow traps to get some ranged weapons to
+throw.  Daggers (especially elven) are often left by monsters in the
+first few levels and in the mines, and have a +2 to-hit bonus.  Pick-axes
+(good to practice skill for dwarvish mattock), unicorn horns, and
+quarterstaffs (from wood golems) appear somewhat later in the game and
+are good choices for certain classes.
+
+Note that you will start out unskilled in weapon categories other than
+your starting weapons, which makes fighting with other weapons difficult
+until you can advance them to basic.  Using petrifying corpses requires
+gloves and has other risks.  Naturally, there are other ways to fight
+and defend yourself as well.
+
+
+Weapon enchantment and erosion
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+(Adapted from the spoiler "enchant.lim" by Peter Snelling and
+Boudewijn Waijers.)
+
+Your weapon's enchantment (e.g., -1, +0, +2) affects both your chance to
+hit monsters and the amount of damage produced.  However, damage is
+reduced if your weapon has been eroded by rust/fire or corrosion/rotting.
+
+Some weapons are made of materials that do not erode (see weapons table 1),
+but others must be specially protected to prevent erosion.  This section
+explains how to enchant your weapon and protect it from erosion.
+
+All of the weapons and tools listed above can only be enchanted by reading
+scrolls of enchant weapon.  You must wield the weapon first.  The effect
+is dependent upon the blessed status of the scroll and the weapon's
+enchantment before reading the scroll.  A blessed scroll adds 1 or more
+enchantments, based on the current enchantment (see table below).  An
+uncursed scroll adds only one enchantment.  Cursed scrolls remove one
+enchantment; however, artifacts other than Sting or Orcrist are not
+affected by cursed scrolls of enchant weapon.
+  Current enchantment  -3 to -1  +0 to +2  +3 to +5  +6 to +8  +9 or more
+  ~~~~~~~~~~~~~~~~~~~  ~~~~~~~~  ~~~~~~~~  ~~~~~~~~  ~~~~~~~~  ~~~~~~~~~~
+  Additional possible   1 to 4    1 to 3    1 to 2       1       0 to 1
+
+A blessed or uncursed scroll will further make a cursed weapon uncursed,
+and will convert a worm tooth into a crysknife.  Cursed scrolls will
+convert a crysknife into a worm tooth.  There is also a 2/3 chance of
+your weapon being destroyed if it was more than +5 (less than -5) before
+reading a non-cursed (cursed) scroll.
+
+Thus, the maximum safe enchantment for a weapon is +7.  This is obtained
+by reading uncursed or blessed scrolls until +5 is reached, and then
+reading a blessed scroll.  If by chance this results in +6, you should
+bring the enchantment back down to +5 -- by engraving one letter with
+the weapon or by reading a cursed scroll of enchant weapon -- before
+trying again.  Note: Engraving works only for weapons with edges, and for
+athames only when they are cursed.  Weapons may also lose enchantments
+when zapped with a spell of drain life or used to hit a disenchanter, but
+may resist; artifacts will resist more than ordinary weapons.
+
+The artifact Magicbane has special attack effects that decrease in
+frequency as the enchantment is increased.  See art2-343.txt for a
+discussion on why enchantment to +2 is the optimal point to maximise
+these.
+
+A special case occurs if you are confused while reading a scroll of
+enchant weapon.  Blessed or uncursed scrolls of enchant weapon while
+confused will remove any rust, fire, corrosion or rot damage and
+erodeproof your weapon.  The weapon's current enchantment does not matter.
+In the special case of crysknives, they become "fixed"; unfixed crysknives
+have a 100% chance of reverting to a worm tooth when they cease to be
+carried (possibly within a container) by you or a monster, fixed only 10%.
+
+Reading a cursed scroll of enchant weapon while confused removes any
+erodeproofing but will not otherwise damage your weapon.  You can also
+choose a weapon that doesn't damage (such as one made of silver),
+temporarily protect your weapon by applying a layer of grease from a
+can of grease, or #dip a damaged metallic weapon into a non-cursed
+potion of oil to remove one level of each type of damage.
+
+
+Acknowledgements
+~~~~~~~~~~~~~~~~
+Corrections and clarifications provided by Joe Bednorz, Aaron Bell,
+Mark Bever, Patrick Clot, David Corbett, Kieron Dunbar, David Grabiner,
+Troy Holly, Ivan, Eva Myers, nyra, Janis Papanagnou, Pat Rankin,
+David Richerby, and Shaman.

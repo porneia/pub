@@ -1,0 +1,747 @@
+---
+layout: post
+title: "Howto larswm - The tiled window manager"
+author: illov&aelig;
+mail: illovae[at]bk[dot]ru
+keywords:
+license: "BY-NC-SA"
+---
+<p>
+<span class="articleAuthor">12LabRats, 01 juin 2009, {{ page.author }}</span>
+&mdash; &laquo;&nbsp;Parce que la gestion des fenêtres est le boulot
+du gestionnaire de fenêtre&nbsp;&raquo;. C'est sous cette formule que
+Lars Bernhardsson présente le gestionnaire de fenêtre qu'il a écrit :
+<a href="http://larswm.fnurt.net/" class="external"
+hreflang="en">larswm</a>.
+
+<h2 class="articleHeadline">Tables des matières</h2>
+
+<p>
+  <ul>
+    <li>1 &ndash; <a href="#t1">Présentation</a>
+    <li>2 &ndash; <a href="#t2">Installation</a>
+    <li>3 &ndash; <a href="#t3">Premier lancement et utilisation par défaut</a>
+    <li>4 &ndash; <a href="#t4">Le fichier de configuration</a>
+    <li>5 &ndash; <a href="#t5">Les instances de larswm c'est la classe</a>
+    <li>6 &ndash; <a href="#t6">Les applications de larswm</a>
+    <li>7 &ndash; <a href="#t7">D'autres applications pour personnaliser larswm</a>
+    <li>8 &ndash; <a href="#t8">Plus de customisations en patchant larswm</a>
+    <li>9 &ndash; <a href="#t9">De quoi n'ai-je pas parlé concernant larswm ?</a>
+    <li>10 &ndash; <a href="#t10">This is the end, beautiful friend...</a>
+    <li>11 &ndash; <a href="#t11">Remerciements</a>
+    <li>12 &ndash; <a href="#t12">Quelques liens</a>
+</ul>
+
+<p>
+Je compte ici vous présenter un gestionnaire de fenêtre que j'utilise
+maintenant depuis quelques petites années et dont je n'arrive plus à
+me passer (c'est pas faute d'avoir essayé). Le contenu de cette page
+ne se veut pas le plus complet qui soit, il y a tellement de facons
+différentes d'utiliser larswm que ça en serait impossible. Cependant,
+je vais essayer de décrire tous les aspects que j'en connais, depuis
+le téléchargement des sources, jusqu'à l'utilisation de programmes
+supplémentaires histoire d'y ajouter du potentiel (programmes en
+relation directe avec larswm bien sûr), en passant par la façon dont
+je l'utilise. Ceci donc est mis à disposition en guise
+d'inspiration. Si vous avez des questions particulieres sur ce
+tutorial, n'hésitez pas a me contacter.
+
+<h2 class="articleHeadline">Présentation</h2>
+
+<p>
+Larswm fait partie de ces gestionnaires de fenêtre que l'on nomme tiled
+windows managers. Cela signifie  que les fenêtres s'organisent d'elle-même
+en mosaïque selon un schéma  prédéfini dans le code source du gestionnaire
+et potentiellement  customisable par l'utilisateur  selon les possibilités
+du  gestionnaire.  Ceci dans  l'unique  but  de  vous permettre  de  vous
+concentrer  sur votre  travail ou  sur  votre activité,  sans jamais  vous
+soucier de la façon dont vous devrez ranger les fenêtres pour rendre votre
+travail efficace :  non ça le gestionnaire s'en  charge. Après tout, c'est
+son boulot non ?
+
+<p>
+Par un beau samedi  de ce début du mois de juin  de l'an 2000, Lars, de
+son petit nom, s'est mis en tête d'ajouter une fonction qui lui manquait à
+son gestionnaire du moment,
+<a href="http://unauthorised.org/dhog/9wm.html" class="external"
+hreflang="en">9wm</a> : la gestion automatique des fenêtres.  Et voilà
+le projet lancé sur un excès de feignantise de devoir toucher à sa
+souris pour déplacer les fenêtres.  Le bougre ne s'arrêtera pas là et
+continuera de faire évoluer son gestionnaire de fenêtre jusqu'à la
+version stable 7.5.3 qui sortira un peu plus de quatre ans plus
+tard. Cela peut en surprendre plus d'un et on peut penser que le
+développement a été stoppé en cours de route, puisqu'aucun commit, ni
+aucune release n'a été officiellement mis à disposition des
+utilisateurs depuis lors par Lars. Mais que nenni mes chers amis, il
+est plus probable que Lars ayant considéré son gestionnaire totalement
+achevé, il n'ait pas ressenti le besoin d'ajouter d'autres fonctions
+ou de réécrirez du code pour larswm.  Bien sûr ceci n'est qu'une
+supposition, vous pouvez aussi tres bien considéré qu'il a décidé de
+passer sous KDE et qu'il s'amuse depuis peu comme un petit fou à
+foutre le feu à ses fenêtres à l'aide de compiz ; possibilité peu
+envisageable selon moi, mais qui peut cependant intégrer l'univers des
+possibles.
+
+<p>
+Larswm est un gestionnaire de fenêtre héritier de grands principes
+graves dans le marbre il y a déjà des années par le gestionnaire
+<a href="http://doc.cat-v.org/plan_9/4th_edition/papers/812/"
+class="external" hreflang="en">8 1/2</a> du Ô combien vénérable
+système <a href="http://plan9.bell-labs.com/plan9" class="external"
+hreflang="en">Plan 9</a> ; 9wm état en effet basé sur 8 1/2. Pas de
+froufrou inutile, une interface sobre et fixe ainsi que la possibilité
+d'utiliser une souris à trois boutons.
+
+<p>
+Larswm est donc fait par défaut pour que vous ne vous souciez pas des
+fenêtres. Dès qu'une fenêtre est créé, elle est arrangée par rapport
+aux autres comme une mosaïque.  Malgré cela, il est tout à fait
+possible d'avoir une influence plus fine sur les fenêtres, de la même
+façon qu'avec un autre gestionnaire de fenêtre plus conventionnel.  De
+surcroît, larswm est entièrement pilotable au clavier. Vous pouvez
+effectuer toutes les manipulations de fenêtre en mode mosaïque ou non
+qui peuvent vous passer par la tête depuis celui-ci : agrandissement,
+réduction, élargissement, maximisation, etc, etc. Cela dit, il permet
+aussi de faire ces opérations à la souris, mais cela n'est pas
+vraiment dans l'esprit et la souris devient très vite inutile. Pour
+cette raison, je n'aborderai pas du tout ici, la façon de piloter
+larswm à la souris.  Nous allons nous concentrer uniquement sur le
+clavier.
+
+<p>
+Ceci dit, ne nous leurrons pas. Sans vouloir paraître élitiste, larswm
+ne conviendra pas à tout le monde.  Simplement déjà parce qu'il est
+différent. Ensuite et surtout parce qu'il mérite un certain
+apprentissage.  Vous qui venez de gestionnaire très conventionnel,
+vous trouvez votre interface graphique très intuitive, presque
+naturelle. Cependant ce n'est pas le cas. Vous avez dû apprendre à
+l'utiliser. Où cliquer pour agrandir, combien de fois faut-il cliquer,
+comment faire pour avoir tel ou tel comportement, où aller et quoi
+faire pour avoir tel comportement. Ce sont des gestes que vous répétez
+probablement plusieurs fois par jour, à tel point qu'après des
+semaines, des mois, voir des années, c'est devenu pour vous quelque
+chose de naturel. Prenez une personne qui n'a jamais touché à un
+ordinateur ou presque et demandez lui d'effectuer des opérations même
+simples avec les fenêtres. Vous remarquerez alors ses hésitations et
+le besoin de réflexion, voir même ses erreurs. Si vous comptez
+utiliser un tiled window manager et que vous ne l'avez jamais fait,
+attendez-vous à vous retrouver dans ces situations, à devoir prendre
+quelques secondes pour vous remémorer comment on fait pour minimiser
+une fenêtre. Mais ne désespérez pas, c'est un moment certes pénible,
+mais qui passe au bout de quelques minutes, voir heures pour certaines
+opérations que vous n'effectuerez pas souvent. Je vous promet cependant
+que vous tirerez une grande satisfaction de cette nouvelle façon de
+procéder et d'appréhender votre gestionnaire de fenêtre (non je
+rembourse rien du tout si c'est pas le cas pour vous :P).  Après
+quelques temps, tout cela vous semblera le plus naturel du monde, et
+quand vous vous retrouverez à nouveau devant un gestionnaire de
+fenêtre fainéant, ou vous serez obliger de bouger vos mains du clavier
+ne serait-ce que pour déplacer cette fenêtre qui vous gène, vous
+regretterez votre bon vieux larswm.
+
+<h2 class="articleHeadline">Installation</h2>
+
+<p>
+Généralement vous trouverez larswm dans les dépôts officiels de votre
+distribution. Si cette méthode vous convient, referez-vous au manuel
+de votre distribution afin de procéder de la sorte (sous
+debian/ubuntu, le larswm est une version patchée qui par là donc
+obtient un peu plus de features, cf.  la section plus bas).  De plus
+le <a href="http://larswm.fnurt.net/" class="external"
+hreflang="en">site officiel</a> propose des binaires pré-compilées
+pour Enterprise Linux 4
+(<a href="http://home.earthlink.net/~lab1701/larswm/larswm-7.5.3-1.EL4.i386.rpm"
+class="external">binaire</a> |
+<a href="http://home.earthlink.net/~lab1701/larswm/larswm-7.5.3-1.EL4.src.rpm"
+class="external">source</a>) mais aussi pour Fedora Core 4
+(<a href="http://home.earthlink.net/~lab1701/larswm/larswm-7.5.3-1.rhfc4.i386.rpm"
+class="external">binaire</a> |
+<a href="http://home.earthlink.net/~lab1701/larswm/larswm-7.5.3-1.rhfc4.src.rpm"
+class="external">source</a>). Mais vous pouvez aussi compiler larswm,
+ce que nous allons faire de suite.
+
+<p>
+Question dépendance, il va vous falloir certaines librairies de
+developpement de X11
+: <code>libx11-dev</code>, <code>libxext-dev</code>, <code>libxmu-dev</code>, <code>x-dev</code>
+(<code>x11proto-core-dev</code>) (ce sont les noms des librairies sous
+debian).
+
+<p>
+La configuration des sources de larswm se fait au travers de la
+commande <code>xmkmf</code> que vous trouverez dans le
+paquet <code>imake</code> ou <code>xutils-dev</code> selon les
+distributions.
+
+<p>
+Ceci fait, nous allons ensuite récupérer les
+<a href="http://home.earthlink.net/~lab1701/larswm/larswm-7.5.3.tar.gz"
+class="external">sources</a> de larswm-7.5.3. Après décompression
+rentrez dans le dossier des sources et lancez la configuration (pensez
+aussi à jeter un coup d'oeil au <code>README</code>, ce n'est jamais
+du temps perdu (il y a des infos pour Solaris notamment)) :
+
+<pre>
+$ tar xvf larswm-7.5.3.tar.gz &amp;&amp; cd larswm-7.5.3/
+(...)
+$ xmkmf -a
+mv -f Makefile Makefile.bak
+imake -DUseInstalled -I/usr/lib/X11/config
+make Makefiles
+make: Nothing to be done for `Makefiles'.
+make includes
+make: Nothing to be done for `includes'.
+make depend
+gccmakedep  -- -Dlinux -D__i386__ -D_POSIX_C_SOURCE=199309L -D_POSIX_SOURCE
+-D_XOPEN_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -D_LARGEFILE_SOURCE
+-D_FILE_OFFSET_BITS=64 -DFUNCPROTO=15 -DNARROWPROTO
+-- main.c event.c manage.c buttons.c client.c error.c tiling.c prefs.c
+keys.c mouse.c bar.c larsremote.c larsclock.c larsmenu.c
+</pre>
+
+<p>
+Puis nous  allons passer à  l'installation proprement dite qui  se fera
+dans <code>/usr/local</code> avec les droits de root :
+
+<pre>
+# make install install.man
+</pre>
+
+<p>
+La compilation va suivre son cours et en l'absence de tout message
+d'erreur, vous pouvez vous satisfaire d'avoir correctement installer
+larswm.  Dans d'autres cas, pensez à vérifier que vous avez les bonnes
+dépendances et que les liens vers les librairies sont bien présents et
+corrects.
+
+<h2 class="articleHeadline">Premier lancement et utilisation par défaut</h2>
+
+<p>
+NB: la partie <em>utilisation par défaut</em> de cette section est
+très largement inspirée de la page de manuel de larswm. Si vous lisez
+l'anglais, je ne peux que vous recommander d'aller lire cette page
+très bien écrite si vous ne voulez pas vous abîmez les yeux sur mon
+malheureux plagia que certains appelleront <em>traduction libre</em>
+pour me faire plaisir...
+
+<p>
+Si vous disposez d'un lanceur de session comme GDM ou KDM et que vous
+avez installé larswm depuis les dépôts, vous devriez le voir
+disponible dans le menu proposé. Si vous avez installé larswm depuis
+les sources ou d'une autre façon, vous devrez sûrement rajouter
+l'entrée du menu vous même. Je n'utilise pas ce genre d'application et
+ce n'est pas ici le but de mon propos, je vous laisse donc vous
+débrouillez, il y a multitudes de documentation sur le sujet par
+ailleurs. Ceci dit, ces gestionnaires de sessions ont généralement une
+option par défaut qui va utiliser le
+fichier <code>~/.xsessionrc</code>. Ce fichier peut être rempli
+exactement de la même façon que le fichier dont nous allons parler
+plus bas. Je vous invite à passer par cette méthode du fichier
+<code>xsessionrc</code>, qui vous laisse une plus grande flexibilité
+en ce qui concerne le lancement de votre session larswm (et de vos
+autres sessions aussi d'ailleurs).
+
+<p>
+Pour ceux qui utilise directement <code>startx</code>, rajoutez
+simplement une ligne <code>exec larswm</code> dans votre
+fichier <code>~/.xinitrc</code>. Nous reviendrons un peu plus tard sur
+ce dernier auquel on ajoutera quelques petites choses histoire de
+pimenter un peu notre larswm.
+
+<p>
+Un <code>startx</code> plus tard et vous y voilà : <a href="
+http://www.safereconnect.com/fnurt/larswm/larswm_ss.png"
+class="external">bienvenue dans larswm</a>. Oui c'est encore un peu
+austère, je vous l'accorde, mais nous allons configurer tout cela ne
+vous en faîtes pas.
+
+<p>
+Cependant avant cela, il va falloir y mettre un peu de votre personne
+et appréhender les touches par défaut de larswm. Commençons par la
+base : ouvrez un terminal en tapant en même temps
+<code>Shift-Control-Enter</code>. Il va se positionner seul à la
+gauche de votre écran et occuper 60% de l'espace disponible. Entrez
+n'importe quel commande dans ce terminal histoire de vous repérer, par
+exemple <code>echo &quot;je suis ici&quot;</code>. À présent, faites à
+nouveau un
+<code>Shift-Control-Enter</code> et observer comment se positionne le nouveau
+terminal. La fenêtre qui était à gauche se retrouve à droite et est
+plus petite, et le nouveau terminal a pris sa place à droite. Encore un
+<code>Shift-Control-Enter</code> et vous voilà avec trois terminaux. Pour passer
+d'une fenêtre à l'autre, il vous suffira de faire de simple
+<code>Shift-Control-Haut</code> et <code>Shift-Control-Bas</code>.
+Jouez avec ces combinaisons pour voir le comportement qu'elles ont
+(notamment ce qui concerne la fenêtre précédente, c'est vraiment la
+fenêtre précédente à celle ou vous vous trouviez).
+
+<p>
+L'espace de gauche est votre espace de travail principal. Il n'y aura
+jamais qu'une seule fenêtre dans cet espace. La droite sert aux
+espaces de travail secondaire et peut disposer d'autant de fenêtre que
+vous voulez.  Ceci est le comportement par défaut, avec une
+disposition automatique des fenêtres en mosaïqué (mode tiled), comme
+explique précédemment. Cependant, il est aussi possible d'avoir des
+fenêtres dans un mode plus conventionnel, ou c'est vous qui gérer
+totalement les fenêtres, on parlera alors de mode untiled.
+
+<p>
+Pour travailler en mode untiled, nous allons utiliser le programme
+Xlogo. Lancer <code>xlogo</code> depuis n'importe quel terminal. Vous
+voyez alors ce dernier apparaître au milieu de votre écran.  Vous
+pouvez passer de l'espace non mosaïque à l'espace mosaïque simplement
+en pressant la combinaison de
+touche <code>Shift-Control-BackSpace</code>.  Remarquez en bas dans la
+barre de status le <code>T</code> qui vous indique que vous êtes en mode Tiled et
+le U pour vous indiquer que vous êtes en mode Untiled
+(<code>[UCRSB-]</code>). Remarquez aussi que quand vous mettez l'espace mosaïque au
+premier plan, Xlogo se retrouve derrière.
+
+<p>
+En mode non mosaïque, vous pouvez déplacer la fenêtre dans 9 régions
+prédéfinies. Mettez en avant plan l'espace non mosaïque histoire de
+pouvoir travailler sur Xlogo. Quand vous êtes certains que Xlogo est
+sélectionné, mettez xlogo sur le coté droit de l'écran en faisant
+simplement <code>Shift-Control-KP_6</code> ou <code>KP_6</code> est le
+6 de votre clavier numérique. Amusez vous avec tous les chiffres
+histoire de voir ce que cela donne. Si vous êtes sur un portable,
+évidemment, ça va être difficile à faire, mais vous pourrez tout a
+fait changer les touches par défaut pour cette fonction dans le
+fichier de configuration.
+
+<p>
+Toujours dans le mode untiled, avec Xlogo de sélectionner et au
+premier plan, vous pouvez zoomer sur ce dernier grâce
+à <code>Shift-Control-space</code>. Et faites le une seconde fois pour
+la voir retrouver sa taille et son emplacement d'origine. Maintenant
+pressez <code>Control-Alt-space</code> pour mettre Xlogo de coté et
+voir ce qu'il se passe dessous. Deux solutions pour la faire revenir
+de sa cachette : soit vous cliquez sur la partie visible de Xlogo soit
+vous faîtes à nouveau la
+combinaison <code>Control-Alt-space</code>. Notez que cette seconde
+solution ne fonctionnera pas si vous avez une autre fenêtre dans le
+mode untiled. En effet, presser à nouveau ces touches cachera cette
+seconde fenêtre au lieu de ramener Xlogo.  Nous verrons un peu plus
+tard comment avoir une utilisation plus fine de tout cela.
+
+<p>
+Enfin, une petite dernière pour les deux modes cette fois-ci : pressez
+<code>Control-Alt-z</code> pour cacher/minimiser la fenêtre qui a le
+focus (remarquez le <code>H</code> qui apparaît dans la barre de
+statut). Pour le revoir, pressez <code>Control-Alt-x</code>.
+
+<p>
+Voila, c'est un bon début, mais ce n'est qu'une petite partie des
+possibilités de larswm.  Cependant vous devez déjà pouvoir vous en
+sortir un minimum avec la gestion des fenêtres.  Mais attendez ce
+n'est pas terminé.  Larswm, comme tout gestionnaire de fenêtre qui se
+respecte à plusieurs bureaus virtuels. Vous pouvez vous déplacez de
+l'un à l'autre en y allant à coup de <code>Shift-Control-Gauche</code> et
+<code>Shift-Control-Droit</code> (observer la barre de statut qui vous
+indique où vous êtes).
+
+<h2 class="articleHeadline">Le fichier de configuration</h2>
+
+<p>
+Larswm se configure au travers d'un fichier qui se trouve à la racine
+de votre <code>$HOME</code>.  Nous allons générer ce fichier dans lequel vous
+finirez par passer un peu de temps à un moment ou à un autre. Le
+gestionnaire de fichier dispose d'un générateur, si l'on peut dire, de
+ce fichier avec les configurations par défaut.
+
+<pre>
+$ larswm -defaults > ~/.larswmrc
+</pre>
+
+<p>
+Je ne vais pas beaucoup m'étendre sur chaque partie de ce fichier. Il
+est assez bien commenté, et vous devriez pouvoir vous en sortir
+seul. Si vous voulez un exemple,
+<a href="gopher://12.dud-t.org/0/dotfiles/larswmrc.illovae"
+class="external" hreflang="en">voici mon fichier larswmrc</a> qui
+pourra vous servir d'exemple. Vous pourrez d'ailleurs en profiter pour
+voir quels options sont disponibles en ce qui concerne le déplacement
+des fenêtres et arranger les combinaisons de touches comme bon vous
+semblera.
+
+<h2 class="articleHeadline">Les instances de larswm c'est la classe</h2>
+
+<p>
+Larswm dispose de plusieurs classes afin de gérer les fenêtres. Nous
+en avons deja vu deux : <code>Tiled</code> et <code>Untiled</code>,
+qui gèrent les fenêtres globalement. Mais le gestionnaire de fenêtre
+dispose d'autres classes pour des besoins spécifiques.
+
+<p>
+Tout d'abord la <code>floatclass</code>. Si une fenêtre est tagguée
+par cette classe alors elle restera au-dessus des autres fenêtres (id
+est des fenêtres qui ne sont pas en <code>floatclass</code>).  Ensuite
+le mode <code>toolclass</code> pratique si on utilise des widgets par
+exemple : la fenêtre restera dans son coin et ne sera pas prise en
+compte quand vous vous déplacerez de fenêtre en fenêtre (pour avoir le
+focus dessus, pas d'autres solutions que de cliquer). Enfin le mode
+<code>stickclass</code> qui stipule qu'une fenêtre sera présente sur
+tous les bureaux virtuels en même temps.
+
+<p>
+Vous pouvez voir la classe de vos fenêtres en bas dans la barre de
+statut. Par exemple, si vous avez une fenêtre qui a le focus et qui a
+les trois classes présentées ici dans le mode <code>untiled</code>,
+vous pourrez voir en bas <code>[nfts-]</code>.
+
+<p>
+Il reste encore une classe qui est <code>dtclass</code> et qui permet
+de fixer une application sur un bureau virtuel en particuliers (mettre
+xlinks2 sur le bureau WEB à chaque fois qu'on le lance par exemple).
+
+<p>
+Les classes peuvent se configurer à la volée pendant l'utilisation de
+larswm, mais généralement, elles sont définies pour chaque application
+voulue au sein du fichier de configuration (par exemple
+<code>larswm.toolclass</code>., je vous laisse vous référer à votre
+propre fichier).
+
+<p>
+Cela me permet d'amener une autre particularité de larswm.  Pour
+sélectionne une application dans son fichier de configuration, on peut
+simplement utiliser le nom de l'application, mais aussi son
+instance. Par exemple, pour Xload, l'instance
+sera <code>XLoad~xload</code> ; pour mplayer ca
+sera <code>MPlayer~xv</code> ; pour conky ca
+sera <code>conky~conky</code> ; etc. La maniéré la plus simple de
+connaître l'instance d'une application reste de la lancée dans larswm
+(mais pas trop fort) et de regarder dans la barre de statut, vous la
+verrez entre parenthèse.
+
+<h2 class="articleHeadline">Les applications de larswm</h2>
+
+<p>
+  <ul>
+    <li><p><b>larsremote</b> : Si vous avez prêter attention à
+      <a href="gopher://druuna.dud-t.org/0/dotfiles/larswmrc"
+      class="external" hreflang="en">mon fichier de configuration</a>,
+      vous avez pu voir le nom d'une application livrée avec larswm
+      qui n'a pas l'air très anodine : <code>larsremote</code>.  Comme
+      son nom l'indique, c'est une télécommande qui permet d'interagir
+      avec larswm selon deux façons : pour quitter larswm et pour le
+      relancer (principalement ça sert à reprendre en compte le
+      fichier de configuration et appliquer les changements effectués
+      sans quitter larswm).  Elle s'utilise depuis n'importe quel
+      terminal ou lanceur d'application en faisant un <code>larsremote
+      exit</code> ou <code>larsremote restart</code>. Comme beaucoup,
+      j'ai attribué des combinaisons de touches à cette application
+      histoire de me faciliter la vie.  Remarquez qu'elle prend aussi
+      l'option <code>message</code> qui n'a d'autres fonctions que de
+      décorer votre barre de status du message de votre choix :
+      <code>larsremote message &quot;larswm rulez&quot;</code>.
+
+    <li><p><b>larsclock</b> : Une autre application est livrée avec
+      larswm qui permet simplement d'afficher l'heure dans la barre de
+      status. Quelque chose donc d'assez fondamentale. On aura donc
+      quelque chose de ce genre : <code>larsclock -format
+      &quot;[Larswm Ru13Z] [%a %m/%d %I:%M%p %Y]&quot; &amp;</code>.
+
+    <li><p><b>larsbiff</b> : Voici une autre petite application basée sur
+      larsclock et non diffusée avec le paquet de base larswm. Elle est
+      présentée sur
+      <a href="http://www.dtek.chalmers.se/~d00bjojo/larswm/"
+      class="external" hreflang="en">cette page</a> (les
+      <a href="http://www.dtek.chalmers.se/~d00bjojo/larswm/larsbiff-2.01.tar.gz"
+      class="external">sources</a> de la version 2.01 sont ici) ; elle
+      permet simplement d'afficher l'heure ainsi que la charge
+      processeur, et quand vous recevez un email, un message
+      apparaîtra dans la barre de statut afin de vous en notifier.
+      Larsbiff se configure au travers d'un
+      <a href="gopher://druuna.dud-t.org/0/dotfiles/larsbiffrc"
+      class="external" hreflang="en">fichier larsbiffrc</a> assez
+      simple. En ce qui concerne la compilation et l'installation,
+      cela se passe exactement de la même façon que larswm (à coup de
+      <code>xmkmf</code> et <code>make</code>), je vous laisse
+      regarder le <code>README</code>.
+
+    <li><p><b>larsxmms</b> : Enfin, une dernière application qui quant
+      à elle permet d'afficher le nom de la chanson en cours dans
+      <a href="http://www.xmms.org/" class="external"
+      hreflang="en">XMMS</a> (vous savez le fork de Winamp).  Je ne
+      l'ai jamais testé, je n'en dirais donc pas plus. Si vous voulez
+      voir à quoi cela ressemble, c'est
+      <a href="http://www.dtek.chalmers.se/~d00bjojo/larswm/"
+      class="external" hreflang="en">toujours sur la même page</a>.
+</ul>
+
+<h2 class="articleHeadline">D'autres applications pour personnaliser larswm</h2>
+
+<p>
+Dans cette partie, je vais présenter quelques applications que j'ai
+utilisé ou que j'utilise avec larswm afin de lui donner un peu plus de
+fonctions. Et bien là, c'est vraiment selon votre bon vouloir
+évidemment.  Mais je me dis que ça pourrait vous donner des
+exemples. Toutes ces applications sont assez bateau, et très connues
+dans leur grande majorité.
+
+<p>
+On peut bien sur commencer par citer
+<a href="http://conky.sourceforge.net/" class="external"
+hreflang="en">conky</a> qui vous permettra d'avoir divers informations
+sur votre système présentées en transparence (ou pas) sur votre
+bureau. Toujours dans le même esprit on peut aussi penser à
+<a href="http://www.gkrellm.net/" class="external"
+hreflang="en">GKrellM</a>. Sachez aussi que les
+<a href="http://dockapps.org/" class="external"
+hreflang="en">dockapp</a> issues du monde WindowMaker s'intègre très
+bien dans larswm.
+
+<p>
+Je ne saurai aussi que très fortement vous conseiller de tester
+<a href="http://gotmor.googlepages.com/dzen" class="external"
+hreflang="en">dzen</a> qui a de grandes qualités.
+
+<p>
+Personnellement, je suis revenu un peu vers les sources en utilisant
+des widgets de base, comme <code>xclock</code>, <code>xload</code> ou
+encore <code>xbiff</code>.
+
+<p>
+En ce qui concerne le fond d'écran, vous pouvez utiliser des choses
+très simple comme <code>xsetroot</code> pour mettre une couleur unie
+ou dégradée, mais aussi qui sert à mettre en fond des images du type
+<code>.xpm</code>. Si vous préférez ou avez plus l'habitude d'image
+sous des formats plus diffusés (comme <code>.jpg|.png</code>), vous
+pouvez utiliser le très simple <code>xsetbg</code> fourni par le
+paquet <code>xloadimage</code>. J'utilise aussi <code>unclutter</code>
+afin de faire
+<a href="gopher://druuna.dud-t.org/0/phlog/posts/008MOUS2.TXT"
+class="external" hreflang="fr">disparaître le curseur de la souris</a>
+(lorsqu'il est inactif) qui m'agace plus qu'autre chose.
+
+<p>
+Afin de lancer tout cela facilement, vous pouvez rajouter ces
+applications au lancement de la session dans votre
+fichier <code>~/.xinitrc</code> (ou <code>xsessionrc</code> si vous
+l'utilisez (vous pouvez aussi prendre exemple sur le fichier
+<code>sample.xsession</code> disponible dans les sources de larswm)) :
+
+{% highlight bash %}
+# I don't want the 'blank screen after 30 minutes' thing
+xset -dpms
+xset s 0 0
+xset s off
+
+# Hide my mouse
+unclutter -root -idle 2 -jitter 10 &
+
+# Background
+#xsetroot -solid black
+xsetbg ~/w/gotmilk.jpg
+
+# Widgets
+xbiff &
+xload -label unisys -geometry 80x48+664+534 &
+xload -label britney -remote britney -geometry 80x48+580+534 &
+xclock &
+
+# larswm app
+larsbiff -string "[DEAD LIKE ME]" &
+#larsclock -format "[DEAD LIKE ME] [%a %m/%d %I:%M%p %Y]" &
+
+# Now we can launch larswm
+exec larswm
+{% endhighlight %}
+
+<h2 class="articleHeadline">Plus de customisation en patchant larswm</h2>
+
+<p>
+Malgré que Lars ai arrêté le développement (pour le moment) de larswm,
+certains avaient des idées et/ou ont trouvés des petits défauts qu'ils
+ont crus bon de nous faire partager au travers de patch.  Si vous avez
+installé larswm sous debian/ubuntu depuis les dépôts, les patches ont
+déjà été appliqués, car en effet, les devels ont intégrés ces patches
+à leur paquet (vous pouvez donc d'ores et déjà utiliser les options
+qui suivent).
+
+<p>
+Pour les autres, et si cela vous intéresse, il va falloir y aller à la
+main. Au delà des corrections de bugs, ces patches rajoutent des
+fonctions intéressantes à larswm que je vais décrire plus bas.
+
+<p>
+Avant tout récupérez le <del>tarball des patches ici</del>. Attention,
+ces patches sont pour la version 7.5.3 de larswm. Décompressez la
+nouvelle archive, et mettez le dossier qui en résulte dans le dossier
+des sources de larswm, puis rentrez dans le dossier de patch et lancez
+le script livré avec :
+
+<pre>
+$ tar xvf larswm-patches_7.5.3-5.tar.gz
+(...)
+$ mv larswm-patches_7.5.3-5 /path/to/larswm-7.5.3
+$ cd /path/to/larswm-7.5.3/larswm-patches_7.5.3-5
+$ ./patch.sh
+</pre>
+
+<p>
+Relancez  la  compilation  et  l'installation de  larswm.  Les  patches
+ajoutent donc des modifications dont voici le résumé :
+
+<p>
+  <ol>
+    <li>Patch de Florian Forster (bugfixes) (00_larswm-7.5.3+patches.patch).
+    <li>L'option -update de larsclock (aa_larsclock-update.patch).
+    <li>Passer à une fenêtre selon la class/nom (ca_larswm-switchclass.patch).
+    <li>Deux fenêtres dans l'espace gauche (da_larswm-two_on_left.patch).
+    <li>Déplacer une fenêtre vers un autre bureau (ea_larswm-move_other_desktop.patch).
+    <li>Activer le skip focus depuis une combinaison de touches (fa_larswm-toggle_skip_fokus.patch).
+  </ol>
+
+<p>
+Je ne reviens pas sur les deux premiers qui sont assez explicites.
+
+<p>
+  <ul>
+    <li><p><b>ca_larswm-switchclass.patch</b> : En ce qui concerne le
+      troisième patch, cela permet d'ajouter un raccourci pour passer
+      d'une fenêtre a l'autre selon une classe ou un nom prédéfini. Si
+      la fenêtre correspondante n'est pas trouvée, alors l'application
+      concernée est démarrée.  On peut mettre par exemple dans notre
+      <code>~/.larswmrc</code> :
+
+<pre>
+larswm.switchclass.0: Emacs
+larswm.switchclass_app.0: emacs
+larswm.switchclass_key.0: e
+larswm.switchclass_mod.0: Shift+Control
+</pre>
+
+      <p>
+        Ainsi en faisant un <code>Shift-Control-e</code> vous tomberez
+        directement sur la première fenêtre d'emacs que larswm
+        trouvera en changeant de bureau virtuel si nécessaire.
+        Refaire la combinaison de touche vous fera aller à la fenêtre
+        suivante, etc. On peut spécifier le nom de l'application
+        (<code>Emacs</code>) ou sa classe (<code>Emacs~gnu</code>).
+
+    <li><p><b>da_larswm-two_on_left.patch</b> : Pour le quatrième
+        patch, cela vous permet simplement d'avoir deux fenêtres dans
+        votre espace de travail de gauche au lieu de un seul (pratique
+        si vous avez un grand écran).
+
+<pre>
+larswm.two_on_left_key: Left
+larswm.two_on_left_mod: Shift+Control+Alt
+larswm.two_on_left_shrink_key: Down
+larswm.two_on_left_shrink_mod: Shift+Control+Alt
+larswm.two_on_left_grow_key: Up
+larswm.two_on_left_grow_mod: Shift+Control+Alt
+</pre>
+
+      <p>
+        En pressant <code>Shift-Control-Alt-Gauche</code> vous aurez
+        deux fenêtre à gauche.  En pressant <code>Shift-Control-Alt-Bas</code> ou
+        <code>Shift-Control-Alt-Haut</code> et vous redimensionnez verticalement
+        les fenêtres.  Enfin en pressant à nouveau
+        <code>Shift-Control-Alt-Gauche</code> vous redonnera un
+        comportement à une fenêtre normal.
+
+    <li><p><b>ea_larswm-move_other_desktop.patch</b> : Le cinquième
+        patch quant à lui vous permet simplement de déplacer une
+        fenêtre vers un autre bureau virtuel :
+
+<pre>
+larswm.move_next_desktop_key: Right
+larswm.move_next_desktop_mod: Shift+Alt
+
+larswm.move_prev_desktop_key: Left
+larswm.move_prev_desktop_mod: Shift+Alt
+
+! Move window to desktop shortcuts: Defaults are for the first
+! 12 desktops, F1-F12.
+! If you have more than 12 desktops, you will have to add key
+! bindings for them or just use move prev/next desktop to move
+! window to where you want.
+
+larswm.move_desktop_key.0: F1
+larswm.move_desktop_mod.0: Shift+Alt
+</pre>
+
+    <li><p><b>fa_larswm-toggle_skip_focus.patch</b> : Enfin et pour
+        finir, le sixième patch est pratique si vous utiliser la
+        fonction skip focus de larswm en vous permettant de l'activer
+        et de le désactiver simplement :
+
+<pre>
+larswm.toggle_skip_focus_key: f
+larswm.toggle_skip_focus_mod: Control+Alt
+</pre>
+</ul>
+
+<h2 class="articleHeadline">De quoi n'ai-je pas parlé concernant larswm ?</h2>
+
+<p>
+Comme dit en introduction, je n'ai pas du tout parlé de l'utilisation
+de la souris sous larswm (sinon comment la cachée). Ceci implique
+notamment que je n'ai pas du tout parlé du menu dont dispose larswm et
+basé bien sûr sur le <code>9menu</code> de 9wm. J'imagine que certains
+pourront y trouver une utilité, je vous renvoie donc pour cela vers
+la page de manuel de larswm.
+
+<p>
+Je n'ai pas non plus parlé de l'intégration de Xinerama pour larswm
+n'utilisant pas du tout cette fonction servant au multi-desktop. Je
+vous renvoie vers le lien en bas de cet article si vous voulez plus
+d'informations.
+
+<h2 class="articleHeadline">This is the end, beautiful friend...</h2>
+
+<p>
+Voilà donc pour cette présentation de mon utilisation de larswm. Comme
+vous avez pu le remarquer, on peut moduler larswm comme bon nous
+semble.  Vous pouvez voir des exemples de résultat un peu partout sur
+le net. Voici notamment
+<a href="http://b.druuna.dud-t.org/images/1243084539_scrot.jpg"
+class="external">le mien</a> à l'heure ou j'écris ces lignes ; j'aime
+beaucoup aussi <a href="http://vico.kleinplanet.de/screenshots.html"
+class="external" hreflang="en">la page de screenshot de Vico</a> où
+l'on peut retrouver plusieurs de ses bureaux ; il y en a aussi
+<a href="http://www.lynucs.org/?larswm" class="external"
+hreflang="en">ici</a> (avec la page
+d'<a href="http://www.lynucs.org/?&amp;ormaxx" class="external"
+hreflang="en">ormaxx</a>).
+
+<p>
+N'attendez pas plus que ce qu'il peut vous proposer. Larswm est un
+gestionnaire de fenêtre, et c'est ce qu'il fait, ni plus ni
+moins. Et pour cela on peut dire que Lars a réussi son ambition :
+pouvoir se centrer sur son travail, et laisser larswm faire son
+boulot.
+
+<h2 class="articleHeadline">Remerciements</h2>
+
+<p>
+  <ul>
+    <li>Merci à Lars Bernhardsson bien sûr pour son travail qui
+      facilite le mien tous les jours.
+    <li>Merci aussi à lui pour avoir écrit une des meilleurs pages de
+      manuel qui existe.
+    <li>Merci aux différents auteurs de patch pour des features en
+      plus bien sympa.
+    <li>Enfin merci à <a href="http://gapz.tuxfamily.org/"
+      class="external" hreflang="fr">gapz</a> qui m'a suivi dans la
+      découverte de larswm il y a quelques années :)
+  </ul>
+
+<h2 class="articleHeadline">Quelques liens</h2>
+
+<p>
+  <ul>
+    <li><a href="http://fnurt.net/larswm/" class="external"
+           hreflang="en">La page officielle de larswm</a>
+    <li><a href="http://verplant.org/larswm/" class="external"
+           hreflang="en">Le guide d'Octo pour larswm</a>
+    <li><a href="http://www.dtek.chalmers.se/~d00bjojo/larswm/"
+           class="external" hreflang="en">Page de larsbiff et de larsxmms</a>
+    <li><a href="http://verplant.org/larswm-xinerama.shtml"
+           class="external" hreflang="en">Xinirama pour larswm (chez
+           Octo)</a>
+    <li><a href="http://vico.kleinplanet.de/screenshots.html"
+           class="external" hreflang="en">Présentation des screenshots
+           de Vico</a>
+  </ul>

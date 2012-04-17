@@ -1,0 +1,124 @@
+---
+layout: post
+title: "Nibbles"
+date: 2008-07-31 21:26:58 +0200
+author: illov&aelig;
+mail: illovae[at]bk[dot]ru
+keywords: jeu, nibbles, illovae
+license: "WTFPL(v2) - Beerware License"
+---
+<p>
+Je sais pas pour vous, mais moi j'ai passé des heures et des heures à
+jouer à Snake sur le vieux Nokia de mon cousin quand j'étais plus jeune.
+Vous trouverez très certainement dans chacune de vos distributions des
+jeux graphiques du même acabit. Mais rien pour les fanas de cli :/ (si en
+fait, y'a bien un jeux qui fait semblant d'y ressembler dans les bsdgames
+mais bon...  pas gaygay).
+
+<p>
+Et bien nous allons compiler et installer notre fork pour cli :
+<a href="http://www.earth.li/projectpurple/progs/nibbles.html"
+class="external" hreflang="en">nibbles</a>.  Voilà donc un jeu
+reprenant les mêmes principes et utilisant ncurses. Donc nous allons
+avoir besoin des librairies ncurses pour pouvoir compiler et jouer. Je
+vous renvoie donc à votre distribution pour installer
+les <code>libncurses5</code> et <code>libncurses5-dev</code> (le nom
+de ces paquets sont valables sous Debian, n'hésitez donc pas à adapter
+au besoin (la version ici est la 5, j'imagine que ça doit marcher avec
+des versions antérieures comme la 4, mais j'ai pas vérifié).
+
+<p>
+Ensuite, nous allons récupérer les
+<a href="http://www.earth.li/projectpurple/files/nibbles-v0.0.4.tar.gz"
+class="external" hreflang="en">sources de nibbles</a>, les
+décompresser.  Mais on ne va pas compiler tout de suite. Avant il faut
+modifier un peu les sources ainsi que le <code>Makefile</code>. En
+effet, par défaut, la binaire s'installe dans <code>/usr/games</code>
+et le fichier des scores dans <code>/var/lib/games/</code> ce qui
+n'est pas très pratique (surtout que si vous essayez de compiler tel
+quel vous aurez une erreur à l'installation
+car <code>/var/lib/games</code> n'existe pas). On va régler le
+problème en mettant tout dans <code>/usr/local</code>.
+
+<p>
+<b>Edit</b>: veuillez noter que les dossiers d'installation peuvent
+être modifier selon votre convenance, donc si ça vous chante, arrangez
+les paths à votre sauce.
+
+<p>
+Rentrez dans le dossier des sources et déplacez <code>Makefile</code>
+vers <code>Makefile_back</code> :
+
+{% highlight console %}
+$ mv Makefile Makefile_back
+{% endhighlight %}
+
+<p>
+Puis, nous allons commencer par modifier le répertoire de destination des
+scores :
+
+{% highlight console %}
+$ sed 's/\/var\/lib\/games/\usr\/local\/share\/games/' Makefile_back > Makefile
+{% endhighlight %}
+
+<p>
+Ouvrez maintenant votre nouveau <code>Makefile</code> avec vim par
+exemple et remplacez <code>/usr/games</code> pour la
+variable <code>INSTALL_FOLDER</code> par <code>/usr/local/games</code>
+(oui j'aurai pu rajouter ça dans le sed, mais ça me faisait une ligne
+vraiment trop longue, et j'ai pas envie d'effrayer ceux qui ont pas
+l'habitude de voir sed). Vous aurez donc le résultat suivant :
+
+{% highlight makefile %}
+INSTALL_FOLDER=/usr/local/games
+{% endhighlight %}
+
+<p>
+Enregistrez et quittez. Voilà pour le <code>Makefile</code>. C'est pas
+fini. Il faut enfin spécifier à nos sources où aller trouver les
+scores. Donc ouvrez le fichier <code>scoring.h</code> et modifiez la
+10ème ligne de façon à ce quelle ressemble à ça (l'ancienne version de
+la ligne ne doit plus exister) :
+
+{% highlight c %}
+#define HIGHSCOREFILE "/usr/local/share/games/nibbles.score"
+{% endhighlight %}
+
+<p>
+Enregistrez et quittez. J'imagine que vous avez déjà installer les
+dépendances (les <code>libncurses*</code> du début d'article) ? Oui,
+alors tant mieux, il nous reste à faire un simple :
+
+{% highlight console %}
+$ make
+{% endhighlight %}
+
+<p>
+suivi d'un (en root/avec sudo) :
+
+{% highlight console %}
+# make install
+{% endhighlight %}
+
+<p>
+Une dernière petite chose, nous allons arranger les permissions du fichier
+<code>nibbles.score</code> histoire que vous puissiez écrire
+dedans. Notez (mais si vous avez lu le <code>README</code> vous le
+savez déjà) que cela entraînera une &quot;faille de sécurité&quot; sur
+votre fichier <code>nibbles.score</code> (au sens où n'importe qui
+pourra écrire dedans et donc écraser vos scores, bouh les sales
+tricheurs ;)) :
+
+{% highlight console %}
+# chmod 666 /usr/local/share/games/nibbles.score
+{% endhighlight %}
+
+<p>
+Voilà, il ne vous reste plus qu'à jouer en utilisant les
+touches <code>ijkl</code>. De plus si ça vous amuse, vous pouvez créer
+vos propres levels en prenant exemple sur les levels déjà existants
+(dans <code>/usr/local/games/nibbles.levels/</code>). Enfin, vous
+pouvez créer un fichier <code>~/.nibblerc</code> avec dedans
+le <code>PATH</code> de votre dossier de level perso pour qu'il le
+lance automatiquement à chaque fois. Pour plus de détails, lisez
+le <code>README</code> et faites <code>nibbles -h</code>.

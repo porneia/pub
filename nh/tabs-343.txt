@@ -1,0 +1,659 @@
+tabs-343.txt  Last edited 2006-05-03 for NetHack 3.4.3
+Consolidated item tables for NetHack 3.4
+Compiled for 3.2.2 by Kevin Hugo.
+Updated for 3.4.3 by Dylan O'Donnell <psmith@spod-central.org>.
+
+AMULET                        COST   WGT  PROB   EAT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~ : ~~~~~  ~~~  ~~~~ : ~~~
+amulet of change            :  $150   20  130c :  Y
+amulet of ESP               :   150   20  175  :  Y
+amulet of life saving       :   150   20   75  :
+amulet of magical breathing :   150   20   65  :  Y
+amulet of reflection        :   150   20   75  :
+amulet of restful sleep     :   150   20  135c :  Y
+amulet of strangulation     :   150   20  135c :  Y
+amulet of unchanging        :   150   20   45  :  Y
+amulet versus poison        :   150   20  165  :  Y
+imitation AoY               :     0   20    0  :
+Amulet of Yendor            : 30000   20    0  :
+
+
+WEAPON (Table 1)            COST  WGT  PROB   MATL  APPEARANCE
+~~~~~~~~~~~~~~~~~~~~~~~~~ : ~~~~  ~~~  ~~~~ : ~~~~  ~~~~~~~~~~
+Dagger                    :                 :
+  orcish dagger           : $ 4    10   12  : IRON  crude dagger
+  dagger                  :   4    10   30  : IRON  --
+  silver dagger           :  40    12    3  : SILV  --
+  athame                  :   4    10    0  : IRON  --
+  elven dagger            :   4    10   10  : WOOD  runed dagger
+Knife                     :                 :
+  worm tooth              :   2    20    0  : NONE  --
+  knife           (shito) :   4     5   20  : IRON  --
+  stiletto                :   4     5    5  : IRON  --
+  scalpel                 :   6     5    0  : METL  --
+  crysknife               : 100    20    0  : MINL  --
+Axe                       :                 :
+  axe                     :   8    60   40  : IRON  --
+  battle-axe              :  40   120*  10  : IRON  double-headed axe
+Pick-axe                  :                 :
+  pick-axe                :  50   100  tool : IRON  --
+  dwarvish mattock        :  50   120*  13  : IRON  broad pick
+Short sword               :                 :
+  orcish short sword      :  10    30    3  : IRON  crude short sword
+  short sword (wakizashi) :  10    30    8  : IRON  --
+  dwarvish short sword    :  10    30    2  : IRON  broad short sword
+  elven short sword       :  10    30    2  : WOOD  runed short sword
+Broadsword                :                 :
+  broadsword   (ninja-to) :  10    70    8  : IRON  --
+  runesword               : 300    40    0  : IRON  runed broadsword
+  elven broadsword        :  10    70    4  : WOOD  runed broadsword
+Long sword                :                 :
+  long sword              :  15    40   50  : IRON  --
+  katana                  :  80    40    4  : IRON  samurai sword
+Two-handed sword          :                 :
+  two-handed sword        :  50   150*  22  : IRON  --
+  tsurugi                 : 500    60*   0  : METL  long samurai sword
+Scimitar                  :                 :
+  scimitar                :  15    40   15  : IRON  curved sword
+Saber                     :                 :
+  silver saber            :  75    40    6  : SILV  --
+Club                      :                 :
+  club                    :   3    30   12  : WOOD  --
+  aklys                   :   4    15    8  : IRON  thonged club
+Mace                      :                 :
+  mace                    :   5    30   40  : IRON  --
+Morning star              :                 :
+  morning star            :  10   120   12  : IRON  --
+Flail                     :                 :
+  flail        (nunchaku) :   4    15   40  : IRON  --
+  grappling hook          :  50    30  tool : IRON  iron hook
+Hammer                    :                 :
+  war hammer              :   5    50   15  : IRON  --
+Quarterstaff              :                 :
+  quarterstaff            :   5    40*  11  : WOOD  staff
+Polearm                   :                 :
+  partisan                :  10    80*   5  : IRON  vulgar polearm
+  fauchard                :   5    60*   6  : IRON  pole sickle
+  glaive       (naginata) :   6    75*   8  : IRON  single-edged polearm
+  bec-de-corbin           :   8   100*   4  : IRON  beaked polearm
+  spetum                  :   5    50*   5  : IRON  forked polearm
+  lucern hammer           :   7   150*   5  : IRON  pronged polearm
+  guisarme                :   5    80*   6  : IRON  pruning hook
+  ranseur                 :   6    50*   5  : IRON  hilted polearm
+  voulge                  :   5   125*   4  : IRON  pole cleaver
+  bill-guisarme           :   7   120*   4  : IRON  hooked polearm
+  bardiche                :   7   120*   4  : IRON  long poleaxe
+  halberd                 :  10   150*   8  : IRON  angled poleaxe
+Spear                     :                 :
+  orcish spear            :   3    30   13  : IRON  crude spear
+  spear                   :   3    30   50  : IRON  --
+  silver spear            :  40    36    2  : SILV  --
+  elven spear             :   3    30   10  : WOOD  runed spear
+  dwarvish spear          :   3    35   12  : IRON  stout spear
+Javelin                   :                 :
+  javelin                 :   3    20   10  : IRON  throwing spear
+Trident                   :                 :
+  trident                 :   5    25    8  : IRON  --
+Lance                     :                 :
+  lance                   :  10   180    4  : IRON  --
+Bow                       :                 :
+  orcish bow              :  60    30   12  : WOOD  crude bow
+  bow                     :  60    30   24  : WOOD  --
+  elven bow               :  60    30   12  : WOOD  runed bow
+  yumi                    :  60    30    0  : WOOD  long bow
+  orcish arrow            :   2     1   20  : IRON  crude arrow
+  arrow                   :   2     1   55  : IRON  --
+  silver arrow            :   5     1   12  : SILV  --
+  elven arrow             :   2     1   20  : WOOD  runed arrow
+  ya                      :   4     1   15  : METL  bamboo arrow
+Sling                     :                 :
+  sling                   :  20     3   40  : LEAT  --
+  flintstone              :   1    10  gems : MINL  --
+  other rocks/gems/glass  : vary  vary gems : vary  --
+Crossbow                  :                 :
+  crossbow                :  40    50   45  : WOOD  --
+  crossbow bolt           :   2     1   55  : IRON  --
+Dart                      :                 :
+  dart                    :   2     1   60  : IRON  --
+Shuriken                  :                 :
+  shuriken                :   5     1   35  : IRON  throwing star
+Boomerang                 :                 :
+  boomerang               :  20     5   15  : WOOD  --
+Whip                      :                 :
+  bullwhip                :   4    20    2  : LEAT  --
+  rubber hose             :   3    20    0  : PLAS  --
+Unicorn horn              :                 :
+  unicorn horn            : 100    20* tool : BONE  --
+Two weapon combat         :  --    --  none : NONE  --
+Riding                    :  --    --  none : NONE  --
+Bare-handed combat        :  --    --  hand : NONE  --
+Martial arts              :  --    --  hand : NONE  --
+
+
+WEAPON (Table 2)            ABCH KMPRaRo STVW  +HIT  SDAM SAVG  LDAM   LAVG
+~~~~~~~~~~~~~~~~~~~~~~~~~ : ~~~~ ~~~~~~~ ~~~~  ~~~~  ~~~~ ~~~~  ~~~~~~ ~~~~
+Dagger                    : bbbs b--E E  bEEE   
+  orcish dagger           :                     +2   d3    2.0  d3      2.0
+  dagger                  :                     +2   d4    2.5  d3      2.0
+  silver dagger           :                     +2   d4    2.5  d3      2.0
+  athame                  :                     +2   d4    2.5  d3      2.0
+  elven dagger            :                     +2   d5    3.0  d3      2.0
+Knife                     : b-sE b--s E  ss-s   
+  worm tooth              :                          d2    1.5  d2      1.5
+  knife           (shito) :                          d3    2.0  d2      1.5
+  stiletto                :                          d3    2.0  d2      1.5
+  scalpel                 :                     +2   d3    2.0  d3      2.0
+  crysknife               :                     +3   d10   5.5  d10     5.5
+Axe                       : -Es- s--s -  -bEs   
+  axe                     :                          d6    3.5  d4      2.5
+  battle-axe              :                          d8+d4 7.0  d6+2d4  8.5
+Pick-axe                  : Esb- b--b -  -bs-   
+  pick-axe                :                          d6    3.5  d3      2.0
+  dwarvish mattock        :                     -1   d12   6.5  d8+2d6 11.5
+Short sword               : bE-s s--b E  EEsb   
+  orcish short sword      :                          d5    3.0  d8      4.5
+  short sword (wakizashi) :                          d6    3.5  d8      4.5
+  dwarvish short sword    :                          d7    4.0  d8      4.5
+  elven short sword       :                          d8    4.5  d8      4.5
+Broadsword                : -s-- s--- s  sbs-   
+  broadsword   (ninja-to) :                          2d4   5.0  d6+1    4.5
+  runesword               :                          2d4   5.0  d6+1    4.5
+  elven broadsword        :                          d6+d4 6.0  d6+1    4.5
+Long sword                : -s-- E--- s  EbE-   
+  long sword              :                          d8    4.5  d12     6.5
+  katana                  :                     +1   d10   5.5  d12     6.5
+Two-handed sword          : -E-- s--- b  EbE-   
+  two-handed sword        :                          d12   6.5  3d6    10.5
+  tsurugi                 :                     +2   d16   8.5  d8+2d6 11.5
+Scimitar                  : ss-b b--- s  bsb-   
+  scimitar                :                          d8    4.5  d8      4.5
+Saber                     : Eb-b s--- s  bsb-   
+  silver saber            :                          d8    4.5  d8      4.5
+Club                      : ssEs b-E- s  ---s   
+  club                    :                          d6    3.5  d3      2.0
+  aklys                   :                          d6    3.5  d3      2.0
+Mace                      : -sEb s-E- s  -b-b   
+  mace                    :                          d6+1  4.5  d6      3.5
+Morning star              : -sb- s-Eb b  -b--   
+  morning star            :                          2d4   5.0  d6+1    4.5
+Flail                     : -bs- b-Es b  sb--   
+  flail        (nunchaku) :                          d6+1  4.5  2d4     5.0
+  grappling hook          :                          d2    1.5  d6      3.5
+Hammer                    : -Es- b-Eb b  -bE-   
+  war hammer              :                          d4+1  3.5  d4      2.5
+Quarterstaff              : sbEE -bEb -  bbbE   
+  quarterstaff            :                          d6    3.5  d6      3.5
+Polearm                   : --sb s-ss b  sbss   
+  partisan                :                          d6    3.5  d6+1    4.5
+  fauchard                :                          d6    3.5  d8      4.5
+  glaive       (naginata) :                          d6    3.5  d10     5.5
+  bec-de-corbin           :                          d8    4.5  d6      3.5
+  spetum                  :                          d6+1  4.5  2d6     7.0
+  lucern hammer           :                          2d4   5.0  d6      3.5
+  guisarme                :                          2d4   5.0  d8      4.5
+  ranseur                 :                          2d4   5.0  2d4     5.0
+  voulge                  :                          2d4   5.0  2d4     5.0
+  bill-guisarme           :                          2d4   5.0  d10     5.5
+  bardiche                :                          2d4   5.0  3d4     7.5
+  halberd                 :                          d10   5.5  2d6     7.0
+Spear                     : -sEb sbss b  bbsb   
+  orcish spear            :                          d5    3.0  d8      4.5
+  spear                   :                          d6    3.5  d8      4.5
+  silver spear            :                          d6    3.5  d8      4.5
+  elven spear             :                          d7    4.0  d8      4.5
+  dwarvish spear          :                          d8    4.5  d8      4.5
+Javelin                   : --sb sbsE -  bbbb
+  javelin                 :                          d6    3.5  d6      3.5
+Trident                   : -ssb b-sb -  -bbb   
+  trident                 :                          d6+1  4.5  3d4     7.5
+Lance                     : ---- E-b- -  sbs-   
+  lance                   :                          d6    3.5  d8      4.5
+Bow                       : -bs- b-bE -  Eb--   
+  orcish bow              :                          d2    1.5  d2      1.5
+  bow                     :                          d2    1.5  d2      1.5
+  elven bow               :                          d2    1.5  d2      1.5
+  yumi                    :                          d2    1.5  d2      1.5
+  orcish arrow            :                          d5    3.0  d6      3.5
+  arrow                   :                          d6    3.5  d6      3.5
+  silver arrow            :                          d6    3.5  d6      3.5
+  elven arrow             :                          d7    4.0  d6      3.5
+  ya                      :                     +1   d7    4.0  d7      4.0
+Sling                     : s-Es --bE -  -bbs   
+  sling                   :                          d2    1.5  d2      1.5
+  flintstone              :                          d6    3.5  d6      3.5
+  other rocks/gems/glass  :                          d3    2.0  d3      2.0
+Crossbow                  : ---- sbbE E  -b--   
+  crossbow                :                          d2    1.5  d2      1.5
+  crossbow bolt           :                          d4+1  3.5  d6+1    4.5
+Dart                      : b--E --bE E  -E-E   
+  dart                    :                          d3    2.0  d2      1.5
+Shuriken                  : ---s -bbs s  Eb-b   
+  shuriken                :                     +2   d8    4.5  d6      3.5
+Boomerang                 : E-E- --bE -  -b--   
+  boomerang               :                          d9    5.0  d9      5.0
+Whip                      : E--- ---b -  -b--   
+  bullwhip                :                          d2    1.5  1       1.0
+  rubber hose             :                          d4    2.5  d3      2.0
+Unicorn horn              : s-bE --s- -  -s--   
+  unicorn horn            :                     +1   d12   6.5  d12     6.5
+Two weapon combat         : bb-- s--- E  Ess-   
+Riding                    : bb-- E--b b	 sbsb		    
+Bare-handed combat        : EMMb E-bb E  -sEb        d2    1.5  d2      1.5
+Martial arts              : ---- -G-- -  M---        d4    2.5  d4      2.5
+
+
+ARMOR                       COST  WGT  PR   AC  M  EFFECT    APPEARANCE
+~~~~~~~~~~~~~~~~~~~~~~~~~ : ~~~~  ~~~  ~~ : ~~  ~  ~~~~~~~~  ~~~~~~~~~~
+Shirts                    :               :
+  Hawaiian shirt          : $  3    5   8 :  0  C  Shops     --
+  T-shirt                 :    2    5   2 :  0  C  Shops     --
+Suits                     :               :
+  leather jacket          :   10   30  12 :  1  L            --
+  leather armor           :    5  150  82 :  2  L            --
+  orcish ring mail        :   80  250  20 :  2  I  #         crude ring mail
+  studded leather armor   :   15  200  72 :  3  L  #         --
+  ring mail               :  100  250  72 :  3  I            --
+  scale mail              :   45  250  72 :  4  I            --
+  orcish chain mail       :   75  300  20 :  4  I  #         crude chain mail
+  chain mail              :   75  300  72 :  5  I  #         --
+  elven mithril coat      :  240  150  15 :  5  M  ###       --
+  splint mail             :   80  400  62 :  6  I  #         --
+  banded mail             :   90  350  72 :  6  I            --
+  dwarvish mithril coat   :  240  150  10 :  6  M  ###       --
+  bronze plate mail       :  400  450  25 :  6  B            --
+  plate mail      (tanko) :  600  450  44 :  7  I  ##        --
+  crystal plate mail      :  820  450  10 :  7  G  ##        --
+Dragon suits              :               :
+  red dragon scales       :  500   40   0 :  3  D  Fire      --
+  white dragon scales     :  500   40   0 :  3  D  Cold      --
+  orange dragon scales    :  500   40   0 :  3  D  Sleep     --
+  blue dragon scales      :  500   40   0 :  3  D  Elec      --
+  green dragon scales     :  500   40   0 :  3  D  Poison    --
+  yellow dragon scales    :  500   40   0 :  3  D  Acd       --
+  black dragon scales     :  700   40   0 :  3  D  Disint    --
+  silver dragon scales    :  700   40   0 :  3  D  Reflect   --
+  gray dragon scales      :  700   40   0 :  3  D  Magic     --
+  red dragon scale mail   :  900   40   0 :  9  D  Fire      --
+  white dragon scale mail :  900   40   0 :  9  D  Cold      --
+  orange dragon scale mail:  900   40   0 :  9  D  Sleep     --
+  blue dragon scale mail  :  900   40   0 :  9  D  Elec      --
+  green dragon scale mail :  900   40   0 :  9  D  Poison    --
+  yellow dragon scale mail:  900   40   0 :  9  D  Acd       --
+  black dragon scale mail : 1200   40   0 :  9  D  Disint    --
+  silver dragon scale mail: 1200   40   0 :  9  D  Reflect   --
+  gray dragon scale mail  : 1200   40   0 :  9  D  Magic     --
+Cloaks                    :               :
+  mummy wrapping          :    2    3   0 :  0  C  #Vis      --
+  orcish cloak            :   40   10   8 :  0  C  ##        coarse mantelet
+  dwarvish cloak          :   50   10   8 :  0  C  ##        hooded cloak
+  leather cloak           :   40   15   8 :  1  L  #         --
+  cloak of displacement   :   50   10  10 :  1  C  ##Displ   *piece of cloth
+  oilskin cloak           :   50   10  10 :  1  C  ###Water  slippery cloak
+  alchemy smock           :   50   10   9 :  1  C  #Poi+Acd  apron
+  cloak of invisibility   :   60   10  10 :  1  C  ##Invis   *opera cloak
+  clk of magic resistance :   60   10   2 :  1  C  ###Magic  *ornamental cope
+  elven cloak             :   60   10   8 :  1  C  ###Stlth  faded pall
+  robe                    :   50   15   3 :  2  C  ###Spell  --
+  cloak of protection     :   50   10   9 :  3  C  ###Prot   *tattered cape
+Helmets                   :               :
+  fedora                  :    1    3   0 :  0  C            --
+  dunce cap               :    1    4   3 :  0  C  Stupid    conical hat
+  cornuthaum              :   80    4   3 :  0  C  ##Clair   conical hat
+  dented pot              :    8   10   2 :  1  I            --
+  elven leather helm      :    8    3   6 :  1  L            leather hat
+  helmet         (kabuto) :   10   30  10 :  1  I            *plumed helmet
+  orcish helm             :   10   30   6 :  1  I            iron skull cap
+  helm of brilliance      :   50   50   6 :  1  I  Int+Wis   *etched helmet
+  hm of opposite alignment:   50   50   6c:  1  I  Align     *crested helmet
+  helm of telepathy       :   50   50   2 :  1  I  ESP       *visored helmet
+  dwarvish iron helm      :   20   40   6 :  2  I            hard hat
+Gloves                    :               :
+  leather gloves (yugake) :    8   10  16 :  1  L            *old gloves
+  gauntlets of dexterity  :   50   10   8 :  1  L  Dex       *padded gloves
+  gauntlets of fumbling   :   50   10   8c:  1  L  Fumble    *riding gloves
+  gauntlets of power      :   50   30   8 :  1  I  Str       *fencing gloves
+Shields                   :               :
+  small shield            :    3   30   6 :  1  W            --
+  orcish shield           :    7   50   2 :  1  I            red-eyed
+  Uruk-hai shield         :    7   50   2 :  1  I            white-handed
+  elven shield            :    7   50   2 :  2  W            blue and green
+  dwarvish roundshield    :   10  100   4 :  2  I            large round
+  large shield            :   10  100   7 :  2  I            --
+  shield of reflection    :   50   50   3 :  2  S  Reflect   polished silver
+Boots                     :               :
+  low boots               :    8   10  25 :  1  L            walking shoes
+  elven boots             :    8   15  12 :  1  L  Stlth     *mud boots
+  kicking boots           :    8   15  12 :  1  I  Kick      *buckled boots
+  fumble boots            :   30   20  12c:  1  L  Fumble    *riding boots
+  levitation boots        :   30   15  12c:  1  L  Lev       *snow boots
+  jumping boots           :   50   20  12 :  1  L  Jump      *hiking boots
+  speed boots             :   50   20  12 :  1  L  Speed     *combat boots
+  water walking boots     :   50   20  12 :  1  L  WWalk     *jungle boots
+  high boots              :   12   20  15 :  2  L            jackboots
+  iron shoes              :   16   50   7 :  2  I            hard shoes
+
+
+FOOD                      COST  WGT  PROB   NUTR  NUTR/WGT  TIME
+~~~~~~~~~~~~~~~~~~~~~~~ : ~~~~  ~~~  ~~~~ : ~~~~  ~~~~~~~~  ~~~~
+Meat                    :                 :
+  meatball              : $  5    1    0  :    5      5       1
+  meat ring             :    5    1    0  :    5      5       1
+  meat stick            :    5    1    0  :    5      5       1
+  egg                   :    9    1   85  :   80     80       1
+  tripe ration          :   15   10  140  :  200     20       2
+  huge chunk of meat    :  105  400    0  : 2000      5      20
+  corpse                :    5  vary   0  : vary    vary    vary
+Fruits and vegetables   :                 :
+  kelp frond            :    6    1    0  :   30     30       1
+  eucalyptus leaf       :    6    1    3  :   30     30       1
+  clove of garlic       :    7    1    7  :   40     40       1
+  sprig of wolfsbane    :    7    1    7  :   40     40       1
+  apple                 :    7    2   15  :   50     25       1
+  carrot                :    7    2   15  :   50     25       1
+  pear                  :    7    2   10  :   50     25       1
+  banana                :    9    2   10  :   80     40       1
+  orange                :    9    2   10  :   80     40       1 
+  melon                 :   10    5   10  :  100     20       1
+  slime mold            :   17    5   75  :  250     50       1
+People food             :                 :
+  fortune cookie        :    7    1   55  :   40     40       1
+  candy bar             :   10    2   13  :  100     50       1
+  cream pie             :   10   10   25  :  100     10       1
+  lump of royal jelly   :   15    2    0  :  200    100       1
+  pancake               :   15    2   25  :  200    100       2
+  C-ration              :   20   10    0  :  300     30       1
+  K-ration              :   25   10    0  :  400     40       1
+  cram ration           :   35   15   20  :  600     40       3
+  food ration (gunyoki) :   45   20  380  :  800     40       5
+  lembas wafer          :   45    5   20  :  800    160       2
+  tin                   :    5   10   75  : vary    vary    vary
+
+
+SCROLL            COST  WGT  PROB   MRKR  APPEARANCE
+~~~~~~~~~~~~~~~ : ~~~~  ~~~  ~~~~ : ~~~~  ~~~~~~~~~~
+mail            : $  0   5     0  :   2   stamped
+identify        :   20   5   180  :  14
+light           :   50   5    90  :   8
+blank paper     :   60   5    28  :   0   unlabeled
+enchant weapon  :   60   5    80  :  16
+enchant armor   :   80   5    63  :  16
+remove curse    :   80   5    65  :  16
+confuse monster :  100   5    53  :  12
+destroy armor   :  100   5    45  :  10
+fire            :  100   5    30  :   8
+food detection  :  100   5    25  :   8
+gold detection  :  100   5    33  :   8
+magic mapping   :  100   5    45  :   8
+scare monster   :  100   5    35  :  20
+teleportation   :  100   5    55  :  20
+amnesia         :  200   5    35  :   8
+create monster  :  200   5    45  :  10
+earth           :  200   5    18  :   8
+taming          :  200   5    15  :  20
+charging        :  300   5    15  :  16
+genocide        :  300   5    15  :  30
+punishment      :  300   5    15  :  10
+stinking cloud  :  300   5    15  :  20
+
+
+  SPELLBOOK          COST   WGT  PROB   LVL  READ  MRKR  BONUS  APPEARANCE
+  ~~~~~~~~~~~~~~~~ : ~~~~~  ~~~  ~~~~ : ~~~  ~~~~  ~~~~  ~~~~~  ~~~~~~~~~~
+  blank paper      : $   0   50   18  :  0     0     0          plain
+  Book of the Dead : 10000   20    0  :  7     0     0          papyrus
+attack             :                  :
+  force bolt       :   100   50   35  :  1     2    10
+  drain life       :   200   50   10  :  2     2    20
+  magic missile    :   200   50   45  :  2     2    20    Wiz
+  cone of cold     :   400   50   10  :  4    21    40    Val
+  fireball         :   400   50   20  :  4    12    40
+  finger of death  :   700   50    5  :  7    80    70
+healing            :                  :
+  healing          :   100   50   40  :  1     2    10       +
+  cure blindness   :   200   50   25  :  2     2    20       +
+  cure sickness    :   300   50   32  :  3     6    30    Hea+
+  extra healing    :   300   50   27  :  3    10    30       +
+  stone to flesh   :   300   50   15  :  3     2    30
+  restore ability  :   400   50   25  :  4    15    40    Mon+
+divination         :                  :
+  detect monsters  :   100   50   43  :  1     1    10
+  light            :   100   50   45  :  1     1    10
+  detect food      :   200   50   30  :  2     3    20
+  clairvoyance     :   300   50   15  :  3     6    30    Sam
+  detect unseen    :   300   50   20  :  3     8    30
+  identify         :   300   50   20  :  3    12    30
+  detect treasure  :   400   50   20  :  4    15    40    Rog
+  magic mapping    :   500   50   18  :  5    35    50    Arc
+enchantment        :                  :
+  sleep            :   100   50   50  :  1     1    10
+  confuse monster  :   200   50   30  :  2     2    20
+  slow monster     :   200   50   30  :  2     2    20
+  cause fear       :   300   50   25  :  3     6    30
+  charm monster    :   300   50   20  :  3     6    30    Tou
+clerical           :                  :
+  protection       :   100   50   18  :  1     3    10
+  create monster   :   200   50   35  :  2     3    20
+  remove curse     :   300   50   25  :  3    10    30    Pri+
+  create familiar  :   600   50   10  :  6    42    60
+  turn undead      :   600   50   16  :  6    48    60    Kni
+escape             :                  :
+  jumping          :   100   50   20  :  1     3    10
+  haste self       :   300   50   33  :  3     8    30    Bar
+  invisibility     :   400   50   25  :  4    15    40    Ran
+  levitation       :   400   50   20  :  4    12    40
+  teleport away    :   600   50   15  :  6    36    60
+matter             :                  :
+  knock            :   100   50   35  :  1     1    10
+  wizard lock      :   200   50   30  :  2     3    20
+  dig              :   500   50   20  :  5    30    50    Cav
+  polymorph        :   600   50   10  :  6    48    60
+  cancellation     :   700   50   15  :  7    64    70
+
+
+POTION              COST  WGT  PROB   APPEARANCE
+~~~~~~~~~~~~~~~~~ : ~~~~  ~~~  ~~~~ : ~~~~~~~~~~
+booze      (sake) : $ 50   20   42  :
+fruit juice       :   50   20   42  :
+see invisible     :   50   20   42  :
+sickness          :   50   20   42  :
+confusion         :  100   20   42  :
+extra healing     :  100   20   47  :
+hallucination     :  100   20   40  :
+healing           :  100   20   57  :
+restore ability   :  100   20   40  :
+sleeping          :  100   20   42  :
+water             :  100   20   92  :  clear
+blindness         :  150   20   40  :
+gain energy       :  150   20   42  :
+invisibility      :  150   20   40  :
+monster detection :  150   20   40  :
+object detection  :  150   20   42  :
+enlightenment     :  200   20   20  :
+full healing      :  200   20   10  :
+levitation        :  200   20   42  :
+polymorph         :  200   20   10  :
+speed             :  200   20   42  :
+acid              :  250   20   10  :
+oil               :  250   20   30  :
+gain ability      :  300   20   42  :
+gain level        :  300   20   20  :
+paralysis         :  300   20   42  :
+
+
+RING                             COST  WGT  PROB   CHG
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ : ~~~~  ~~~  ~~~~ : ~~~
+meat ring                      : $  5   1     0  :
+adornment                      :  100   3     1  :  Y
+hunger                         :  100   3     1c :
+protection                     :  100   3     1  :  Y
+protection from shape changers :  100   3     1  :
+stealth                        :  100   3     1  :
+sustain ability                :  100   3     1  :
+warning                        :  100   3     1  :
+aggravate monster              :  150   3     1c :
+cold resistance                :  150   3     1  :
+gain constitution              :  150   3     1  :  Y
+gain strength                  :  150   3     1  :  Y
+increase accuracy              :  150   3     1  :  Y
+increase damage                :  150   3     1  :  Y
+invisibility                   :  150   3     1  :
+poison resistance              :  150   3     1  :
+see invisible                  :  150   3     1  :
+shock resistance               :  150   3     1  :
+fire resistance                :  200   3     1  :
+free action                    :  200   3     1  :
+levitation                     :  200   3     1  :
+regeneration                   :  200   3     1  :
+searching                      :  200   3     1  :
+slow digestion                 :  200   3     1  :
+teleportation                  :  200   3     1c :
+conflict                       :  300   3     1  :
+polymorph                      :  300   3     1c :
+polymorph control              :  300   3     1  :
+teleport control               :  300   3     1  :
+
+
+WAND                    COST  WGT  PROB   CHG  TYPE
+~~~~~~~~~~~~~~~~~~~~~ : ~~~~  ~~~  ~~~~ : ~~~  ~~~~
+light                 : $100   7    95  : 15   NODIR
+nothing               :  100   7    25  : 15   BEAM
+digging               :  150   7    55  :  8   RAY
+enlightenment         :  150   7    15  : 15   NODIR
+locking               :  150   7    25  :  8   BEAM
+magic missile         :  150   7    50  :  8   RAY
+make invisible        :  150   7    45  :  8   BEAM
+opening               :  150   7    25  :  8   BEAM
+probing               :  150   7    30  :  8   BEAM
+secret door detection :  150   7    50  : 15   NODIR
+slow monster          :  150   7    50  :  8   BEAM
+speed monster         :  150   7    50  :  8   BEAM
+striking              :  150   7    75  :  8   BEAM
+undead turning        :  150   7    50  :  8   BEAM
+cold                  :  175   7    40  :  8   RAY
+fire                  :  175   7    40  :  8   RAY
+lightning             :  175   7    40  :  8   RAY
+sleep                 :  175   7    50  :  8   RAY
+cancellation          :  200   7    45  :  8   BEAM
+create monster        :  200   7    45  : 15   NODIR
+polymorph             :  200   7    45  :  8   BEAM
+teleportation         :  200   7    45  :  8   BEAM
+death                 :  500   7     5  :  8   RAY
+wishing               :  500   7     5  :  3!  NODIR
+
+
+TOOL                          COST  WGT  PROB   CHG  APPEARANCE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~ : ~~~~  ~~~  ~~~~ : ~~~  ~~~~~~~~~~
+Containers                  :                 :
+  sack                      : $  2   15   35  :      bag
+  large box                 :    8  350   40  :      --
+  chest                     :   16  600   35  :      --
+  ice box                   :   42  900    5  :      --
+  bag of holding            :  100   15   20  :      bag
+  bag of tricks             :  100   15   20  :  20  bag
+  oilskin sack              :  100   15    5  :      bag
+Unlocking tools             :                 :
+  credit card*              :   10    1   15  :      --
+  lock pick         (osaku) :   20    4   60  :      --
+  skeleton key              :   10    3   80  :      key
+Light sources               :                 :
+  tallow candle             :   10    2   20  :      candle
+  wax candle                :   20    2    5  :      candle
+  brass lantern             :   12   30   30  :1499  --
+  oil lamp                  :   10   20   45  :1499  lamp
+  magic lamp                :   50   20   15  :      lamp
+  Candelabrum of Invocation : 5000   10    0  :      candelabrum
+Instruments                 :                 :
+  tin whistle               :   10    3  100  :      whistle
+  magic whistle             :   10    3   30  :      whistle
+  bugle                     :   15   10    4  :      --
+  wooden flute              :   12    5    4  :      flute
+  magic flute               :   36    5    2  :   8  flute
+  tooled horn               :   15   18    5  :      horn
+  frost horn                :   50   18    2  :   8  horn
+  fire horn                 :   50   18    2  :   8  horn
+  horn of plenty            :   50   18    2  :  20  horn
+  leather drum              :   25   25    4  :      drum
+  drum of earthquake        :   25   25    2  :   8  drum
+  wooden harp        (koto) :   50   30    4  :      harp
+  magic harp                :   50   30    2  :   8  harp
+  bell                      :   50   30    2  :      --
+  Bell of Opening           : 5000   10    0  :   3  silver bell
+Traps                       :                 :
+  beartrap                  :   60  200    0  :      --
+  land mine                 :  180  300    0  :      --
+Weapon-Tools                :                 :
+  pick-axe                  :   50  100   20  :      --
+  grappling hook            :   50   30    5  :      iron hook
+  unicorn horn              :  100   20    0  :      --
+Other tools                 :                 :
+  expensive camera*         :  200   12   15  :  99  --
+  mirror                    :   10   13   45  :      looking glass
+  crystal ball              :   60  150   15  :   5  glass orb
+  lenses                    :   80    3    5  :      --
+  blindfold                 :   20    2   50  :      --
+  towel                     :   50    2   50  :      --
+  saddle*                   :  150  200    5  :      --
+  leash                     :   20   12   65  :      --
+  stethoscope               :   75    4   25  :      --
+  tinning kit               :   30  100   15  :  99  --
+  tin opener                :   30    4   35  :      --
+  can of grease             :   20   15   15  :  25  --
+  figurine                  :   80   50   25  :      --
+  magic marker              :   50    2   15  : 99!  --
+
+
+GEMS AND STONES           COST  WGT  PROB    ENGR  COLORS
+~~~~~~~~~~~~~~~~~~~~~~~ : ~~~~  ~~~  ~~~~  : ~~~~  ~~~~~~
+Valuable gems           :                  :
+  dilithium crystal     :$4500    1   27*  : soft  white
+  diamond               : 4000    1   24*  : hard  white
+  ruby                  : 3500    1   21*  : hard  red
+  jacinth               : 3250    1   18*  : hard  orange
+  sapphire              : 3000    1   15*  : hard  blue
+  black opal            : 2500    1   12*  : hard  black
+  emerald               : 2500    1    9*  : hard  green
+  turquoise             : 2000    1    6*  : soft  green, blue
+  aquamarine            : 1500    1    1*  : hard  green, blue
+  citrine               : 1500    1    3*  : soft  yellow
+  amber                 : 1000    1    1*  : soft  yellowish brown
+  topaz                 :  900    1    1*  : hard  yellowish brown
+  jet                   :  850    1    1*  : soft  black
+  opal                  :  800    1    1*  : soft  white
+  chrysoberyl           :  700    1    1*  : soft  yellow
+  garnet                :  700    1    1*  : soft  red
+  amethyst              :  600    1    1*  : soft  violet
+  jasper                :  500    1    1*  : soft  red
+  fluorite              :  400    1    1*  : soft  green, blue, white, violet
+  jade                  :  300    1    1*  : soft  green
+  agate                 :  200    1    1*  : soft  orange
+  obsidian              :  200    1    1*  : soft  black
+Worthless gems          :                  :
+  black glass           :    0    1   76   : soft  black
+  blue glass            :    0    1   77   : soft  blue
+  green glass           :    0    1   77   : soft  green
+  orange glass          :    0    1   76   : soft  orange
+  red glass             :    0    1   77   : soft  red
+  violet glass          :    0    1   77   : soft  violet
+  white glass           :    0    1   77   : soft  white
+  yellow glass          :    0    1   77   : soft  yellow
+  yellowish brown glass :    0    1   77   : soft  yellowish brown
+Stones                  :                  :
+  luckstone             :   60   10   10   : soft  gray stone
+  touchstone            :   45   10    8   : soft  gray stone
+  flintstone            :    1   10   10   : soft  gray stone
+  loadstone             :    1  500   10   : soft  gray stone
+  rock                  :    0   10  100   : soft  rock
+
+
+ITEM              COST  WGT   PROB   SYM  DAMAGE  NUTR
+~~~~~~~~~~~~~~~ : ~~~~  ~~~~  ~~~~ : ~~~  ~~~~~~  ~~~~
+gold piece      : $  1  0.01  1000 :  $       0   0.01
+boulder         :    0  6000   100 :  '     d20   2000
+statue          :    0  vary   900 :  '     d20   2500
+heavy iron ball :   10   480*    0 :  0     d25*   480*
+iron chain      :    0   120     0 :  _    d4+1    120
+acid venom      :    0     1     0 :  .     2d6      0
+blinding venom  :    0     1     0 :  .       0      0
+
+
+See the related spoiler files for full descriptions of each of the
+above fields.

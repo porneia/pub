@@ -1,0 +1,95 @@
+gods-343.txt  Last edited 2003-12-17 for NetHack 3.4.3
+Gods, races and alignments in NetHack 3.4
+Compiled by Dylan O'Donnell <psmith@spod-central.org>.
+
+Gods and alignments
+~~~~~~~~~~~~~~~~~~~
+The format of this spoiler is as follows:
+
+Role (mythos from which gods are drawn)
+Lawful:  Lawful god(dess) (races that can start as lawful in this role)
+Neutral: Neutral god(dess)(races that can start as neutral in this role)
+Chaotic: Chaotic god      (races that can start as chaotic in this role)
+
+
+Archeologist (Central American)
+Lawful:  Quetzalcoatl      (humans, dwarves)
+Neutral: Camaxtli          (humans, gnomes)
+Chaotic: Huhetotl
+
+Barbarian (Hyborian)
+Lawful:  Mitra
+Neutral: Crom              (humans)
+Chaotic: Set               (humans, orcs)
+
+Cave(wo)man (Babylonian)
+Lawful:  Anu               (humans, dwarves)
+Neutral: Ishtar            (humans, gnomes)
+Chaotic: Anshar
+
+Healer (Greek)
+Lawful:  Athena
+Neutral: Hermes            (humans, gnomes)
+Chaotic: Poseidon
+
+Knight (Celtic)
+Lawful:  Lugh              (humans)
+Neutral: Brigit
+Chaotic: Manannan Mac Lir
+
+Monk (Chinese)
+Lawful:  Shan Lai Ching    (humans)
+Neutral: Chih Sung-tzu     (humans)
+Chaotic: Huan Ti           (humans)
+
+Priest(ess) (Random)
+Priests are assigned the pantheon of one of the other roles at
+random on starting the game. Thus a human Priest can worship any
+of the 36 gods; elven Priests are always chaotic.
+
+Ranger (Roman)
+Lawful:  Mercury
+Neutral: Venus             (humans, gnomes)
+Chaotic: Mars              (humans, elves, orcs)
+
+Rogue (Nehwon)
+Lawful:  Issek
+Neutral: Mog
+Chaotic: Kos               (humans, orcs)
+
+Samurai (Japanese)
+Lawful:  Amaterasu Omikami (humans)
+Neutral: Raijin
+Chaotic: Susanowo
+
+Tourist (Discworld)
+Lawful:  Blind Io
+Neutral: The Lady          (humans)
+Chaotic: Offler
+
+Valkyrie (Norse)
+Lawful:  Tyr               (humans, dwarves)
+Neutral: Odin              (humans)
+Chaotic: Loki
+
+Wizard (Egyptian)
+Lawful:  Ptah
+Neutral: Thoth             (humans, gnomes)
+Chaotic: Anhur             (humans, elves, orcs)
+
+Races and alignments
+~~~~~~~~~~~~~~~~~~~~
+Races can thus play the following roles:
+
+Dwarves (Law): Arc   Cav                        Val 
+Elves   (Cha):                   PriRan            Wiz 
+Gnomes  (Neu): Arc   CavHea         Ran            Wiz 
+Humans  (Law): Arc   Cav   KniMonPri      Sam   Val 
+Humans  (Neu): ArcBarCavHea   MonPriRan      TouValWiz 
+Humans  (Cha):    Bar         MonPriRanRog         Wiz 
+Orcs    (Cha):    Bar               RanRog         Wiz 
+
+
+Acknowledgements
+~~~~~~~~~~~~~~~~
+Corrections and clarifications provided by Rast.

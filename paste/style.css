@@ -1,0 +1,22 @@
+body {
+}
+
+.inputarea {
+    margin: auto;
+    width: 650px;
+}
+
+.buttonls {
+    text-align: center;
+}
+
+textarea{
+    font-family: monospace;
+    border: 1pt dashed #AEBDCC;
+    background: #FFF;
+    padding: 5pt;
+    overflow: auto;
+    width: 100%;
+    font-size: 1.2em;
+    height: 420px;
+}

@@ -1,0 +1,147 @@
+hppw-343.txt  Last edited 2003-12-17 for NetHack 3.4.3
+HP and power starting values, level increases, and regeneration in NetHack 3.4
+Compiled by Dylan O'Donnell <psmith@spod-central.org>.
+
+Initial hit points
+~~~~~~~~~~~~~~~~~~
+Characters start with a fixed number of hit points according to
+their role:
+
+Arc  Bar  Cav  Hea  Kni  Mon  Pri  Ran  Rog  Sam  Tou  Val  Wiz
+ 11   14   14   11   14   12   12   13   10   13    8   14   10
+
+modified by racial bonuses:
+
+Dwa  Elf  Gno  Hum  Orc
+ +4   +1   +1   +2   +1
+
+
+Hit point gain per level
+~~~~~~~~~~~~~~~~~~~~~~~~
+This varies according to whether your character is "high level" or not;
+more experienced characters generally gain HP more slowly. High level
+characters are those that have reached the following experience levels:
+
+Arc  Bar  Cav  Hea  Kni  Mon  Pri  Ran  Rog  Sam  Tou  Val  Wiz
+ 14   10   10   20   10   10   10   12   11   11   14   10   12
+
+The base HP (and max HP) increment when gaining an experience level is:
+
+      Arc  Bar  Cav  Hea  Kni  Mon  Pri  Ran  Rog  Sam  Tou  Val  Wiz
+low:  +d8 +d10  +d8  +d8  +d8  +d8  +d8  +d6  +d8  +d8  +d8  +d8  +d8
+high:  +1   +2   +2   +1   +2   +1   +1   +1   +1   +1   +0   +2   +1
+
+with racial modifiers:
+
+      Dwa  Elf  Gno  Hum  Orc
+low:  +d3   +1   +1  +d2   +1
+high:  +2   +1   +0   +1   +0
+
+and a bonus or penalty for constitution:
+
+    3 : -2
+  4-6 : -1
+ 7-14 : +0
+15-16 : +1
+   17 : +2
+   18 : +3
+   19+: +4
+
+You will always gain at least one HP when gaining a level.
+
+
+Hit point regeneration
+~~~~~~~~~~~~~~~~~~~~~~
+If your hit points are reduced below their maximum level, they will
+usually regenerate over time. HP do not regenerate during the period of
+invulnerability while praying to a receptive god.
+
+If you are polymorphed into another monster, you will regain 1 HP every
+20 turns provided you are no worse than Burdened (every turn, ignoring
+encumbrance, if you have the regeneration intrinsic); the exception is
+if you are a sea monster out of water, when you will lose 1 HP each turn
+(but never to zero).
+
+If you are in your normal form, the frequency and amount of HP you
+regenerate depends on your experience level and constitution. Unless you
+have regeneration, you will not regain HP if you are moving or fighting
+while Stressed or worse (indeed, doing so while Strained will cause you
+to lose 1 HP every 30 turns, every 10 turns while Overtaxed, until you
+don't have enough stamina to move or you pass out).
+
+If your experience level (XL) is 10 or less:
+
+  regain 1 HP every number of turns depending on the following table:
+       XL:   1   2   3   4   5   6   7   8   9  10
+    TURNS:  15  11   9   8   7   6   5   5   4   3
+
+If your experience level (XL) is 11 or greater:
+
+  every 3 turns, regain HP depending on CON. 
+  CON = 3-12 : 1 HP.
+  CON = 13+ : d(CON), but no more than XL-9.
+
+If you have regeneration:
+
+  gain 1 HP on any turn which you would not otherwise.
+
+
+
+Initial power
+~~~~~~~~~~~~~
+Characters start the game with an amount of magical power dependent
+on their role:
+
+Arc  Bar  Cav  Hea  Kni  Mon  Pri  Ran  Rog  Sam  Tou  Val  Wiz
+ 1    1    1   1+d4 1+d4 2+d2 4+d3  1    1    1    1    1   4+d3
+
+modified by racial bonuses:
+
+Dwa Elf Gno Hum Orc
+ +0  +2  +2  +1  +1
+
+
+Power gain per level
+~~~~~~~~~~~~~~~~~~~~
+For some roles only, this varies according to whether your character is
+"high level" or not; more experienced characters may gain power slightly
+more quickly. High level characters are those that have reached the
+following experience levels:
+
+Hea  Kni  Mon  Pri  Wiz
+ 20   10   10   10   12
+
+The amount of power gained is determined by rolling a die with
+((WIS / 2) + X) sides. X is usually 1, but is 2 for high level
+Healers, Knights, Monks, and Priests, and low level Wizards; and is
+3 for high level Wizards. This die-roll is modified by racial bonuses
+or penalties:
+
+Dwa Elf Gno Hum Orc
+ -1  +2  +1  +1  +0
+
+and the outcome may be subject to a further multiplier:
+
+Bar, Val: x0.75
+Hea, Kni: x1.5
+Pri, Wiz: x2
+
+It is possible (in the case of dwarves) not to gain power when gaining a
+level.
+
+
+Power regeneration
+~~~~~~~~~~~~~~~~~~
+When you use power, it slowly returns to its maximum level at a rate
+dependent on your experience level (XL), role, wisdom, and intelligence.
+
+Non-Wizards: every (38 - XL) * 2/3 turns
+Wizards:     every (38 - XL) * 1/2 turns
+(Or every turn if carrying the Eye of the Aethiopica):
+
+regain d(((WIS + INT) / 15) + 1) power points.
+
+
+Acknowledgements
+~~~~~~~~~~~~~~~~
+Corrections and clarifications provided by Christian Cooper and Rast.

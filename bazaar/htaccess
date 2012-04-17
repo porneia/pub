@@ -1,0 +1,17 @@
+---
+layout: nil
+permalink: .htaccess
+---
+HeaderName header.html
+
+AddDescription "Quelques citations en vrac" citations.html
+AddDescription "Les Devises de l'Acquisition Ferengis" devises_de_l_acquisition.html
+AddDescription "Subject: A Cyberspace Independence Declaration (Fri, 9 Feb 1996 17:16:35 +0100)" barlow_0296.declaration
+AddDescription "The Conscience of a Hacker by The Mentor (Written on January 8, 1986)" hacker_manifesto.txt
+AddDescription "Useful one-line scripts for Sed (unix stream editor) v5.5" sed1line.txt
+AddDescription "Barry Lyndon script by Stanley Kubrick (1973)" BarryLyndon_by_StanleyKubrick.txt
+AddDescription "12 Monkeys script by David Peoples & Janet Peoples (1995)" TwelveMonkeys_by_DavidPeoples_JanetPeoples.tx
+AddDescription "Planet of the Apes script by Michael Wilson (1967)" PlanetOfTheApes_by_MichaelWilson.txt
+AddDescription "Aladdin script (1992)" Aladdin.txt
+AddDescription "Mais où est Shaarli ?" shaarli_online.html
+AddDescription "Les règles de la Netiquette (RFC1855) traduction par Jean-Pierre Kuypers" rfc1855.fr.html

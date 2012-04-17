@@ -1,0 +1,43 @@
+scor-343.txt  Last edited 2003-12-17 for NetHack 3.4.3
+Calculation of player's score in NetHack 3.4
+Compiled by Dylan O'Donnell <psmith@spod-central.org>
+
+
+4*XP points for each monster killed.
+10 points for each wand identified by engraving or zapping.
+10 points for each potion identified by quaffing.
+10 points for each scroll identified by reading.
+9 points for each squeaky board oiled/greased.
+4 points for each tripe ration eaten when not a carnivorous non-humanoid.
+4 points for "Yuk, this water tastes awful" from quaffing from a sink.
+
+The first oracle of each type:
+
+Minor (if not yet major): 21 points.
+Minor (if already major): 9 points.
+Major (if not yet minor): 210 + (21 * XL) points.
+Major (if already minor): 90 + (9 * XL) points.
+
+Then at the end of the game:
+
+1 point for each zorkmid more than starting gold ( * 90% if game 
+         ended in death).
+50 * (DL-1) points where DL is the deepest level reached.
+1000 points for each dungeon level reached beyond 20, to a maximum of
+         10000 points.
+
+The score so far is doubled if you ascended. Then, if you escaped the
+dungeon or ascended, you receive points for items in inventory:
+
+Value of amulets and valuable gems (see amul-343.txt and gems-343.txt)
+Value of artifacts (2.5 * cost of artifact - see art1-343.txt),
+including invocation items.
+
+and finally points for adjacent pets equivalent to their total current
+hit points.
+
+
+Acknowledgements
+~~~~~~~~~~~~~~~~
+Corrections and clarifications provided by Andreas Dorn.
+

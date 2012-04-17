@@ -1,0 +1,459 @@
+intr-343.txt  Last edited 2006-03-28 for NetHack 3.4.3
+Miscellaneous intrinsics in NetHack 3.4
+Compiled by Dylan O'Donnell <psmith@spod-central.org>.
+
+This spoiler covers all the intrinsics that are neither dragon resistances
+(see drgn-343.txt) nor conferred by wearing rings (see rint-343.txt). It
+does not cover statuses (confusion, hallucination, etc); the dividing line
+is sometimes blurry, but as a general rule of thumb if it appears on the
+status line it's a status, not an intrinsic. Note that, as a general rule,
+any intrinsics acquired solely by experience level can be lost by being
+drained below that level.
+
+amphibiousness
+  acquired by
+    Polymorphing into a floating eye, water elemental, newt, (baby)
+    crocodile, or any ;.
+  effects
+    You can enter water safely.
+    Eels' drowning attacks will not drown you.
+    Fog clouds' moisture attacks will not harm you.
+
+astral vision
+  acquired by
+    Wearing the Eyes of the Overworld (Monk Quest Artifact).
+  effect
+    Spaces within a radius 3 are visible even if dark or if line of sight
+    is blocked.
+    Blinding has no effect on your ability to see.
+
+blinding resistance
+  acquired by
+    Wielding Sunsword (light-based only).
+    Wearing lenses or a visored helmet (physical-based only).
+  effects
+    Light-based resistance protects against the blinding attacks of
+    yellow lights and Archons, and blinding from lightning bolts,
+    engraving with a wand of lightning, failed use of a crystal ball,
+    magic traps, and expensive cameras.
+    Physical-based resistance protects against the blinding attack of
+    ravens and cobras, but not against dust vortices or thrown cream pies.
+    Note that being blinded already, or being polymorphed into a form
+    that has no eyes, is an absolute defence against blinding.
+
+clairvoyance
+  acquired by
+    Wearing a cornuthaum as a Wizard.
+    Donating between 200*XL and (400*XL)-1 zorkmids, more than 1/3 your
+    current visible gold, to a priest (lasts 500 to 999 (more) turns per
+    donation).
+    Carrying the Amulet of Yendor.
+  effects
+    Maps a 12x20 rectangle around you every so often (50% chance every
+    fifteenth turn). Blocked by wearing a cornuthaum when not a Wizard.
+    Exercises wisdom every five turns.
+
+displacement
+  acquired by
+    Wearing a cloak of displacement.
+  effects
+    Monsters may believe your location to be in your vicinity rather than
+    at your actual location (doesn't fool priests or shopkeepers).
+    1/4 chance of finding you anyway, and remembering your location until
+    you move away.
+
+flying
+  acquired by
+    Polymorphing into killer or queen bee, winged gargoyle, (master) mind
+    flayer, homunculus, lurker above, xan, couatl, titan, jabberwock,
+    wraith, succubus, incubus, balrog, or any of vyBDEV.
+    Riding a couatl, ki-rin, jabberwock, or any D.
+  effects
+    Can pass over pits, holes, trap doors, squeaky boards, bear traps, water
+    or lava safely. (Pits and holes in Sokoban will still trap you.)
+    Land mines have a chance of not being triggered, and will not wound your
+    legs.
+    Improved chances of avoiding death by drawbridge.
+    Can move freely over ice or on the Plane of Air.
+    Wounded legs do not reduce your carrying capacity.
+    No ill effects from descending stairs when encumbered, fumbling or
+    punished.
+    You are out of reach of xans' attacks.
+    You escape the dungeon rather than dying by level teleporting to levels
+    between -9 and -1.    
+
+food appraisal
+  acquired by
+    Reading a blessed scroll of food detection or casting a spell of detect
+    food at skilled or expert (lasts until you receive a warning).
+  effects
+    You are warned before eating food that may be tainted, petrify you,
+    slime you, be rotten, poison you, break a Monk's vegetarian conduct,
+    be acidic, be rustproof if you are polymorphed into a rust monster,
+    break vegan conduct, or break vegetarian conduct. Warnings occur in
+    that order of preference, and you are given the choice of whether to
+    continue eating.
+
+fumbling
+  acquired by
+    Wearing gauntlets of fumbling or fumble boots.
+    Walking on ice without either wearing snow boots or being polyed into
+    a monster with cold resistance (not lasting effect).
+  effects
+    Abuses dexterity every five turns.
+    Every d20 turns, you'll slip or trip if you attempt to move that
+    turn; if you're carrying more than a certain amount, you'll make
+    noise and alert nearby monsters; if you're riding, you'll fall off.
+    You fall going downstairs.
+    Your dexterity is abused if you try to move through a closed door.
+    Saddling ridable monsters is less likely to succeed.
+    Attempting to mount a steed will always fail.
+    Digging with an implement may not succeed, and may cause it to hit you
+    or be dropped.
+    Your chance of disarming a dungeon trap is halved.
+    You have no chance of disarming a chest or door trap.
+    You have no chance of escaping traps.
+    Setting traps can cause them to go off.
+    Applying cans of grease can cause you to drop them.
+    Reduces likelihood of applying a bullwhip having desired effect, and
+    can make you drop it instead.
+    Kicking monsters or objects is less likely to be successful.
+    Mjollnir will hit a Valkyrie's arm rather than be caught on its return.
+    Returning boomerangs will hit you rather than be caught.
+    The following items will end up on the floor rather than in your
+    inventory: potions of oil that you light (if one of several), wished-for
+    items, tins made with a tinning kit, food from a horn of plenty, scrolls
+    of mail, gems thrown at you while you're a unicorn, items stolen as a
+    nymph, weapons snagged with a bullwhip, arrows created by the Longbow of
+    Diana, saddles removed from a steed, and written scrolls and
+    spellbooks.
+
+half physical damage
+  acquired by
+    Carrying the Orb of Fate or the Master Key of Thievery (Valkyrie and
+    Rogue Quest Artifacts).
+    Wearing the Mitre of Holiness (Priest(ess) Quest Artifact) as a
+    Priest(ess) (only against physical attacks from demons and undead).
+  effects
+    Halves damage from physical monster attacks, falling piercers,
+    exploding gas spores, effects of poison, thrown/spat objects, and
+    bites from carnivorous bags.
+    Halves damage from geyser spells cast by monsters.
+    Halves damage from rust traps as an iron golem.
+    Halves energy drain and exhaustion from bad sex.
+    Does not protect against total digestion attacks.
+
+half spell damage
+  acquired by
+    Carrying the Orb of Detection, the Platinum Yendorian Express Card,
+    the Orb of Fate, or the Eye of the Aethiopica (Archeologist, Tourist,
+    Valkyrie, and Wizard Quest Artifacts).
+  effects
+    Halves damage from cold attack of Asmodeus.
+    Halves damage from psi bolt, pillar of fire, lightning bolt, and open
+    wounds spells cast by monsters.
+    Halves duration of stunning, confusion, blinding, and paralysis spells
+    cast by monsters.
+    Reduces attribute loss from strength drain spells cast by monsters.
+    Halves damage from psychic blast of (master) mind flayers.
+    Halves damage from wands zapped by monsters.
+    Halves damage from scrolls of fire read by monsters.
+    Reduces number of objects cursed from a "malignant aura"-type curse.
+
+hallucination resistance
+  acquired by
+    Wielding Grayswandir.
+    Polymorphing into a black light.
+  effects
+    Protects against hallucination from quaffing potions, applying cursed
+    unicorn horns, applying crystal balls, or triggering chest traps.
+    Protects against hallucination from eating yellow molds, violet fungi
+    or abbots.
+    Protects against the hallucination attack of black lights.
+    
+infravision
+  acquired by
+    Being an unpolymorphed dwarf, elf, gnome or orc by race.
+    Polymorphing into a stalker, pit viper, python, Woodland-elf, Green-elf,
+    Grey-elf, elf-lord, Elvenking, horned devil, succubus, incubus, barbed
+    devil, marilith, vrock, hezrou, bone devil, ice devil, nalfeshnee,
+    pit fiend, balrog, or any of hikoAGHLMOTZ.
+  effects
+    Warm-blooded, fire-based, or ice-based monsters are visible if in line
+    of sight, even if their location is dark.
+    
+invulnerability
+  acquired by
+    Praying successfully (for the duration of the prayer).
+  effects
+    Monsters will not attack; being swallowed has no ill effects.
+    No exertion damage suffered from overencumbrance.
+    No HP regeneration.
+    No hunger increase.
+    Teleportitis, polymorphitis, and lycanthropy will not kick in.
+    All timers other than luck normalisation are halted.
+
+jumping
+  acquired by
+    Wearing jumping boots.
+    From the start as a Knight.
+    Casting the spell 'jump' (temporary).
+  effects
+    You can use the #jump command to move to distant, visible, open
+    squares; how far you can jump depends on the source of the intrinsic.
+    Knights can jump as the chess piece; boots allow jumping as if the
+    spell were cast at unskilled level ('u' below). Casting the spell
+    allows you one jump of a distance depending on the level of the spell.
+
+                                eee
+                              esbubse
+                              suuuuus
+                             ebuuuuube
+                             euuu@uuue
+                             ebuuuuube
+                              suuuuus
+                              esbubse
+                                eee
+
+    Jumping out of bear traps will wound your leg. Jumping in Sokoban
+    carries a -1 luck penalty.
+
+
+level-drain resistance
+  acquired by
+    Wielding Excalibur, Stormbringer or the Staff of Aesculapius (Healer
+    Quest Artifact).
+    Polymorphing into a horned devil, succubus, incubus, barbed devil,
+    marilith, vrock, hezrou, bone devil, ice devil, nalfeshnee, pit fiend,
+    balrog, or any of LMVWZ.
+  effects
+    Protects against drain life attacks of Demogorgon, (succubi and incubi
+    if #SEDUCE undefined), and all VW.
+    Protects against drain life attacks of Stormbringer or the Staff of
+    Aesculapius.
+    Protects against drain life result from unfavourable succubus or
+    incubus encounter.
+    Protects against "Thou must relearn thy lessons!" command of angry god.
+    Protects against zapping drain life spell at yourself.
+    
+life saving
+  acquired by
+    Wearing an amulet of life saving.
+  effects
+    If you die (other than by genocide or by (master) mind flayer
+    intelligence drain), you are revived, at the cost of your amulet.
+
+lycanthropy
+  acquired by
+    Being bitten by a werejackal, werewolf or wererat in their animal form.
+    Eating a werejackal, werewolf or wererat.
+    May be lost by eating a sprig of wolfsbane, quaffing a potion of holy
+    water, or prayer.
+  effects
+    Each turn in your natural form, you have a 1/80 chance (1/60 at night)
+    of changing into your wereform for 500 to 999 turns.
+    Uncontrolled polymorph will cause you to change from animal to natural
+    form or vice versa.
+    You are immune from system shock.
+    Holy water vapour will cause you to return to natural form, but will
+    not cure lycanthropy.
+    Quaffed or vaporous unholy water will cause you to assume animal
+    form.
+    In animal form, you can summon 1 to 5 pets with the #monster command:
+      wererat:    2/3 sewer rat, 2/9 giant rat, 1/9 rabid rat
+      werejackal: jackal
+      werewolf:   4/5 wolf, 1/5 winter wolf
+      This uses 10 energy and exercises wisdom.
+
+magical breathing
+  [See unbreathing]
+
+monster detection
+  acquired by
+    Quaffing a blessed potion of monster detection or casting a spell of
+    detect monster at skilled or expert (for 21 to 60 (more) turns unless
+    already at 300 or more turns, whereupon each use only gives 1 more
+    turn).
+  effects
+    All monsters on the level are displayed.
+
+phasing
+  acquired by
+    Polymorphing into an earth elemental or a xorn.
+  effects
+    You can enter most walls or stone.
+    You are immune from death by drawbridge.
+    You can pass through pits safely.
+    You can kick objects out of pits (as a xorn).
+
+reflection
+  acquired by
+    Wearing silver dragon scales or scale mail, a shield of reflection, or
+    an amulet of reflection.
+    Wielding the Longbow of Diana (Ranger Quest Artifact).
+    Polymorphing into a silver dragon.
+  effects
+    Rays striking you rebound in the direction they came from without
+    effect (lightning may still blind you).
+    Protects against gaze attack of Medusa, and may stone her in return.
+    Protects against passive paralysis attack of floating eyes.
+
+sickness resistance
+  acquired by
+    Polymorphing into a ghoul, or any F.
+  effects
+    Protects against disease attacks of Juiblex, Demogorgon, and Scorpius.
+    Protects against pestilence attacks of Pestilence.
+    Protects against food poisoning from old corpses.
+    Protects against illness from applying cursed unicorn horns.
+
+speed
+  acquired by
+    ("fast"):
+      Eating a quantum mechanic.
+        "Your velocity suddenly seems very uncertain! You seem faster."
+      Praying to a god whom thou hast pleased with thy progress.
+      Zapping yourself with a wand of speed monster.
+      Reaching XL 7 as a Barbarian, Cave(wo)man, Knight or Valkyrie; or from
+      the start as an Archeologist, Monk or Samurai.
+        "You feel quick!"
+        "You feel slow!" (level drain loss)
+    ("very fast"):
+      Wearing speed boots.
+      Quaffing a potion of speed (lasts 160 to 169 (more) turns if blessed,
+      100 to 109 (more) turns if uncursed, 40 to 49 (more) turns if cursed).
+      Casting a spell of haste self (lasts 100 to 109 (more) turns if
+      unskilled or basic, 160 to 169 (more) turns if skilled or expert).
+      Breathing vapours of potion of speed (lasts 1 to 5 (more) turns).
+    Intrinsic speed may be lost by night-time gremlin attack ("You feel
+    slower."), zapping yourself with a wand of slow monster, the slowing
+    attacks of skeletons and shades, the start of the stoning process, part
+    of the sliming process, or eating a quantum mechanic ("Your velocity
+    suddenly seems very uncertain! You seem slower.").
+  effects
+    If fast, your average speed is 1/3 greater than normal; if very fast,
+    2/3 greater than normal.
+
+stoning resistance
+  acquired by
+    Polymorphing into an acid blob, gelatinous cube, chickatrice,
+    cockatrice, (winged) gargoyle, spotted or ochre jelly, (baby) yellow
+    dragon, air, earth, fire or water elemental, green mold, black naga
+    (hatchling), wraith, xorn, skeleton, stone golem, lizard, or any of vyP.
+  effects
+    Protects against stoning attacks of chickatrices, cockatrices and
+    Medusa.
+    Protects against stoning from eating a chickatrice, cockatrice or Medusa
+    corpse, or a cockatrice egg.
+    Protects against stoning from biting, stinging, butting, hugging,
+    engulfing, tentacling, or attempting to saddle a chickatrice or
+    cockatrice, or touching, clawing, striking, or untrapping one
+    barehanded, or kicking one barefooted.
+    Protects against stoning from barehanded feeling, picking up, tinning,
+    sacrificing, snagging, stealing, placement in container, removal from
+    container, throwing, or wielding of chickatrice or cockatrice corpses.
+    Protects against stoning from barefoot kicking of chickatrice or
+    cockatrice corpses.
+    Protects against stoning from being hit by a wielded, thrown or
+    fallen-on chickatrice or cockatrice corpse.
+    Protects against stoning from being hit by a cockatrice egg.
+
+swimming
+  acquired by
+    Polymorphing into a gremlin, water nymph, woodchuck, water elemental,
+    rust monster, water troll, newt, (baby) crocodile, or any of S;.
+  effects
+    You can move through water on the surface and without hindrance.
+
+telepathy
+  acquired by
+    Wearing a helm of telepathy or an amulet of ESP (including the
+    Eye of the Aethiopica, the Wizard Quest Artifact).
+    Praying to a god whom thou hast pleased with thy progress.
+    Carrying the Orb of Detection, the Magic Mirror of Merlin, the Longbow
+    of Diana, or the Platinum Yendorian Express Card (Archeologist,
+    Knight, Ranger, and Tourist Quest Artifacts respectively).
+    Eating a floating eye or a (master) mind flayer.
+      "You feel a strange mental acuity."
+      "You feel in touch with the cosmos." (hallucinating)
+    Eating an amulet of ESP.
+    Polymorphing into a floating eye or a (master) mind flayer.
+    Intrinsic telepathy may be lost by night-time gremlin attack ("Your
+    senses fail."), or by killing (formerly) peaceful humans if not chaotic.
+  effects
+    You can see monsters with minds anywhere on the level when you are
+    blind.
+    With extrinsic telepathy you can also see nearby monsters with minds
+    when not blind (even through walls and in darkness).
+    (Master) mind flayers' psychic blasts are more likely to lock on.
+
+unbreathing
+  acquired by
+    Wearing or eating an amulet of magical breathing.
+    Polymorphing into an acid blob, gas spore, freezing, flaming, or
+    shocking sphere, (winged) gargoyle, vampire bat, earth elemental, or
+    any of jmvyFLMPVWXZ'.
+  effects
+    [Note that amphibiousness is a subset of these effects.]
+    You will vomit rather than choke on excess food.
+    You are not affected by stinking clouds.
+    You are not affected by sleeping gas traps.
+    You are not affected by potion vapours if you are also polymorphed into
+    an eyeless monster.
+    You can enter water safely.
+    Eels' drowning attacks will not drown you.
+    Fog clouds' moisture attacks will not harm you (unless you are a
+    salamander, flaming sphere, or fire elemental or vortex).
+    
+unchanging
+  acquired by
+    Wearing an amulet of unchanging.
+  effects
+    Prevents polyself from potions, wands, spells, traps, eating chameleons
+    or doppelgangers, or quaffing from sinks, 
+    Prevents death by cancellation as a clay golem.
+    You will not change form as a result of polymorphitis or lycanthropy.
+    Eating mimic corpses will not cause you to mimic gold or oranges.
+    Existing polyself will not wear off; death is death, and does not
+    cause reversion to your natural form.
+    You will not revert to your natural form if you genocide your current
+    form.
+    Protects against sliming attacks of green slimes.
+    Protects against being slimed from eating, mindflaying or engulfing a
+    green slime.
+
+water walking
+  acquired by
+    Wearing water walking boots.
+  effects
+    You can walk safely over water (other than on the Plane of Water);
+    you can reach it to dip objects into it.
+    You will not sink into lava (though the heat will still affect you
+    and your inventory, including burning away non-fireproof boots; in the
+    latter case, you will not sink until you move).
+
+wounded legs
+  acquired by
+    Pricking attack of a xan (1/2 left, 1/2 right; 1 to (60-DEX) turns).
+    Land mine explosions (both; 41 to 75 turns).
+    Being pulled out of or jumping out of a bear trap (2/3 left, 1/3 right;
+    500 to 1499 turns).
+    Trying to jump out of solidified lava (both; 11 to 20 turns).
+    Fumbling with a cursed digging-tool (right; 6 to 10 turns).
+    Kicking things or nothings (right; 6 to 10 turns).
+    Falling or being thrown off your steed (both; 5 to 9 turns).
+    Note that if you're riding, your steed's legs may be wounded instead
+    of yours.
+  effects
+    Reduces dexterity by one temporarily.
+    Abuses dexterity every five turns (if your legs).
+    Your carrying capacity is reduced (double if both legs wounded).
+    You cannot jump or kick.    
+    Attempting to mount a steed will always fail.
+
+
+Acknowledgements
+~~~~~~~~~~~~~~~~
+Corrections and clarifications provided by Joe Bednorz, David Corbett,
+David Goldfarb, Arien Malec, David Ploog, Jason Short, mana user, and
+Boudewijn Waijers.

@@ -1,0 +1,339 @@
+rint-343.txt  Last edited 2004-10-05 for NetHack 3.4.3
+Ring intrinsics in NetHack 3.4
+Compiled by Dylan O'Donnell <psmith@spod-central.org>.
+
+This spoiler covers all intrinsics that may be granted by wearing rings,
+other than the dragon resistances already dealt with in drgn-343.txt:
+how to acquire them (in addition to their ring source), how to lose them,
+and what effects they have. Note that, as a general rule, any intrinsics
+acquired solely by experience level can be lost by being drained below
+that level.
+
+aggravate monster
+  acquired by
+    Wearing or eating a ring of aggravate monster.
+    Eating a corpse of your own natural race (werecorpses and Kops count as
+    human), or a little dog, dog, large dog, kitten, housecat or large cat;
+    Cave(wo)men and orcs are exempt from this.
+    Sacrificing a former pet.
+    Intrinsic aggravate monster may be lost by night-time gremlin attack.
+      "You feel less attractive."
+  effects
+    Mistreated pets become untame more quickly.
+    Sleeping monsters (other than leprechauns, nymphs, and jabberwocks)
+    will always wake up at your approach unless you are stealthy.
+
+cold resistance
+  [See drgn-343.txt]
+
+conflict
+  acquired by
+    Wearing or eating a ring of conflict.
+    #invoking the Sceptre of Might (Cave(wo)man Quest Artifact).
+  effects
+    Increases hunger rate by 50% of normal (except from Sceptre).
+    Nearby monsters in line of sight may attack each other instead of you.
+    Even peaceful monsters and pets may attack you.
+    Steeds may throw you.
+    Monsters lose restraint in attacking *trices.
+    Pets lose restraint in attacking peaceful monsters.
+    Mistreated pets become untame more quickly.
+    d4 hostile Angels created on Astral Plane in place of tame guardian
+    Angel.
+
+fire resistance
+  [See drgn-343.txt]
+
+free action
+  acquired by
+    Wearing a ring of free action. (Not eating; that confers sleep
+    resistance.)
+  effects
+    Protects against paralysis attacks of gelatinous cubes, guardian nagas,
+    ghouls, shades, and Yeenoghu.
+    Protects against passive paralysis attacks of gelatinous cubes and
+    floating eyes.
+    Paralysis and stunning spells cast by monsters have their effect reduced
+    to one turn.
+    Protects against quaffed or thrown potions of paralysis or sleeping.
+    Protects against paralysis effect of chest traps.
+    Protects against self-paralysis from looking into a mirror as a
+    floating eye.
+
+hunger
+ acquired by
+   Wearing or eating a ring of hunger.
+ effects
+   Increases hunger rate by 50% of normal.
+
+invisibility
+  acquired by
+    Wearing or eating a ring of invisibility.
+    Wearing a cloak of invisibility.
+    Quaffing a potion of invisibility (lasts 31 to 45 (more) turns if
+    non-blessed).
+    Zapping a wand of make invisible at yourself.
+    Eating a stalker (lasts 50 to 149 turns if not already invisible; if
+    only temporarily invisible, made permanent ("You feel hidden!")).
+    Polymorphing into a stalker or black light.
+    #invoking the Orb of Detection (Archeologist Quest Artifact).
+    Intrinsic invisibility may be lost to night-time gremlin attack.
+      "You feel paranoid."
+  effects
+    No effect from looking into a mirror.
+    Monsters without see invisible will be less likely to be aware of
+    your location for approaching and attacking you.
+    Monsters without see invisible have a to-hit penalty when attacking you.
+    Shopkeepers will prevent you entering their shop.
+    If polymorphed into a monster with a gaze attack or defence, you cannot
+    use it against monsters without see invisible.
+
+levitation
+  acquired by
+    Wearing or eating a ring of levitation (the latter for 10 to 200 turns).
+    Wearing levitation boots.
+    Quaffing a potion of levitation (lasts 10 to 149 (more) turns if not
+    blessed, 250 to 299 (more) turns if blessed).
+    Casting a spell of levitation (lasts 10 to 149 (more) turns if unskilled
+    or basic, 250 to 299 (more) turns if skilled or expert).
+    #invoking the Heart of Ahriman (Barbarian Quest Artifact).
+    Polymorphing into any e.
+    May be lost by passing over a sink (unless polymorphed into e, or
+    acquired by eating a ring).
+    If the only source(s) of levitation are from a blessed potion, a
+    skilled or expert spell, and/or the Heart of Ahriman, you can stop
+    levitating with '>' at will.
+  effects
+    Cannot jump, set bear traps or land mines, dig downwards with an
+    implement, sit, untrap traps, or spin webs.
+    Cannot engrave other than with wands of magic missile, digging,
+    fire, or lightning.
+    Cannot pick up (except possibly by applying a bullwhip), feel, eat,
+    sacrifice, loot, lock or unlock items on the floor.
+    Cannot dip items into fountains or water.
+    Cannot quaff from fountains or sinks.
+    Cannot push boulders.
+    Cannot mount non-flying steeds unless levitating at will.
+    Fragile items will usually break when dropped.
+    When punished, iron balls will not drag you into traps they move onto.
+    Kicking requires wall, stone or door to brace against; doors cannot
+    be kicked open.
+    Kicking and throwing may lead to floating in opposite direction.
+    Kicking tiny monsters may "miss wildly" and abuse dexterity.
+    Can pass over pits, holes, trap doors, squeaky boards, bear traps, water
+    or lava safely. (Pits and holes in Sokoban will still trap you.)
+    Land mines have a chance of not being triggered, and will not wound your
+    legs.
+    Engravings will not be eroded by you.
+    Improved chances of avoiding death by drawbridge.
+    Can move freely when fumbling, over ice or on the Plane of Air.
+    Carrying capacity is at maximum.
+    Cannot descend stairs or ladders.
+    You are out of reach of xans' attacks.
+    You escape the dungeon rather than dying by level teleporting to levels
+    between -9 and -1.    
+
+poison resistance
+  [See drgn-343.txt]
+
+polymorph control
+  acquired by
+    Wearing or eating a ring of polymorph control.
+  effects
+    You can choose what monster to become when polymorphed (if that monster
+    is available to be polymorphed into at all); still 1/5 chance of "You
+    feel like a new <race>!".
+    You are immune from system shock.
+    You can decline a lycanthropic change of form.
+
+polymorphitis
+  acquired by
+    Wearing or eating a ring of polymorph.
+  effects
+    Every turn there is a 1% chance that you will polymorph (for 500 to 999
+    turns, unless you polymorph again earlier; reduced if monster form
+    higher level than you).
+
+protection
+  acquired by
+    Wearing or eating a ring of protection.
+    Wearing a cloak of protection.
+    Casting a spell of protection (temporary).
+    Donating between 400 and 600 times your experience level in gold to
+    any temple priest.
+    Praying to a god whom thou hast pleased with thy progress.
+    Intrinsic protection may be lost by night-time gremlin attack ("You
+    feel vulnerable."), by angering your god, by changing alignment, by
+    killing a co-aligned priest, or by attempting to wear a helm of
+    opposite alignment (and being prevented) on the Quest.
+  effects
+    Your armour class is reduced by the amount of protection.
+
+protection from shape changers
+  acquired by
+    Wearing or eating a ring of protection from shape changers.
+  effects
+    Chameleons, doppelgangers, and sandestins take their natural form rather
+    than shapeshifting.
+    (Giant, large) mimics take their natural form rather than mimicking.
+    Werejackals, werewolves, and wererats take their human forms and cannot
+    summon help.
+    Protects against lycanthropy-infecting attacks of werejackals,
+    werewolves, and wererats.
+
+regeneration
+  acquired by
+    Wearing or eating a ring of regeneration.
+    Wielding the Staff of Aesculapius (Healer Quest Artifact).
+    Polymorphing into an imp, quasit, vampire bat, or any of LTV.
+    Being in animal form while lycanthropic.
+  effects
+    If in natural form, regain 1 HP on turns you would not normally
+    heal up; negates slowing effect of encumbrance on healing.
+    If not in natural form, regain 1 HP per turn no matter what.
+    Exercises strength every five turns if from eating a ring.
+    Increases hunger rate by 50% of normal (if regeneration ring-derived).
+
+searching
+  acquired by
+    Wearing or eating a ring of searching.
+    Wielding Excalibur.
+    Reaching XL 9 as a Monk, XL 10 as an Archeologist, Rogue or Tourist; or
+    from the start as a Ranger.
+      "You feel perceptive!"
+  effects
+    Automatically search the surrounding squares each turn.
+
+see invisible
+  acquired by
+    Wearing or eating a ring of see invisible.
+    Quaffing a potion of see invisible (lasts 750 to 849 (more) turns if
+    non-blessed).
+    Quaffing from a fountain (if blind and invisible, "You feel very
+    self-conscious"; if blind and not invisible, "You feel transparent";
+    if not blind, "You see an image of someone stalking you.").
+    Sitting on a throne ("Your vision becomes clear").
+    Being crowned.
+    Eating a stalker while invisible.
+    Polymorphing into a (master) mind flayer, black light, Aleax, any adult
+    dragon, stalker, sasquatch, Woodland-elf, Green-elf, Grey-elf, elf-lord,
+    Elvenking, marilith, ice devil, pit fiend, or balrog.
+    Reaching XL 15 as a Ranger; or from the start as a Monk.
+      No message.
+    Intrinsic see invisible may be lost by night-time gremlin attack.
+      "You thought you saw something!"
+      "You tawt you taw a puttie tat!" (hallucinating)
+  effects
+    You can see monsters which would otherwise not be seen due to their
+    invisibility.
+    You can see yourself while invisible.
+
+shock resistance
+  [See drgn-343.txt]
+
+slow digestion
+  acquired by
+    Wearing a ring of slow digestion (can't be eaten).
+  effects
+    Eliminates normal turn-by-turn food consumption.
+    Protects against digestion attacks of lurkers above, trappers, and
+    purple worms; you do no damage with digestion attacks when polymorphed
+    into these monsters.
+
+stealth
+  acquired by
+    Wearing or eating a ring of stealth.
+    Wearing an elven cloak or elven boots.
+    Carrying the Heart of Ahriman (Barbarian Quest Artifact).
+    Praying to a god whom thou hast pleased with thy progress.
+    Reaching XL 5 as a Monk, XL 7 as a Ranger, or XL 15 as a Barbarian or
+    Samurai; or from the start as an Archeologist, Rogue or Valkyrie.
+      "You feel stealthy!"
+    Intrinsic stealth may be lost by night-time gremlin attack.
+      "You feel clumsy."
+  effects
+    Sleeping monsters will not be awakened by your approach (other
+    than ettins, who have a 90% chance of overcoming this).
+    Monsters in a throne room, zoo, graveyard or swamp will not be
+    awakened by your entrance.
+
+sustain ability
+  acquired by
+    Wearing (not eating) a ring of sustain ability.
+  effects
+    Your base attributes will not be altered in either direction by anything
+    other than polymorph. (The effective value may be modified by extrinsic
+    factors, but the base value will be fixed.)
+
+teleport control
+  acquired by
+    Wearing or eating a ring of teleport control.
+    Carrying the Master Key of Thievery (Rogue Quest Artifact).
+    Eating a tengu or the Wizard of Yendor.
+      "You feel in control of yourself."
+      "You feel centered in your personal space." (hallucinating)
+    Polymorphing into a tengu.
+    Reaching XL 17 as a Monk or Wizard.
+      "You feel controlled!"
+      "You feel uncontrolled!" (level drain loss)
+  effects
+    When teleported or level teleported, you can choose the location or
+    level you wish to go to (unless unconscious or stunned; confusion
+    may result in a level teleport being random).
+    You will always try to use teleportitis to escape drowning.
+
+teleportitis
+  acquired by
+    Wearing or eating a ring of teleportation.
+    Eating a tengu, leprechaun, any nymph, or the Wizard of Yendor.
+      "You feel very jumpy."
+      "You feel diffuse." (hallucinating)
+    Polymorphing into a tengu, leprechaun, any nymph, or quantum mechanic.
+    Intrinsic teleportitis may be lost by night-time gremlin attack.
+      "You feel less jumpy."
+  effects
+    Each turn you have a 1/85 chance of teleporting.
+    If you are at least XL 12 (XL 8 if a Wizard), or polymorphed into a
+    teleporting monster, you can use the ^T command to teleport at will.
+    You may attempt to teleport in order to escape drowning.
+
+warning
+  acquired by
+    Wearing or eating a ring of warning.
+    Carrying the Orb of Fate or the Master Key of Thievery (Valkyrie and
+    Rogue Quest Artifacts).
+    Reaching XL 7 as a Monk, or XL 15 as a Cave(wo)man, Healer, Priest(ess)
+    or Wizard.
+      "You feel sensitive!"
+  effects
+    Non-trivial monsters in your vicinity are shown with a symbol
+    indicating their difficulty.
+
+warning against specific monsters
+  acquired by
+    Wielding Sting (specific to orcs).
+  effects
+    You are able to see monsters against which you are warned specifically
+    no matter where they are on the level.
+
+
+The following rings do not grant intrinsics, but instead alter combat
+modifiers by their enchantment when worn or eaten:
+
+increase accuracy (modifies to-hit roll)
+increase damage   (modifies damage roll)
+
+The following rings do not grant intrinsics, but instead modify attribute
+values when worn or eaten (note that the attribute changes from eating the
+rings will not last when polymorphed, so can only affect the metallivore or
+gelatinous cube form that ate the ring):
+
+adornment         (Charisma)
+gain constitution (Constitution)
+gain strength     (Strength)
+
+
+Acknowledgements
+~~~~~~~~~~~~~~~~
+Corrections and clarifications provided by Kent Paul Dolan, Samson Gafkjen,
+David Goldfarb, Kate Nepveu, Pat Rankin, Jason Short, and Boudewijn Waijers.

@@ -1,0 +1,41 @@
+---
+layout: project
+title: "Ratpoison, unmanage et tinywm"
+date: 2011-08-18 02:29:16 +0200
+id: "0818"
+---
+<p>
+Il est possible de spécifier à <a href="http://www.nongnu.org/ratpoison/"
+class="external" hreflang="en">ratpoison</a> certains programmes afin
+qu'il ne les gère pas. Cela se fait au travers de la
+commande <code>unmanage</code>. L'avantage est que ce programme ne se
+retrouvera pas étriqué dans un frame ; l'inconvénient est qu'il est
+impossible d'agir sur la fenêtre de ce programme (principalement la
+déplacer, la redimensionner, etc).
+
+<p>
+L'astuce pour y arriver consiste à lancer un autre gestionnaire de
+fenêtre <em>en même temps</em> que ratpoison (nous ne parlons donc pas ici
+de la commande de ratpoison <code>tmpwm</code>).
+
+<p>
+Récupérez et compilez <a href="http://incise.org/tinywm.html"
+class="external" hreflang="en">tinywm</a> écrit par Nick Welch (notez que
+le Makefile n'a pas de règle pour l'installation). La suite est simple et
+nous allons utiliser mplayer pour nos tests : <code>C-t :unmanage
+MPlayer</code>. Nous lançons ensuite tinywm : <code>C-t :exec
+tinywm</code>.
+
+<p>
+Ouvrez une vidéo avec mplayer ; vous pouvez avec la souris la déplacer
+(Alt+Button1) et la redimensionner (Alt+Button3).
+
+<p>
+Cette astuce n'a que peu d'intérêt. D'une part elle implique l'utilisation
+de la souris, ce qui pour un gestionnaire de fenêtre qui insiste
+sur <del>son éradication</del> sa libération est plutôt paradoxale.
+Ensuite, nous pourrions croire que cela est intéressant pour utiliser des
+programmes tel que GIMP sans avoir à passer par <code>tmpwm</code> ;
+cependant il se trouve que les programmes <em>unmanaged</em> ne répondent
+ni à la souris, ni au clavier (ou alors nous n'avons vraiment pas trouvé
+comment faire...).

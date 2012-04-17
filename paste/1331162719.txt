@@ -1,0 +1,24 @@
+Mar  8 00:23:57 shyla kernel: [88440.532068] INFO: task flush-0:23:16444 blocked for more than 120 seconds.
+Mar  8 00:23:57 shyla kernel: [88440.535760] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+Mar  8 00:23:57 shyla kernel: [88440.539554] flush-0:23      D 171d1524     0 16444      2 0x00000000
+Mar  8 00:23:57 shyla kernel: [88440.539564]  e5087bd0 00000046 0000043f 171d1524 0000503c e5087bd0 000094e1 17e224ad
+Mar  8 00:23:57 shyla kernel: [88440.539576]  0000043f 180e6457 0000043f e5bdd25c c10ba19f e5087bfc e5bdd318 e5bdd25c
+Mar  8 00:23:57 shyla kernel: [88440.539587]  c10b1e55 f5b97f74 e5bdd25c c127a965 c10ba4ac 00000000 00000400 f5b97f14
+Mar  8 00:23:57 shyla kernel: [88440.539598] Call Trace:
+Mar  8 00:23:57 shyla kernel: [88440.539612]  [<c10ba19f>] ? writeback_single_inode+0x5e/0x1cc
+Mar  8 00:23:57 shyla kernel: [88440.539621]  [<c10b1e55>] ? iput+0x23/0x110
+Mar  8 00:23:57 shyla kernel: [88440.539629]  [<c127a965>] ? _cond_resched+0x5/0x18
+Mar  8 00:23:57 shyla kernel: [88440.539636]  [<c10ba4ac>] ? writeback_sb_inodes+0x159/0x18c
+Mar  8 00:23:57 shyla kernel: [88440.539644]  [<c10b15bb>] ? inode_wait+0x5/0x8
+Mar  8 00:23:57 shyla kernel: [88440.539650]  [<c127ad13>] ? __wait_on_bit+0x2f/0x54
+Mar  8 00:23:57 shyla kernel: [88440.539657]  [<c10b15b6>] ? inode_owner_or_capable+0x2f/0x2f
+Mar  8 00:23:57 shyla kernel: [88440.539664]  [<c10ba133>] ? inode_wait_for_writeback.isra.31+0x5f/0x6d
+Mar  8 00:23:57 shyla kernel: [88440.539674]  [<c103616f>] ? autoremove_wake_function+0x29/0x29
+Mar  8 00:23:57 shyla kernel: [88440.539681]  [<c10ba6c5>] ? wb_writeback+0x165/0x178
+Mar  8 00:23:57 shyla kernel: [88440.539688]  [<c10bab6f>] ? wb_do_writeback+0x114/0x15d
+Mar  8 00:23:57 shyla kernel: [88440.539695]  [<c10babb8>] ? wb_do_writeback+0x15d/0x15d
+Mar  8 00:23:57 shyla kernel: [88440.539701]  [<c10bac21>] ? bdi_writeback_thread+0x69/0x172
+Mar  8 00:23:57 shyla kernel: [88440.539708]  [<c10babb8>] ? wb_do_writeback+0x15d/0x15d
+Mar  8 00:23:57 shyla kernel: [88440.539715]  [<c1035c6e>] ? kthread+0x62/0x67
+Mar  8 00:23:57 shyla kernel: [88440.539722]  [<c1035c0c>] ? flush_kthread_worker+0x73/0x73
+Mar  8 00:23:57 shyla kernel: [88440.539729]  [<c127fa06>] ? kernel_thread_helper+0x6/0xd

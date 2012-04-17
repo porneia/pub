@@ -1,0 +1,29 @@
+---
+layout: project
+title: "Couper des portions de texte dans Emacs : snip-it!"
+date: 2012-02-03 08:52:53 +0100
+id: "0203"
+---
+<p>
+Quelques lignes de code pour avoir une fonction de &quot;coupe&quot; dans
+Emacs. C'est surtout utile pour enlever des portions de texte dans les
+emails en précisant le nombre de lignes supprimées et d'y assigner un
+titre ou un commentaire. Après ajout dans <code>~/.emacs</code> et
+évaluation, il suffit pour l'utiliser de sélectionner la partie de texte
+souhaitée et d'entrer la commande <code>M-x snip-it</code> ; on ajoute
+ensuite un commentaire ou un titre dans le mini-buffer suivi
+d'un <code>RET</code> pour valider.
+
+<pre>
+;; a little thing for &quot;sniping&quot; (cuting out) some text and replacing it
+;; by [snip: irrelevant chatter (15 lines)] (usefull for newsgroup)
+(defun snip-it (b e summ)
+  &quot;remove selected lines, and replace it with [snip:summary (n lines)]&quot;
+  (interactive &quot;r\nsSummary:&quot;)
+  (let ((n (count-lines b e)))
+    (delete-region b e)
+    (insert (format &quot;[snip%s (%d line%s)]&quot;
+              (if (= 0 (length summ)) &quot;&quot; (concat &quot;: &quot; summ))
+              n
+              (if (= 1 n) &quot;&quot; &quot;s&quot;)))))
+</pre>

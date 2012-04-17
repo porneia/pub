@@ -1,0 +1,1321 @@
+<HTML> 
+<head>
+<BASE HREF="identify.html">
+ 
+<title> R1's Nethack page </title>
+<meta name="author" content="Erwan Grasland-Mongrain">
+<meta http-equiv="Reply-to" content="Erwan.Grasland-Mongrain@ens.fr">
+</head> 
+
+<body BGCOLOR="#FFFFFF">
+
+<ul><center><img src="../nethack.png"></center></ul>
+<br>
+
+<ul><center><h2><font color=green>Identifier les
+objets</font></h2></center></ul>
+
+<p> Un des grands problèmes des débuts de partie de Nethack est que la
+plupart des objets ne sont pas identifiés. Qui sait si la baguette que
+vous venez de trouver n'est pas une <cite>Wand of Wishing</cite> ? Qui
+sait si ce casque de gobelin qui traîne là n'est pas enchanté à +5 ?
+Comment auriez-vous pu deviner que l'armure rutilante que vous venez
+d'enfiler était en fait maudite ? Heureusement, il existe de nombreux
+moyens d'identifier les objets, cependant tous ne se valent pas point de
+vue sécurité et précision... Voici toutes (si je n'en n'oublie pas...)
+les méthodes plus ou moins tordues d'identifier vos possessions.
+
+<ul><br></ul><a name="general"></a><h4><font color=blue>Méthodes
+générales</font></h4>
+
+<p> La méthode la plus évidente pour identifier un objet comme une
+armure, une potion ou un parchemin consiste simplement à l'enfiler,
+la boire ou le lire. Comme vous pouvez vous en douter, c'est également la
+plus mauvaise : l'armure se révèlera bien entendu être une <cite>cursed
+-2 orcish chain mail</cite>, la potion une <cite>potion of
+sickness</cite> et le parchemin un <cite>scroll of amnesia</cite> ;-)
+Cependant, en dernier recours (vous n'avez plus qu'un point de vie et la
+<cite>soldier ant</cite> s'apprête à vous mordre à nouveau...), c'est
+souvent la seule solution : à vous de penser à en utiliser une autre
+avant d'en être réduit à cette situation !
+
+<p> Une autre méthode « évidente » et infiniment plus sûre consiste à
+lire un <cite>scroll of identify</cite> (ou à lancer un le sort
+<cite>identify</cite> si vous en êtes capable), pour identifier un objet
+précis. Cependant, ces parchemins ne sont disponibles qu'en quantité
+limité, donc il vaut mieux les économiser pour les grandes occasions.
+Notez qu'il est fort utile de bénir ses <cite>scrolls of identify</cite>
+avant de les lire, car ainsi vous avez une petite chance d'identifier
+<cite>tout</cite> votre inventaire (et même si ce n'est pas le cas, vous
+identifierez statistiquement plus d'objets que s'ils n'étaient pas
+bénis).
+
+<p> Enfin, la troisième méthode généraliste est celle que vous utiliserez
+sans doute le plus souvent : elle consiste à regarder combien un
+marchand vous achète l'objet que vous souhaitez identifier. En effet, le
+prix de base d'un objet est toujours le même, et est identique dans
+toutes les parties. Cependant, le prix d'achat ou de vente d'un objet est
+rarement égal à cette valeur.
+
+<p> Si vous tentez de vendre un objet, le marchand vous en offrira en
+principe la moitié du prix de base. Outre les cas particuliers (gemmes,
+nourriture, etc.) qui seront détaillés dans les sections appropriées,
+deux facteurs peuvent ensuite modifier ce prix. Premièrement, si vous
+jouez un Touriste et que vous n'avez pas encore atteint le niveau
+d'expérience 15, ou si vous portez une <cite>hawaian shirt</cite> visible
+(non couverte par une autre pièce d'armure) ou un <cite>dunce cap</cite>,
+le marchand réduira encore ce prix d'un tiers. Deuxièmement, une fois sur
+quatre, le prix final de l'objet sera encore réduit de 25 % (mais rien
+ne vous empêche de reproposer l'objet au marchand pour éventuellement
+annuler ce malus, si vous le suspectez de l'avoir appliqué la première
+fois). En bref, quand vous vendez un objet, multiplier le prix que vous
+propose le marchand par deux suffit généralement à obtenir le prix de
+base.
+
+<p> Si vous achetez un objet, les choses se compliquent. Le marchand vous
+le vendra normalement au prix de base, mais avec de nombreux
+modificateurs. D'abord, un surplus de 33 % comme précédemment pour les
+Touristes de bas niveau et les personnages équipés d'une <cite>hawaian
+shirt</cite> visible ou d'un <cite>dunce cap</cite>. Ensuite, un autre
+modificateur de 33 % apparaît au hasard une fois sur quatre. Notez que
+contrairement à la vente, redemander le prix de l'objet au marchand
+n'annulera pas cette pénalité. Enfin, un trosième modificateur dépendant
+de votre charisme est pris en compte : -50 % s'il est supérieur à 18,
+-33 % s'il est égal à 18, -25 % s'il est entre 16 et 17, +33 % s'il
+est entre 8 et 10, +50 % s'il est entre 6 et 7 et +100 % s'il est
+inférieur à 6. Si le marchand est en colère (par exemple si vous avez
+tenté de lui voler l'objet), ajoutez encore 33 %. Tous ces modificateurs
+sont cumulatifs et sont appliqués en même temps au prix de base. En bref,
+pour un personnage « ordinaire » (charisme entre 8 et 10, hors
+Touriste, Guérisseur et Chevalier notamment), le prix offert sera égal à
+4/3, parfois 5/3, du prix de base.
+
+<p> Rappelez-vous qu'un marchand n'achètera jamais des objets qui ne
+relèvent pas de sa spécialité s'il ce n'est pas un marchand
+« généraliste » (par exemple, un anneau chez un marchand de
+potions). Pour contourner cela, vous pouvez lancer un objet dans le
+magasin (attention aux objets fragiles !), ce qui aura pour effet de le
+« donner » au marchand, et vous permettra ainsi de l'identifier par le
+prix auquel il vous propose de le racheter. Cependant, cela signifie
+souvent perdre l'objet dans l'opération (à moins que vous n'ayez de quoi
+le racheter)...
+
+<p> Souvent, lorsque vous identifiez un objet par une méthode non
+évidente, le jeu ne « saura » pas que vous avez identifié l'objet.
+Cependant, n'oubliez vous pouvez nommer une classe d'objets à l'aide de
+la commande <cite>#name</cite> : n'hésitez pas en fare usage, même pour
+indiquer quel type d'objet cela ne peut <em>pas</em> être (par exemple,
+si vous enfilez des bottes et que rien ne se passe, vous pouvez être sûr
+qu'il ne s'agit pas de <cite>boots of speed</cite> ou de <cite>boots of
+levitation</cite>). Pour effacer le nom d'un objet, entrez simplement un
+espace comme nom avec la commande <cite>#name</cite>.
+
+<ul><br></ul><a name="specific"></a><h4><font color=blue>Méthodes
+spécifiques</font></h4>
+
+<ul><br></ul><a name="cursed"></a><h4>Objets maudits</h4>
+
+<p> Les objets maudits sont une plaie. N'utilisez jamais un objet dont
+vous ne savez pas l'état, sauf en de très rares circonstances (si vous
+avez acquis la certitude par un quelconque moyen qu'il n'était pas
+maudits - certains objets comme les sifflets ou les clés ne sont jamais
+maudits s'ils sont généré aléatoirement (hors d'un <cite>bone file</cite>
+entre autres), à force de jouer vous découvrirez quels objets sont
+concernés par cette affirmation).
+
+<p> Le moyen le plus radical de déterminer l'état d'un objet consiste à
+le déposer sur un autel - pas nécessairement coaligné, y compris les
+autels de Moloch - lorsque vous n'êtes pas aveugle, ni en train
+d'halluciner (notez que vous serez quand même dans ce dernier cas capable
+de déterminer si un objet n'est ni maudit ni béni, mais vous ne
+différencierez pas les objets bénis des objets maudits). Un flash ambré
+vous indiquera que l'objet est béni, tandis qu'un flash noir vous
+indiquera qu'il est maudit. Aucun flash signifie qu'il n'est ni maudit ni
+béni. Notez que certains (rares) objets deviennent automatiquement
+maudits lorsque vous les utilisez (<cite>helm of opposite
+alignement</cite>, <cite>loadstone</cite>...). Les prêtres n'ont pas
+besoin d'autels pour déterminer l'état d'un objet.
+
+<p> Cependant, les autels sont plutôt rares... L'autre méthode pour
+déterminer si un objet est maudit (mais qui ne permet pas de différencier
+entre non maudit et béni) consiste à utiliser votre <cite>pet</cite>. En
+effet, celui-ci ne marchera pas sur un objet maudit posé au sol : il
+suffit donc de poser l'objet au sol, de vous placer de l'autre côté de
+cet objet de votre <cite>pet</cite> et d'attendre quelques tours. S'il ne
+marche pas dessus ou s'il marche dessus avec répugnance (<samp>Your
+&lt;pet&gt; walks only reluctantly</samp>), il y a de fortes chances
+pour qu'il soit maudit ; s'il marche dessus sans aucun message, vous
+pouvez être sûr qu'il n'est pas maudit. Attention : si votre
+<cite>pet</cite> ne marche pas volontairement dessus (si vous le déplacez
+ou s'il est téléporté) ou s'il y a de la nourriture sur la même case,
+votre <cite>pet</cite> pourra se retrouver sur un objet maudit sans que
+vous obteniez le message ci-dessus.
+
+<ul><br></ul><a name="amulets"></a><h4>Les amulettes</h4>
+
+<p> Pour les amulettes, impossible d'utiliser l'identification au prix :
+elles ont toutes le même prix de base (150), sauf l'<cite>Amulet of
+Yendor</cite> et la <cite>cheap plastic imitation of the Amulet of
+Yendor</cite>. Cependant, vous pouvez sans trop de risques mettre toute
+amulette non maudite : en effet, les amulettes « dangereuses »
+(<cite>strangulation</cite>, <cite>restful sleep</cite> et
+<cite>change</cite>) sont générées 90 % du temps maudites. Même si vous
+n'avez pas de chance, rien ne vous empêche d'enlever l'amulette si elle
+s'avère être gênante (excepté l'<cite>amulet of change</cite>, qui
+s'autodétruit en vous faisant changer de sexe - un ennui mineur). Par
+mesure de précaution, enfermez-vous dans une pièce avant de faire ces
+essais : un court sommeil peut parfois être fatal si des ennemis
+rôdent... Si vous êtes paranoïaque, vous pouvez nommer toute amulette
+maudite que vous trouvez « maudite » et n'essayer que les amulettes que
+vous possédez en au moins deux exemplaires non maudits, ainsi la
+probabilité de tomber sur une « mauvaise » amulette descend à 1 %.
+
+<p> Une fois l'amulette autour du cou, il est généralement aisé de
+l'identifier : outre les trois précédentes qui s'identifient
+immédiatement ou au bout de quelques tours, vous pouvez deviner que votre
+amulette est une <cite>amulet of ESP</cite> dès que vous apercevez
+un monstre que vous ne devriez pas voir normalement (derrière un mur
+notamment), une <cite>amulet of magical breathing</cite> si lorsque vous
+plongez dans l'eau vous n'en ressortez pas immédiatement (attention à votre
+inventaire !), et une <cite>amulet of reflection</cite> si vous êtes
+attaqué par un rayon quelconque (baguette, souffle de dragon...) ou par
+un <cite>floating eye</cite>. Les deux restants, <cite>amulet against
+poison</cite> et <cite>amulet of life saving</cite> sont plus difficiles
+à identifier sans danger (vous pouvez toujours essayer de manger une
+créature empoisonnée si vous n'êtes pas déjà résistant au poison ou de
+vous suicider, mais ce n'est pas très prudent...).
+
+<p> L'<cite>Amulet of Yendor</cite> et la <cite>cheap plastic imitation
+of the Amulet of Yendor</cite> ont une apparence différente : impossible
+de les confondre avec une autre. Cependant, différencier ces deux
+amulettes est parfois difficile. Pour ce faire, nommez immédiatement
+l'<cite>Amulet of Yendor</cite> quelque chose comme « la vraie », ainsi
+à l'avenir seule cette dernière portera ce nom si vous la perdez. De
+plus, la vraie <cite>Amulet of Yendor</cite> ne peut pas être placée dans
+un contenant (sac, coffre, etc.). Enfin, lorsque vous l'avez dans votre
+inventaire (pas nécessairement autour du cou), vous gagnez la
+clairvoyance, la téléportation dans un même niveau échoue une fois sur
+trois, la téléportation inter-niveaux échoue toujours, et il y a une
+chance pour que vous descendiez de niveau lorsque vous empruntez un
+escalier montant dans les Enfers. Leurs prix de base sont aussi
+différents : 30000 pour l'<cite>Amulet of Yendor</cite>, et 0 pour
+l'imitation (c'est-à-dire que les marchands n'en voudront pas ; il
+peuvent toutefois vous la vendre avec un prix de base de 5).
+
+<p> Certains endroits recèlent un type d'amulette précis : le trésor du
+Sokoban, s'il s'agit d'une amulette, est toujours une <cite>amulet of
+reflction</cite>, et la Tour de Vlad contient toujours au moins une
+<cite>amulet of life saving</cite> et une <cite>amulet of
+strangulation</cite>. L'<cite>Amulet of Yendor</cite> est toujours
+portée par le Haut Prêtre de Moloch (sauf si le <cite>Wizard of
+Yendor</cite> le tue et s'en empare avant vous). Une <cite>cheap
+plastic imitation of the Amulet of Yendor</cite> a 50 % de chances
+d'être générée dans un <cite>bone file</cite> dans le <cite>Rogue
+Level</cite>. Enfin, le <cite>Wizard of Yendor</cite> et les personnages
+que vous pouvez rencontrer dans le Plan Astral ont toujours une
+<cite>cheap plastic imitation of the Amulet of Yendor</cite> sur eux
+(sauf si bien sûr vous vous êtes fait voler la vraie...)
+
+<ul><br></ul><a name="weapons"></a><h4>Les armes</h4>
+
+<p> Même si vous ne jouez pas une classe guerrière (auquel cas toutes les
+armes sont préidentifiées), vous pouvez identifier la plupart des armes
+« standard ». Notamment, l'adjectif <cite>crude</cite> peut être
+remplacé par <cite>orcish</cite> et l'adjectif <cite>runed</cite> peut
+par <cite>elven</cite>. Certaines armes voient simplement leur nom
+changer quand vous les identifiez : c'est le cas des <cite>double-headed
+axe</cite> (<cite>battle-axe</cite>), <cite>broad pick</cite>
+(<cite>dwarvish mattock</cite>), <cite>samurai sword</cite>
+(<cite>katana</cite>), <cite>long samurai sword</cite>
+(<cite>tsurugi</cite>), <cite>thonged club</cite> (<cite>aklys</cite>),
+<cite>iron hook</cite> (<cite>grappling hook</cite>), <cite>staff</cite>
+(<cite>quarterstaff</cite>), <cite>vulgar polearm</cite>
+(<cite>partisan</cite>), <cite>pole sickle</cite>
+(<cite>fauchard</cite>), <cite>single-edged polearm</cite>
+(<cite>glaive</cite>), <cite>beaked polearm</cite>
+(<cite>bec-de-corbin</cite>), <cite>forked polearm</cite>
+(<cite>spetum</cite>), <cite>pronged polearm</cite> (<cite>lucern
+hammer</cite>), <cite>pruning hook</cite> (<cite>guisarme</cite>),
+<cite>hilted polearm</cite> (<cite>ranseur</cite>), <cite>pole
+cleaver</cite> (<cite>voulge</cite>), <cite>hooked polearm</cite>
+(<cite>bill-guisarme</cite>), <cite>long poleaxe</cite>
+(<cite>bardiche</cite>), <cite>angled poleaxe</cite>
+(<cite>halberd</cite>), <cite>stout spear</cite> (<cite>dwarvish
+spear</cite>), <cite>throwing spear</cite> (<cite>javelin</cite>),
+<cite>long bow</cite> (<cite>yumi</cite>), <cite>bamboo arrow</cite>
+(<cite>ya</cite>) et <cite>throwing star</cite> (<cite>shuriken</cite>)
+(notez que le nom japonais, pour les Samouraïs, peut parfois être
+différent).
+
+<p> Pour déterminer l'enchantement d'un objet, vous pouvez essayer de le
+vendre à un marchand : chaque enchantement positif augmente le prix
+de base de l'objet de 10 (il n'y a pas de changement pour les
+enchantements négatifs, qui ne se trouvent généralement que sur les
+objets maudits de toutes façons).
+
+<ul><br></ul><a name="armors"></a><h4>Les armures</h4>
+
+<p> Comme pour les armes, certaines armures changent simplement de nom à
+l'identification (le nom japonais, pour les Samouraïs, peut être
+différent) : <cite>crude ring mail</cite> (<cite>orcish ring
+mail</cite>), <cite>crude chain mail</cite> (<cite>orcish chain
+mail</cite>), <cite>coarse mantelet</cite> (<cite>orcish cloak</cite>),
+<cite>hooded cloak</cite> (<cite>dwarvish cloak</cite>), <cite>slippery
+cloak</cite> (<cite>oilskin cloak</cite>), <cite>apron</cite>
+(<cite>alchemy smock</cite>), <cite>faded pall</cite> (<cite>elven
+cloak</cite>), <cite>leather hat</cite> (<cite>elven leather
+helm</cite>), <cite>iron skull cap</cite> (<cite>orcish helm</cite>),
+<cite>hard hat</cite> (<cite>dwarvish iron helm</cite>), <cite>red-eyed
+shield</cite> (<cite>orcish shield</cite>), <cite>white-handed
+shield</cite> (<cite>Uruk-hai shield</cite>), <cite>blue and green
+shield</cite> (<cite>elven shield</cite>), <cite>large round
+shield</cite> (<cite>dwarvish roundshield</cite>), <cite>polished silver
+shield</cite> (<cite>shield of reflection</cite>), <cite>walking
+shoes</cite> (<cite>low boots</cite>), <cite>jackboots</cite> (<cite>high
+boots</cite>) et <cite>hard shoes</cite> (<cite>iron shoes</cite>). 
+
+<p> En revanche, d'autres armures n'ont pas une apparence prédéfinie.
+C'est le cas par exemple de certaines <cite>cloaks</cite> (<cite>cloak of
+displacement</cite>, <cite>cloak of invisibility</cite>, <cite>cloak of
+magic resistance</cite> et <cite>cloak of protection</cite>, qui prennent
+au hasard à chaque partie l'une des apparences <cite>piece of
+cloth</cite>, <cite>opera cloak</cite>, <cite>ornamental cope</cite> et
+<cite>tattered cape</cite>). Pour les différencier, le plus simple est de
+les mettre : toutes s'identifieront automatiquement, à l'exception
+de la <cite>cloak of magic resistance</cite> (qui du coup peut facilement
+être identifiée par élimination...). Si vous ne pouvez pas mettre la cape
+pour une raison quelconque (vous avez déjà une cape maudite sur vous, la
+cape que vous souhaitez identifier est maudite, etc.), sachez que la
+<cite>cloak of magic resistance</cite> et la <cite>cloak of
+invisibility</cite> ont un prix de base de 60, et les deux autres de 50.
+
+<p> Pour ce qui est des casques, quatre peuvent être confondus entre eux
+(<cite>helmet</cite>, <cite>helm of brilliance</cite>, <cite>helm of
+opposite alignment</cite>, <cite>helm of telepathy</cite>, qui peuvent
+prendre les apparences <cite>plumed helmet</cite>, <cite>etched
+helmet</cite>, <cite>crested helmet</cite> et <cite>visored
+helmet</cite>). Les <cite>helmets</cite> sont relativement faciles à
+identifier : ce sont les casques portés par les gardes dans la Ville des
+Gnomes (si vous ou votre <cite>pet</cite> parvenez à en tuer un) et par
+les différents soldats. Pour identifer les autres, il est assez fortement
+déconseillé de les essayer, même s'ils ne sont pas maudits : en effet,
+le <cite>helm of opposite alignement</cite> devient automatiquement maudit
+sitôt sur votre tête ! Pire encore, outre le fait qu'il change votre
+alignement, il annule toute protection divine dont vous disposiez
+éventuellement... Par ailleurs, le prix de base est le même (50) pour les
+3 casques magiques (le simple <cite>helmet</cite> a un prix de base de
+10), donc impossible de les différencier avec un marchand... Le plus sûr
+reste donc le <cite>scroll of identify</cite> (lorsque vous aurez trouvé
+le <cite>helm of opposite alignment</cite>, les autres ne présentent pas
+de danger, mis à part celui d'être éventuellement maudit).
+
+<p> Deux autres « casques » peuvent également être confondus : le
+<cite>cornuthaum</cite> et le <cite>dunce cap</cite>, qui ont la même
+apparence, <cite>conical hat</cite>. Si vous ne jouez pas un
+<cite>Wizard</cite>, laissez tomber ces chapeaux, ils ne vous donnent que
+des malus. Si vous jouez un magicien, le <cite>cornuthaum</cite> vous
+donne un point de charisme en plus et vous octroie la clairvoyance
+(vision sans obstacle dans un certain périmètre autour de vous). Pour le
+différencier du <cite>dunce cap</cite> aux effets problématiques (abaisser
+entre autres votre intelligence et votre sagesse à 6, gênant pour un
+magicien...), seul le prix de base peut vous aider (80 contre 1) : en
+effet, le <cite>dunce cap</cite> se maudit automatiquement une fois sur
+votre tête.
+
+<p> Les 4 types de gants (<cite>leather gloves</cite>,
+<cite>gauntlets of dexterity</cite>, <cite>gauntlets of fumbling</cite>
+et <cite>gauntlets of power</cite>) sont aléatoirement attribués à quatre
+apparences (<cite>old gloves</cite>, <cite>padded gloves</cite>,
+<cite>riding gloves</cite> et <cite>fencing gloves</cite>) à chaque
+partie. N'importe quelle paire de gants peut être essayée sans danger
+(pour autant qu'elle ne soit pas maudite). Les <cite>gauntlets of
+power</cite> s'identifient automatiquement et les <cite>gauntlets of
+fumbling</cite> s'ientifient après quelques tours (il vous font échouer à
+peu près toutes vos actions, vous font trébucher et tomber dans les
+escaliers, etc. - notez qu'ils peuvent être enlevés sans problème, s'ils
+ne sont pas maudits bien sûr). Restent les <cite>gauntlets of
+dexterity</cite>, qui ne s'identifient que s'ils ont un enchantement non
+nul, et les <cite>leather gloves</cite>, qui sont souvent trouvés sur les
+corps des gardes et des soldats, et peuvent donc être identifiés de cette
+manière. Les prix de base des gants magiques sont identiques (50), celui
+des des <cite>leather gloves</cite> vaut 8.
+
+<p> Enfin, de nombreuses paires de bottes (<cite>elven boots</cite>,
+<cite>kicking boots</cite>, <cite>fumble boots</cite>, <cite>levitation
+boots</cite>, <cite>jumping boots</cite>, <cite>speed boots</cite> et
+<cite>water walking boots</cite>) peuvent
+également prendre diverses apparences dans vos parties (<cite>mud
+boots</cite>, <cite>buckled boots</cite>, <cite>riding boots</cite>,
+<cite>snow boots</cite>, <cite>hiking boots</cite>, <cite>combat
+boots</cite> et <cite>jungle boots</cite>). Les <cite>elven boots</cite>
+sont souvent trouvées sur les corps des différents elfes ; elles donnent
+le message « <samp>You feel stealthy!</samp> » lorsque vous les portez,
+à moins que vous ne soyez déjà <cite>stealthy</cite> (notamment en
+portant une <cite>elven cloak</cite>, en jouant une Valkyrie, un Voleur
+ou un Archéologue, ou après le niveau d'espérience 5 pour un Moine, 7
+pour un Rôdeur ou 15 pour un Barbare ou un Samouraï). Les <cite>kicking
+boots</cite> permettent de faire un peu plus de dommages en donnant des
+coups de pieds, mais cet effet est difficilement quantifiable. En
+revanche, ce sont les seules bottes (parmi celles qui viennent d'êtres
+citées) à être en métal : elles peuvent donc notamment rouiller et être
+corrodées (et non brûler ou pourrir), mais surtout elles diminuent les
+chances de jeter des sorts : jetez un coup d'oeil à vos chances d'échec
+pour lancer un sorts avec et sans ces bottes pour les identifier. Les
+<cite>fumble boots</cite> sont généralement générées maudites, comme les
+<cite>boots of levitation</cite> ainsi si vous trouvez deux paires de
+bottes maudites, vous pouvez raisonnablement les nommer
+« Fumble/Levitation ». Elles ont par ailleurs le même effet que les
+<cite>gauntlets of fumbling</cite> lorsque vous les mettez aux pieds :
+elles s'identifient donc sans problème au bout de quelques tours. Les
+<cite>jumping boots</cite> peuvent s'identifier en essayant de sauter
+lorsque vous les avez aux pieds : s'il ne s'agit pas de ces bottes, vous
+obtiendrez le message « <samp>You can't jump very far.</samp> » (sauf
+si vous jouez un Chevalier, dans ce cas essayez de sauter autrement que
+comme un cavalier aux échecs, une case devant vous par exemple). Les
+<cite>levitation boots</cite> et les <cite>speed boots</cite>
+s'identifient automatiquement dès que vous les mettez aux pieds. Les
+<cite>kicking boots</cite> peuvent être identifiées en donnant un coup de
+pied à un objet et en regardant jusqu'où il va : avec de telles bottes
+aux pieds, l'objet atterrit généralement plus loin que d'habitude. Enfin,
+les <cite>water walking boots</cite> peuvent bien sûr être identifiées en
+tentant de marcher sur l'eau lorsque vous les avez aux pieds
+(débarassez-vous ou protégez votre équipement « sensible » - potions,
+objets en métal, parchemins... - avant de tenter cela !). Le prix de
+base des <cite>elven</cite> et <cite>kicking boots</cite> est de 8, celui
+des <cite>fumble</cite> et <cite>levitation boots</cite> est de 30, et
+celui des 3 paires de bottes restantes est de 50 (attention, n'oubliez
+pas que chaque enchantement positif augmente le prix de base de 10, ce
+qui fait qu'une <cite>+2 pair of fumble boots</cite> aura le même prix de
+base qu'une <cite>+0 pair of water walking boots</cite> !) .
+
+<p> Comme pour les armes, chaque enchantement positif augmente le prix de
+base de n'importe quelle armure de 10 (aucun changement pour les
+enchantements négatifs), cependant, à l'inverse des armes, vous pouvez
+déterminer le nombre d'enchantements d'une armure simplement en la
+mettant (d'où l'intérêt de tester chaque pièce d'armure non maudite que
+vous pouvez trouver - le bénéfice apporté par la découverte d'un
+<cite>+5 iron skull cap</cite> ou d'un <cite>+2 elven mithril
+coat</cite> vaut largement le temps passé à les essayer).
+
+<ul><br></ul><a name="food"></a><h4>La nourriture</h4>
+
+<p> Il y a peu de choses à savoir identifier dans la nourriture. Sachez
+simplement que la nourriture maudite est comestible, même si elle est
+toujours pourrie (ce qui peut vous faire perdre conscience quelques
+instants...). De toutes façons, seules les <cite>tins</cite> peuvent être
+générées aléatoirement maudites.
+
+<p> En fait, seules les <cite>tins</cite> et les <cite>eggs</cite> peuvent
+poser problème. Pour les premières, vous ne découvrez ce qu'elles
+contiennent qu'au moment de les ouvrir (sauf si vous aviez utilisé un
+<cite>scroll</cite> ou un <cite>spell of identify</cite> auparavant, ou
+que vous avez vous-même créé cette conserve) : à vous de voir si vous
+voulez en manger le contenu après ! Pour les oeufs, il n'y a
+malheureusement pas d'autre moyen de les identifier que le
+<cite>scroll</cite> ou le <cite>spell of identify</cite> ; si le nom
+après identification reste le même, nommez cet oeuf « normal » ou
+« oeuf de poule » pour identifier facilement les prochains que vous
+trouverez. Les autres oeufs que vous pouvez trouver sont des oeufs
+laissés par un monstre précis (scorpion, dragon, etc.) et peuvent
+éventuellement éclore ; ils sont toutefois parfaitement comestibles, à
+l'excepion de l'oeuf de <cite>cockatrice</cite>, qui vous pétrifiera en
+quelques tours si vous n'êtes pas <cite>stoning-resistant</cite>.
+
+<ul><br></ul><a name="scrolls"></a><h4>Les parchemins</h4>
+
+<p> Seuls le <cite>scroll of blank paper</cite> et le <cite>scroll of
+mail</cite> ont toujours la même apparence dans toutes les parties
+(<cite>unlabeled</cite> et <cite>stamped</cite>). Les autres parchemins
+portent un titre au hasard.
+
+<p> Il est assez peu sage de lire un parchemin non identifié : vous ne
+<em>voulez</em> vraiment pas tomber sur un <cite>scroll of
+punishment</cite> ou un <cite>scroll of amnesia</cite> par exemple... La
+manière la plus sûre de s'en sortir consiste à en rechercher le prix de
+base. Celui-ci est de 20 pour le <cite>scroll of identify</cite> (qui est
+donc le moins cher de tous les parchemins : facile à retenir), 50 pour
+le <cite>scroll of light</cite>, 60 pour le <cite>scroll of enchant
+weapon</cite>, 80 pour le <cite>scroll of enchant armor</cite> et le
+<cite>scroll of remove curse</cite>, 100 pour le <cite>scroll of confuse
+monster</cite>, le <cite>scroll of destroy armor</cite>, le <cite>scroll
+of fire</cite>, le <cite>scroll of food detection</cite>, le <cite>scroll
+of gold detection</cite>, le <cite>scroll of magic mapping</cite>, le
+<cite>scroll of scare monster</cite> et le <cite>scroll of
+teleportation</cite>, 200 pour le <cite>scroll of amnesia</cite>, le
+<cite>scroll of create monster</cite>, le <cite>scroll of earth</cite> et
+le <cite>scroll of taming</cite>, et 300 pour le <cite>scroll of
+charging</cite>, le <cite>scroll of genocide</cite>, le <cite>scroll of
+punishment</cite> et le <cite>scroll of stinking cloud</cite>. 
+
+<p> Aucun problème pour identifier le parchemin si son prix de base est
+égal à 20, 50 ou 60 (attention, le <cite>scroll of blank paper</cite> a
+aussi un prix de base de 60, ne le confondez pas...). Vérifiez quand même
+que vous ne vous êtes pas trompé dans le prix de base : en effet, avec
+un modificateur de +33 % à l'achat, un prix de base de 60 peut sembler
+être un prix de base de 80, inversement un prix de base de 80 avec le
+modificateur aléatoire de -25 % à la vente peut sembler être un prix de
+base de 60...
+
+<p> Si le prix de base du parchemin est de 80, essayez de le bénir, de
+porter une pièce d'armure que vous avez de bonnes chances de garder assez
+longtemps et d'avoir au moins un objet maudit quelconque dans votre
+inventaire avant de le lire. Si vous ne pouvez pas le bénir, et qu'il est
+non maudit, vous pouvez tenter de mettre une pièce d'armure maudite avant
+de lire le parchemin, mais c'est une technique un peu risquée si vous
+n'êtes pas sûr que l'enchantement de cette pièce d'armure soit au moins
+égal à -1 (une armure maudite enchantée à +0 ou plus redevient non
+maudite). Vous pouvez aussi tenter d'être <cite>confused</cite> au moment
+de lire le parchemin (en lançant un sort que vous appris il y a très
+longtemps par exemple), en prenant soin de ne rien porter sur vous
+(armures, armes, anneaux, etc.) : le <cite>scroll of enchant
+armor</cite> vous donnera le message « <samp>You have a normal feeling
+for a moment, then it passes.</samp> » ou « <samp>Your skin glows then
+fades.</samp> »  (sans plus d'effet) tandis que le <cite>scroll of
+remove curse</cite> vous donnera le message « <samp>You feel like you
+need some help.</samp> » (normalement sans effet aussi). Si vous ne
+prenez pas les précautions nécessaires, le premier rendra l'une de vos
+pièces d'armure inoxydable (ce qui est bien), tandis que le second benira
+au maudira au hasard tous les objets que vous portez (ce qui peut être
+gênant). Enfin, si le parchemin est maudit, enlevez toutes vos armures
+avant de le lire. Le premier vous donnera alors l'un des deux messages
+précédents (sans effet supplémentaire non plus), tandis que le second
+enlèvera éventuellement le boulet qui était attaché à votre pied, et vous
+donnera le message « <samp>You feel like someone is helping
+you.</samp> ». 
+
+<p> Si le prix de base du parchemin est de 100, enlevez toutes vos pièces
+d'armures (en cas de <cite>scroll of destroy armor</cite>) et tout ce qui
+peut être endommagé par le feu (parchemin, potions, armures en cuir,
+etc., en cas de <cite>scroll of fire</cite>). La plupart des parchemins
+peuvent alors être identifiés sans problème : <cite>confuse
+monster</cite> vous permet de rendre confus le(s) prochain(s) monstre(s)
+que vous frapperez ou vous rendra vous-même confus, <cite>fire</cite>
+créera des flammes autour de vous, <cite>food detection</cite> et
+<cite>gold detection</cite> vous révèleront la nourriture ou l'or à
+proximité (et vous donneront le même message, « <samp>You have a strange
+feeling for a moment, then it passes.</samp> » ou « <samp>Your nose
+twitches.</samp> » selon votre expérience : déposez au moins une pièce
+d'or au sol avant pour être sûr de les différencier), <cite>magic
+mapping</cite> révèle tout ou partie de la carte du niveau (attention à
+ne pas être au Château ou un autre niveau spécial interdisant
+l'utilisation de ce sort !), <cite>scare monster</cite> fera fuir les
+monstres autour de vous (s'il est maudit, il affichera un message du type
+« <samp>You hear sad wailing...</samp> » et attirera au contraire les
+monstres...), et <cite>teleportation</cite> vous téléportera, de manière
+contrôlée ou non (attention si vous aviez laissé traîné des objets
+essentiels près de votre position initiale...).
+
+<p> Les parchemins dont le prix de base est de 200 ne devraient pas être
+lus : <cite>amnesia</cite> vous fait oublier <em>beaucoup</em> de choses
+(objets précédemment identifiés, cartes des niveaux, sorts, etc.),
+<cite>create monster</cite> peut générer une horde de monstres, et
+<cite>earth</cite> peut vous tuer en vous faisant tomber un rocher
+dessus. Si le parchemin est béni et que vous avez déjà identifié le
+<cite>scroll of amnesia</cite>, le danger devient minime, mais ces
+parchemins sont relativement précieux et il vaut mieux les économiser
+(sauf si vous êtes dans une position difficile, auquel cas n'hésitez
+surtout pas !)
+
+<p> Les parchemins dont le prix de base est de 300 ne devraient pas non
+plus être lus. Le <cite>scroll of stinking cloud</cite> peut facilement
+vous tuer si vous n'êtes pas résistant au poison, et le <cite>scroll of
+punishment</cite> vous attache un boulet au pied, ce qui est vraiment
+pénible. Dans tous les cas, ne lisez pas un de ces parchemins lorsque
+vous êtes <cite>confused</cite> : s'il s'agit d'un <cite>scroll of
+genocide</cite>, vous génociderez votre propre classe, ce qui vous tuera
+instantanément sans possibilité de résurrection (y compris avec une
+<cite>amuler of life saving</cite>).
+
+<p> Certains parchemins peuvent être identifiés sans connaître leur prix
+de base. D'abord, certains monstres peuvent lire des parchemins : c'est
+le cas notamment des <cite>scrolls of create monster</cite> et des
+<cite>scrolls of teleportation</cite>, vous permettant ainsi de les
+identifier à leur effets. Les <cite>scrolls of identify</cite> sont de loin
+les parchemins qui ont la plus grande probabilité d'être générés : si
+vous avez beaucoup de parchemins, il y a de bonnes chances pour que celui
+dont vous disposez en le plus grand nombre d'exemplaires soit celui-ci.
+Ensuite, les <cite>scrolls of teleport</cite> sont les seuls pouvant être
+générés dans les couloirs entre les salles (particulièrement dans les
+petites niches qui apparaissent parfois juste à la périphérie des
+salles). Attention à ne pas les confondre avec les parchemins déposés par
+votre <cite>pet</cite> (par exemple) dans les couloirs ! Notez encore
+que le premier niveau du Sokoban contient toujours deux <cite>cursed
+scrolls of earth</cite>. Enfin, le <cite>scroll of scare monster</cite>
+est un peu particulier : il effraie les monstres lorsqu'il est déposé au
+sol (comme si vous aviez écrit « <samp>Elbereth</samp> »), mais le
+ramasser revient à le maudire, ou à le détruire s'il était déjà maudit :
+attention donc si vous avez peu d'argent dans un magasin, le marchand
+pouvant vous demander de payer le parchemin s'il vient de se
+désintégrer ! 
+
+<p> La dernière possibilité d'identification consiste à tenter d'écrire
+soi-même le parchemin à identifier à l'aide d'un <cite>magic
+marker</cite> et d'un <cite>scroll of blank paper</cite>. Cependant,
+avant de le faire, montez toujours votre chance au maximum (en sacrifiant
+par exemple). Si vous jouez un <cite>Wizard</cite>, vous aurez alors
+98 % de chances d'écrire un parchemin inconnu (30 % sans le bonus
+de chance), dans le cas contraire vous n'aurez qu'une chance sur trois
+de ce faire (une chance sur quinze sans bonus de chance).
+
+<ul><br></ul><a name="spellbooks"></a><h4>Les livres</h4>
+
+<p> Ici encore, vous n'avez guère d'aute moyen d'identifier les livres
+qu'en regardant leur prix. Les seuls qui ne changent pas d'apparence sont
+le <cite>spellbook of blank paper</cite> (<cite>plain spellbook</cite>)
+et le <cite>Book of the Dead</cite> (<cite>papyrus spellbook</cite>).
+Dans tous les autres cas, le mieux que vous puissiez obtenir est le
+niveau du sort : le prix de base d'un <cite>spellbook</cite> est égal à
+100 fois son niveau. Notez que tenter d'identifier un livre en l'écrivant
+comme un parchemin fonctionne aussi, avec les mêmes limites que
+précédemment.
+
+<p> Une fois que vous avez déterminé le niveau d'un livre, vous devriez
+être capable de savoir s'il est sans danger de le lire, et donc
+d'apprendre le sort qui y est contenu (en identifiant le livre). Pour
+cela, si le livre est non maudit, jetez un coup d'oeil à la formule ci
+dessous : <br> % de réussite = 100 * (INT + 4 +(XL/2) - (2 * LVL)) / 20
+<br> où INT est votre intelligence, XL votre niveau d'expérience et LVL
+le niveau du sort. Si vous portez des lunettes (<cite>glass
+lenses</cite>), le facteur 4 est remplacé par 6. Pour être sûr de lire
+convenablement un sort, il faut donc que votre total d'intelligence, plus
+la moitié de votre niveau, moins le double du niveau du sort soit
+supérieur à 16, ou à 14 avec des lentilles (oui, c'est une paraphrase de
+la formule, mais c'est plus clair dit comme ça...). Si cette condition
+n'est pas respectée, toutes sortes d'effets peuvent se produire, incluant
+notamment la destruction du livre. Si le livre est béni, vous n'aurez
+jamais d'effet gênant (les chances de succès sont toujours de 100 %),
+s'il est maudit vous aurez <em>toujours</em> ces effets...
+
+<p> Il est parfois possible d'identifier certains livres lorsque vous
+trouvez un <cite>bone piles</cite> dans les niveaux supérieurs du
+donjon : un <cite>Wizard</cite> a toujours sur lui au moins un
+<cite>spellbook of Force Bolt</cite> au démarrage, un <cite>Healer</cite>
+commence toujours avec des <cite>spellbooks of healing</cite>,
+<cite>extra healing</cite> et <cite>stone to flesh</cite>, un prêtre
+commence avec deux livres correspondant à des sorts des catégories
+<cite>healing</cite>, <cite>divination</cite> et <cite>clerical</cite> et
+un moine aura dans son inventaire un livre correspondant à l'un des sorts
+parmi <cite>healing</cite>, <cite>protection</cite> et
+<cite>sleep</cite>. Cela ne marche évidemment que dans les <cite>bone
+piles</cite> des premiers niveaux, où les joueurs n'ont pas encore stocké
+leurs (lourds) livres dans un coin...
+
+<ul><br></ul><a name="potions"></a><h4>Les potions</h4>
+
+<p> Les potions sont un peu plus aisées à identifier que les parchemins.
+D'abord, par leur prix de base. Les <cite>potions of booze</cite>,
+<cite>potions of fruit juice</cite>, <cite>potions of see
+invisible</cite> et <cite>potions of sickness</cite> ont un prix de
+base de 50, les <cite>potions of confusion</cite>, <cite>potions of
+extra healing</cite>, <cite>potions of hallucination</cite>,
+<cite>potions of healing</cite>, <cite>potions of restore ability</cite>,
+<cite>potions of sleeping</cite> et <cite>potions of (un)holy
+water</cite> de 100, les <cite>potions of blindness</cite>, <cite>potions
+of gain energy</cite>, <cite>potions of invisibility</cite>,
+<cite>potions of monster detection</cite> et <cite>potions of object
+detection</cite> de 150, les <cite>potions of enlightenment</cite>,
+<cite>potions of full healing</cite>, <cite>potions of levitation</cite>,
+<cite>potions of polymorph</cite> et <cite>potions of speed</cite> de
+200, les <cite>potions of acid</cite> et <cite>potions of oil</cite> de
+250 et enfin les <cite>potions of gain ability</cite>, <cite>potions of
+gain level</cite> et <cite>potions of paralysis</cite> de 300.
+
+<p> Il existe un autre moyen relativement sûr d'identifier les potions
+(éventuellement après avoir obtenu une première idée grâce au prix),
+nécessitant une <cite>unicorn horn</cite> : en effet, la tremper dans
+une <cite>potion of confusion</cite>, une <cite>potion of
+hallucination</cite> ou une <cite>potion of blindness</cite> transformera
+cette potion en une <cite>uncursed potion of water</cite>, et la tremper
+dans une <cite>potions of sickness</cite> transformera cette potion en
+une <cite>potion of fruit juice</cite>. Pour faire les choses proprement,
+commencez par tremper dans toutes vos potions un objet quelconque afin de
+vérifier si vous possédez une <cite>potion of polymorph</cite> (si
+possible un outil, il s'agit sûrement des objets les plus utiles du
+jeu) : en effet, y tremper directement votre précieuse <cite>unicorn
+horn</cite> vous la transformera en quelque chose d'autre (le problème ne
+se pose pas toutefois si vous disposez de plusieurs <cite>unicorn
+horns</cite>, bien sûr)... Ensuite, nommez toutes vos potions une par une
+« <samp>Danger - &lt;couleur de la potion&gt;</samp> » puis trempez
+votre <cite>unicorn horn</cite> dans toutes vos potions. Ensuite,
+débaptisez toutes les potions qui vous restent (en entrant un simple
+espace avec la commande <cite>#name</cite>). Accessoirement, comme les
+<cite>potions of water</cite> sont toujours des <cite>clear
+potions</cite>, si vous obtenez une potion différente après ce test, il
+s'agit forcément d'une <cite>potion of fruit juice</cite> (et la potion
+originelle était une <cite>potion of sickness</cite>). Ensuite, vous
+pouvez boire un exemplaire de chacune des potions qui vous restent.
+Attention ! Les <cite>potion of sleeping</cite> et <cite>potion of
+paralysis</cite> n'ont pas été affectées et peuvent donc vous réserver
+des surprises ! Le meilleur moyen d'éviter les mauvaises surprises
+consiste à porter un <cite>ring of free action</cite>, qui annule les
+effets de ces deux potions. Si vous n'avez pas de tel anneau, évitez au
+moins de boire des potions dont le prix de base est 300, de toutes
+façons, les <cite>potions of gain ability</cite> et <cite>gain
+level</cite> fonctionnent bien mieux lorsqu'elles sont bénies ; si vous
+êtes résistant au sommeil (ce qui s'obtient en général assez facilement)
+vous n'aurez aucun problème.
+
+<p> Notez que les <cite>potions of fruit juice</cite> et les
+<cite>potions of see invisible</cite> donnent le même message lorsque
+vous les buvez ; de plus elles ont le même prix de base, ce qui est
+gênant pour les identifier lorsqu'il n'y a pas de monstre invisible dans
+les environs. Pour les différencier, outre le fait que seul <cite>fruit
+juice </cite> peut être obtenu en trempant une <cite>unicorn horn</cite>
+dans une potion, vous pouvez tremper une améthyste dans une <cite>potion
+of booze</cite>, pour obtenir une <cite>potion of fruit juice</cite>. Si
+tremper cette gemme dans une potion non identifiée transforme la potion,
+vous pouvez donc être sûr que celle d'origine était <cite>booze</cite> et
+celle d'arrivée <cite>fruit juice</cite>. Les marchands de nourriture
+(<cite>delicatessen</cite>) ne vendent et achètent que des <cite>potions
+of water</cite>, des <cite>potions of booze</cite> et des <cite>potions
+of fruit juice</cite> : encore un moyen d'identifier <cite>fruit
+juice</cite>. Enfin, si vous êtes aveugle, une <cite>blessed</cite> ou
+<cite>uncursed potion of see invisible</cite> vous rendra la vue.
+
+<p> Les monstres peuvent utiliser certaines potions. Si l'un d'eux vous
+jette une potion, vous pouvez généralement l'identifier au message que
+vous obtenez : « <samp>You feel somewhat dizzy.</samp> » pour <cite>confuse
+monster</cite>, et « <samp>This burns!</samp> » pour
+</cite>acid</cite>. Les <cite>potions of paralysis</cite>, les
+<cite>potions of blindness</cite> et les <cite>potions of sleeping</cite>
+s'identifient automatiquement lorsqu'un monstre vous les lancent (et que
+vous survivez...). Les monstres boivent les <cite>potions of gain
+level</cite> dès que possible ; si la potion n'était pas maudite, vous
+l'identifiez immédiatement (« <samp>The &lt;monster&gt; seems more
+experienced.</samp> »), mais si elle était maudite, le monstre monte
+littéralement d'un niveau <em>de donjon</em> (« <samp>The
+&lt;monster&gt; rises up, through the ceiling!</samp> ») : à vous de
+retenir qu'il s'agit de cette potion. De même, un monstre buvant une
+potion de soin quelconque (<cite>healing</cite>, <cite>extra
+healing</cite> ou <cite>full healing</cite>) sera soigné et vous fera
+identifier la potion. Idem pour les <cite>potion of speed</cite>,
+<cite>potion of invisibility</cite> et <cite>polymorph</cite>, qui
+prendront effet immédiatement sur le monstre et seront alors identifiées. 
+
+<p> Certains endroits contiennent des potions d'un type garanti. Dans une
+des trois versions du Fond des Mines, une cachette recèle plusieurs
+potions, dont la plupart sont des <cite>potions of booze</cite>. Avec une
+des améthystes générées à ce niveau, vous ne devriez avoir aucun mal à
+les identifier. Les <cite>nymphs</cite> possèdent très souvent (mais pas
+exclusivement) une <cite>potion of object detection</cite> sur elles :
+si vous trouvez deux potions identiques sur deux nymphes différentes,
+vous pouvez raisonnablement considérer qu'il s'agit bien de ces potions.
+
+<p> Si vous êtes joueur, vous pouvez aussi tenter d'identifier les
+potions à la probabilité qu'elles ont d'être générées : les
+<cite>potions of oil</cite>, <cite>polymorph</cite> et <cite>full
+healing</cite> sont trois à quatre fois moins souvent générées que la
+plupart des autres potions (sauf les <cite>potion of water</cite>, qui
+sont deux fois plus probable que les autres).
+
+<p> Les <cite>potions of sickness</cite> peuvent être identifiées en
+trempant dedans un missile (<cite>dart</cite>, <cite>arrow</cite>,
+etc.) : s'il s'agissait bien de cette potion, le missile deviendra un
+missile empoisonné.
+
+<p> Si un jour vous générez une potion en soufflant dans une corne
+(auquel cas il s'agit d'une <cite>horn of plenty</cite>), il s'agit d'une
+potion parmi <cite>water</cite>, <cite>sickness</cite>, <cite>fruit
+juice</cite>, <cite>oil</cite> et <cite>booze</cite>.
+
+<p> Enfin, un défaut de l'interface (qui sera peut-être corrigé dans la
+prochaine version ?) permet d'identifier les <cite>potions of oil</cite>
+en utilisant la commande <cite>(a)pply</cite> : si vous disposez d'une
+<cite>potion of oil</cite> dans votre inventaire, sa lettre se trouvera
+parmi la liste des objets qu'il est possible d'utiliser avec cette
+commande. Dans tous les cas, cette potion est la seule qui a un effet
+lorsqu'on utilise cette commande, qu'elle soit citée ou non.
+
+<ul><br></ul><a name="rings"></a><h4>Les anneaux</h4>
+
+<p> Le prix de base ne vous servira pas beaucoup pour identifier les
+anneaux : il est de 100 pour les <cite>rings of hunger</cite>,
+<cite>protection</cite>, <cite>protection from shape changers</cite>,
+<cite>stealth</cite>, <cite>sustain ability</cite> et
+<cite>warning</cite>, 200 pour les <cite>rings of fire resistance</cite>,
+<cite>free action</cite>, <cite>levitation</cite>,
+<cite>regeneration</cite>, <cite>searching</cite>, <cite>slow
+digestion</cite> et <cite>teleportation</cite>, 300 pour les <cite>rings
+of conflict</cite>, <cite>polymorph</cite>, <cite>polymorph
+control</cite> et <cite>teleport control</cite>, et 150 pour tous les
+autres. 
+
+<p> Si l'anneau n'est pas maudit, essayez-le et retirez-le tout de
+suite : vous pouvez alors identifier les <cite>rings of stealth</cite>
+(si vous n'avez pas déjà cette aptitude), <cite>invisibility</cite>,
+<cite>levitation</cite>, et tout anneau modifiant vos caractéristiques
+(<cite>adornment</cite>, <cite>protection</cite>, <cite>gain
+constitution</cite> et <cite>gain strength</cite>). Avec un peu de chance, 
+<cite>warning</cite>, <cite>regeneration</cite> et <cite>conflict</cite>
+seront identifiés, si respectivement un ennemi est à proximité (mais vous
+ne le voyez pas), vos points de vie ne sont pas à leur maximum et si une
+créature pacifique ou apprivoisée se trouve à côté de vous. Attention !
+N'essayez pas un anneau non identifié près d'un marchand ou d'un
+<cite>pet</cite> particulièrement puissant, vous le regretteriez s'il
+s'agissait d'un <cite>ring of conflict</cite> !
+
+<p> Il est recommandé d'enlever l'anneau aussitôt, au cas où ce serait
+un <cite>ring of polymorph</cite>, lequel risque de vous transformer en
+brisant vos armures. Cependant, si cet anneau est déjà identifié, si vous
+avez un <cite>ring of polymorph control</cite>, si le prix ne correspond
+pas, si vous avez enlevé vos armures ou si vous n'avez gardé qu'une
+armure en écailles de dragon (auquel cas vous vous transformerez en
+dragon de la même couleur), vous pouvez tenter de conserver l'anneau au
+doigt. Vous pourrez ainsi identifier les <cite>rings of
+teleportation</cite> (si vous vous téléportez au hasard de temps en
+temps), <cite>hunger</cite> (si vous avez faim plus rapidement, 50 %
+pour être exact ; attention <cite>conflict</cite> et <cite>regeneration
+ont aussi cet effet secondaire</cite>), <cite>protection from shape
+changers</cite> (si vous rencontrez un caméléon, une mimique, un
+doppleganger ou une créature-garou dans sa forme « naturelle » sans
+intervention de votre part), <cite>sustain ability</cite> (si vos
+caractéristiques n'augmentent pas alors qu'elles le devraient),
+<cite>cold/fire/shock resistance</cite> (si vous êtes attaqué par un de
+ces éléments et que vous obtenez l'animation et le message indiquant que
+vous résistez à cette attaque), <cite>poison resistance</cite> (si vous
+n'avez aucun dommage suite à une attaque empoisonnée ; cela fonctionne
+aussi lorsque vous mangez des corps de créatures empoisonnés, mais il est
+fortement déconseillé d'essayer si vous n'êtes pas <em>sûr</em> que c'est
+bien cet anneau...), <cite>see invisible</cite> (si vous voyez une
+créature invisible - y compris vous -, notamment un
+<cite>stalker</cite>), <cite>free action</cite> (si vous ne subissez pas
+les effets d'une paralysie quelconque - potion, baguette de sommeil,
+attaque passive des <cite>floating eyes</cite> et des <cite>gelatinous
+cubes</cite>, etc.), <cite>regeneration</cite> (si vos points de vie
+augmentent tous les tours</cite>, <cite>slow digestion</cite> (si vous
+n'avez que très rarement faim et que vous restez longtemps dans l'état
+<cite>Satieted</cite>), <cite>polymorph control</cite> (si vous marchez
+par hasard sur une <cite>polymorph trap</cite>) et <cite>teleport
+control</cite> (si vos teleportations - <cite>teleport traps</cite>,
+attaques de <cite>quantum mechanics</cite>, etc. deviennent
+contrôlées). Attention, certains anneaux risquent de rester non
+identifiés si vous possédez déjà l'aptitude correspondante (résistance,
+téléportation, etc.).
+
+<p> Bien sûr, vous pouvez aussi ne mettre l'anneau que lorsque vous vous
+retrouvez dans l'une des situations précitées : lorsque vous trouvez une
+mimique, lorsque vous trouvez une <cite>teleport trap</cite> ou une
+<cite>polymorph trap</cite>, lorsque vous êtes sur le point de frapper un
+<cite>brown mold</cite> ou un <cite>gelatinous cube</cite> (éviter quand
+même les <cite>floating eyes</cite>...), etc.
+
+<p> Les anneaux ne sont normalement jamais bénis lorsqu'ils sont générés
+aléatoirement : si vous en trouvez un, c'est qu'il s'agit d'un anneau
+« chargeable » (<cite>adornment</cite>, <cite>protection</cite>,
+<cite>gain constitution</cite>, <cite>gain strength</cite>,
+<cite>increase accuracy</cite> et <cite>increase damage</cite>). Ainsi,
+vous pourrez identifier au moins partiellement ces anneaux lorsqu'ils
+n'ont pas d'effet direct (<cite>increase accuracy</cite>, <cite>increase
+damage</cite> et anneaux chargés à +0).
+
+<p> Certains anneaux ont une forte probabilité d'être générés maudits :
+les <cite>rings of hunger</cite>, <cite>teleportation</cite>,
+<cite>polymorph</cite> et <cite>aggravate monster</cite>. Ainsi, deux anneaux
+identiques appartenant à cette catégories n'ont qu'1 % de chances d'être
+générés non maudits, inversement, deux anneaux identiques n'ont qu'1 %
+de chances d'être générés maudits s'il ne s'agit ni d'un anneau
+chargeable ni d'un anneau précédemment cité.
+
+<p> Certaines créatures, les <cite>Nazgûls</cite> (que vous ne
+rencontrerez probablement pas dans le début du jeu), possèdent toujours
+un <cite>cursed ring of invisibility</cite> dans leur inventaire. Comme
+il ne peut y avoir plus de 9 <cite>Nazgûls</cite> (d'après <cite>Le
+Seigneur des Anneaux</cite>, bien sûr), certains joueurs s'amusent à
+collectionner ces anneaux.
+
+<p> Enfin, il existe une méthode permettant d'identifier à coup sûr un
+anneau, mais au risque de le perdre. Elle consiste à le jeter dans un
+lavabo (<cite>sink</cite>) avec la commande <cite>(d)rop</cite>, et à
+observer ce qui se passe. Voici les messages que vous obtenez selon
+l'anneau que vous jetez :
+<ul>
+<li><cite>adornment</cite> : « <samp>The faucets flash brightly for
+a moment.</samp> »
+
+<li><cite>hunger</cite> : Pour chaque objet déposé sur le lavabo
+auparavant, vous avez une chance qu'il disparaisse avec le
+message : « <samp>Suddenly, &lt;objet&gt; vanishes from the
+sink!</samp> »
+
+<li><cite>protection</cite> : Si l'enchantement est négatif : « <samp>The
+sink glows black for a moment.</samp> », sinon : « <samp>The
+sink glows silver for a moment.</samp> »
+
+<li><cite>protection from shape changers</cite> : « <samp>The sink
+looks nothing like a fountain.</samp> »
+
+<li><cite>stealth</cite> : « <samp>The sink seems to blend into floor
+for a moment.</samp> »
+
+<li><cite>sustain ability</cite> : « <samp>The water flow seems
+fixed.</samp> »
+
+<li><cite>warning</cite> : « <samp>The sink glows white for a
+moment.</samp> »
+
+<li><cite>aggravate monster</cite> : « <samp>Several flies buzz angrily
+around the sink.</samp> »
+
+<li><cite>cold resistance</cite> : « <samp>The cold water faucet flashes
+brightly for a moment.</samp> »
+
+<li><cite>gain constitution</cite> : Si l'enchantement est négatif :
+« <samp>The water flow seems lesser now.</samp> », sinon « <samp>The
+water flow seems greater now.</samp> »
+
+<li><cite>gain strength</cite> : Si l'enchantement est négatif :
+« <samp>The water flow seems weaker now.</samp> », sinon :
+« <samp>The water flow seems stronger now.</samp> »
+
+<li><cite>increase accuracy</cite> : Si l'enchantement est négatif :
+« <samp>The water flow misses the drain.</samp> », sinon :
+« <samp>The water flow hits the drain.</samp> »
+
+<li><cite>increase damage</cite> : Si l'enchantement est négatif :
+« <samp>The water's force seems smaller now.</samp> », sinon :
+« <samp>The water's force seems greater now.</samp> »
+
+<li><cite>invisibility</cite> : « <samp>You don't see anything happen
+to the sink.</samp> »
+
+<li><cite>poison resistance</cite> : « <samp>You smell rotten
+&lt;fruit&gt;.</samp> »
+
+<li><cite>see invisible</cite> : « <samp>You see some air in the
+sink.</samp> »
+
+<li><cite>shock resistance</cite> : « <samp>Static electricity
+surrounds the sink.</samp> »
+
+<li><cite>fire resistance</cite> : « <samp>The hot water faucet flashes
+brightly for a moment.</samp> »
+
+<li><cite>free action</cite> : « <samp>You see the ring slide right
+down the drain!</samp> »
+
+<li><cite>levitation</cite> : « <samp>The sink quivers upward for a
+moment.</samp> »
+
+<li><cite>regeneration</cite> : « <samp>The sink looks as good as
+new.</samp> »
+
+<li><cite>searching</cite> : « <samp>You thought your ring got lost in
+the sink, but there it is!</samp> »
+
+<li><cite>slow digestion</cite> : « <samp>The ring is
+regurgitated!</samp> »
+
+<li><cite>teleportation</cite> : « <samp>The sink momentarily
+vanishes.</samp> »
+
+<li><cite>conflict</cite> : « <samp>You hear loud noises coming from
+the drain.</samp> »
+
+<li><cite>polymorph</cite> : « <samp>The sink momentarily looks like
+a fountain.</samp> »
+
+<li><cite>polymorph control</cite> : « <samp>The sink momentarily looks
+like a regularly erupting geyser.</samp> »
+
+<li><cite>teleport control</cite> : « <samp>The sink looks like it is being
+beamed aboard somewhere.</samp> »
+</ul>
+
+<p> Notez qu'en contrepartie vous perdrez toujours l'anneau dans
+l'opération, sauf s'il s'agissait d'un <cite>ring of searching</cite> ou
+d'un <cite>ring of slow digestion</cite>.
+
+<ul><br></ul><a name="wands"></a><h4>Les baguettes magiques</h4>
+
+<p> Les prix de base des baguettes magiques sont les suivants : 100 pour
+les <cite>wands of light</cite> et <cite>nothing</cite>, 175 pour les
+<cite>wands of cold</cite>, <cite>fire</cite>, <cite>lightning</cite> et
+<cite>sleep</cite>, 200 pour les <cite>wands of cancellation</cite>,
+<cite>create monster</cite>, <cite>polymorph</cite> et
+<cite>teleportation</cite>, 500 pour les <cite>wands of death</cite> et
+<cite>wishing</cite> et 150 pour toutes les autres.
+
+<p> Certaines baguettes sont générées plus souvent que d'autres :
+<cite>light</cite> et <cite>striking</cite> ont une probabilité environ
+deux fois plus grande que les autres d'apparaître, <cite>nothing</cite>,
+<cite>probing</cite> et <cite>locking</cite> deux fois plus petite,
+<cite>enlightement</cite> trois fois plus petite et <cite>death</cite> et
+<cite>wishing</cite> dix fois plus petite.
+
+<p> Il est fortement déconseillé de zapper une baguette magique
+quelconque pour l'identifier : de nombreux effets gênants peuvent se
+produire, notamment avec les baguettes à rayons rebondissant sur les
+murs... La meilleure manière d'identifier une baguette magique est
+d'écrire quelque chose au sol avec. Certaines ne peuvent pas être
+identifiées de cette manière, et vous utilisez une charge dans
+l'opération, mais c'est la méthode la moins risquée de toutes (vous
+risquez au pire d'invoquer un monstres). Pour ce faire, écrivez quelque
+chose au sol avec vos doigts, puis écrivez par-dessus avec votre
+baguette. Certaines baguettes s'identifient automatiquement, et ont le
+même effet que si vous les aviez zappées : <cite>create monster</cite>,
+<cite>enlightement</cite>, <cite>light</cite> et
+<cite>wishing</cite>. La <cite>wand of secret door detection</cite>
+détecte aussi les portes lorsque l'on écrit avec, mais s'il n'y a pas de
+portes secrètes à proximité, elle restera non identifée. Les <cite>wands
+of digging</cite>, <cite>fire</cite> et <cite>lightning</cite>
+s'auto-identifient automatiquement, mais n'ont pas d'effet autre que
+celui de graver votre message au lieu de l'écrire dans la poussière (et
+de vous aveugler pendant quelques tours si c'est une <cite>wand of
+lightning</cite>). Si la baguette n'est pas immédiatement identifiée,
+vous pouvez obtenir un message propre à un type de baguette :
+
+<ul>
+<li><cite>cold</cite> : « <samp>A few ice cubes drop from the
+wand.</samp> »
+
+<li><cite>magic missile</cite> : « <samp>The &lt;floor&gt; is riddled
+by bullet holes!</samp> »
+
+<li><cite>polymorph</cite> : Transforme le message que vous aviez écrit
+à la main en un autre complètement différent.
+
+<li><cite>slow monster</cite> : « <samp>The bugs on the &lt;floor&gt;
+slow down!</samp> »
+
+<li><cite>speed monster</cite> : « <samp>The bugs on the &lt;floor&gt;
+speed up!</samp> »
+
+<li><cite>striking</cite> : « <samp>The wand unsuccessfully fights your
+attempt to write!</samp> »
+</ul>
+
+<p> Certaines baguettes retournent le même message :
+
+<ul>
+<li><cite>sleep</cite> et <cite>death</cite> : « <samp>The bugs on the
+&lt;floor&gt; slow down!</samp> »
+
+<li><cite>make invisible</cite>, <cite>cancellation</cite> et
+<cite>teleportation</cite> : « <samp>The engraving on the &lt;floor&gt;
+vanishes!</samp> ». Efface par ailleurs le message que vous aviez écrit
+(ou le téléporte dans le cas d'une <cite>wand of teleportation</cite>).
+</ul>
+ 
+<p> Les premières ne sont pas très dures à différencier : si vous n'en
+connaissez pas le prix de base, zappez-la sur un monstre (idéalement
+quand vous êtes en difficulté). Attention aux rebonds toutefois !
+
+<p> Les secondes sont un peu plus difficiles à différencier. Vous pouvez
+essayer d'aligner un monstre et un objet quelconque avant de zapper vote
+baguette dans cette direction : si le monstre disparaît, c'était
+<cite>make invisible</cite>, si les deux disparaissent, c'était
+<cite>teleportation</cite>, sinon c'était <cite>cancellation</cite>. Ou
+alors vous pouvez zapper un simple objet maudit ou béni : s'il disparaît,
+c'était <cite>teleportation</cite>, s'il perd son attribut maudit ou béni
+c'était <cite>cancellation</cite>, sinon c'était <cite>make
+invisible</cite>. Si vous êtes téméraire, vous pouvez aussi placer la
+baguette dans un <cite>Bag of Holding</cite> : si celui-ci explose,
+c'était <cite>cancellation</cite>...
+
+<p> Finalement, certaines ne donnent aucun message et n'ont aucun effet :
+<cite>locking</cite>, <cite>nothing</cite>, <cite>opening</cite>,
+<cite>probing</cite>, <cite>undead turning</cite> et éventuellement
+<cite>secret door detection</cite> (s'il n'y avait pas de porte secrète à
+proximité). Pour les différencier, vous pouvez essayer d'aligner un
+coffre non vide dont la serrure est brisée et un cadavre. Zappez
+alors votre baguette sur l'ensemble : <cite>locking</cite> réparera la
+serrure et fermera le coffre à clé, <cite>opening</cite>réparera la
+serrure et laissera le coffre ouvert (vérifiez si vous pouvez refermer le
+coffre avec une clé, par exemple), <cite>undead turning</cite>
+ressucitera le cadavre, <cite>probing</cite> vous révélera le contenu du
+coffre, <cite>nothing</cite> ne fera rien et vous demandera une
+direction, et <cite>secret door detection</cite> ne vous demandera aucune
+direction.
+
+<p> Certains endroit contiennent une baguette précise garantie. Dans une
+des tours du Château, vous trouverez une <cite>wand of wishing</cite> ;
+Orcus, le prince démon, possède toujours une <cite>wand of death</cite>
+sur lui (et n'hésite pas à s'en servir...), enfin, les minotaures
+possèdent très souvent une <cite>wand of digging</cite> sur eux.
+
+<p> Enfin, il est possible d'identifier des baguettes en regardant un
+monstre l'utiliser : ils peuvent vous attaquer directement avec des
+<cite>wands of death</cite>, <cite>sleep</cite>, <cite>fire</cite>,
+<cite>cold</cite>, <cite>lightning</cite>, <cite>magic missile</cite> et
+<cite>striking</cite>, et zapper sur eux-mêmes ou sur le sol des
+<cite>wands of create monster</cite>, <cite>teleportation</cite>,
+<cite>make invisible</cite>, <cite>digging</cite>, <cite>polymorph</cite>
+et <cite>speed monster</cite>. Si la baguette n'est pas immédiatement
+identifiée (par exemple si son possesseur est dans le noir), fiez-vous à
+la couleur du rayon pour identifier la baguette : noir pour
+<cite>death</cite>, bleu pour <cite>sleep</cite>, rouge pour
+<cite>fire</cite>, blanc pour <cite>cold</cite> et
+<cite>lightning</cite>, rose pour <cite>magic missile</cite> et aucune
+pour <cite>striking</cite>. Attention, des rayons rouges ou blancs
+peuvent être aussi générés par des <cite>fire horns</cite> ou des
+<cite>frost horns</cite>, et un rayon de n'importe quelle couleur
+peut être craché par un dragon de la couleur appropriée.
+
+<ul><br></ul><a name="tools"></a><h4>Les outils</h4>
+
+<p> Il y a assez peu d'outils susceptibles d'être confondus entre eux ;
+chaque cas sera étudié séparément dans la suite.
+
+<p> D'abord, certains outils changent simplement de nom à
+l'identification : il s'agit des <cite>key</cite> (<cite>skeleton
+key</cite>), <cite>candelabrum</cite> (<cite>Candelabrum of
+Invocation</cite>), <cite>silver bell</cite> (<cite>Bell of
+Opening</cite>), <cite>iron hook</cite> (<cite>grappling hook</cite>),
+<cite>glass orb</cite> (<cite>crystal ball</cite>) et <cite>looking
+glass</cite> (<cite>mirror</cite>).
+
+<p> Ensuite, les sacs. Il existe 4 types de sacs pouvant être
+confondus : le <cite>sack</cite>, le <cite>bag of holding</cite>, le
+<cite>bag of tricks</cite> et l'<cite>oilskin sack</cite>. Leur prix de
+base est de 100 (attention, s'ils ne sont pas vides, le prix du contenu
+s'ajoute au prix de base du sac), sauf pour le <cite>sack</cite>, qui n'a
+un prix de base que de 2. Si vous trouvez un sac non identifié, commencez
+par essayer de regarder son contenu avec la commande
+<cite>#loot</cite> : s'il s'agit d'un <cite>uncursed bag of
+tricks</cite>, celui-ci vous mordra (vous faisant perdre quelques points
+de vie), et s'identifiera dans l'opération. Si ce n'est pas le cas,
+ramassez tous les objets qui traînent dans les environs jusqu'à ce que
+vous soyez <cite>burdened</cite>. Placez alors dans votre sac le plus de
+choses possible : si vous n'êtes plus <cite>burdened</cite>, c'est qu'il
+s'agit d'un <cite>uncursed bag of holding</cite>. Enfin, s'il n'est
+toujours pas identifié, il y a de bonnes chances (7 contre 1) pour que ce
+soit un simple <cite>uncursed sack</cite> (mais vous pouvez essayer de
+plonger dans l'eau plusieurs fois avec un objet craignant l'eau
+- potion, parchemin, livre, objet en fer... - dans le sac, pour voir
+s'il en ressort déterioré : si ce n'est pas le cas c'est un
+<cite>uncursed oilskin sack</cite>). Cette méthode suppose que le sac a
+été généré aléatoirement : si ce n'est pas le cas (par exemple, si vous
+le trouvez dans un <cite>bone pile</cite>), celui-ci ne sera pas
+nécessairement <cite>uncursed</cite>. S'il est <cite>blessed</cite>, les
+méthodes précédentes s'appliquent identiquement ; s'il est cursed, le
+<cite>bag of holding</cite> ne fonctionnera pas de la même manière : il
+<em>augementera</em> le poids des objets qui sont contenus (vous faisant
+vraisemblablement passer <cite>stressed</cite> si vous étiez
+<cite>burdened</cite>), et fera parfois magiquement disparaître certains
+objets qu'il contient. En bref, si vous trouvez un sac non identifié dans
+un <cite>bone pile</cite>, ne mettez pas d'objets précieux dedans !
+En dernier recours, sachez qu'un <cite>bag of holding</cite>
+explose si l'on y place un autre <cite>bag of holding</cite> ou un
+<cite>bag of tricks</cite>. Enfin, un <cite>bag of holding</cite> a 50 %
+de chances d'être généré au dernier niveau du Sokoban (sinon il s'agit
+d'une <cite>amulet of reflection</cite>), donc si vous trouvez un sac à
+cet endroit, c'est de celui-ci qu'il s'agit.
+
+<p> Les lampes (autres que les <cite>brass lanterns</cite>) peuvent aussi
+être source de confusion : les <cite>oil lamps</cite> et les <cite>magic
+lamps</cite> ont la même apparence. Pour les différencier, il vaut mieux
+éviter de les frotter (avec <cite>#rub</cite>) : en effet, s'il s'agit
+d'une <cite>magic lamp</cite>, vous risquez d'invoquer un génie sans que
+celui-ci ne vous octroie de voeu (il vaut mieux la garder pour la bénir
+ensuite, pour augmenter les chances d'obtenir ce voeu) ; de plus elle
+devient une simple <cite>oil lamp</cite> dans l'opération. Vous pouvez en
+revanche aisément les différencier à leur prix de base : 10 pour les
+<cite>oil lamps</cite>, 50 pour les <cite>magic lamps</cite>. L'autre
+méthode consiste à laisser la lampe allumée en permanence : si au bout
+de 1500 tours elle est encore allumée (n'oubliez pas de la rallumer si
+elle s'éteint suite à un vortex ou une <cite>rust trap</cite>), il s'agit
+à coup sûr d'une <cite>magic lamp</cite> (mais s'il s'agissait d'une
+<cite>oil lamp</cite>, vous l'avez vidée pour rien...).
+
+<p> Les bougies se répartissent en <cite>wax candles</cite> et en
+<cite>tallow candles</cite>, indiscernables. Cependant, leur seule
+différence étant leur durée de vie (400 tours d'éclairage contre 200), il
+est à peu près inutile de les identifier précisément.
+
+<p> Il existe deux types de sifflets les <cite>tin whistle</cite> et les
+<cite>magic whistle</cite>. Ils peuvent se différencier aisément en les
+utilisant : un <cite>tin whistle</cite> donne le message « <samp>You
+produce a high whistling sound.</samp> », tandis que le <cite>magic
+whistle</cite> téléporte votre ou vos <cite>pet(s)</cite> à côté de vous
+en donnant le message « <samp>You produce a strange whistling
+sound.</samp> ». Les sifflets sont normalement générés
+<cite>uncursed</cite> ; s'ils sont maudits, ils peuvent donner
+respectivement les messages « <samp>You produce a shrill whistling
+sound.</samp> » et « <samp>You produce a high-pitched humming
+noise.</samp> » au lieu des précédents.
+
+<p> Enfin, certains instruments de musiques peuvent être confondus avec
+leur(s) version(s) enchantée(s). Il existe 4 types de cornes ayant la
+même apparence (<cite>horn</cite>) : <cite>tooled horn</cite>,
+<cite>fire horn</cite>, <cite>frost horn</cite> et <cite>horn of
+plenty</cite>. Le moyen le plus simple de les différencier consiste à les
+utiliser directement (<cite>(a)pply</cite>, et acceptez d'improviser)
+<em>dans un endroit dégagé !</em> (s'il s'agit d'une <cite>fire
+horn</cite> ou d'une <cite>frost horn</cite>, vous ne voulez pas subir le
+rebond...). Des rayons rouge et blanc correspondent respectivement à une
+<cite>fire horn</cite> et à une <cite>frost horn</cite>, de la nourriture
+ou une potion apparaîssent s'il s'agit d'une <cite>horn of plenty</cite>,
+et si rien de tout cela ne se passe, il s'agit d'une <cite>tooled
+horn</cite>. Les <cite>leather drums</cite> peuvent être confondus avec
+les <cite>drums of earthquake</cite>. Ici encore, pour les
+différencier, vous pouvez essayer d'en jouer : s'il s'agit d'un
+<cite>drum of earthquake</cite> les effets seront nettement visibles...
+Ensuite, les <cite>magic flutes</cite> ont la même apparence que les
+<cite>wooden flutes</cite>, mais la première a la propriété d'endormir
+certains ennemis en donnant le message « <samp>you produce soft
+music</samp> » si vous en jouez, alors que la deuxième donne le
+message « <samp>The flute toots.</samp> » ou « <samp>The flute
+trills.</samp> » (et charme éventuellement les serpents) dans la même
+situation. Enfin, les <cite>magic harps</cite> se
+différencient des <cite>wooden harps</cite> par le fait qu'elles
+permettent d'apprivoiser la plupart des ennemis autour de vous avec le
+message « <samp>The harp plays very attractive music.</samp> », alors
+que les secondes ne font que charmer (parfois) les nymphes avec le
+message « <samp>The harp twangs</samp> » ou « <samp>The harp produces
+a lilting melody.</samp> ».
+
+<ul><br></ul><a name="gems"></a><h4>Les gemmes</h4>
+
+<p> L'identification des objets de cette catégorie se sépare en deux
+parties : d'abord reconnaître les différentes <cite>gray stones</cite>,
+ensuite reconnaître les véritables gemmes parmi les simples morceaux de
+verre.
+
+<p> Il y a 4 sortes de <cite>gray stones</cite> : les
+<cite>flintstones</cite>, les <cite>loadstones</cite>, les
+<cite>touchstones</cite> et les <cite>luckstones</cite>. Si vous trouvez
+une <cite>gray stone</cite> non identifiée, <em>ne la ramassez
+pas !</em> En effet, s'il s'agit d'une <cite>loadstone</cite>, vous ne
+pourrez pas la redéposer avant d'en avoir retiré la malédiction (oui,
+elle devient maudite dès que vous la ramassez, indépendamment de
+son état originel...), ce qui ne serait pas <em>si</em> gênant si
+elles n'étaient pas particulièrement lourdes (plus encore que la plus
+lourde des armures...). Commencez par donner un coup de pied à la pierre.
+Si elle ne bouge pas (ou qu'elle bouge très peu si vous êtes équipé de
+<cite>gauntlets of power</cite>), c'est une <cite>loadstone</cite> : à
+laisser au sol... Sinon, vous pouvez ramasser la pierre. Le prix de base
+de chacune des pierres est de 60 pour la <cite>luckstone</cite>, 45 pour
+la <cite>touchstone</cite> et 1 pour les deux autres. S'il n'y a pas de
+marchand à proximité, essayez de frotter (<cite>#rub</cite>) la pierre
+avec quelque chose de « dur » (une arme en métal pas exemple). S'il
+s'agit d'une <cite>touchstone</cite>, vous obtiendrez le message
+« <samp>scritch scritch</samp> ». Si ce n'est pas le cas, vous pouvez
+toujours essayer de boire une <cite>potion of enlightment</cite> (ou de
+zapper la baguette magique du même nom) afin de voir si votre chance a
+augmenté (si vous n'avez pas rien fait jusqu'à présent pour augmenter
+votre chance, et que ce n'est pas la pleine lune, vous obtiendrez
+l'information « <samp>You are lucky</samp> »). Vous pouvez aussi
+frotter votre pierre contre une <cite>blessed touchstone</cite> (voir
+plus bas), ce qui l'identifiera directement.
+
+<p> Ces pierres sont toutes générées <cite>uncursed</cite>, sauf la
+<cite>loadstone</cite>, donc si vous en trouvez une hors <cite>bone
+pile</cite>, regardez simplement si votre <cite>pet</cite> marche dessus
+pour savoir si vous pouvez la prendre en toute sécurité (utile quand la
+pierre se trouve dans un coin et que vous ne pouvez pas lui donner de
+coup de pied).
+
+<p> Les autres gemmes n'ont guère d'utilité, excepté celle de pouvoir
+être vendues aux marchands relativement chères (quand elles ont été
+clairement identifiées seulement, avec un <cite>scroll</cite> ou un
+<cite>spell of identify</cite>, ou une <cite>touchstone</cite>...), de
+vous rapporter des points lorsque vous ascendez ou que vous vous échappez
+du donjon, ou dans certains cas de vous donner de la chance quand vous
+les lancez sur une licorne. Il existe cependant plusieurs méthodes pour
+les identifier, pour éviter de trimballer 50 morceaux de verre dans son
+sac au moment d'ascender si vous comptez utiliser votre vie de demi-dieu
+(ou demi-déesse) à collectionner les pierres précieuses...
+
+<p> Premièrement, vous ne pouvez pas identifier les gemmes par leur prix
+de base (ce serait trop simple...) : un marchand vous achète toute gemme
+non identifiée au prix de quelques zorkmids, et vous vend de la même
+manière toute gemme non identifée au prix de quelques centaines ou
+milliers de zorkmids... En revanche, il n'achètera jamais de verre
+identifié (prix de base 0), et vous achètera/vendra toute autre gemme
+identifiée avec un prix de base dépendant de la gemme (de 200 pour les
+agathes à 4500 pour les cristaux de dilithium).
+
+<p> La première méthode efficace, et la plus simple, consiste à utiliser
+une <cite>blessed touchstone</cite> (une <cite>uncursed touchstone</cite>
+est suffisante si vous jouez un archéologue et/ou un gnome) : frottez-y
+n'importe quelle pierre non identifiée, et elle s'identifiera comme par
+magie ! (Notez que cela fonctionne aussi avec les <cite>gray
+stones</cite>).
+
+<p> Une autre méthode consiste à compter vos gemmes, lorsque vous en avez
+suffisamment. Pour chaque couleur, vous pouvez raisonnablement considérer
+que le plus gros stock de gemmes que vous posséder correspond aux
+morceaux de verre coloré : en effet, ceux-ci ont une probabilité de 5 à
+30 fois plus grande d'être générés aléatoirement. Attention, cette
+méthode n'est fiable que si vous disposez de <em>beaucoup</em> de gemmes
+d'une couleur donnée, typiquement au moins une vingtaine, dont plus de la
+moitié identiques (qui n'occupent qu'une case d'inventaire).
+
+<p> Retenez également que lorsque vous avez identifié le verre dans une
+couleur, toute autre gemme non identifiée de la même couleur a
+forcément de la valeur.
+
+<p> Une méthode non exclusive d'identifier les gemmes de valeur consiste
+à écrire dans le sol avec. Si vous pouvez graver votre message dans le
+sol avec (au lieu d'écrire dans la poussière), il s'agit à coup sûr d'une
+gemme de valeur (attention, si vous comptez écrire Elbereth avec, cela
+vous prendra 4 tours par lettre...). Cependant, si ce n'est pas le cas,
+il est tout à fait possible qu'il s'agisse <em>quand même</em> d'une
+gemme de valeur.
+
+<p> Une méthode assez radicale consiste à nommer toutes les gemmes que
+vous possédez « précieuse », à en prendre une de chaque dans votre
+inventaire et à lancer le sort de <cite>stone to flesh</cite> sur
+vous-même (attention aux anneaux/baguettes en pierres !) : seules les
+gemmes sont transformées en <cite>meatballs</cite> dans l'opération, ce
+qui fait que vous pouvez renommer celles qui vous restent « verre ».
+
+<p> Les améthystes peuvent être différenciées des autres gemmes violettes
+en la trempant dans une <cite>potion of booze</cite> : cela la
+transformera en <cite>potion of fruit juice</cite>. Vous pouvez
+inversement utiliser cette technique pour identifier les <cite>potion of
+booze</cite> et les <cite>potion of fruit juice</cite>, mais faites
+attention aux <cite>potions of polymorph</cite> !
+
+<p> La dernière méthode fait appel aux licornes. Lancer une gemme sur une
+licorne de n'importe quelle couleur peut avoir plusieurs effets : si la
+gemme est non identifiée, vous obtiendrez le message « <samp>The unicorn
+graciously accepts your gift</samp> » s'il s'agit de verre, « <samp>The
+unicorn hesitatingly accepts your gift</samp> » s'il s'agit d'une gemme
+de valeur et que la licorne n'est pas de votre alignement (ce qui change
+par ailleurs aléatoirement votre chance d'un facteur compris entre -1 et
++1) et « <samp>The unicorn gratefully accepts your gift</samp> » s'il
+s'agit d'une gemme de valeur et que la licorne est de votre alignement
+(ce qui vous donne par ailleurs un bonus de chance de +1). Si vous avez
+nommé la gemme avant de la lancer, la licorne n'en voudra pas s'il s'agit
+de verre (« <samp>The unicorn is not interested in your junk</samp> »),
+et vous obtiendrez le même message que précédemment dans le cas contraire
+(le bonus de chance si la licorne est coalignée devenant +2). Enfin, à
+titre informatif, si la gemme est identifiée, la situation est la même
+que si elle était nommée, mais les modificateurs de chances deviennent un
+nombre au hasard entre -3 et +3 si la licorne est d'un alignement
+différent du vôtre, et +5 si la licorne est coalignée. Notez qu'une
+licorne blanche est toujours <cite>lawful</cite>, une grise toujours
+<cite>neutral</cite> et une noire toujours <cite>chaotic</cite>.
+
+<p> Enfin, certains endroits recèlent des gemmes précises de manière
+garantie. Le dernier niveau des Mines des Gnomes contient toujours une
+<cite>luckstone</cite>, des diamants, des rubis, des améthystes et des
+émeraudes (et des morceaux de verre !). Une des trois versions de ce
+niveau contient également toujours une <cite>loadstone</cite>, une autre
+toujours une <cite>flintstone</cite>. Fort Ludios, s'il est généré dans
+votre partie, contient dans ses quatre coins 4 exemplaires des gemmes
+précédemment citées. S'il vous arrive de rencontrer un golem de verre
+(<cite>glass golem</cite>), sachez qu'il ne laissera en mourrant que des
+morceaux de verre coloré. Attention, c'est un adversaire assez puissant,
+même si vous devriez être bien préparé au moment d'en rencontrer (dans
+les Enfers entre autres).
+
+<br>
+<p> Voilà, ça y est, vous venez de lire toutes les manières connues (et
+vaguement utilisables...) d'identifier les objets ! Plus d'excuse si
+vous mourrez parce que vous ne pouvez plus lâcher cette <cite>cursed -3
+crude dagger</cite> ou parce qu'un monstre vous a tué alors que vous
+étiez paralysé suite à un abus de boisson ! Je tiens à remercier Dylan
+O'Donnel, Kevin Hugo, David Damerell et Gregory Bond pour les spoilers
+qu'ils ont écrits, dont je me suis largement inspiré pour écrire cette
+page.
+
+<p><a href=liste.html>Revenir à la liste des tutoriels</a>
+
+<p><hr>
+2003 - Erwan Grasland-Mongrain (<a
+href="mailto:erwan.grasland-mongrain@ens.fr">grasland@clipper.ens.fr</a>)
+
+</body>
+</HTML>

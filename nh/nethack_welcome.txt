@@ -1,0 +1,73 @@
+Archive-name: games/roguelike/nethack/welcome
+Reply-to: Weyfour WWWWolf <wwwwolf@iki.fi>
+Posting-frequency: Semirandomly (approx. twice a month, maybe less often)
+Last-modified: 24 January 2001
+Version: $Revision: 1.5.1.2 $
+URL: http://www.iki.fi/wwwwolf/games/nethack/welcome.txt
+Copyright: (c) 1999-2001 Weyfour WWWWolf (Urpo Lankinen)
+Maintainer: Weyfour WWWWolf <wwwwolf@iki.fi>
+
+rec.games.roguelike.nethack Welcoming Commitee presents:
+
+    The Answers to all newbies who cry "where the heck I have
+    ended up to?"
+
+One page of information, with easily killfilable Subject line for
+Power Users!
+
+So, if you are a newbie and lost (as newbies usually are), here's some 
+information that might help you to get started.
+
+
+
+Welcome to the only real Nethack discussion area in the whole net!
+
+To answer the first question, Nethack is a computer RPG based loosely
+on AD&D(r) - a good game, we might add - and this group is here to
+provide you means to reach other players and discuss about the game
+and its variants. To find more information, here's some good sites
+that have information about this wondrous waste of time:
+
+http://www.nethack.org/
+	This is apparently the Official Thing(tm). Not much
+	information, but enough to get you started - and of course,
+	this is where to get the offical binaries.
+http://www.win.tue.nl/games/roguelike/nethack/
+	The Nethack Homepage at win.tue.nl is one of the most
+	voluminous sites. It has a lot of information about Nethack
+	and its variants.
+http://www.nethack.de/
+       	Sascha Wostmann's most excellent site. This page is probably
+	the best Nethack resource ever existed - not only it has all
+	spoiler information you ever wanted, but also cool stuff that
+	is not exactly related to the game - such as the Wall and
+	quotes from folk in r.g.r.n.
+http://www.spod-central.org/~psmith/nh/
+	Dylan O'Donnell's updates to spoilers and other insteresting
+	stuff...
+
+
+Here's some information that a newbie really should know when they
+come to the group:
+
+http://www.melankolia.net/nethack/nethack.guide.html
+	Absolute Beginner's Guide, by Mikko Saari.
+http://www.nethack.de/spoiler/yanfaq.txt
+	YANFAQ - Yet Another Nethack FAQ. This describes the basics of 
+	the game, and some of the techniques that are often referred to
+	in the group.
+http://www.nethack.de/spoiler/32abbr.txt
+	The most common abbreviations used in r.g.r.n. This answers
+	probably the most requently asked question, "What does YASD
+	mean?"
+http://www.iki.fi/wwwwolf/games/nethack/postfaq.txt
+	BeingFool-HOWNOTTO, or How Not To Make Yourself Look Like A
+	Complete Idiot When Posting To rec.games.roguelike.nethack.
+	Highlights some netiquette details you should be aware of.
+
+
+Once again, welcome to r.g.r.n and have fun.
+
+[Suggestions about this file should be sent to <wwwwolf@iki.fi>.
+ This file: http://www.iki.fi/wwwwolf/games/nethack/welcome.txt
+ $Id: welcome.txt,v 1.5.1.2 2001/01/23 22:59:49 wwwwolf Exp wwwwolf $]

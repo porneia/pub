@@ -1,0 +1,357 @@
+gems-343.txt  Last edited 2008-01-11 for NetHack 3.4.3
+Gems, stones, and luck in NetHack 3.4
+Compiled for 3.2.2 by Kevin Hugo.
+Updated for 3.4.3 by Dylan O'Donnell <psmith@spod-central.org>.
+
+GEMS AND STONES           COST  WGT  PROB    ENGR  COLORS
+~~~~~~~~~~~~~~~~~~~~~~~ : ~~~~  ~~~  ~~~~  : ~~~~  ~~~~~~
+Valuable gems           :                  :
+  dilithium crystal     :$4500    1   27*  : soft  white
+  diamond               : 4000    1   24*  : hard  white
+  ruby                  : 3500    1   21*  : hard  red
+  jacinth               : 3250    1   18*  : hard  orange
+  sapphire              : 3000    1   15*  : hard  blue
+  black opal            : 2500    1   12*  : hard  black
+  emerald               : 2500    1    9*  : hard  green
+  turquoise             : 2000    1    6*  : soft  green, blue
+  aquamarine            : 1500    1    1*  : hard  green, blue
+  citrine               : 1500    1    3*  : soft  yellow
+  amber                 : 1000    1    1*  : soft  yellowish brown
+  topaz                 :  900    1    1*  : hard  yellowish brown
+  jet                   :  850    1    1*  : soft  black
+  opal                  :  800    1    1*  : soft  white
+  chrysoberyl           :  700    1    1*  : soft  yellow
+  garnet                :  700    1    1*  : soft  red
+  amethyst              :  600    1    1*  : soft  violet
+  jasper                :  500    1    1*  : soft  red
+  fluorite              :  400    1    1*  : soft  green, blue, white, violet
+  jade                  :  300    1    1*  : soft  green
+  agate                 :  200    1    1*  : soft  orange
+  obsidian              :  200    1    1*  : soft  black
+Worthless gems          :                  :
+  black glass           :    0    1   76   : soft  black
+  blue glass            :    0    1   77   : soft  blue
+  green glass           :    0    1   77   : soft  green
+  orange glass          :    0    1   76   : soft  orange
+  red glass             :    0    1   77   : soft  red
+  violet glass          :    0    1   77   : soft  violet
+  white glass           :    0    1   77   : soft  white
+  yellow glass          :    0    1   77   : soft  yellow
+  yellowish brown glass :    0    1   77   : soft  yellowish brown
+Stones                  :                  :
+  luckstone             :   60   10   10   : soft  gray stone
+  touchstone            :   45   10    8   : soft  gray stone
+  flintstone            :    1   10   10   : soft  gray stone
+  loadstone             :    1  500   10   : soft  gray stone
+  rock                  :    0   10  100   : soft  rock
+
+Gems and stones are listed above by category, then by decreasing price.
+The COST field denotes the base price of each item.  WGT specifies the
+weight (100 zorkmids weighs 1).
+
+Gems comprise 8% of all randomly-generated items in the main dungeon,
+18% in containers, 0% on the Rogue level, and 10% in hell.  PROB
+is the relative probability of each subtype, except for those marked
+with an asterisk (valuable gems); the figures so marked instead
+represent the first level on which the gems can occur (this limitation
+only applying to the main dungeon, and these restrictions are only
+reviewed when creating a new level).  Permissible valuable gems have
+roughly equal probabilities of being generated among themselves, always
+set such that the total for the category as a whole is 171.
+
+Loadstones are always generated cursed (except potentially in containers),
+all others are uncursed.  Rocks appear in piles of 6 to 11.  Valuable gems,
+worthless gems, touchstones, and flint stones have a 1/6 chance of appearing
+in a pile of 2.
+
+The ENGR field denotes how the gem appears when you attempt to engrave
+with it (see below).  COLORS specifies the possible appearance of the
+gem.  If more than one color is possible, then one will be randomly
+chosen for the appearance.
+
+
+Identifying stones
+~~~~~~~~~~~~~~~~~~
+
+There are five different types of non-gem stones, and four of them
+are indistinguishably gray.
+
+rock
+  Rocks are immediately identified on examination, and pose little
+  difficulty or challenge to the adventurer. They make a cheap and usually
+  plentiful source of ammunition, should you lack or wish to conserve other
+  ranged attacks. ("Good ol' rock. Nothing beats that." -- Bart Simpson)
+
+touchstone
+  Touchstones are most readily distinguished by their effect when rubbed
+  with something hard, such as an iron weapon; they will make a "scritch,
+  scritch" sound. Their primary use is rubbing them with other gems and
+  stones (and, once identified, this is all they _can_ be used for); if
+  blessed (or also if uncursed, for Archeologists and gnomes), the object
+  rubbed with will be identified. The complete table of results that
+  distinguish them is as follows:
+
+  GRAY STONE        GEM       GLASS     HARD     RING
+  ~~~~~~~~~~~~~~~~  ~~~~~~~~  ~~~~~~~~  ~~~~~~~  ~~~~
+  good touchstone   ID        ID        scritch  streak
+  bad touchstone    streak    scratch   scritch  streak
+  other gray stone  cscratch  cscratch  scratch  cscratch
+
+  where "streak" denotes coloured streaks, "scratch" uncoloured scratch
+  marks, "cscratch" coloured scratch marks, and "scritch" the sound
+  "scritch scritch".
+
+  Other types of object may produce coloured streaks or scratches, but
+  will not provide any further useful information.
+
+  Note that being rubbed on a cursed touchstone may shatter gems or rocks
+  (but not other gray stones).
+
+
+luckstone
+  Luckstones can be identified by their effect (see "Luck" below) with the
+  help of enlightenment, by their valuation by shopkeepers, or by the
+  presence of the guaranteed luckstone at the top of a gems cache in the
+  Gnome King's Wine Cellar version of the bottom level of the Gnomish Mines.
+  (Or, indeed, by the Heart of Ahriman being one).
+
+loadstone
+  As noted above, loadstones are almost always generated cursed; furthermore,
+  they autocurse on being dropped or otherwise leaving the main inventory,
+  and a cursed loadstone cannot be let go of. It is therefore best to
+  identify them while they lie on the ground; kicking them will usually
+  elicit a "Thump!" rather than movement across the floor, but being
+  extremely strong (at least 22 strength; 18/** is not sufficient) while
+  wearing kicking boots or being a Samurai or Monk may allow some movement
+  (watch how far it goes).
+  
+flint stone
+  These exist primarily to make it hard to identify touchstones, loadstones
+  and luckstones, and are best identified by elimination of the other three.
+  They have few special properties, but do inflict somewhat more damage than
+  other stones or gems when used as sling ammunition.
+
+
+Identifying gems
+~~~~~~~~~~~~~~~~
+(Quoted in part from the spoiler "gems" by Bryan Butler.)
+
+    "I shall, with cultured taste,
+     Distinguish gems from paste..."
+         -- Reginald Bunthorne, in Gilbert and Sullivan's "Patience"
+
+There are now nine methods to identify gems: engraving, throwing at
+unicorns, killing glass golems, spell of stone to flesh, collecting a
+large number, scrolls or spells of identify, a touchstone, dipping
+an amethyst in potions of booze, and finding pre-placed gems.
+
+1.  Engraving with gems
+
+If a gem is listed as "hard" above, then you will see the following
+message when you attempt to (E)ngrave with the gem:
+    "You engrave in the <floor> with the <gem>."
+where <gem> is the appearance of the gem.  All hard gems are valuable,
+although some colors may have more than one possible identity.
+
+If the gem is "soft," you will see this message:
+    "You write in the dust with the <gem>."
+Soft gems may be valuable or worthless, so you will need an additional
+method to identify these gems.
+
+In either case, you can abort the engraving process by pressing Escape.
+If you choose to write a message, it will take one turn per character
+to engrave.  Not all types of floor can be engraved upon.  You may choose
+to #name a gem once you know its hardness (e.g., "soft blue").
+
+2.  Throwing gems at unicorns
+
+Throwing a gem to a non-tame unicorn can change your luck in one of several
+ways, depending on whether the gem is worthless or valuable, whether you
+are the same alignment as the unicorn (white = lawful, gray = neutral,
+and black = chaotic), and whether the gem type is already identified or
+named.
+
+  VALUE  ALIGN  KNOWN       ADVERB        LUCK CHANGE
+  ~~~~~  ~~~~~  ~~~~~~~~~~  ~~~~~~~~~~~~  ~~~~~~~~~~~
+  glass  other  unknown     graciously         0
+  glass  other  named       (see below*)       0
+  glass  other  identified  (see below*)       0
+  glass  same   unknown     graciously         0
+  glass  same   named       (see below*)       0
+  glass  same   identified  (see below*)       0
+   gem   other  unknown     hesitatingly   -1 to +1
+   gem   other  named       hesitatingly   -1 to +1
+   gem   other  identified  hesitatingly   -3 to +3
+   gem   same   unknown     gratefully        +1
+   gem   same   named       gratefully        +2
+   gem   same   identified  gratefully        +5
+
+In most cases, the message sequence is as follows:
+    "The <unicorn> neighs!  The <unicorn> catches the <gem>."
+    "The <unicorn> <ADVERB> accepts your gift."
+where the color of the unicorn and the color of the gem are appropriate
+for the situation. <ADVERB> comes from the table above, except where
+the column has a *, in which case there is a different message sequence:
+    "The <unicorn> neighs!"
+    "The <unicorn> catches the <glass>."
+    "The <unicorn> is not interested in your junk."
+after which the unicorn will promptly drop the "gem".
+
+3. Killing glass golems
+
+When a glass golem is destroyed, it leaves behind 2 to 8 worthless
+pieces of glass (each of which can be any of the colours), and
+never gems.
+
+4. Spell of stone to flesh
+
+The spell of stone to flesh will turn gemstones into meatballs, but
+leave worthless pieces of glass intact; #name a gem 'valuable' or
+similar before zapping the spell at it (and rename it afterwards should
+it be proven untrue), since it won't be around to #name after.
+
+5.  Collecting a large number of gems
+
+If you wait long enough, you'll accumulate a large number of gems.
+Since the probabilities of getting worthless pieces of glass are so
+much higher than getting true gems, you'll acquire them much faster
+than other gems. So, if you just wait long enough, and look at all of
+the gems of a certain color that you have, more often than not the gem
+of which you have the most is the worthless piece of glass. This is a
+bit risky, and usually takes much more time than other methods.
+
+6. Scrolls and spells of identify
+
+You can always use a scroll or spell of identify to determine whether a
+gem is valuable.  You will then recognize all gems of that same type,
+although you can lose this knowledge from a scroll of amnesia or (master)
+mind flayer attack. Shopkeepers will buy identified gems
+based on their full price; this is a good way to get money.
+
+7.  Rubbing on a touchstone
+
+Being rubbed on a blessed touchstone (or also uncursed for Archeologists,
+who start with one, and gnomes) will immediately identify any gem, as
+detailed under "touchstones" above.
+
+8.  Dipping amethysts into potions of booze
+
+When you dip an amethyst into a potion(s) of booze, the potion will turn
+into fruit juice ("a-methyst" means not intoxicated).  You can use this
+very special case to identify this type of soft violet gems.
+
+9.  Pre-placed gems
+
+Certain levels are guaranteed to be generated with diamonds, rubies,
+emeralds, and amethysts in well-defined positions.  Two versions of
+the bottom level of the Gnomish Mines (the Wine Cellar version and the
+Mimic of the Mines version) contain concealed chambers with these four
+types of gems and a guaranteed luckstone, together with assorted other
+* to confuse identification; the third version's are randomly
+scattered across the level.  The four corner rooms of Fort Ludios (if
+it is reachable in your game) each contain one of these four types of
+valuable gems.  Other levels may also be generated with piles of gems,
+but their type is not guaranteed, so these levels are not helpful in
+determining the identity of gems.
+
+
+Luck
+~~~~
+Luck is included here because of luckstones.
+
+Your luck affects many aspects of the game (too many to mention here),
+and is actually the sum of two components.  Base luck changes with events
+in the game, and may slowly return to a "baseline" level.  Bonus luck, on
+the other hand, is determined by what kind of luckstone (and certain
+artifacts) you are carrying.  Only a rough idea of your luck is given
+in the enlightenment list; the meaning of the messages is as follows:
+  TOTAL LUCK  MESSAGE
+  ~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    <= -10    extremely unlucky
+   -9 to -5   very unlucky
+   -4 to -1   unlucky
+       0      luck is zero (debug mode only)
+    1 to 4    lucky
+    5 to 9    very lucky
+    >= 10     extremely lucky
+
+Your bonus luck -- and whether your base luck will return to its baseline
+level -- is controlled by luckstones and certain Quest Artifacts.  The
+effect of these "luckitems" depends on the number in your main inventory
+that are blessed, uncursed, and cursed (see table below).  Note that you
+can't do any better than one blessed luckitem, so you might as well keep
+any others in a bag (where they have no effect) as spares in case your
+main one is cursed.
+  NUMBER OF LUCKITEMS          BAD LUCK    GOOD LUCK   BONUS LUCK
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~   ~~~~~~~~~~  ~~~~~~~~~~  ~~~~~~~~~~
+  None                         Times out   Times out   0 (no message)
+  More cursed than blessed     No timeout  Times out
+  Equal cursed and blessed     No timeout  No timeout
+  More blessed than cursed     Times out   No timeout
+  More cursed than non-cursed                          -3 "reduced luck"
+  Equal cursed and non-cursed                          +3 "extra luck"
+  More non-cursed than cursed                          +3 "extra luck"
+When you are enlightened about your luck, you are also told if you have
+bonus luck and if good/bad luck will not time out.
+
+Base luck is adjusted by each of the events described below.  It cannot
+be reduced below -10 or increased above +10 beyond the baseline.  In
+addition, every 600 turns (or 300 if you have the Amulet of Yendor or have
+angered your god), your luck will increase by one if it is less than your
+baseline luck and bad luck times out, and your luck will decrease by one if
+your luck is greater than your baseline luck and good luck times out.  Your
+baseline luck is +1 if you started or restored the game during a full moon,
+-1 if started/restored on Friday the 13th, and 0 if neither or both.
+  BASE ADJ  EVENT
+  ~~~~~~~~  ~~~~~
+     +1     Starting or restoring a game during a full moon.
+      0     Starting or restoring a game during a new moon.
+     -1     Starting or restoring a game on Friday the 13th.
+            NOTE: The above three are reversed before saving.
+     -2     Break a mirror.
+     -n     Breaking n eggs laid by you (at worst -5).
+     +1     Sitting on a throne (sometimes).
+      0     Throwing a worthless gem at a unicorn.
+  -3 to +3  Throwing valuable gem at cross-aligned unicorn.
+     +1     Throwing unknown valuable gem at co-aligned unicorn.
+     +2     Throwing named valuable gem at co-aligned unicorn.
+     +5     Throwing identified valuable gem at co-aligned unicorn.
+     -1     Hitting a blind floating eye (1 in 500 chance).
+     -1     Jumping in Sokoban.
+     -1     Breaking a boulder in Sokoban.
+     -1     Casting stone-to-flesh on a Sokoban boulder.
+     -1     Polymorphing a Sokoban boulder.
+     -1     Reading a scroll of earth in Sokoban.
+     -1     Being pulled by a thrown iron ball in Sokoban.
+     -1     Hurtling through the air in Sokoban due to Newton's 3rd Law.
+     -1     Walking (as a giant) or squeezing past a Sokoban boulder.
+     -1     Killing a tame or peaceful (sometimes) monster.
+     -2     Killing a peaceful human, and you are not chaotic.
+     -5     Killing a co-aligned unicorn.
+  -5 to -2  Cannibalism (eating your own species), unless a Caveman or orc.
+  Set to 0  Praying with negative base luck (sometimes: "golden glow" boon).
+     -3     Praying on wrong altar.
+     -3     Praying before your prayer timeout has expired.
+     -5     A sacrifice (not your own race) on Moloch's altars in Gehennom.
+     -3     Being converted by trying to convert an altar.
+     -1     Otherwise unsuccessful at converting altar.
+     +1     Successfully converting an altar.
+     -1     Desecrating another god's altar.
+     +2     Sacrificing your own race on your own chaotic altar.
+     -2     Sacrificing your own race on Moloch's altar.
+     -5     Sacrificing your own race, you aren't chaotic.
+     -1     Sacrificing an unidentified fake Amulet of Yendor.
+     -3     Sacrificing an identified fake Amulet of Yendor.
+     +1     Sacrificing, slightly mollifying your god, negative luck.
+  Set to 0  Sacrificing, mollifying your god, negative luck.
+     +1     Sacrificing, having a hopeful feeling, negative luck.
+  Set to 0  Sacrificing, reconciling, negative luck.
+   0 to +5  Sacrificing, god happy.
+
+
+Acknowledgements
+~~~~~~~~~~~~~~~~
+Thanks to Bruce Cox for proofreading the original version of this file.
+Further corrections and clarifications provided by David Damerell,
+Michael Deutschmann, Rob Ellwood, Yair Friedman, David Grabiner, Adam Kao,
+Nick Number, Boudewijn Waijers, and Donald Welsh.

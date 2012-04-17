@@ -1,0 +1,64 @@
+---
+layout: default
+---
+{% include header.html %}
+
+<article>
+{{ content }}
+</article>
+
+<hr class="flourishes">
+
+{% if page.commentaire %}<p>
+{{ page.commentaire }}{% endif %}
+
+{% if page.mail %}<p>
+Vous pouvez envoyer par mail vos commentaires et vos remarques
+à <code>{{ page.mail }}</code>.{% endif %}
+
+<p>
+Retournez sur <a href="../.">la page principale de Porneia
+delights</a>.
+
+<p>
+Vulnerant omnes, ultima necat. Sic transit hominis regnum.<br>
+{% if page.license == 'Reproduit sans autorisation' %}Copyright{% else %}Copyleft{% endif %} &copy; {{ page.date | date: "%Y" }} &mdash; {% if page.author == 'al.' %}Porneia delights{% else %}{{ page.author }}{% endif %}
+
+<p>
+{% case page.license %}
+{% when 'BY-ND' %} <a rel="license"
+href="http://creativecommons.org/licenses/by-nd/3.0/"><img alt="Contrat
+Creative Commons" src="../img/by-nd_88x31.png" /></a><br><em>{{ page.title }}</em> ({{ page.content | number_of_words }} mots)
+de <a href="{{ page.url }}">{% if page.author == 'al.' %}Porneia delights{% else %}{{ page.author }}{% endif %}</a> est mis à disposition
+selon les termes de la <a rel="license"
+href="http://creativecommons.org/licenses/by-nd/3.0/">licence
+Creative Commons Paternité - Pas de travaux dérivés 3.0</a> (CC
+BY-ND 3.0).
+
+{% when 'BY-NC-SA' %}<a rel="license"
+href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Contrat
+Creative Comons" src="../img/cc-by-nc-sa_88x31.png"/></a><br><em>{{ page.title }}</em> ({{ page.content | number_of_words }} mots) de <a href="{{ page.url }}">{% if page.author == 'al.' %}Porneia delights{% else %}{{ page.author }}{% endif %}</a> est
+mis à disposition selon les termes de la <a rel="license"
+href="http://creativecommons.org/licenses/by-nc-sa/3.0/">licence Creative Commons Attribution - Pas d'Utilisation Commerciale - Partage à l'Identique 3.0</a> (CC BY-NC-SA 3.0).
+
+{% when 'BY-SA' %}<a ref="license"
+href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Contrat
+Creative Comons" src="../img/cc-by-sa_88x31.png"/></a><br><em>{{ page.title }}</em> ({{ page.content | number_of_words }} mots) de <a href="{{ page.url }}">{% if page.author == 'al.' %}Porneia delights{% else %}{{ page.author }}{% endif %}</a> est
+mis à disposition selon les termes de la <a rel="license"
+href="http://creativecommons.org/licenses/by-sa/3.0/">licence Creative Commons Paternité - Partage à l'Identique 3.0</a> (CC BY-SA 3.0).
+
+{% when 'BY' %}<a rel="license"
+href="http://creativecommons.org/licenses/by/3.0/"><img alt="Contrat
+Creative Commons" src="../img/cc-by_88x31.png"
+/></a><br><em>{{ page.title }}</em> ({{ page.content | number_of_words }} mots) de <a href="{{ page.url }}">{% if page.author == 'al.' %}Porneia delights{% else %}{{ page.author }}{% endif %}</a> est
+mis à disposition selon les termes de la <a rel="license"
+href="http://creativecommons.org/licenses/by/3.0/">licence Creative
+Commons Paternité 3.0</a> (CC BY 3.0).
+
+{% when 'Reproduit sans autorisation' %}<em>{{ page.title }}</em> ({{ page.content | number_of_words }} mots) de <a href="{{ page.url }}">{% if page.author == 'al.' %}Porneia delights{% else %}{{ page.author }}{% endif %}</a> a été reproduit sans autorisation.
+
+{% else %}
+<em>{{ page.title }}</em> ({{ page.content | number_of_words }} mots) de <a href="{{ page.url }}">{% if page.author == 'al.' %}Porneia delights{% else %}{{ page.author }}{% endif %}</a>
+est mis à disposition selon les termes de la licence {{ page.license }}.
+
+{% endcase %}

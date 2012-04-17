@@ -1,0 +1,176 @@
+---
+layout: post
+title: "V comme Visitors"
+date: 2008-05-03 03:53:51 +0200
+author: illov&aelig;
+mail: illovae[at]bk[dot]ru
+keywords: visitors, parser, apache, statistique, illovae
+license: "WTFPL(v2) - Beerware License"
+---
+<p>
+<span class="articleAuthor">Britney Gopherspace, 03 mai 2008,
+{{ page.author }}</span> &mdash;
+Je cherchais déjà depuis un petit moment ce qu'on appelle un
+&quot;parser de log apache&quot. Autrement dit, un truc qui vous passe
+à la moulinette votre (vos ?) <code>access.log</code> et vous en sort
+des statistiques.
+
+<p>
+Mes conditions étaient les suivantes : il fallait :
+
+<ul>
+  <li>qu'il soit rapide (mon coucou est vieux, il faut le ménager :P) ;
+  <li>qu'il puisse me faire des rapport directement dans la sortie
+    standard de mon shell, ou dans un fichier .txt ;
+  <li>qu'il accepte des options directement en ligne de commande sans
+    avoir forcément à passer par un démon ou un fichier de
+    configuration ;
+  <li>que ça soit (très ?) léger.
+</ul>
+
+<p>
+Donc suivant tout cela, exit les usines à la awstats par exemple. Et
+alors par le plus grand des hasards (à tel point que je me souviens
+même plus comment je suis tombé dessus) j'ai trouvé
+<a href="http://www.hping.org/visitors/" class="external"
+hreflang="en">visitors</a>.
+
+<p>
+Ce petit programme écrit en C et tout léger, rempli toutes mes conditions,
+avec le fait qu'en plus il gère très bien aussi les rapports en .html...
+
+<p>
+Que demandez-vous de plus ?
+
+<p>
+Une installation ? Okay, alors let's go :
+
+<p>
+Sous debian/ubuntu/what_else_deb_powered, simplement :
+
+<pre>
+# apt-get install visitors
+</pre>
+
+<p>
+Pour les heureux possesseurs de Gentoo, rien de plus complexe :
+
+<pre>
+# emerge -va visitors
+</pre>
+
+<p>
+Et comme d'habitude, je ne connais pas suffisamment les autres
+distributions, je vous laisse vous débrouiller comme des grands garçons et
+des grandes filles :)
+
+<p>
+Hop ça compile ou ça s'installe, mais en tout cas c'est rapide pour tout
+le monde. S'il vous prenait l'envie de compiler, les sources
+<a href="http://www.hping.org/visitors/visitors-0.7.tar.gz"
+class="external">sont ici</a>.  Comme vous pourrez le voir dans le
+<code>README</code>, y'a pas tellement de complication, sinon avoir
+des doigts, ou des pieds, ou de la reconnaissance vocale, ou le
+truc-qui-permet-de-diriger-le-curseur-avec-les-yeux, ou... enfin bref,
+suffit de pouvoir faire une <code>make</code>.
+
+<p>
+Même pour les quelques que ça tenterait, l'auteur a aussi mis les
+sources a
+disposition <a href="http://www.hping.org/visitors/source.html"
+class="external" hreflang="en">sous forme html</a>.
+
+<p>
+Ensuite, c'est pas sorcier ! Fred et Jamy nous explique qu'un simple :
+
+<pre>
+$ visitors -A --output text -m 30 /pathto/access.log &gt; ~/log_stats.txt
+</pre>
+
+<p>
+va déjà nous donner de sérieux résultats. Je vous laisse admirer.
+Évidemment, Fred, qui n'a pas sa langue dans sa poche s'empresse de nous
+faire découvrir comment faire la même chose en html :
+
+<pre>
+$ visitors -A --output html -m 30 /pathto/access.log &gt; ~/log_stats.html
+</pre>
+
+<p>
+Mais ce charabia sera bientôt pour vous aussi blanc que le camion de
+Marcel grâce aux quelques explications de Jamy :
+
+<p>
+Déjà vous l'avez compris <code>--output html/text</code> permet de
+spécifier le type de fichier à générer, le <code>-A</code> est en fait
+la contraction d'une ribambelle d'autres options, telle que
+l'activation d'un encart pour les requêtes issues de Gogol, des tas de
+choses très intéressantes sur les referers, des cartes par jours et
+par mois, les browsers utilisés etc, etc. ; enfin ici le <code>-m
+30</code> c'est le nombre maximum d'entrées qui seront affichées par
+catégories traitées...
+
+<p>
+Évidemment je ne vais pas vous traduire la man (quoique si vous en
+avez vraiment besoin, et vous avez de l'argent à perdre, je suis là
+:D) et donc je vais vous laisser aller y jeter un <em>peuhtit</em>
+coup d'oeil.
+
+<p>
+À noter que sous Gentoo, il n'y a pas de page man :0 Mais n'ayez point de
+peur damoiseaux et damoiselles, car la documentation, tournée telle une
+manpage se trouve <a href="http://www.hping.org/visitors/doc.html"
+class="external" hreflang="en">en ligne ici</a> ou encore dans votre
+<code>/usr/share/doc/visitors*/html/doc.html</code> (à vrai dire j'ai
+pas vérifiée directement sous Debian que cette man existait mais un
+simple <code>apt-file search visitors | grep man</code> m'a indiqué
+que c'était le cas... pour deux distributions déjà (Debian et Ubuntu)
+:D).
+
+<p>
+Bien je sais déjà plus où j'en suis... Ah oui, donc la man toussa,
+c'est dit...  Allez pour finir, j'ai ajouté tout ça dans un crontab de
+cette facon :
+
+<pre>
+* */5 * * * visitors --output text -AXSZHY -m 30 --screen-info \
+             /var/log/apache2/access.log &gt; \
+             ~/report_axx_`date +%d%m.%H%M.%S`.txt 2&gt;&amp;1 /dev/null
+</pre>
+
+<p>
+Et voilà, ça s'exécute tous les jours à 5 heures du matin. Vous
+remarquerez le <code>2&gt;&amp;1 /dev/null</code> histoire que cron ne
+m'envoie pas de mail avec le résultat de la sortie en stdout (oui, il
+faut ruser, visitors n'a pas de mode silent, ce qui parait finalement
+assez logique...).
+
+<p>
+Je me ferai à terme je pense un petit script regroupant tout ça, et me
+faisant un grand coup de <code>mail -s</code> final pour avoir un
+rapport, sinon quotidien, au moins hebdomadaire de l'activité de mon
+apache...
+
+<p>
+Si vous avez envie de voir le résultat final,
+<a href="http://www.hping.org/visitors/report.html" class="external"
+hreflang="en">ça ressemble à ça</a> :)
+
+<p>
+Pour finir, sachez que ça marche très bien avec les logs d'apache, mais
+aussi d'autres serveurs, je vous laisse regarder sur le site pour plus de
+détails...  (par exemple, aucun problème avec nginx).  Enfin, et ça je le
+dis surtout pour mon cher ami McPeter :
+
+<p>
+McPeter, je sais que tu utilises IIS (si vous ne savez pas ce que c'est,
+ne cherchez pas a le savoir :P) et bien tu peux aussi utiliser visitors
+(si, si).  L'auteur a pense à toi et dans les sources (ou dans votre
+<code>/usr/share/visitors</code>) il y a un petit script perl qui
+permet de convertir les logs IIS en quelque chose de propre... Je n'en
+dis pas plus je file vite avant qu'il ne me retrouve :D. Je vous
+laisse lire la documentation (notamment aussi pour ce qui concerne
+l'option <code>--stream</code>) :P
+
+<p>
+Taaaanananaaaa tadatadatadadaa taaaananonanaaa... (générique de fin)

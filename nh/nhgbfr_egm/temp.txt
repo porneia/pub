@@ -1,0 +1,2 @@
+armor7.png
+food1.png

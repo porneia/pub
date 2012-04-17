@@ -1,0 +1,24 @@
+---
+layout: nil
+permalink: .htaccess
+---
+IndexOptions NameWidth=* FancyIndexing FoldersFirst DescriptionWidth=* IconWidth=16 IconHeight=16 SuppressHTMLPreamble ScanHTMLTitles
+
+HeaderName header.html
+ReadmeName /pub/readme-en.html
+
+IndexIgnore lib vendor style.css
+
+AddDefaultCharset UTF-8
+
+AddDescription "2011.html#1216" 1324072882.txt
+AddDescription "CSS sol (illovae)" 1324334642.txt
+AddDescription "X60 freeze (illovae)" 1325456807.txt
+AddDescription "Milkshake recipes (e20100633)" 1325558084.txt
+AddDescription "dmesg (illovae)" 1326042428.txt
+AddDescription "Assignation en référé de FAI dans le cadre de la censure de Copwatch Nord-Paris IDF (via sebsauvage)" 1328699281.pdf
+AddDescription "Autoblog errors on free.fr" 1328714116.txt
+AddDescription "sources.list wheezy" 1329768149.txt
+AddDescription "print A>Z (illovae)" 1330172398.txt
+AddDescription "task flush (illovae)" 1331162719.txt
+AddDescription "2007-11-28-screen.log (illovae)" 1334088333.txt

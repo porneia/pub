@@ -1,0 +1,253 @@
+<HTML> 
+<head>
+<BASE HREF="combat.html">
+ 
+<title> R1's Nethack page </title>
+<meta name="author" content="Erwan Grasland-Mongrain">
+</head> 
+
+<body BGCOLOR="#FFFFFF">
+
+<center><img src="nethack.png"></center>
+
+<center><h2><font color=green>Combat et expérience</font></h2></center>
+
+<center><small>
+<a href="#combat">Combattre</a> -
+<a href="#throw">Attaquer à distance</a>
+<a href="#twoweapons">Combat à deux armes</a> -
+<br>
+<a href="#tohit">Vos chances de toucher</a> -
+<a href="#xp">Expérience</a>
+</small></center>
+<br>
+<br>
+
+
+<p><a name="combat"></a><b><font
+color=blue>Combattre</font></b>
+
+<p> Attaquer un monstre est très simple. Déplacez-vous simplement sur la
+case où il se trouve. Et voilà ! Avec un peu de chance, vous l'avez
+touché, et peut-être même tué. Si en plus vous pouvez emporter (ou
+dévorer) son cadavre en signe de victoire, vous avez compris
+l'essentiel...
+
+<p> Dans certains cas, vous ne pourrez pas savoir si une case est libre
+ou si un monstre s'y trouve, par exemple si vous êtes aveugle ou si le
+monstre est invisible. Si vous tentez de vous déplacer sur cette case,
+un message vous avertira de sa présence (« Wait! There's something there
+you can't see! ») tandis qu'un point d'interrogation apparaîtra sur la
+case. Si vous suspectez que la créature y est toujours, réessayez d'y
+aller. Si la créature s'y trouve effectivement, vous l'attaquerez comme
+si elle était visible ; si elle a bougé, le message « You attack thin
+air. » s'affiche et le point d'interrogation disparaît. À l'inverse, si
+vous pensez que la créature a bougé, déplacez-vous en précédant votre
+mouvement de la touche « <kbd>m</kbd> » (<cite>(m)ove</cite>) : vous irez alors
+sur la case contenant le point d'interrogation sans attaquer, et
+économiserez ainsi un tour. Enfin, si vous pensez qu'une créature se
+trouve sur une case où ne se trouve pas de point d'interrogation, entrez
+la commande « <kbd>F</kbd> » majuscule suivie d'une direction pour attaquer
+sans vous déplacer dans cette direction.
+
+<p> À moins que vous n'ayez une arme en main, ou que vous sachiez
+utiliser un art martial (c'est notamment le cas des moines
+(<cite>Monks</cite>), qui ont justement intérêt au contraire à n'utiliser que
+leurs mains nues), vous n'infligerez que très peu de dégats à mains nues,
+un à deux points de vie (plus un éventuel bonus de force par exemple).
+Pour infliger plus de dommages, vous pouvez utiliser une arme, de mêlée
+(épée (<cite>sword</cite>), massue (<cite>mass</cite>), bâton (<cite>staff</cite>),
+etc.), de lancer (javelot (<cite>javelin</cite>), etc.) ou de tir (arc
+(<cite>bow</cite>), fronde (<cite>sling</cite>), etc.).
+
+<p> Pour prendre une arme (ou n'importe quel autre objet, d'ailleurs) en
+main, dans le but de l'utiliser pour combattre, c'est la commande
+<cite>(w)ield</cite> que vous devrez utiliser : tapez sur la touche
+« <kbd>w</kbd> » (minuscule !), puis sur la lettre de l'arme que vous
+souhaitez prendre en main. Désormais, lorsque vous combattrez un ennemi,
+vous utiliserez automatiquement cette arme pour le frapper. Si vous
+préférez ne pas tenir d'arme en main, tapez « <kbd>w-</kbd> ».
+
+<p><a name="throw"></a><b><font color=blue>Attaquer à
+distance</font></b>
+
+<p> Attention toutefois, si vous prenez un arc en main, et que vous
+tentez d'attaquer un ennemi en vous déplaçant sur sa case, vous ne lui
+tirerez pas de flèche, mais vous lui taperez bel et bien dessus à coups
+d'arc (ce qui risque de se révéler assez peu efficace...) ! En effet, le
+jeu n'est pas censé deviner que vous désiriez lancer un objet (cela par
+exemple pour vous laisser le choix entre utiliser une dague au
+corps-à-corps ou utiliser des dagues de jet). Pour cela, vous devez
+utiliser la commande <cite>(t)hrow</cite> (« <kbd>t</kbd> »), suivie de
+la lettre de l'objet que vous désirez lancer et de la direction dans
+laquelle vous voulez le lancer. Si vous possédez plusieurs objets du même
+type (désignés par la même lettre), vous n'en lancerez toutefois
+normalement qu'un seul. Exceptionnellement, si vous maniez
+particulièrement bien cette arme (c'est-à-dire si vous avez atteint le
+niveau <cite>Skilled</cite> ou <cite>Expert</cite> - voir le chapitre sur
+l'expérience plus bas), vous tirerez par défaut 2, voire 3 munitions
+(flèches, carreaux, darts...) associées, afin d'infliger plus de dommages
+; si vous ne désirez pas bénéficier de cette aptitude, précédez
+simplement la lettre de l'objet du chiffre « <kbd>1</kbd> » ou «
+<kbd>2</kbd> » (si vous désirez respectivement lancer un ou deux de ces
+objets) ; si vous spécifiez un nombre supérieur, vous tirerez autant de
+munitions que si vous n'aviez rien indiqué du tout. En résumé, si vos
+darts sont attribués à la lettre « <kbd>a</kbd> », tapez « <kbd>tah</kbd>
+ » pour tirer autant de darts que possibles vers la gauche, «
+<kbd>t1ah</kbd> » pour en tirer exactement 1, « <kbd>t2ah</kbd> » pour en
+tirer exactement 2 si vous avez atteint au minimum le niveau
+<cite>Skilled</cite> en dart, ou 1 seul si ce n'est pas le cas.
+
+<p> Pour éviter d'avoir à spécifier la lettre de l'objet que vous désirez
+lancer quand elle est toujours la même (ce qui est généralement le cas
+pour les munitions « classiques » types flèches et autres dagues), vous
+pouvez mettre à tout moment cette catégorie d'objets dans votre carquois
+(ce qui ne vous coûtera <em>pas</em> de tour de jeu), en appuyant sur
+« <kbd>Q</kbd> » majuscule (pour <cite>(q)uiver</cite>) puis sur la lettre
+associée à l'objet. L'intérêt d'avoir placé des munitions dans son
+carquois est que vous pouvez désormais utiliser la commande
+<cite>(f)ire</cite> en appuyant simplement sur « <kbd>f</kbd> » puis en
+indiquant la direction dans laquelle vous désirez tirer l'objet contenu
+dans votre carquois. Notez que vous pouvez également spécifier une
+quantité d'objets à lancer, avec les mêmes restrictions que ci-dessus.
+Pour revenir à l'exemple précédent, vous pouvez mettre vos darts dans
+votre carquois avec « <kbd>Qa</kbd> », puis tirer autant de darts que
+possible à gauche avec « <kbd>fh</kbd> », n'en tirer qu'un avec
+« <kbd>1fh</kbd> », etc.
+
+<p> Vous pouvez lancer <em>a priori</em> n'importe quel objet, pourvu que
+votre force soit suffisante. Mais il est bien évident que lancer une
+flèche (<cite>arrow</cite>), un carreau d'arbalète (<cite>crossbow bolt</cite>)
+ou une pierre (<cite>rock</cite> ou <cite>flint stone</cite>, voire n'importe
+quelle pierre de la catégorie <cite>Gems and rocks</cite>) à mains nues est
+fort peu efficace ; pour lancer correctement ces objets vous aurez
+besoin respectivement d'un arc (<cite>bow</cite>), d'une arbalète
+(<cite>crossbow</cite>) et d'une fronde (<cite>sling</cite>), que vous devez
+prendre en main avec la commande <cite>(w)ield</cite> (« <kbd>w</kbd> ») avant
+de lancer les munitions associées.
+
+<p><a name="twoweapons"></a><b><font color=blue>Combattre avec
+deux armes à la fois</font></b>
+
+<p> Certaines classes de personnages peuvent utiliser deux armes à la
+fois, au prix toutefois d'une diminution des chances de toucher
+(dépendante de votre niveau d'aptitude dans la catégorie <cite>two weapon
+combat</cite> - voir plus bas). Pour cela, vous devez d'abord prendre en
+main (avec « <kbd>w</kbd> ») l'arme que vous tiendrez dans votre main
+secondaire (avec laquelle vous maniez moins bien les armes). Appuyez sur
+« <kbd>x</kbd> » (pour <cite>e(x)change</cite>) pour intervertir le contenu de
+vos mains : normalement, sauf si vous aviez déjà quelque chose dans la
+main secondaire, vous ne devriez rien avoir en main actuellement. Prenez
+alors votre arme principale en main (toujours avec « <kbd>w</kbd> »).
+Maintenant, si votre personnage en est capable, entrez la commande
+<cite>#twoweapon</cite> en appuyant sur « <kbd>#tw&lt;Enter&gt;</kbd> » (ou
+« <kbd>M-2</kbd> ») pour activer ou désactiver le combat à deux armes. Bien
+sûr, même si vous ne désirez pas utiliser ce type de combat, vous pouvez
+attribuer une arme secondaire avec « <kbd>x</kbd> » afin de changer
+rapidement d'arme principale.
+
+<p><a name="tohit"></a><b><font color=blue>Vos chances de
+toucher</font></b>
+
+<p> Vos chances de toucher dépendent de nombreux paramètres, les plus
+évidents étant votre niveau de maîtrise dans l'arme associée, l'AC
+(<cite>armor class</cite>) de votre ennemi, votre niveau d'expérience,
+l'état de votre ennemi (endormi, paralysé...), l'enchantement de votre
+arme (mais pas de vos munitions), la taille de votre ennemi et sa
+distance (si vous combattez à distance).Les dommages que vous infligez
+dépendent quant à eux entre autres du type d'arme (dague, épée, sabre,
+massue... Les valeurs sont approximativement les mêmes que dans le jeu de
+rôle sur table AD&amp;D), de l'état de votre arme (rouillée, attaquée par
+l'acide, etc.), du nombre d'enchantements de votre arme ou de vos
+munitions dans le cas d'armes à distance (+0, +3, -1...), de votre force
+(pour les armes de mêlée seulement) ou encore du type de créature que
+vous attaquez (fouetter un éléphant n'est pas très efficace...).
+
+<p> Enfin, pour finir ce chapitre sur une note de finesse et de
+subtilité, n'oubliez jamais que si vos muscles peuvent vous sortir de la
+plupart des situations, rien ne vaut un peu de réflexion avant de foncer
+tête baissée vers le danger, et que vous n'êtes pas censé hacher tout ce
+qui bouge (et même ce qui ne bouge pas) !
+
+
+<p><a name="xp"></a><b><font
+color=blue>L'expérience</font></b>
+
+<p> La manière (non exclusive...) la plus basique de gagner des points
+d'expérience consiste à tuer des monstres. Tout simplement. Le nombre de
+points d'expérience que vous avez accumulés déterminent votre niveau
+d'expérience (à ne pas confondre avec le niveau de profondeur du donjon
+auquel vous vous trouvez) : vous commencez au niveau 1, avec 0 point
+d'expérience. Dès que vous aurez accumulé 20 points d'expérience, vous
+passerez au niveau 2 ; il en faudra 40 de plus pour passer au niveau 3 et
+ainsi de suite.
+
+<p> Changer de niveau d'expérience a de nombreux effets bénéfiques sur
+votre personnage : son total de points de vie et de mana augementent
+d'une quantité dépendant de sa classe, de sa race et de ses
+caractéristiques (constitution et sagesse), vous gagnez parfois (selon le
+niveau atteint, votre classe et votre race) quelques caractéristiques
+spéciales (résistance au sommeil, rapidité...) et vous effectuez
+certaines actions plus facilement (combattre, apprendre et lancer des
+sorts par exemple). Attention, en contrepartie, les monstres générés dans
+le donjon seront désormais plus puissants.
+
+<p> Il est également possible d'augmenter certaines caractéristiques en
+s'entraînant suffisamment : par exemple, en étant fortement surchargé (ce
+qui est déconseillé pour d'autres raisons liées à votre rapidité de
+mouvements...) vous entraînerez votre force. À l'inverse, vos
+caractéristiques peuvent baisser si vous subissez des mauvais traitements 
+(recevoir une forte décharge électrique peut par exemple infliger des
+dommages à votre constitution).
+
+<p> Enfin, en utilisant suffisamment une arme (c'est-à-dire en frappant
+suffisamment vos ennemis avec), vous vous améliorerez éventuellement dans
+son maniement ; il en va de même pour les sorts (vous vous améliorez dans
+le lancement de tous les sorts d'une catégorie) et pour quelques autres
+techniques (le combat à main nues, les arts martiaux...). Il existe 4
+niveaux de maîtrise pour chaque catégorie d'arme (épée large, bâton,
+massue, arc, etc.), de sort (soins, attaque, etc.) et pour le combat à
+deux armes : <cite>Unskilled</cite> signifie que vous aurez un petit malus
+lorsque vous tenterez d'utiliser cette arme ou ce sort, <cite>Basic</cite>
+que vous n'aurez aucune pénalité, <cite>Skilled</cite> que vous avez un bonus
+(généralement à vos chances de toucher et à vos dommages dans le cas des
+armes, ou au pourcentage d'échec dans le cas des sorts), <cite>Expert</cite>
+que ce bonus est encore plus élevé. Dans le cas du combat à mains nues et
+des arts martiaux (version améliorée du combat à mains nues utilisée par
+les moines et les samouraïs), vous pouvez vous améliorer encore davantage
+en allant au niveau <cite>Master</cite>, voire <cite>Grand Master</cite>.
+L'utilisation de montures (<cite>riding</cite>), bien que n'étant pas à
+proprement parler une technique de combat, suit également les mêmes
+règles d'avancement (jusqu'au niveau <cite>Expert</cite>).
+
+<p> Attention : ce n'est pas parce qu'il est <em>possible</em> d'être
+expert dans le maniement des haches que votre sorcier pourra le devenir :
+chaque classe a une limite dans la maîtrise des diverses armes et sorts.
+Ainsi, les classes « guerrières » (barbare, valkyrie) pourront bien
+souvent se spécialiser jusqu'au niveau <cite>Expert</cite> dans le maniement
+des armes, mais ne pourront pas dépasser le niveau <cite>Basic</cite> voire
+<cite>Unskilled</cite> dans les sorts, tandis que ce sera l'inverse pour les
+sorciers et autres prêtres. Pour savoir dans quelles catégories vous
+pouvez vous améliorer, entrez la commande avancée <cite>#enhance</cite>
+(« <kbd>#e&lt;Enter&gt;</kbd> » ou « <kbd>M-e</kbd>) : un tableau
+s'affichera avec la liste des catégories dans lesquelles vous n'êtes pas
+<cite>Restricted</cite> (c'est-à-dire dans lesquelles vous ne pouvez pas
+dépasser le niveau <cite>Unskilled</cite>), avec à côté le niveau de
+maîtrise que vous avez atteint. Si un symbole « # » s'affiche à côté
+d'une de ces catégories, c'est que vous l'avez déjà améliorée au maximum
+possible pour cette classe ; si un signe « + » s'affiche (précédé
+d'une lettre), cela signifie que vous avez suffisamment utilisé cette
+arme ou ce sort pour pouvoir l'améliorer : taper sur la lettre associée
+pour ce faire. Toutefois, le nombre total d'améliorations dont vous
+pourrez disposer est limité, donc il vous faudra parfois faire des
+choix...
+
+<p><small><a href=avancees.html>Lire le tutoriel suivant</a>
+<br><a href=index.html>Revenir à la liste des tutoriels</a></small>
+
+<p><hr>
+2003 - Erwan Grasland-Mongrain (<a
+href="../../mail.html">m'écrire...</a>)
+
+</body>
+</HTML>

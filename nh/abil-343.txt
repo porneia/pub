@@ -1,0 +1,125 @@
+abil-343.txt  Last edited 2003-12-17 for NetHack 3.4.3
+Class- and race-dependent abilities and gained intrinsics in NetHack 3.4
+Compiled by Dylan O'Donnell <psmith@spod-central.org>.
+
+This spoiler doesn't attempt to list the various class and racial
+modifiers to game activities; just the abilities peculiar to each.
+
+Archeologist
+~~~~~~~~~~~~
+XL 1 : Stealth
+XL 1 : Speed
+XL 10: Searching
+Can use two-weapon combat.
+Can use uncursed touchstones as blessed.
+
+Barbarian
+~~~~~~~~~
+XL 1 : Poison resistance
+XL 7 : Speed
+XL 15: Stealth
+Can use two-weapon combat.
+
+Cave(wo)man
+~~~~~~~~~~~
+XL 7 : Speed
+XL 15: Warning
+Exempt from penalties for cannibalism and eating domestic animals.
+
+Healer
+~~~~~~
+XL 1 : Poison resistance
+XL 15: Warning
+
+Knight
+~~~~~~
+XL 7 : Speed
+Can jump as chess knight.
+Can #turn undead.
+Can use two-weapon combat.
+
+Monk
+~~~~
+XL 1 : Speed
+XL 1 : Sleep resistance
+XL 1 : See invisible
+XL 3 : Poison resistance
+XL 5 : Stealth
+XL 7 : Warning
+XL 9 : Searching
+XL 11: Fire resistance
+XL 13: Cold resistance
+XL 15: Shock resistance
+XL 17: Teleport control
+Exercise wisdom by fasting.
+
+Priest(ess)
+~~~~~~~~~~~
+XL 15: Warning
+XL 20: Fire resistance
+Can see objects' blessed/uncursed/cursed status.
+Can #turn undead.
+
+Ranger
+~~~~~~
+XL 1 : Searching
+XL 7 : Stealth
+XL 15: See invisible
+
+Rogue
+~~~~~
+XL 1 : Stealth
+XL 10: Searching
+Can use two-weapon combat.
+
+Samurai
+~~~~~~~
+XL 1 : Speed
+XL 15: Stealth
+Can use two-weapon combat.
+
+Tourist
+~~~~~~~
+XL 10: Searching
+XL 20: Poison resistance
+Can use two-weapon combat.
+
+Valkyrie
+~~~~~~~~
+XL 1 : Cold resistance
+XL 1 : Stealth
+XL 7 : Speed
+A thrown Mjollnir (requires strength 25) will usually return to the hand.
+Can use two-weapon combat.
+
+Wizard
+~~~~~~
+XL 15: Warning
+XL 17: Teleport control
+Gets bonuses rather than penalties for wearing cornuthaums.
+Warned before reading uncursed spellbooks with possibility of failure.
+
+dwarf
+~~~~~
+XL 1 : Infravision
+
+elf
+~~~
+XL 1 : Infravision
+XL 4 : Sleep resistance
+
+gnome
+~~~~~
+XL 1 : Infravision
+Can use uncursed touchstones as blessed.
+
+orc
+~~~
+XL 1 : Infravision
+XL 1 : Poison resistance
+Exempt from penalties for cannibalism and eating domestic animals.
+
+
+Acknowledgements
+~~~~~~~~~~~~~~~~
+Corrections and clarifications provided by nyra.

@@ -1,0 +1,45 @@
+---
+layout: project
+title: "Lire les mails au format HTML avec un client en ligne de commande"
+date: 2012-03-05 18:39:51 +0100
+id: "0305"
+---
+<p>
+Dans le cas où vous lisez vos mails avec un client en ligne de
+commande (mutt ou mailx par exemple), il existe plusieurs méthodes
+pour afficher correctement les mails de certaines personnes qui
+envoient du courrier au format HTML.
+
+<p>
+En voici une parmi d'autres tirée du wiki de
+l'<a href="http://www.ocf.berkeley.edu" class="external"
+hreflang="en">OCF</a> (Open Computing Facility) de Berkeley. Son
+avantage est que <mark>cette solution n'est pas liée à un client en
+particuliers car elle s'utilise par l'intermédiaire de
+procmail</mark>. L'inconvénient bien sûr est qu'elle dépend donc de
+procmail. Vous devez disposer de lynx sur votre machine (mais cela
+doit aussi fonctionner avec w3m pourvu que vous y mettiez les bons
+arguments). Il faut rajouter deux recettes dans
+votre <code>~/.procmailrc</code> :
+
+<pre>
+# Create backup for de-HTML'd email
+:0 c
+* ^Content-type: text/html
+de-html-backup
+
+# de-HTML
+:0 fbw
+* ^Content-Type:[ ]*text/html
+| lynx -dump -stdin -nolist \
+&& echo &quot;&quot; \
+&& echo &quot;=================================================&quot; \
+&& echo &quot;This HTML message has been made into text by lynx&quot; \
+&& echo &quot;=================================================&quot;
+</pre>
+
+<p>
+La première fait simplement une sauvegarde du ou des mails ayant
+un <code>Content-type</code> équivalent à <code>text/html</code> au
+cas où. Ensuite lesdits mails sont passés à la moulinette avec
+lynx. Tout simplement.

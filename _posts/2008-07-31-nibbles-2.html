@@ -1,0 +1,76 @@
+---
+layout: post
+title: "Nibbles #2"
+date: 2008-07-31 23:10:22 +0200
+author: illov&aelig;
+mail: illovae[at]bk[dot]ru
+keywords: jeu, nibbles, illovae
+license: "WTFPL(v2) - Beerware License"
+---
+<p>
+Allez encore un parce que c'est rigolo. Cette fois-ci on va installer un
+nibbles mais qui ressemble encore plus à notre snake d'antan (c'est-à-dire
+un seul level, et plus vous mangez les pommes qui apparaissent au fur et à
+mesure et plus vous gagnez de points).
+
+<p>
+Donc on télécharge les sources de
+<a href="http://freebsd.unixfreunde.de/sources/nibbles-1.2.tar.gz"
+class="external">nibbles</a> écrit par Nils Magnus Englund (connu sous
+le nom de nmee (ne cherchez pas son site, il est down). Comme vous
+l'aurez remarquer on récupère les sources sur
+<a href="http://freebsd.unixfreunde.de/sources/" class="external"
+hreflang="en">freebsd.unixfreunde.de</a> merci pour eux.
+
+<p>
+Donc comme d'hab' on décompresse tout ça. Vous pouvez faire un tour dans le
+<code>Makefile</code> si vous voulez il est des plus simples. Vous
+prendrez le soin d'avoir ncurses et ses librairies bien installées sur
+votre système (<code>libncurses5*</code>) pour la compilation
+notamment.
+
+{% highlight console %}
+$ make
+{% endhighlight %}
+
+<p>
+Et voilà, vous vous retrouvez avec une jolie binaire. N'essayez pas de
+<code>make install</code>, le <code>Makefile</code> est des plus
+simples comme dit. Donc vous pouvez dès à présent le lancer :
+
+{% highlight console %}
+$ ./nibbles
+{% endhighlight %}
+
+<p>
+Sinon vous pouvez très bien le mettre dans un répertoire de binaire
+(comme <code>/usr/local/games</code> par exemple ;) (pour ceux qui ont
+suivi
+<a href="{{ site.url }}{{ site.baseurl }}/articles/nibbles.html"
+hreflang="fr">mon précèdent billet</a> et qui ont installés l'autre
+nibbles, modifiez donc le nom en <code>nibbles-nmee</code> histoire de
+pas avoir de conflit)). Pour les touches c'est <code>hjkl</code> (ou
+les flèches directionnelles) rien de plus simple. Ah et il faut
+absolument un terminal qui gère les couleurs sinon il refuse de se
+lancer (exit donc les terminaux monochromes malheureusement).
+
+<p>
+Merci a nmee qui a fait ce jeux pendant ses vacances de 2002 :P
+
+<p>
+<ins datetime="2008-08-01T04:17:48+02:00">MàJ du 01 août 2008 04:17
++02:00 : Bon en fait il est possible de lancer le jeux dans un
+terminal ne disposant pas des couleurs, il suffit pour ca d'editer le
+fichier screen.c et de supprimer les lignes 43 a 47 inclus et de
+recompiler. Cela ne genant en rien le jeux (d'ailleurs je pige pas
+pourquoi nmee a rajoute cette regle...). Pour plus de clarte les
+lignes fautives sont :
+
+{% highlight c %}
+if (!has_colors()) {
+  endwin();
+  fprintf(stderr,"A terminal with color support is required.\n");
+  exit(1);
+}
+{% endhighlight %}
+</ins>

@@ -1,0 +1,149 @@
+---
+layout: post
+title: "La foire aux Achtuss #1"
+date: 2008-08-02 18:26:11 +0200
+author: illov&aelig;
+mail: illovae[at]bk[dot]ru
+keywords: foire, astuces, tips, GNU/Linux, achtuss, illovae
+license: "WTFPL(v2) - Beerware License"
+---
+<p>
+<span class="articleAuthor">Britney Gopherspace, 02 août 2008,
+{{ page.author }}</span> &mdash;
+Mesdames, Mesdemoiselles, Messieurs. Nous sommes heureux E-R-E de vous
+présenter la première édition numérique de <b>la Foire aux
+Achtuss</b>. Manière de faire un truc semi-pro que cay la grande classe,
+voici une présentation officielle :
+
+<p>
+&laquo;&nbsp;La Foire aux Achtuss (la FAA pour les intimes (à
+prononcer 'faa' pour les puristes)) se donne comme objectif de mettre
+à disposition des Achtuss aux Grands Publics. Ces Achtuss, pour
+certaines nulles/inutiles et pour d'autres incontournables, pourront
+s'adresser tantôt à l'utilisateur débutant, tantôt à l'utilisateur
+moyen, tantôt à l'utilisateur confirmé, mais pratiquement jamais a
+l'utilisateur expert. Si donc toi aussi, tu te sens dans l'âme un
+fouineur d'Achtuss qui te manque à ta collection, n'hésites plus, et
+viens donc fouiller à la FAA (toute ressemblance avec une publicité
+connue est fait exprès)&nbsp;&raquo;. Et blablabla, blablabla (tous
+commentaires élogieux que vous ajouterez à la suite sera le bienvenue,
+pour les autres attendez vous à des courses poursuites en justice
+digne de la série &quot;Shérif fais moi peur&quot; =0 ).
+
+<p>
+Ceci étant fait, on va pouvoir passer à la diffusion de nos Achtuss
+(non ne partez pas tout de suite T.T).
+
+<p>
+<ul>
+  <li><p><b>Achtuss n1</b>: Bon quand on part d'une base installation
+      debian/ubuntu/deb_powered type serveur, pour avoir X il faut :
+      <code>sudo apt-get install xserver-xorg</code>. Mais ça suffit
+      pas, pour pouvoir le lancer (grâce à la
+      commande <code>startx</code>) il faut aussi installer
+      <code>xinit</code>. Enfin n'oubliez
+      pas <code>x-window-system-core</code>.  Puis un <code>sudo
+      dpkg-reconfigure xserver-xorg</code> pour configurer le
+      tout. Enfin installer n'importe quel wm.
+
+  <li><p><b>Achtuss n2</b>: Pour faire un screenshot, ou
+      bien <code>import -window root shot.jpg</code> ou
+      encore <code>scrot -c -d 5 shot.png</code> (après avoir
+      installer imagemagick ou scrot bien sûr).
+
+  <li><p><b>Achtuss n3</b>: Besoin d'afficher uniquement le premier
+      mot de chaque ligne d'un fichier ? (si, si, y'en a à qui ça
+      sert). Simple, suffit de taper <code>cut -f 1 -d &quot; &quot;
+      lenomdufichier</code>. Ou bien (mais là c'est le truc de
+      mammouth juste pour tuer une mouche) : <code>cat lenomdufichier
+      | awk '{printo $0}'</code>.
+
+  <li><p><b>Achtuss n4</b>: Si vous voulez des trucs qui s'affichent
+      au démarrage de votre shell, rajouter à la fin dans votre
+      <code>~/.bashrc</code> (ou <code>zshrc</code> ou
+      autres) <code>uname -a | uptime | fortune</code>.
+
+  <li><p><b>Achtuss n5</b>: J'aime écouter la radio, et je me suis
+      &quot;fait&quot; une webradio en ligne de commande. Pour ça il
+      vous faudra vous faire une playlist avec des url de radio
+      disponible sur le net (France Inter, Europe2 etc.). Ensuite rien
+      de plus simple, vous vous faîtes un alias qui indique la
+      commnande : <code>vlc -I ncurses
+      /path/votre.playlist</code>. Évidemment, on peut faire la même
+      chose avec les webtv, mais là, il vous faut X...
+
+  <li><p><b>Achtuss n6</b>: Pour se connecter à un ordinateur distant,
+      il existe plusieurs solutions. Mais la meilleure façon, et la
+      plus sécurisée est de se connecter en ssh. Pour se connecter à
+      l'ordi distant : <code>ssh user:IPMachineDistante</code>.  Rajoutez l'option
+      <code>-X</code> et lancez une commande aillant pour résultat une
+      GUI (par ex. <code>xclock</code>). Vous aurez une surprise :)
+
+  <li><p><b>Achtuss n7</b>: Bon sang, une bonne fois pour
+      toute. Monter une partition nfs c'est : <code>sudo mount -t nfs
+      IpMachineDistante:/Partage/Distant
+      /Repertoire/Destination</code>
+
+  <li><p><b>Achtuss n8</b>: Arf, comment télécharger le contenu d'un
+      dossier sans télécharger la totalité du net avec wget ? Héhé !
+      Vous avez remarqué qu'avec la simple option <code>-r</code> il
+      télécharge bien le dossier et son contenu mais aussi le dossier
+      du dessus, jusqu'à la racine du site, et quand il a fini le
+      site, il passe aux liens et au final, il se met à dl tout le
+      contenu du web : moyen hein ?  Pour remédier à ça, il suffit de
+      rajouter une petite astuce : <code>--no-parent</code> :D Ce qui
+      donne : <code>wget -r -np
+      http://lenomdusite.com/le/dossier/en/question/</code>
+
+  <li><p><b>Achtuss n9</b>: Admettons que l'on a plusieurs fois le
+      même mot en début de chaque ligne dans un fichier et qu'on veut
+      l'enlever. Soit on le fait à la main (sur un fichier de 6000
+      lignes bon courage), soit <code>sed -i 's/^ARF\ //'
+      lenomdufichier</code> ou <code>ARF</code> est le mot que l'on
+      veut enlever à chaque fois.
+
+  <li><p><b>Achtuss n10</b>: Petit truc trouver sur le planet
+      d'ubuntu-fr. Pour augmenter la SWAP, il suffit de faire :
+<pre>
+$ sudo do if=/dev/zero of=/tmp/swap bs=1M count=512
+$ sudo mkswap /tmp/swap
+$ sudo swapon /tmp/swap
+</pre>
+      Et paf, la SWAP a ete augmenter en live de 512Mo. Magique :)
+
+  <li><p><b>Achtuss n11</b>: Quand on a des sources Debian et qu'on
+      veut en extraire juste le dossier <code>debian/</code> il suffit
+      de faire un <code>dpkg-source -x *dsc</code>.
+
+  <li><p><b>Achtuss n12</b>: Pour les apprentis packageurs Debian,
+      vous connaissez l'adage &quot;Il faut réfléchir avant
+      d'agir&quot; ?  Et bien sachez que : &quot;Il faut pbuilder
+      avant de réfléchir&quot;.
+
+  <li><p><b>Achtuss n13</b>: Pour reprendre un téléchargement
+      interrompu : <code>$ wget -c http://le.site/lefichier.paf</code>
+
+  <li><p><b>Achtuss n14</b>: Mettre à jour l'heure proprement
+      ?  <code>sudo ntpdate ntp.ubuntu.com</code> (bien sûr vous devez
+      avoir l'outil <code>ntpdate</code> ;))
+
+  <li><p><b>Achtuss n15</b>: Des problèmes de sons avec alsa ? Tout
+      d'un coup, plus de son ? Pour voir quel est le petit malin qui
+      monopolise votre sortie sonore un simple <code>lsof
+      /dev/dsp</code> vous renseignera.  Ensuite il ne vous reste plus
+      qu'à killer le rebelle.
+</ul>
+
+<p>
+Et voilà, c'est déjà fini T.T J'espère que vous avez mis la main sûr
+au moins une Achtuss qui pourra vous faire du plaisir en
+vous. Rendez-vous très bientôt pour la deuxième édition de la 'faa' :)
+
+<p>
+NB: (à lire avec une voix de Teletubbies) Si toi aussi tu as envie de
+faire partager ton Achtuss à toi avec le Grand Public pour une des
+prochaines éditions de la 'faa', n'hésites plus, prend ton clavier et
+tes doigts (ou tout autre interface te servant à écrire) et envoie moi
+un mail.
+<p>
+Que l'Achtuss soit avec vous.

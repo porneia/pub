@@ -1,0 +1,31 @@
+---
+layout: project
+title: "Brightness control daemon"
+date: 2011-08-26 02:03:11 +0200
+id: "0826"
+---
+<p>
+<a href="http://www.pberndt.com/Programme/Linux/brightd/index.html"
+class="external" hreflang="de">brightd</a> est un démon qui va nous
+permettre de retrouver un comportement bien connu des personnes qui ont
+déjà fait tourner Mac OS X. Après quelques secondes d'inactivité, la
+luminosité de l'écran va se mettre d'elle-même au minimum, cela nous
+permettant d'économiser un peu de batterie.
+
+<p>
+Pour les dépendances et les prérequis vous trouverez toutes les
+informations utiles dans le README (avec un kernel par défaut d'une grande
+distribution, il ne devrait pas y avoir de problème). Notez en sus qu'à
+l'heure où ces lignes sont écrites, brightd est en version 4.1 et doit
+avoir la permission de lire <code>/dev/input/event*</code>. Nous devons
+donc lancer l'application avec les droits root (ou avec un utilisateur qui
+a suffisamment de droits pour lire cet endroit) ; droits qui seront
+ensuite laissés au profit de ceux de l'utilisateur défini lors du
+lancement de la dite application. L'utilisateur doit pouvoir aussi écrire
+dans <code>/sys/class/backlight/*/brightness</code>.
+
+<p>
+Subséquemment l'idéal est de se faire un init script pour lancer brightd
+automatiquement au boot. Pour les plus fainéants et les moins regardants
+au niveau sécurité, SUID la binaire et rajouter une entrée
+dans <code>~/.xinitrc</code> fait aussi l'affaire...

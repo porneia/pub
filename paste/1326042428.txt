@@ -1,0 +1,1548 @@
+[    0.000000] Initializing cgroup subsys cpuset
+[    0.000000] Initializing cgroup subsys cpu
+[    0.000000] Linux version 3.1.0-1-686-pae (Debian 3.1.6-1) (waldi@debian.org) (gcc version 4.6.2 (Debian 4.6.2-4) ) #1 SMP Fri Dec 23 19:59:41 UTC 2011
+[    0.000000] Disabled fast string operations
+[    0.000000] BIOS-provided physical RAM map:
+[    0.000000]  BIOS-e820: 0000000000000000 - 000000000009f000 (usable)
+[    0.000000]  BIOS-e820: 000000000009f000 - 00000000000a0000 (reserved)
+[    0.000000]  BIOS-e820: 00000000000d2000 - 00000000000d4000 (reserved)
+[    0.000000]  BIOS-e820: 00000000000dc000 - 0000000000100000 (reserved)
+[    0.000000]  BIOS-e820: 0000000000100000 - 000000003f6e0000 (usable)
+[    0.000000]  BIOS-e820: 000000003f6e0000 - 000000003f6f4000 (ACPI data)
+[    0.000000]  BIOS-e820: 000000003f6f4000 - 000000003f700000 (ACPI NVS)
+[    0.000000]  BIOS-e820: 000000003f700000 - 0000000040000000 (reserved)
+[    0.000000]  BIOS-e820: 00000000f0000000 - 00000000f4000000 (reserved)
+[    0.000000]  BIOS-e820: 00000000fec00000 - 00000000fec10000 (reserved)
+[    0.000000]  BIOS-e820: 00000000fed00000 - 00000000fed00400 (reserved)
+[    0.000000]  BIOS-e820: 00000000fed14000 - 00000000fed1a000 (reserved)
+[    0.000000]  BIOS-e820: 00000000fed1c000 - 00000000fed90000 (reserved)
+[    0.000000]  BIOS-e820: 00000000fee00000 - 00000000fee01000 (reserved)
+[    0.000000]  BIOS-e820: 00000000ff800000 - 0000000100000000 (reserved)
+[    0.000000] NX (Execute Disable) protection: active
+[    0.000000] DMI present.
+[    0.000000] DMI: LENOVO 1707A31/1707A31, BIOS 7BET44WW (1.04 ) 03/13/2006
+[    0.000000] e820 update range: 0000000000000000 - 0000000000010000 (usable) ==> (reserved)
+[    0.000000] e820 remove range: 00000000000a0000 - 0000000000100000 (usable)
+[    0.000000] last_pfn = 0x3f6e0 max_arch_pfn = 0x1000000
+[    0.000000] MTRR default type: uncachable
+[    0.000000] MTRR fixed ranges enabled:
+[    0.000000]   00000-9FFFF write-back
+[    0.000000]   A0000-BFFFF uncachable
+[    0.000000]   C0000-CFFFF write-protect
+[    0.000000]   D0000-DBFFF uncachable
+[    0.000000]   DC000-DFFFF write-back
+[    0.000000]   E0000-FFFFF write-protect
+[    0.000000] MTRR variable ranges enabled:
+[    0.000000]   0 base 000000000 mask FC0000000 write-back
+[    0.000000]   1 base 03F700000 mask FFFF00000 uncachable
+[    0.000000]   2 base 03F800000 mask FFF800000 uncachable
+[    0.000000]   3 disabled
+[    0.000000]   4 disabled
+[    0.000000]   5 disabled
+[    0.000000]   6 disabled
+[    0.000000]   7 disabled
+[    0.000000] PAT not supported by CPU.
+[    0.000000] found SMP MP-table at [c00f6900] f6900
+[    0.000000] initial memory mapped : 0 - 01a00000
+[    0.000000] Base memory trampoline at [c009b000] 9b000 size 16384
+[    0.000000] init_memory_mapping: 0000000000000000-00000000379fe000
+[    0.000000]  0000000000 - 0000200000 page 4k
+[    0.000000]  0000200000 - 0037800000 page 2M
+[    0.000000]  0037800000 - 00379fe000 page 4k
+[    0.000000] kernel direct mapping tables up to 379fe000 @ 19fa000-1a00000
+[    0.000000] RAMDISK: 36dc0000 - 376d8000
+[    0.000000] ACPI: RSDP 000f68c0 00024 (v02 LENOVO)
+[    0.000000] ACPI: XSDT 3f6e7621 0008C (v01 LENOVO TP-7B    00001040  LTP 00000000)
+[    0.000000] ACPI: FACP 3f6e7700 000F4 (v03 LENOVO TP-7B    00001040 LNVO 00000001)
+[    0.000000] ACPI Warning: 32/64X length mismatch in Gpe1Block: 0/32 (20110623/tbfadt-529)
+[    0.000000] ACPI Warning: Optional field Gpe1Block has zero address or length: 0x000000000000102C/0x0 (20110623/tbfadt-560)
+[    0.000000] ACPI: DSDT 3f6e78e7 0C463 (v01 LENOVO TP-7B    00001040 MSFT 0100000E)
+[    0.000000] ACPI: FACS 3f6f5000 00040
+[    0.000000] ACPI: SSDT 3f6e78b4 00033 (v01 LENOVO TP-7B    00001040 MSFT 0100000E)
+[    0.000000] ACPI: ECDT 3f6f3d4a 00052 (v01 LENOVO TP-7B    00001040 LNVO 00000001)
+[    0.000000] ACPI: TCPA 3f6f3d9c 00032 (v02 LENOVO TP-7B    00001040 LNVO 00000001)
+[    0.000000] ACPI: APIC 3f6f3dce 00068 (v01 LENOVO TP-7B    00001040 LNVO 00000001)
+[    0.000000] ACPI: MCFG 3f6f3e36 0003E (v01 LENOVO TP-7B    00001040 LNVO 00000001)
+[    0.000000] ACPI: HPET 3f6f3e74 00038 (v01 LENOVO TP-7B    00001040 LNVO 00000001)
+[    0.000000] ACPI: BOOT 3f6f3fd8 00028 (v01 LENOVO TP-7B    00001040  LTP 00000001)
+[    0.000000] ACPI: SSDT 3f6e7434 001ED (v01 LENOVO TP-7B    00001040 INTL 20050513)
+[    0.000000] ACPI: SSDT 3f6e71fc 00238 (v01 LENOVO TP-7B    00001040 INTL 20050513)
+[    0.000000] ACPI: SSDT 3f6e6cf5 00507 (v01 LENOVO TP-7B    00001040 INTL 20050513)
+[    0.000000] ACPI: SSDT 3f6e6438 008BD (v01 LENOVO TP-7B    00001040 INTL 20050513)
+[    0.000000] ACPI: SSDT 3f6e5d8c 006AC (v01 LENOVO TP-7B    00001040 INTL 20050513)
+[    0.000000] ACPI: Local APIC address 0xfee00000
+[    0.000000] 124MB HIGHMEM available.
+[    0.000000] 889MB LOWMEM available.
+[    0.000000]   mapped low ram: 0 - 379fe000
+[    0.000000]   low ram: 0 - 379fe000
+[    0.000000] Zone PFN ranges:
+[    0.000000]   DMA      0x00000010 -> 0x00001000
+[    0.000000]   Normal   0x00001000 -> 0x000379fe
+[    0.000000]   HighMem  0x000379fe -> 0x0003f6e0
+[    0.000000] Movable zone start PFN for each node
+[    0.000000] early_node_map[2] active PFN ranges
+[    0.000000]     0: 0x00000010 -> 0x0000009f
+[    0.000000]     0: 0x00000100 -> 0x0003f6e0
+[    0.000000] On node 0 totalpages: 259695
+[    0.000000] free_area_init_node: node 0, pgdat c1438840, node_mem_map f65d0200
+[    0.000000]   DMA zone: 32 pages used for memmap
+[    0.000000]   DMA zone: 0 pages reserved
+[    0.000000]   DMA zone: 3951 pages, LIFO batch:0
+[    0.000000]   Normal zone: 1748 pages used for memmap
+[    0.000000]   Normal zone: 221994 pages, LIFO batch:31
+[    0.000000]   HighMem zone: 250 pages used for memmap
+[    0.000000]   HighMem zone: 31720 pages, LIFO batch:7
+[    0.000000] Using APIC driver default
+[    0.000000] ACPI: PM-Timer IO Port: 0x1008
+[    0.000000] ACPI: Local APIC address 0xfee00000
+[    0.000000] ACPI: LAPIC (acpi_id[0x00] lapic_id[0x00] enabled)
+[    0.000000] ACPI: LAPIC (acpi_id[0x01] lapic_id[0x01] disabled)
+[    0.000000] ACPI: LAPIC_NMI (acpi_id[0x00] high edge lint[0x1])
+[    0.000000] ACPI: LAPIC_NMI (acpi_id[0x01] high edge lint[0x1])
+[    0.000000] ACPI: IOAPIC (id[0x01] address[0xfec00000] gsi_base[0])
+[    0.000000] IOAPIC[0]: apic_id 1, version 32, address 0xfec00000, GSI 0-23
+[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 0 global_irq 2 dfl dfl)
+[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 9 global_irq 9 high level)
+[    0.000000] ACPI: IRQ0 used by override.
+[    0.000000] ACPI: IRQ2 used by override.
+[    0.000000] ACPI: IRQ9 used by override.
+[    0.000000] Using ACPI (MADT) for SMP configuration information
+[    0.000000] ACPI: HPET id: 0x8086a201 base: 0xfed00000
+[    0.000000] SMP: Allowing 2 CPUs, 1 hotplug CPUs
+[    0.000000] nr_irqs_gsi: 40
+[    0.000000] PM: Registered nosave memory: 000000000009f000 - 00000000000a0000
+[    0.000000] PM: Registered nosave memory: 00000000000a0000 - 00000000000d2000
+[    0.000000] PM: Registered nosave memory: 00000000000d2000 - 00000000000d4000
+[    0.000000] PM: Registered nosave memory: 00000000000d4000 - 00000000000dc000
+[    0.000000] PM: Registered nosave memory: 00000000000dc000 - 0000000000100000
+[    0.000000] Allocating PCI resources starting at 40000000 (gap: 40000000:b0000000)
+[    0.000000] Booting paravirtualized kernel on bare hardware
+[    0.000000] setup_percpu: NR_CPUS:32 nr_cpumask_bits:32 nr_cpu_ids:2 nr_node_ids:1
+[    0.000000] PERCPU: Embedded 13 pages/cpu @f6200000 s31744 r0 d21504 u1048576
+[    0.000000] pcpu-alloc: s31744 r0 d21504 u1048576 alloc=1*2097152
+[    0.000000] pcpu-alloc: [0] 0 1 
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 257665
+[    0.000000] Kernel command line: BOOT_IMAGE=/boot/vmlinuz-3.1.0-1-686-pae root=UUID=57f5e7db-9500-4f4a-afd9-4fbc7415cde4 ro quiet
+[    0.000000] PID hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+[    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Initializing CPU#0
+[    0.000000] Initializing HighMem for node 0 (000379fe:0003f6e0)
+[    0.000000] Memory: 1015012k/1039232k available (2766k kernel code, 23768k reserved, 1585k data, 408k init, 127880k highmem)
+[    0.000000] virtual kernel memory layout:
+[    0.000000]     fixmap  : 0xffd36000 - 0xfffff000   (2852 kB)
+[    0.000000]     pkmap   : 0xffa00000 - 0xffc00000   (2048 kB)
+[    0.000000]     vmalloc : 0xf81fe000 - 0xff9fe000   ( 120 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xf79fe000   ( 889 MB)
+[    0.000000]       .init : 0xc1440000 - 0xc14a6000   ( 408 kB)
+[    0.000000]       .data : 0xc12b39ec - 0xc143ff00   (1585 kB)
+[    0.000000]       .text : 0xc1000000 - 0xc12b39ec   (2766 kB)
+[    0.000000] Checking if this processor honours the WP bit even in supervisor mode...Ok.
+[    0.000000] Hierarchical RCU implementation.
+[    0.000000] 	RCU dyntick-idle grace-period acceleration is enabled.
+[    0.000000] NR_IRQS:1280
+[    0.000000] CPU 0 irqstacks, hard=f5c0a000 soft=f5c0c000
+[    0.000000] Extended CMOS year: 2000
+[    0.000000] Console: colour dummy device 80x25
+[    0.000000] console [tty0] enabled
+[    0.000000] hpet clockevent registered
+[    0.000000] Fast TSC calibration using PIT
+[    0.000000] Detected 1662.228 MHz processor.
+[    0.004003] Calibrating delay loop (skipped), value calculated using timer frequency.. 3324.45 BogoMIPS (lpj=6648912)
+[    0.004013] pid_max: default: 32768 minimum: 301
+[    0.004107] Security Framework initialized
+[    0.004164] Mount-cache hash table entries: 512
+[    0.008636] Initializing cgroup subsys cpuacct
+[    0.008719] Initializing cgroup subsys memory
+[    0.008755] Initializing cgroup subsys devices
+[    0.008760] Initializing cgroup subsys freezer
+[    0.008765] Initializing cgroup subsys net_cls
+[    0.008770] Initializing cgroup subsys blkio
+[    0.008826] Disabled fast string operations
+[    0.008837] mce: CPU supports 6 MCE banks
+[    0.008854] CPU0: Thermal monitoring enabled (TM2)
+[    0.008861] using mwait in idle threads.
+[    0.008954] SMP alternatives: switching to UP code
+[    0.013620] ACPI: Core revision 20110623
+[    0.032081] Enabling APIC mode:  Flat.  Using 1 I/O APICs
+[    0.032479] ..TIMER: vector=0x30 apic1=0 pin1=2 apic2=-1 pin2=-1
+[    0.075838] CPU0: Genuine Intel(R) CPU           T1300  @ 1.66GHz stepping 08
+[    0.076004] Performance Events: Core events, core PMU driver.
+[    0.076004] ... version:                1
+[    0.076004] ... bit width:              40
+[    0.076004] ... generic registers:      2
+[    0.076004] ... value mask:             000000ffffffffff
+[    0.076004] ... max period:             000000007fffffff
+[    0.076004] ... fixed-purpose events:   0
+[    0.076004] ... event mask:             0000000000000003
+[    0.076004] NMI watchdog enabled, takes one hw-pmu counter.
+[    0.076004] Brought up 1 CPUs
+[    0.076004] Total of 1 processors activated (3324.45 BogoMIPS).
+[    0.076004] devtmpfs: initialized
+[    0.076004] PM: Registering ACPI NVS region at 3f6f4000 (49152 bytes)
+[    0.076004] print_constraints: dummy: 
+[    0.076004] NET: Registered protocol family 16
+[    0.076004] ACPI: bus type pci registered
+[    0.076004] PCI: MMCONFIG for domain 0000 [bus 00-3f] at [mem 0xf0000000-0xf3ffffff] (base 0xf0000000)
+[    0.076004] PCI: MMCONFIG at [mem 0xf0000000-0xf3ffffff] reserved in E820
+[    0.076004] PCI: Using MMCONFIG for extended config space
+[    0.076004] PCI: Using configuration type 1 for base access
+[    0.076644] bio: create slab <bio-0> at 0
+[    0.076864] ACPI: Added _OSI(Module Device)
+[    0.076870] ACPI: Added _OSI(Processor Device)
+[    0.076875] ACPI: Added _OSI(3.0 _SCP Extensions)
+[    0.076881] ACPI: Added _OSI(Processor Aggregator Device)
+[    0.080391] ACPI: EC: EC description table is found, configuring boot EC
+[    0.098202] ACPI: Interpreter enabled
+[    0.098213] ACPI: (supports S0 S3 S4 S5)
+[    0.098255] ACPI: Using IOAPIC for interrupt routing
+[    0.102153] ACPI: Power Resource [PUBS] (on)
+[    0.109200] ACPI: EC: GPE = 0x1c, I/O: command/status = 0x66, data = 0x62
+[    0.113889] ACPI: ACPI Dock Station Driver: 4 docks/bays found
+[    0.113895] HEST: Table not found.
+[    0.113902] PCI: Ignoring host bridge windows from ACPI; if necessary, use "pci=use_crs" and report a bug
+[    0.113949] ACPI: PCI Root Bridge [PCI0] (domain 0000 [bus 00-ff])
+[    0.114063] pci_root PNP0A08:00: host bridge window [io  0x0000-0x0cf7] (ignored)
+[    0.114070] pci_root PNP0A08:00: host bridge window [io  0x0d00-0xffff] (ignored)
+[    0.114076] pci_root PNP0A08:00: host bridge window [mem 0x000a0000-0x000bffff] (ignored)
+[    0.114084] pci_root PNP0A08:00: host bridge window [mem 0x000d4000-0x000d7fff] (ignored)
+[    0.114090] pci_root PNP0A08:00: host bridge window [mem 0x000d8000-0x000dbfff] (ignored)
+[    0.114097] pci_root PNP0A08:00: host bridge window [mem 0x40000000-0xfebfffff] (ignored)
+[    0.114104] pci_root PNP0A08:00: host bridge window [mem 0xfed40000-0xfed40fff] (ignored)
+[    0.114124] pci 0000:00:00.0: [8086:27a0] type 0 class 0x000600
+[    0.114195] pci 0000:00:02.0: [8086:27a2] type 0 class 0x000300
+[    0.114215] pci 0000:00:02.0: reg 10: [mem 0xee100000-0xee17ffff]
+[    0.114227] pci 0000:00:02.0: reg 14: [io  0x1800-0x1807]
+[    0.114238] pci 0000:00:02.0: reg 18: [mem 0xd0000000-0xdfffffff pref]
+[    0.114250] pci 0000:00:02.0: reg 1c: [mem 0xee200000-0xee23ffff]
+[    0.114309] pci 0000:00:02.1: [8086:27a6] type 0 class 0x000380
+[    0.114325] pci 0000:00:02.1: reg 10: [mem 0xee180000-0xee1fffff]
+[    0.114460] pci 0000:00:1b.0: [8086:27d8] type 0 class 0x000403
+[    0.114490] pci 0000:00:1b.0: reg 10: [mem 0xee240000-0xee243fff 64bit]
+[    0.114591] pci 0000:00:1b.0: PME# supported from D0 D3hot D3cold
+[    0.114600] pci 0000:00:1b.0: PME# disabled
+[    0.114639] pci 0000:00:1c.0: [8086:27d0] type 1 class 0x000604
+[    0.114744] pci 0000:00:1c.0: PME# supported from D0 D3hot D3cold
+[    0.114752] pci 0000:00:1c.0: PME# disabled
+[    0.114796] pci 0000:00:1c.1: [8086:27d2] type 1 class 0x000604
+[    0.114900] pci 0000:00:1c.1: PME# supported from D0 D3hot D3cold
+[    0.114908] pci 0000:00:1c.1: PME# disabled
+[    0.114950] pci 0000:00:1c.2: [8086:27d4] type 1 class 0x000604
+[    0.115054] pci 0000:00:1c.2: PME# supported from D0 D3hot D3cold
+[    0.115062] pci 0000:00:1c.2: PME# disabled
+[    0.115105] pci 0000:00:1c.3: [8086:27d6] type 1 class 0x000604
+[    0.115209] pci 0000:00:1c.3: PME# supported from D0 D3hot D3cold
+[    0.115218] pci 0000:00:1c.3: PME# disabled
+[    0.115260] pci 0000:00:1d.0: [8086:27c8] type 0 class 0x000c03
+[    0.115329] pci 0000:00:1d.0: reg 20: [io  0x1820-0x183f]
+[    0.115381] pci 0000:00:1d.1: [8086:27c9] type 0 class 0x000c03
+[    0.115449] pci 0000:00:1d.1: reg 20: [io  0x1840-0x185f]
+[    0.115508] pci 0000:00:1d.2: [8086:27ca] type 0 class 0x000c03
+[    0.115576] pci 0000:00:1d.2: reg 20: [io  0x1860-0x187f]
+[    0.115629] pci 0000:00:1d.3: [8086:27cb] type 0 class 0x000c03
+[    0.115697] pci 0000:00:1d.3: reg 20: [io  0x1880-0x189f]
+[    0.115762] pci 0000:00:1d.7: [8086:27cc] type 0 class 0x000c03
+[    0.115794] pci 0000:00:1d.7: reg 10: [mem 0xee444000-0xee4443ff]
+[    0.116095] pci 0000:00:1d.7: PME# supported from D0 D3hot D3cold
+[    0.116104] pci 0000:00:1d.7: PME# disabled
+[    0.116138] pci 0000:00:1e.0: [8086:2448] type 1 class 0x000604
+[    0.116243] pci 0000:00:1f.0: [8086:27b9] type 0 class 0x000601
+[    0.116375] pci 0000:00:1f.0: quirk: [io  0x1000-0x107f] claimed by ICH6 ACPI/GPIO/TCO
+[    0.116386] pci 0000:00:1f.0: quirk: [io  0x1180-0x11bf] claimed by ICH6 GPIO
+[    0.116395] pci 0000:00:1f.0: ICH7 LPC Generic IO decode 1 PIO at 1600 (mask 007f)
+[    0.116403] pci 0000:00:1f.0: ICH7 LPC Generic IO decode 2 PIO at 15e0 (mask 000f)
+[    0.116412] pci 0000:00:1f.0: ICH7 LPC Generic IO decode 3 PIO at 1680 (mask 001f)
+[    0.116474] pci 0000:00:1f.2: [8086:27c4] type 0 class 0x000101
+[    0.116502] pci 0000:00:1f.2: reg 10: [io  0x0000-0x0007]
+[    0.116519] pci 0000:00:1f.2: reg 14: [io  0x0000-0x0003]
+[    0.116535] pci 0000:00:1f.2: reg 18: [io  0x0000-0x0007]
+[    0.116552] pci 0000:00:1f.2: reg 1c: [io  0x0000-0x0003]
+[    0.116569] pci 0000:00:1f.2: reg 20: [io  0x18b0-0x18bf]
+[    0.116624] pci 0000:00:1f.2: PME# supported from D3hot
+[    0.116632] pci 0000:00:1f.2: PME# disabled
+[    0.116657] pci 0000:00:1f.3: [8086:27da] type 0 class 0x000c05
+[    0.116743] pci 0000:00:1f.3: reg 20: [io  0x18e0-0x18ff]
+[    0.116971] pci 0000:02:00.0: [8086:109a] type 0 class 0x000200
+[    0.117008] pci 0000:02:00.0: reg 10: [mem 0xee000000-0xee01ffff]
+[    0.117057] pci 0000:02:00.0: reg 18: [io  0x2000-0x201f]
+[    0.117213] pci 0000:02:00.0: PME# supported from D0 D3hot D3cold
+[    0.117224] pci 0000:02:00.0: PME# disabled
+[    0.117268] pci 0000:02:00.0: disabling ASPM on pre-1.1 PCIe device.  You can enable it with 'pcie_aspm=force'
+[    0.117299] pci 0000:00:1c.0: PCI bridge to [bus 02-02]
+[    0.117308] pci 0000:00:1c.0:   bridge window [io  0x2000-0x2fff]
+[    0.117317] pci 0000:00:1c.0:   bridge window [mem 0xee000000-0xee0fffff]
+[    0.117510] pci 0000:03:00.0: [8086:4227] type 0 class 0x000280
+[    0.117572] pci 0000:03:00.0: reg 10: [mem 0xedf00000-0xedf00fff]
+[    0.117933] pci 0000:03:00.0: PME# supported from D0 D3hot D3cold
+[    0.117949] pci 0000:03:00.0: PME# disabled
+[    0.118025] pci 0000:03:00.0: disabling ASPM on pre-1.1 PCIe device.  You can enable it with 'pcie_aspm=force'
+[    0.118070] pci 0000:00:1c.1: PCI bridge to [bus 03-03]
+[    0.118079] pci 0000:00:1c.1:   bridge window [io  0x3000-0x4fff]
+[    0.118088] pci 0000:00:1c.1:   bridge window [mem 0xec000000-0xedffffff]
+[    0.118101] pci 0000:00:1c.1:   bridge window [mem 0xe4000000-0xe40fffff 64bit pref]
+[    0.118177] pci 0000:00:1c.2: PCI bridge to [bus 04-0b]
+[    0.118186] pci 0000:00:1c.2:   bridge window [io  0x5000-0x6fff]
+[    0.118195] pci 0000:00:1c.2:   bridge window [mem 0xe8000000-0xe9ffffff]
+[    0.118208] pci 0000:00:1c.2:   bridge window [mem 0xe4100000-0xe41fffff 64bit pref]
+[    0.118285] pci 0000:00:1c.3: PCI bridge to [bus 0c-13]
+[    0.118293] pci 0000:00:1c.3:   bridge window [io  0x7000-0x8fff]
+[    0.118302] pci 0000:00:1c.3:   bridge window [mem 0xea000000-0xebffffff]
+[    0.118315] pci 0000:00:1c.3:   bridge window [mem 0xe4200000-0xe42fffff 64bit pref]
+[    0.118378] pci 0000:15:00.0: [1180:0476] type 2 class 0x000607
+[    0.118415] pci 0000:15:00.0: reg 10: [mem 0xe4300000-0xe4300fff]
+[    0.118451] pci 0000:15:00.0: supports D1 D2
+[    0.118456] pci 0000:15:00.0: PME# supported from D0 D1 D2 D3hot D3cold
+[    0.118466] pci 0000:15:00.0: PME# disabled
+[    0.118499] pci 0000:15:00.1: [1180:0552] type 0 class 0x000c00
+[    0.118533] pci 0000:15:00.1: reg 10: [mem 0xe4301000-0xe43017ff]
+[    0.118657] pci 0000:15:00.1: PME# supported from D0 D3hot D3cold
+[    0.118666] pci 0000:15:00.1: PME# disabled
+[    0.118700] pci 0000:15:00.2: [1180:0822] type 0 class 0x000805
+[    0.118734] pci 0000:15:00.2: reg 10: [mem 0xe4301800-0xe43018ff]
+[    0.118857] pci 0000:15:00.2: supports D1 D2
+[    0.118862] pci 0000:15:00.2: PME# supported from D0 D1 D2 D3hot D3cold
+[    0.118872] pci 0000:15:00.2: PME# disabled
+[    0.118966] pci 0000:00:1e.0: PCI bridge to [bus 15-18] (subtractive decode)
+[    0.118975] pci 0000:00:1e.0:   bridge window [io  0x9000-0xcfff]
+[    0.118984] pci 0000:00:1e.0:   bridge window [mem 0xe4300000-0xe7ffffff]
+[    0.118997] pci 0000:00:1e.0:   bridge window [mem 0xe0000000-0xe3ffffff 64bit pref]
+[    0.119003] pci 0000:00:1e.0:   bridge window [io  0x0000-0xffff] (subtractive decode)
+[    0.119010] pci 0000:00:1e.0:   bridge window [mem 0x00000000-0xffffffff] (subtractive decode)
+[    0.119114] pci_bus 0000:00: on NUMA node 0
+[    0.119121] ACPI: PCI Interrupt Routing Table [\_SB_.PCI0._PRT]
+[    0.119335] ACPI: PCI Interrupt Routing Table [\_SB_.PCI0.EXP0._PRT]
+[    0.119417] ACPI: PCI Interrupt Routing Table [\_SB_.PCI0.EXP1._PRT]
+[    0.119494] ACPI: PCI Interrupt Routing Table [\_SB_.PCI0.EXP2._PRT]
+[    0.119579] ACPI: PCI Interrupt Routing Table [\_SB_.PCI0.EXP3._PRT]
+[    0.119664] ACPI: PCI Interrupt Routing Table [\_SB_.PCI0.PCI1._PRT]
+[    0.119841]  pci0000:00: Requesting ACPI _OSC control (0x1d)
+[    0.119849]  pci0000:00: ACPI _OSC request failed (AE_NOT_FOUND), returned control mask: 0x1d
+[    0.119853] ACPI _OSC control for PCIe not granted, disabling ASPM
+[    0.128322] ACPI: PCI Interrupt Link [LNKA] (IRQs 3 4 5 6 7 9 10 *11)
+[    0.128483] ACPI: PCI Interrupt Link [LNKB] (IRQs 3 4 5 6 7 9 10 *11)
+[    0.128640] ACPI: PCI Interrupt Link [LNKC] (IRQs 3 4 5 6 7 9 10 *11)
+[    0.128797] ACPI: PCI Interrupt Link [LNKD] (IRQs 3 4 5 6 7 9 10 *11)
+[    0.128953] ACPI: PCI Interrupt Link [LNKE] (IRQs 3 4 5 6 7 9 10 *11)
+[    0.129109] ACPI: PCI Interrupt Link [LNKF] (IRQs 3 4 5 6 7 9 10 *11)
+[    0.129265] ACPI: PCI Interrupt Link [LNKG] (IRQs 3 4 5 6 7 9 10 *11)
+[    0.129421] ACPI: PCI Interrupt Link [LNKH] (IRQs 3 4 5 6 7 9 10 *11)
+[    0.129624] vgaarb: device added: PCI:0000:00:02.0,decodes=io+mem,owns=io+mem,locks=none
+[    0.129645] vgaarb: loaded
+[    0.129648] vgaarb: bridge control possible 0000:00:02.0
+[    0.129722] PCI: Using ACPI for IRQ routing
+[    0.132587] PCI: pci_cache_line_size set to 64 bytes
+[    0.132739] reserve RAM buffer: 000000000009f000 - 000000000009ffff 
+[    0.132745] reserve RAM buffer: 000000003f6e0000 - 000000003fffffff 
+[    0.132982] HPET: 3 timers in total, 0 timers will be used for per-cpu timer
+[    0.132993] hpet0: at MMIO 0xfed00000, IRQs 2, 8, 0
+[    0.133003] hpet0: 3 comparators, 64-bit 14.318180 MHz counter
+[    0.136078] Switching to clocksource hpet
+[    0.139283] pnp: PnP ACPI init
+[    0.139307] ACPI: bus type pnp registered
+[    0.139946] Switched to NOHz mode on CPU #0
+[    0.140237] pnp 00:00: [mem 0x00000000-0x0009ffff]
+[    0.140244] pnp 00:00: [mem 0x000c0000-0x000c3fff]
+[    0.140249] pnp 00:00: [mem 0x000c4000-0x000c7fff]
+[    0.140255] pnp 00:00: [mem 0x000c8000-0x000cbfff]
+[    0.140260] pnp 00:00: [mem 0x000cc000-0x000cffff]
+[    0.140265] pnp 00:00: [mem 0x000d0000-0x000d3fff]
+[    0.140271] pnp 00:00: [mem 0x000d4000-0x000d3fff disabled]
+[    0.140277] pnp 00:00: [mem 0x000d8000-0x000d7fff disabled]
+[    0.140282] pnp 00:00: [mem 0x000dc000-0x000dffff]
+[    0.140287] pnp 00:00: [mem 0x000e0000-0x000e3fff]
+[    0.140293] pnp 00:00: [mem 0x000e4000-0x000e7fff]
+[    0.140298] pnp 00:00: [mem 0x000e8000-0x000ebfff]
+[    0.140303] pnp 00:00: [mem 0x000ec000-0x000effff]
+[    0.140309] pnp 00:00: [mem 0x000f0000-0x000fffff]
+[    0.140314] pnp 00:00: [mem 0x00100000-0x3fffffff]
+[    0.140319] pnp 00:00: [mem 0xfec00000-0xfed3ffff]
+[    0.140325] pnp 00:00: [mem 0xfed41000-0xffffffff]
+[    0.140451] system 00:00: [mem 0x00000000-0x0009ffff] could not be reserved
+[    0.140459] system 00:00: [mem 0x000c0000-0x000c3fff] could not be reserved
+[    0.140466] system 00:00: [mem 0x000c4000-0x000c7fff] could not be reserved
+[    0.140473] system 00:00: [mem 0x000c8000-0x000cbfff] has been reserved
+[    0.140480] system 00:00: [mem 0x000cc000-0x000cffff] could not be reserved
+[    0.140487] system 00:00: [mem 0x000d0000-0x000d3fff] could not be reserved
+[    0.140494] system 00:00: [mem 0x000dc000-0x000dffff] could not be reserved
+[    0.140501] system 00:00: [mem 0x000e0000-0x000e3fff] could not be reserved
+[    0.140508] system 00:00: [mem 0x000e4000-0x000e7fff] could not be reserved
+[    0.140515] system 00:00: [mem 0x000e8000-0x000ebfff] could not be reserved
+[    0.140522] system 00:00: [mem 0x000ec000-0x000effff] could not be reserved
+[    0.140530] system 00:00: [mem 0x000f0000-0x000fffff] could not be reserved
+[    0.140537] system 00:00: [mem 0x00100000-0x3fffffff] could not be reserved
+[    0.140544] system 00:00: [mem 0xfec00000-0xfed3ffff] could not be reserved
+[    0.140552] system 00:00: [mem 0xfed41000-0xffffffff] could not be reserved
+[    0.140560] system 00:00: Plug and Play ACPI device, IDs PNP0c01 (active)
+[    0.140607] pnp 00:01: [bus 00-ff]
+[    0.140613] pnp 00:01: [io  0x0cf8-0x0cff]
+[    0.140618] pnp 00:01: [io  0x0000-0x0cf7 window]
+[    0.140623] pnp 00:01: [io  0x0d00-0xffff window]
+[    0.140629] pnp 00:01: [mem 0x000a0000-0x000bffff window]
+[    0.140635] pnp 00:01: [mem 0x000c0000-0x000c3fff window]
+[    0.140641] pnp 00:01: [mem 0x000c4000-0x000c7fff window]
+[    0.140646] pnp 00:01: [mem 0x000c8000-0x000cbfff window]
+[    0.140652] pnp 00:01: [mem 0x000cc000-0x000cffff window]
+[    0.140657] pnp 00:01: [mem 0x000d0000-0x000d3fff window]
+[    0.140663] pnp 00:01: [mem 0x000d4000-0x000d7fff window]
+[    0.140669] pnp 00:01: [mem 0x000d8000-0x000dbfff window]
+[    0.140674] pnp 00:01: [mem 0x000dc000-0x000dffff window]
+[    0.140680] pnp 00:01: [mem 0x000e0000-0x000e3fff window]
+[    0.140686] pnp 00:01: [mem 0x000e4000-0x000e7fff window]
+[    0.140691] pnp 00:01: [mem 0x000e8000-0x000ebfff window]
+[    0.140700] pnp 00:01: [mem 0x000ec000-0x000effff window]
+[    0.140705] pnp 00:01: [mem 0x40000000-0xfebfffff window]
+[    0.140711] pnp 00:01: [mem 0xfed40000-0xfed40fff window]
+[    0.140804] pnp 00:01: Plug and Play ACPI device, IDs PNP0a08 PNP0a03 (active)
+[    0.140845] pnp 00:02: [io  0x0010-0x001f]
+[    0.140850] pnp 00:02: [io  0x0090-0x009f]
+[    0.140855] pnp 00:02: [io  0x0024-0x0025]
+[    0.140860] pnp 00:02: [io  0x0028-0x0029]
+[    0.140865] pnp 00:02: [io  0x002c-0x002d]
+[    0.140870] pnp 00:02: [io  0x0030-0x0031]
+[    0.140875] pnp 00:02: [io  0x0034-0x0035]
+[    0.140879] pnp 00:02: [io  0x0038-0x0039]
+[    0.140884] pnp 00:02: [io  0x003c-0x003d]
+[    0.140889] pnp 00:02: [io  0x00a4-0x00a5]
+[    0.140894] pnp 00:02: [io  0x00a8-0x00a9]
+[    0.140899] pnp 00:02: [io  0x00ac-0x00ad]
+[    0.140904] pnp 00:02: [io  0x00b0-0x00b5]
+[    0.140909] pnp 00:02: [io  0x00b8-0x00b9]
+[    0.140914] pnp 00:02: [io  0x00bc-0x00bd]
+[    0.140918] pnp 00:02: [io  0x0050-0x0053]
+[    0.140923] pnp 00:02: [io  0x0072-0x0077]
+[    0.140928] pnp 00:02: [io  0x164e-0x164f]
+[    0.140933] pnp 00:02: [io  0x002e-0x002f]
+[    0.140938] pnp 00:02: [io  0x1000-0x107f]
+[    0.140943] pnp 00:02: [io  0x1180-0x11bf]
+[    0.140948] pnp 00:02: [io  0x0800-0x080f]
+[    0.140953] pnp 00:02: [io  0x15e0-0x15ef]
+[    0.140958] pnp 00:02: [io  0x1600-0x165f]
+[    0.140963] pnp 00:02: [mem 0xf0000000-0xf3ffffff]
+[    0.140969] pnp 00:02: [mem 0xfed1c000-0xfed1ffff]
+[    0.140974] pnp 00:02: [mem 0xfed14000-0xfed17fff]
+[    0.140979] pnp 00:02: [mem 0xfed18000-0xfed18fff]
+[    0.140984] pnp 00:02: [mem 0xfed19000-0xfed19fff]
+[    0.141142] system 00:02: [io  0x164e-0x164f] has been reserved
+[    0.141149] system 00:02: [io  0x1000-0x107f] has been reserved
+[    0.141156] system 00:02: [io  0x1180-0x11bf] has been reserved
+[    0.141163] system 00:02: [io  0x0800-0x080f] has been reserved
+[    0.141169] system 00:02: [io  0x15e0-0x15ef] has been reserved
+[    0.141176] system 00:02: [io  0x1600-0x165f] could not be reserved
+[    0.141184] system 00:02: [mem 0xf0000000-0xf3ffffff] has been reserved
+[    0.141191] system 00:02: [mem 0xfed1c000-0xfed1ffff] has been reserved
+[    0.141199] system 00:02: [mem 0xfed14000-0xfed17fff] has been reserved
+[    0.141206] system 00:02: [mem 0xfed18000-0xfed18fff] has been reserved
+[    0.141213] system 00:02: [mem 0xfed19000-0xfed19fff] has been reserved
+[    0.141220] system 00:02: Plug and Play ACPI device, IDs PNP0c02 (active)
+[    0.141302] pnp 00:03: [mem 0xfed00000-0xfed003ff]
+[    0.141362] pnp 00:03: Plug and Play ACPI device, IDs PNP0103 (active)
+[    0.141384] pnp 00:04: [io  0x0000-0x000f]
+[    0.141389] pnp 00:04: [io  0x0080-0x008f]
+[    0.141395] pnp 00:04: [io  0x00c0-0x00df]
+[    0.141400] pnp 00:04: [dma 4]
+[    0.141459] pnp 00:04: Plug and Play ACPI device, IDs PNP0200 (active)
+[    0.141480] pnp 00:05: [io  0x0061]
+[    0.141539] pnp 00:05: Plug and Play ACPI device, IDs PNP0800 (active)
+[    0.141560] pnp 00:06: [io  0x00f0]
+[    0.141575] pnp 00:06: [irq 13]
+[    0.141634] pnp 00:06: Plug and Play ACPI device, IDs PNP0c04 (active)
+[    0.141655] pnp 00:07: [io  0x0070-0x0071]
+[    0.141665] pnp 00:07: [irq 8]
+[    0.141724] pnp 00:07: Plug and Play ACPI device, IDs PNP0b00 (active)
+[    0.141746] pnp 00:08: [io  0x0060]
+[    0.141751] pnp 00:08: [io  0x0064]
+[    0.141760] pnp 00:08: [irq 1]
+[    0.141830] pnp 00:08: Plug and Play ACPI device, IDs PNP0303 (active)
+[    0.141856] pnp 00:09: [irq 12]
+[    0.141918] pnp 00:09: Plug and Play ACPI device, IDs IBM3780 PNP0f13 (active)
+[    0.142252] pnp 00:0a: Plug and Play ACPI device, IDs IBM0071 PNP0511 (disabled)
+[    0.142312] pnp 00:0b: [mem 0xfed40000-0xfed40fff]
+[    0.142374] pnp 00:0b: Plug and Play ACPI device, IDs ATM1200 (active)
+[    0.143537] pnp: PnP ACPI: found 12 devices
+[    0.143542] ACPI: ACPI bus type pnp unregistered
+[    0.143548] PnPBIOS: Disabled by ACPI PNP
+[    0.182054] PCI: max bus depth: 2 pci_try_num: 3
+[    0.182135] pci 0000:00:1c.0: BAR 15: assigned [mem 0x40000000-0x401fffff 64bit pref]
+[    0.182143] pci 0000:00:1c.0: PCI bridge to [bus 02-02]
+[    0.182150] pci 0000:00:1c.0:   bridge window [io  0x2000-0x2fff]
+[    0.182161] pci 0000:00:1c.0:   bridge window [mem 0xee000000-0xee0fffff]
+[    0.182170] pci 0000:00:1c.0:   bridge window [mem 0x40000000-0x401fffff 64bit pref]
+[    0.182183] pci 0000:00:1c.1: PCI bridge to [bus 03-03]
+[    0.182190] pci 0000:00:1c.1:   bridge window [io  0x3000-0x4fff]
+[    0.182201] pci 0000:00:1c.1:   bridge window [mem 0xec000000-0xedffffff]
+[    0.182210] pci 0000:00:1c.1:   bridge window [mem 0xe4000000-0xe40fffff 64bit pref]
+[    0.182223] pci 0000:00:1c.2: PCI bridge to [bus 04-0b]
+[    0.182230] pci 0000:00:1c.2:   bridge window [io  0x5000-0x6fff]
+[    0.182240] pci 0000:00:1c.2:   bridge window [mem 0xe8000000-0xe9ffffff]
+[    0.182250] pci 0000:00:1c.2:   bridge window [mem 0xe4100000-0xe41fffff 64bit pref]
+[    0.182262] pci 0000:00:1c.3: PCI bridge to [bus 0c-13]
+[    0.182269] pci 0000:00:1c.3:   bridge window [io  0x7000-0x8fff]
+[    0.182280] pci 0000:00:1c.3:   bridge window [mem 0xea000000-0xebffffff]
+[    0.182289] pci 0000:00:1c.3:   bridge window [mem 0xe4200000-0xe42fffff 64bit pref]
+[    0.182308] pci 0000:15:00.0: BAR 16: assigned [mem 0x44000000-0x47ffffff]
+[    0.182315] pci 0000:15:00.0: BAR 15: assigned [mem 0xe0000000-0xe3ffffff pref]
+[    0.182322] pci 0000:15:00.0: BAR 14: assigned [io  0x9000-0x90ff]
+[    0.182329] pci 0000:15:00.0: BAR 13: assigned [io  0x9400-0x94ff]
+[    0.182335] pci 0000:15:00.0: CardBus bridge to [bus 16-17]
+[    0.182340] pci 0000:15:00.0:   bridge window [io  0x9400-0x94ff]
+[    0.182350] pci 0000:15:00.0:   bridge window [io  0x9000-0x90ff]
+[    0.182360] pci 0000:15:00.0:   bridge window [mem 0xe0000000-0xe3ffffff pref]
+[    0.182370] pci 0000:15:00.0:   bridge window [mem 0x44000000-0x47ffffff]
+[    0.182380] pci 0000:00:1e.0: PCI bridge to [bus 15-18]
+[    0.182387] pci 0000:00:1e.0:   bridge window [io  0x9000-0xcfff]
+[    0.182397] pci 0000:00:1e.0:   bridge window [mem 0xe4300000-0xe7ffffff]
+[    0.182406] pci 0000:00:1e.0:   bridge window [mem 0xe0000000-0xe3ffffff 64bit pref]
+[    0.182432] pci 0000:00:1c.0: PCI INT A -> GSI 20 (level, low) -> IRQ 20
+[    0.182442] pci 0000:00:1c.0: setting latency timer to 64
+[    0.182458] pci 0000:00:1c.1: PCI INT B -> GSI 21 (level, low) -> IRQ 21
+[    0.182466] pci 0000:00:1c.1: setting latency timer to 64
+[    0.182481] pci 0000:00:1c.2: PCI INT C -> GSI 22 (level, low) -> IRQ 22
+[    0.182489] pci 0000:00:1c.2: setting latency timer to 64
+[    0.182504] pci 0000:00:1c.3: PCI INT D -> GSI 23 (level, low) -> IRQ 23
+[    0.182512] pci 0000:00:1c.3: setting latency timer to 64
+[    0.182522] pci 0000:00:1e.0: enabling device (0005 -> 0007)
+[    0.182532] pci 0000:00:1e.0: setting latency timer to 64
+[    0.182549] pci 0000:15:00.0: PCI INT A -> GSI 16 (level, low) -> IRQ 16
+[    0.182558] pci 0000:15:00.0: setting latency timer to 64
+[    0.182567] pci_bus 0000:00: resource 0 [io  0x0000-0xffff]
+[    0.182573] pci_bus 0000:00: resource 1 [mem 0x00000000-0xffffffff]
+[    0.182579] pci_bus 0000:02: resource 0 [io  0x2000-0x2fff]
+[    0.182585] pci_bus 0000:02: resource 1 [mem 0xee000000-0xee0fffff]
+[    0.182591] pci_bus 0000:02: resource 2 [mem 0x40000000-0x401fffff 64bit pref]
+[    0.182598] pci_bus 0000:03: resource 0 [io  0x3000-0x4fff]
+[    0.182603] pci_bus 0000:03: resource 1 [mem 0xec000000-0xedffffff]
+[    0.182610] pci_bus 0000:03: resource 2 [mem 0xe4000000-0xe40fffff 64bit pref]
+[    0.182616] pci_bus 0000:04: resource 0 [io  0x5000-0x6fff]
+[    0.182622] pci_bus 0000:04: resource 1 [mem 0xe8000000-0xe9ffffff]
+[    0.182628] pci_bus 0000:04: resource 2 [mem 0xe4100000-0xe41fffff 64bit pref]
+[    0.182634] pci_bus 0000:0c: resource 0 [io  0x7000-0x8fff]
+[    0.182640] pci_bus 0000:0c: resource 1 [mem 0xea000000-0xebffffff]
+[    0.182646] pci_bus 0000:0c: resource 2 [mem 0xe4200000-0xe42fffff 64bit pref]
+[    0.182653] pci_bus 0000:15: resource 0 [io  0x9000-0xcfff]
+[    0.182659] pci_bus 0000:15: resource 1 [mem 0xe4300000-0xe7ffffff]
+[    0.182665] pci_bus 0000:15: resource 2 [mem 0xe0000000-0xe3ffffff 64bit pref]
+[    0.182671] pci_bus 0000:15: resource 4 [io  0x0000-0xffff]
+[    0.182677] pci_bus 0000:15: resource 5 [mem 0x00000000-0xffffffff]
+[    0.182683] pci_bus 0000:16: resource 0 [io  0x9400-0x94ff]
+[    0.182688] pci_bus 0000:16: resource 1 [io  0x9000-0x90ff]
+[    0.182694] pci_bus 0000:16: resource 2 [mem 0xe0000000-0xe3ffffff pref]
+[    0.182701] pci_bus 0000:16: resource 3 [mem 0x44000000-0x47ffffff]
+[    0.182765] NET: Registered protocol family 2
+[    0.182961] IP route cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.183431] TCP established hash table entries: 131072 (order: 8, 1048576 bytes)
+[    0.184675] TCP bind hash table entries: 65536 (order: 7, 524288 bytes)
+[    0.185284] TCP: Hash tables configured (established 131072 bind 65536)
+[    0.185289] TCP reno registered
+[    0.185295] UDP hash table entries: 512 (order: 2, 16384 bytes)
+[    0.185315] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+[    0.185603] NET: Registered protocol family 1
+[    0.185631] pci 0000:00:02.0: Boot video device
+[    0.185812] PCI: CLS 64 bytes, default 64
+[    0.185898] Unpacking initramfs...
+[    0.763267] Freeing initrd memory: 9312k freed
+[    0.768973] Simple Boot Flag at 0x35 set to 0x1
+[    0.769605] audit: initializing netlink socket (disabled)
+[    0.769627] type=2000 audit(1325900031.764:1): initialized
+[    0.806777] highmem bounce pool size: 64 pages
+[    0.806788] HugeTLB registered 2 MB page size, pre-allocated 0 pages
+[    0.812409] VFS: Disk quotas dquot_6.5.2
+[    0.812626] Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+[    0.812911] msgmni has been set to 1750
+[    0.813256] alg: No test for stdrng (krng)
+[    0.813305] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 253)
+[    0.813311] io scheduler noop registered
+[    0.813315] io scheduler deadline registered
+[    0.813334] io scheduler cfq registered (default)
+[    0.813501] pcieport 0000:00:1c.0: setting latency timer to 64
+[    0.813573] pcieport 0000:00:1c.0: irq 40 for MSI/MSI-X
+[    0.813693] pcieport 0000:00:1c.1: setting latency timer to 64
+[    0.813758] pcieport 0000:00:1c.1: irq 41 for MSI/MSI-X
+[    0.813867] pcieport 0000:00:1c.2: setting latency timer to 64
+[    0.813932] pcieport 0000:00:1c.2: irq 42 for MSI/MSI-X
+[    0.814040] pcieport 0000:00:1c.3: setting latency timer to 64
+[    0.814104] pcieport 0000:00:1c.3: irq 43 for MSI/MSI-X
+[    0.814354] vesafb: mode is 1024x768x32, linelength=4096, pages=0
+[    0.814359] vesafb: scrolling: redraw
+[    0.814365] vesafb: Truecolor: size=8:8:8:8, shift=24:16:8:0
+[    0.814825] vesafb: framebuffer at 0xd0000000, mapped to 0xf8280000, using 3072k, total 3072k
+[    0.867933] Console: switching to colour frame buffer device 128x48
+[    0.920858] fb0: VESA VGA frame buffer device
+[    0.920911] intel_idle: MWAIT substates: 0x22220
+[    0.920916] intel_idle: does not run on family 6 model 14
+[    0.920976] ERST: Table is not found!
+[    0.920979] GHES: HEST is not enabled!
+[    0.921004] isapnp: Scanning for PnP cards...
+[    1.240339] isapnp: No Plug & Play device found
+[    1.240455] Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+[    1.241427] Linux agpgart interface v0.103
+[    1.241603] agpgart-intel 0000:00:00.0: Intel 945GM Chipset
+[    1.241704] agpgart-intel 0000:00:00.0: detected gtt size: 262144K total, 262144K mappable
+[    1.242184] agpgart-intel 0000:00:00.0: detected 8192K stolen memory
+[    1.242381] agpgart-intel 0000:00:00.0: AGP aperture is 256M @ 0xd0000000
+[    1.242711] i8042: PNP: PS/2 Controller [PNP0303:KBD,PNP0f13:MOU] at 0x60,0x64 irq 1,12
+[    1.251042] serio: i8042 KBD port at 0x60,0x64 irq 1
+[    1.251055] serio: i8042 AUX port at 0x60,0x64 irq 12
+[    1.251186] mousedev: PS/2 mouse device common for all mice
+[    1.251249] rtc_cmos 00:07: RTC can wake from S4
+[    1.251421] rtc_cmos 00:07: rtc core: registered rtc_cmos as rtc0
+[    1.251465] rtc0: alarms up to one month, y3k, 114 bytes nvram, hpet irqs
+[    1.251486] cpuidle: using governor ladder
+[    1.251490] cpuidle: using governor menu
+[    1.251929] TCP cubic registered
+[    1.251978] NET: Registered protocol family 10
+[    1.253186] Mobile IPv6
+[    1.253192] NET: Registered protocol family 17
+[    1.253200] Registering the dns_resolver key type
+[    1.253240] Using IPI No-Shortcut mode
+[    1.253405] PM: Hibernation image not present or could not be loaded.
+[    1.253425] registered taskstats version 1
+[    1.256769] rtc_cmos 00:07: setting system clock to 2012-01-07 01:33:52 UTC (1325900032)
+[    1.256878] Initializing network drop monitor service
+[    1.257042] Freeing unused kernel memory: 408k freed
+[    1.257308] Write protecting the kernel text: 2768k
+[    1.257376] Write protecting the kernel read-only data: 1092k
+[    1.257380] NX-protecting the kernel data: 3376k
+[    1.265400] input: AT Translated Set 2 keyboard as /devices/platform/i8042/serio0/input/input0
+[    1.292300] udevd[44]: starting version 175
+[    1.448773] e1000e: Intel(R) PRO/1000 Network Driver - 1.4.4-k
+[    1.448779] e1000e: Copyright(c) 1999 - 2011 Intel Corporation.
+[    1.448827] e1000e 0000:02:00.0: Disabling ASPM L0s L1
+[    1.448850] e1000e 0000:02:00.0: PCI INT A -> GSI 16 (level, low) -> IRQ 16
+[    1.448881] e1000e 0000:02:00.0: setting latency timer to 64
+[    1.449127] e1000e 0000:02:00.0: irq 44 for MSI/MSI-X
+[    1.459724] usbcore: registered new interface driver usbfs
+[    1.459767] usbcore: registered new interface driver hub
+[    1.461750] thermal LNXTHERM:00: registered as thermal_zone0
+[    1.461756] ACPI: Thermal Zone [THM0] (41 C)
+[    1.463065] thermal LNXTHERM:01: registered as thermal_zone1
+[    1.463071] ACPI: Thermal Zone [THM1] (27 C)
+[    1.469267] usbcore: registered new device driver usb
+[    1.470222] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    1.470269] ehci_hcd 0000:00:1d.7: power state changed by ACPI to D0
+[    1.470279] ehci_hcd 0000:00:1d.7: power state changed by ACPI to D0
+[    1.470303] ehci_hcd 0000:00:1d.7: PCI INT D -> GSI 19 (level, low) -> IRQ 19
+[    1.470352] ehci_hcd 0000:00:1d.7: setting latency timer to 64
+[    1.470359] ehci_hcd 0000:00:1d.7: EHCI Host Controller
+[    1.470446] ehci_hcd 0000:00:1d.7: new USB bus registered, assigned bus number 1
+[    1.470480] ehci_hcd 0000:00:1d.7: using broken periodic workaround
+[    1.470497] ehci_hcd 0000:00:1d.7: debug port 1
+[    1.474385] ehci_hcd 0000:00:1d.7: cache line size of 64 is not supported
+[    1.490513] firewire_ohci 0000:15:00.1: PCI INT B -> GSI 17 (level, low) -> IRQ 17
+[    1.490527] firewire_ohci 0000:15:00.1: setting latency timer to 64
+[    1.508354] sdhci: Secure Digital Host Controller Interface driver
+[    1.508360] sdhci: Copyright(c) Pierre Ossman
+[    1.554166] ehci_hcd 0000:00:1d.7: irq 19, io mem 0xee444000
+[    1.580358] firewire_ohci: Added fw-ohci device 0000:15:00.1, OHCI v1.0, 4 IR + 4 IT contexts, quirks 0x1
+[    1.580624] sdhci-pci 0000:15:00.2: SDHCI controller found [1180:0822] (rev 18)
+[    1.580654] sdhci-pci 0000:15:00.2: PCI INT C -> GSI 18 (level, low) -> IRQ 18
+[    1.581694] sdhci-pci 0000:15:00.2: Will use DMA mode even though HW doesn't fully claim to support it.
+[    1.581706] sdhci-pci 0000:15:00.2: setting latency timer to 64
+[    1.581736] mmc0: no vmmc regulator found
+[    1.582783] Registered led device: mmc0::
+[    1.585077] mmc0: SDHCI controller on PCI [0000:15:00.2] using DMA
+[    1.587151] SCSI subsystem initialized
+[    1.604322] ehci_hcd 0000:00:1d.7: USB 2.0 started, EHCI 1.00
+[    1.604370] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002
+[    1.604377] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    1.604383] usb usb1: Product: EHCI Host Controller
+[    1.604388] usb usb1: Manufacturer: Linux 3.1.0-1-686-pae ehci_hcd
+[    1.604393] usb usb1: SerialNumber: 0000:00:1d.7
+[    1.604636] hub 1-0:1.0: USB hub found
+[    1.604647] hub 1-0:1.0: 8 ports detected
+[    1.605631] uhci_hcd: USB Universal Host Controller Interface driver
+[    1.605686] uhci_hcd 0000:00:1d.0: power state changed by ACPI to D0
+[    1.605693] uhci_hcd 0000:00:1d.0: power state changed by ACPI to D0
+[    1.605708] uhci_hcd 0000:00:1d.0: PCI INT A -> GSI 16 (level, low) -> IRQ 16
+[    1.605724] uhci_hcd 0000:00:1d.0: setting latency timer to 64
+[    1.605731] uhci_hcd 0000:00:1d.0: UHCI Host Controller
+[    1.605748] uhci_hcd 0000:00:1d.0: new USB bus registered, assigned bus number 2
+[    1.605812] uhci_hcd 0000:00:1d.0: irq 16, io base 0x00001820
+[    1.605873] usb usb2: New USB device found, idVendor=1d6b, idProduct=0001
+[    1.605879] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    1.605885] usb usb2: Product: UHCI Host Controller
+[    1.605890] usb usb2: Manufacturer: Linux 3.1.0-1-686-pae uhci_hcd
+[    1.605895] usb usb2: SerialNumber: 0000:00:1d.0
+[    1.610230] hub 2-0:1.0: USB hub found
+[    1.610240] hub 2-0:1.0: 2 ports detected
+[    1.610366] uhci_hcd 0000:00:1d.1: PCI INT B -> GSI 17 (level, low) -> IRQ 17
+[    1.610381] uhci_hcd 0000:00:1d.1: setting latency timer to 64
+[    1.610389] uhci_hcd 0000:00:1d.1: UHCI Host Controller
+[    1.610404] uhci_hcd 0000:00:1d.1: new USB bus registered, assigned bus number 3
+[    1.610443] uhci_hcd 0000:00:1d.1: irq 17, io base 0x00001840
+[    1.610503] usb usb3: New USB device found, idVendor=1d6b, idProduct=0001
+[    1.610509] usb usb3: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    1.610515] usb usb3: Product: UHCI Host Controller
+[    1.610519] usb usb3: Manufacturer: Linux 3.1.0-1-686-pae uhci_hcd
+[    1.610525] usb usb3: SerialNumber: 0000:00:1d.1
+[    1.612577] hub 3-0:1.0: USB hub found
+[    1.612587] hub 3-0:1.0: 2 ports detected
+[    1.612703] uhci_hcd 0000:00:1d.2: power state changed by ACPI to D0
+[    1.612710] uhci_hcd 0000:00:1d.2: power state changed by ACPI to D0
+[    1.612721] uhci_hcd 0000:00:1d.2: PCI INT C -> GSI 18 (level, low) -> IRQ 18
+[    1.612733] uhci_hcd 0000:00:1d.2: setting latency timer to 64
+[    1.612740] uhci_hcd 0000:00:1d.2: UHCI Host Controller
+[    1.612755] uhci_hcd 0000:00:1d.2: new USB bus registered, assigned bus number 4
+[    1.612793] uhci_hcd 0000:00:1d.2: irq 18, io base 0x00001860
+[    1.612854] usb usb4: New USB device found, idVendor=1d6b, idProduct=0001
+[    1.612861] usb usb4: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    1.612866] usb usb4: Product: UHCI Host Controller
+[    1.612871] usb usb4: Manufacturer: Linux 3.1.0-1-686-pae uhci_hcd
+[    1.612876] usb usb4: SerialNumber: 0000:00:1d.2
+[    1.616097] hub 4-0:1.0: USB hub found
+[    1.616108] hub 4-0:1.0: 2 ports detected
+[    1.616225] uhci_hcd 0000:00:1d.3: PCI INT D -> GSI 19 (level, low) -> IRQ 19
+[    1.616238] uhci_hcd 0000:00:1d.3: setting latency timer to 64
+[    1.616245] uhci_hcd 0000:00:1d.3: UHCI Host Controller
+[    1.616259] uhci_hcd 0000:00:1d.3: new USB bus registered, assigned bus number 5
+[    1.616297] uhci_hcd 0000:00:1d.3: irq 19, io base 0x00001880
+[    1.616357] usb usb5: New USB device found, idVendor=1d6b, idProduct=0001
+[    1.616363] usb usb5: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    1.616368] usb usb5: Product: UHCI Host Controller
+[    1.616373] usb usb5: Manufacturer: Linux 3.1.0-1-686-pae uhci_hcd
+[    1.616379] usb usb5: SerialNumber: 0000:00:1d.3
+[    1.618135] hub 5-0:1.0: USB hub found
+[    1.618145] hub 5-0:1.0: 2 ports detected
+[    1.625492] libata version 3.00 loaded.
+[    1.626194] ata_piix 0000:00:1f.2: version 2.13
+[    1.626214] ata_piix 0000:00:1f.2: PCI INT B -> GSI 16 (level, low) -> IRQ 16
+[    1.626224] ata_piix 0000:00:1f.2: MAP [ P0 P2 IDE IDE ]
+[    1.810787] Refined TSC clocksource calibration: 1662.499 MHz.
+[    1.810797] Switching to clocksource tsc
+[    1.810829] ata_piix 0000:00:1f.2: setting latency timer to 64
+[    1.816273] scsi0 : ata_piix
+[    1.819990] scsi1 : ata_piix
+[    1.820970] ata1: SATA max UDMA/133 cmd 0x1f0 ctl 0x3f6 bmdma 0x18b0 irq 14
+[    1.820978] ata2: PATA max UDMA/100 cmd 0x170 ctl 0x376 bmdma 0x18b8 irq 15
+[    1.861044] e1000e 0000:02:00.0: eth0: (PCI Express:2.5GT/s:Width x1) 00:16:d3:21:aa:de
+[    1.861052] e1000e 0000:02:00.0: eth0: Intel(R) PRO/1000 Network Connection
+[    1.861136] e1000e 0000:02:00.0: eth0: MAC: 2, PHY: 2, PBA No: 005302-003
+[    2.125320] firewire_core: created device fw0: GUID 000ae40600152015, S400
+[    2.154329] ata1.00: ATA-7: FUJITSU MHV2040BH, 00840028, max UDMA/100
+[    2.154336] ata1.00: 78140160 sectors, multi 16: LBA48 NCQ (depth 0/32)
+[    2.292638] ata1.00: configured for UDMA/100
+[    2.292938] scsi 0:0:0:0: Direct-Access     ATA      FUJITSU MHV2040B 0084 PQ: 0 ANSI: 5
+[    2.304417] sd 0:0:0:0: [sda] 78140160 512-byte logical blocks: (40.0 GB/37.2 GiB)
+[    2.304534] sd 0:0:0:0: [sda] Write Protect is off
+[    2.304541] sd 0:0:0:0: [sda] Mode Sense: 00 3a 00 00
+[    2.304592] sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+[    2.439925]  sda: sda1 sda2 sda3
+[    3.099956] sd 0:0:0:0: [sda] Attached SCSI disk
+[    4.125629] PM: Starting manual resume from disk
+[    4.125637] PM: Hibernation image partition 8:2 present
+[    4.125640] PM: Looking for hibernation image.
+[    4.125979] PM: Image not found (code -22)
+[    4.125983] PM: Hibernation image not present or could not be loaded.
+[    4.150529] kjournald starting.  Commit interval 5 seconds
+[    4.150618] EXT3-fs (sda1): mounted filesystem with ordered data mode
+[    5.899059] udevd[230]: starting version 175
+[    6.707568] input: Lid Switch as /devices/LNXSYSTM:00/device:00/PNP0C0D:00/input/input1
+[    6.710233] ACPI: acpi_idle registered with cpuidle
+[    6.712165] ACPI: Lid Switch [LID]
+[    6.712286] input: Sleep Button as /devices/LNXSYSTM:00/device:00/PNP0C0E:00/input/input2
+[    6.712298] ACPI: Sleep Button [SLPB]
+[    6.713572] Marking TSC unstable due to TSC halts in idle
+[    6.714560] input: Power Button as /devices/LNXSYSTM:00/LNXPWRBN:00/input/input3
+[    6.714570] ACPI: Power Button [PWRF]
+[    6.725561] Switching to clocksource hpet
+[    6.778321] input: Video Bus as /devices/LNXSYSTM:00/device:00/PNP0A08:00/LNXVIDEO:00/input/input4
+[    6.778335] ACPI: Video Device [VID] (multi-head: yes  rom: no  post: no)
+[    6.921018] ACPI: Battery Slot [BAT0] (battery present)
+[    7.039090] intel_rng: FWH not detected
+[    7.039689] NET: Registered protocol family 23
+[    7.097895] iTCO_vendor_support: vendor-support=0
+[    7.126238] iTCO_wdt: Intel TCO WatchDog Timer Driver v1.06
+[    7.127170] iTCO_wdt: Found a ICH7-M or ICH7-U TCO device (Version=2, TCOBASE=0x1060)
+[    7.127824] iTCO_wdt: initialized. heartbeat=30 sec (nowayout=0)
+[    7.160836] nsc-ircc 00:0a: [io  0x02f8-0x02ff]
+[    7.160937] nsc-ircc 00:0a: [irq 3]
+[    7.160945] nsc-ircc 00:0a: [dma 1]
+[    7.161608] nsc-ircc 00:0a: activated
+[    7.161651] nsc-ircc, chip->init
+[    7.161667] nsc-ircc, Found chip at base=0x164e
+[    7.161711] nsc-ircc, driver loaded (Dag Brattli)
+[    7.163841] IrDA: Registered device irda0
+[    7.163847] nsc-ircc, Using dongle: IBM31T1100 or Temic TFDS6000/TFDS6500
+[    7.216550] cfg80211: Calling CRDA to update world regulatory domain
+[    7.234228] leds_ss4200: no LED devices found
+[    7.440902] ACPI: AC Adapter [AC] (on-line)
+[    7.509096] Non-volatile memory driver v1.3
+[    7.525890] input: PC Speaker as /devices/platform/pcspkr/input/input5
+[    7.643342] i801_smbus 0000:00:1f.3: PCI INT A -> GSI 23 (level, low) -> IRQ 23
+[    7.735322] [drm] Initialized drm 1.1.0 20060810
+[    7.967678] pci 0000:00:02.0: power state changed by ACPI to D0
+[    7.967689] pci 0000:00:02.0: power state changed by ACPI to D0
+[    7.967702] pci 0000:00:02.0: PCI INT A -> GSI 16 (level, low) -> IRQ 16
+[    7.967712] pci 0000:00:02.0: setting latency timer to 64
+[    7.970179] [drm] Supports vblank timestamp caching Rev 1 (10.10.2010).
+[    7.970185] [drm] No driver support for vblank timestamp query.
+[    7.970259] [drm] Initialized i915 1.6.0 20080730 for 0000:00:02.0 on minor 0
+[    8.023905] tpm_tis 00:0b: 1.2 TPM (device-id 0x3202, rev-id 5)
+[    8.170869] yenta_cardbus 0000:15:00.0: CardBus bridge found [17aa:201c]
+[    8.171478] IBM TrackPoint firmware: 0x0e, buttons: 3/3
+[    8.191737] input: TPPS/2 IBM TrackPoint as /devices/platform/i8042/serio1/input/input6
+[    8.212382] iwl3945: Intel(R) PRO/Wireless 3945ABG/BG Network Connection driver for Linux, in-tree:s
+[    8.212389] iwl3945: Copyright(c) 2003-2011 Intel Corporation
+[    8.212470] iwl3945 0000:03:00.0: PCI INT A -> GSI 17 (level, low) -> IRQ 17
+[    8.212489] iwl3945 0000:03:00.0: setting latency timer to 64
+[    8.266548] iwl3945 0000:03:00.0: Tunable channels: 13 802.11bg, 23 802.11a channels
+[    8.266555] iwl3945 0000:03:00.0: Detected Intel Wireless WiFi Link 3945ABG
+[    8.266711] iwl3945 0000:03:00.0: irq 45 for MSI/MSI-X
+[    8.266963] Registered led device: phy0-led
+[    8.297276] yenta_cardbus 0000:15:00.0: ISA IRQ mask 0x0cb0, PCI irq 16
+[    8.297284] yenta_cardbus 0000:15:00.0: Socket status: 30000006
+[    8.297297] yenta_cardbus 0000:15:00.0: pcmcia: parent PCI bridge window: [io  0x9000-0xcfff]
+[    8.297305] pcmcia_socket pcmcia_socket0: cs: IO port probe 0x9000-0xcfff: excluding 0x9000-0x90ff 0x9400-0x94ff
+[    8.323243] yenta_cardbus 0000:15:00.0: pcmcia: parent PCI bridge window: [mem 0xe4300000-0xe7ffffff]
+[    8.323251] pcmcia_socket pcmcia_socket0: cs: memory probe 0xe4300000-0xe7ffffff: excluding 0xe4300000-0xe46cffff
+[    8.323282] yenta_cardbus 0000:15:00.0: pcmcia: parent PCI bridge window: [mem 0xe0000000-0xe3ffffff 64bit pref]
+[    8.323289] pcmcia_socket pcmcia_socket0: cs: memory probe 0xe0000000-0xe3ffffff: excluding 0xe0000000-0xe3ffffff
+[    8.332406] ieee80211 phy0: Selected rate control algorithm 'iwl-3945-rs'
+[    8.652487] pcmcia_socket pcmcia_socket0: cs: IO port probe 0x100-0x3af: excluding 0x170-0x177 0x1f0-0x1f7 0x2f8-0x2ff 0x370-0x377
+[    8.654592] pcmcia_socket pcmcia_socket0: cs: IO port probe 0x3e0-0x4ff: excluding 0x3f0-0x3f7 0x4d0-0x4d7
+[    8.655491] pcmcia_socket pcmcia_socket0: cs: IO port probe 0x820-0x8ff: clean.
+[    8.656248] pcmcia_socket pcmcia_socket0: cs: IO port probe 0xc00-0xcf7: clean.
+[    8.657063] pcmcia_socket pcmcia_socket0: cs: memory probe 0x0c0000-0x0fffff: excluding 0xc0000-0xd3fff 0xdc000-0xfffff
+[    8.657127] pcmcia_socket pcmcia_socket0: cs: memory probe 0xa0000000-0xa0ffffff: clean.
+[    8.657192] pcmcia_socket pcmcia_socket0: cs: memory probe 0x60000000-0x60ffffff: clean.
+[    8.657257] pcmcia_socket pcmcia_socket0: cs: IO port probe 0xa00-0xaff: clean.
+[    8.913459] thinkpad_acpi: ThinkPad ACPI Extras v0.24
+[    8.913465] thinkpad_acpi: http://ibm-acpi.sf.net/
+[    8.913469] thinkpad_acpi: ThinkPad BIOS 7BET44WW (1.04 ), EC 7BHT29WW-1.02
+[    8.913475] thinkpad_acpi: Lenovo ThinkPad X60, model 1707A31
+[    8.913479] thinkpad_acpi: WARNING: Outdated ThinkPad BIOS/EC firmware
+[    8.913484] thinkpad_acpi: WARNING: This firmware may be missing critical bug fixes and/or important features
+[    8.914085] thinkpad_acpi: detected a 8-level brightness capable ThinkPad
+[    8.914150] thinkpad_acpi: ACPI backlight control delay disabled
+[    8.915854] thinkpad_acpi: radio switch found; radios are enabled
+[    8.924324] Registered led device: tpacpi::thinklight
+[    8.924710] Registered led device: tpacpi::power
+[    8.925070] Registered led device: tpacpi::standby
+[    8.925432] Registered led device: tpacpi::thinkvantage
+[    8.933217] thinkpad_acpi: Console audio control enabled, mode: monitor (read only)
+[    8.936832] input: ThinkPad Extra Buttons as /devices/platform/thinkpad_acpi/input/input7
+[    9.398461] snd_hda_intel 0000:00:1b.0: PCI INT B -> GSI 17 (level, low) -> IRQ 17
+[    9.398471] hda_intel: probe_mask set to 0x1 for device 17aa:2010
+[    9.398549] snd_hda_intel 0000:00:1b.0: irq 46 for MSI/MSI-X
+[    9.398714] snd_hda_intel 0000:00:1b.0: setting latency timer to 64
+[    9.485751] input: HDA Digital PCBeep as /devices/pci0000:00/0000:00:1b.0/input/input8
+[   10.399898] Adding 521636k swap on /dev/sda2.  Priority:-1 extents:1 across:521636k 
+[   10.717796] EXT3-fs (sda1): using internal journal
+[   10.936107] loop: module loaded
+[   11.815487] kjournald starting.  Commit interval 5 seconds
+[   11.816153] EXT3-fs (sda3): using internal journal
+[   11.816161] EXT3-fs (sda3): mounted filesystem with ordered data mode
+[   13.241022] e1000e 0000:02:00.0: irq 44 for MSI/MSI-X
+[   13.296161] e1000e 0000:02:00.0: irq 44 for MSI/MSI-X
+[   13.296888] ADDRCONF(NETDEV_UP): eth0: link is not ready
+[   13.399048] RPC: Registered named UNIX socket transport module.
+[   13.399055] RPC: Registered udp transport module.
+[   13.399059] RPC: Registered tcp transport module.
+[   13.399063] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[   13.575366] FS-Cache: Loaded
+[   13.659060] FS-Cache: Netfs 'nfs' registered for caching
+[   13.683030] Installing knfsd (copyright (C) 1996 okir@monad.swb.de).
+[   14.257517] fuse init (API version 7.17)
+[   15.218535] hdaps: inverting axis (3) readings
+[   15.218541] hdaps: LENOVO ThinkPad X60 detected
+[   15.219228] input: hdaps as /devices/platform/hdaps/input/input9
+[   15.220540] hdaps: driver successfully loaded
+[   16.056704] input: ACPI Virtual Keyboard Device as /devices/virtual/input/input10
+[   16.673188] apm: BIOS not found.
+[   18.898137] uhci_hcd 0000:00:1d.0: PCI INT A disabled
+[   18.899581] uhci_hcd 0000:00:1d.0: power state changed by ACPI to D3
+[   18.899763] uhci_hcd 0000:00:1d.1: PCI INT B disabled
+[   18.900036] uhci_hcd 0000:00:1d.2: PCI INT C disabled
+[   18.900391] uhci_hcd 0000:00:1d.2: power state changed by ACPI to D3
+[   18.900714] ehci_hcd 0000:00:1d.7: PCI INT D disabled
+[   18.900768] ehci_hcd 0000:00:1d.7: PME# enabled
+[   18.916079] ehci_hcd 0000:00:1d.7: power state changed by ACPI to D3
+[   19.034216] ehci_hcd 0000:00:1d.7: power state changed by ACPI to D0
+[   19.048066] ehci_hcd 0000:00:1d.7: BAR 0: set to [mem 0xee444000-0xee4443ff] (PCI address [0xee444000-0xee4443ff])
+[   19.048079] ehci_hcd 0000:00:1d.7: power state changed by ACPI to D0
+[   19.048101] ehci_hcd 0000:00:1d.7: restoring config space at offset 0xf (was 0x400, writing 0x40b)
+[   19.048134] ehci_hcd 0000:00:1d.7: restoring config space at offset 0x1 (was 0x2900000, writing 0x2900102)
+[   19.048176] ehci_hcd 0000:00:1d.7: PME# disabled
+[   19.048187] ehci_hcd 0000:00:1d.7: power state changed by ACPI to D0
+[   19.048196] ehci_hcd 0000:00:1d.7: power state changed by ACPI to D0
+[   19.048211] ehci_hcd 0000:00:1d.7: PCI INT D -> GSI 19 (level, low) -> IRQ 19
+[   19.048223] ehci_hcd 0000:00:1d.7: setting latency timer to 64
+[   19.077976] uhci_hcd 0000:00:1d.0: power state changed by ACPI to D0
+[   19.077985] uhci_hcd 0000:00:1d.0: power state changed by ACPI to D0
+[   19.078952] uhci_hcd 0000:00:1d.0: power state changed by ACPI to D0
+[   19.078960] uhci_hcd 0000:00:1d.0: power state changed by ACPI to D0
+[   19.078971] uhci_hcd 0000:00:1d.0: PCI INT A -> GSI 16 (level, low) -> IRQ 16
+[   19.078983] uhci_hcd 0000:00:1d.0: setting latency timer to 64
+[   19.117979] uhci_hcd 0000:00:1d.1: PCI INT B -> GSI 17 (level, low) -> IRQ 17
+[   19.117992] uhci_hcd 0000:00:1d.1: setting latency timer to 64
+[   19.157882] uhci_hcd 0000:00:1d.2: power state changed by ACPI to D0
+[   19.157891] uhci_hcd 0000:00:1d.2: power state changed by ACPI to D0
+[   19.157977] uhci_hcd 0000:00:1d.2: power state changed by ACPI to D0
+[   19.157985] uhci_hcd 0000:00:1d.2: power state changed by ACPI to D0
+[   19.157995] uhci_hcd 0000:00:1d.2: PCI INT C -> GSI 18 (level, low) -> IRQ 18
+[   19.158007] uhci_hcd 0000:00:1d.2: setting latency timer to 64
+[   19.984734] e1000e 0000:02:00.0: PCI INT A disabled
+[   19.984751] e1000e 0000:02:00.0: PME# enabled
+[   73.083679] mtrr: base(0xd0000000) is not aligned on a size(0x7b0000) boundary
+[  958.699526] iwl3945 0000:03:00.0: loaded firmware version 15.32.2.9
+[  958.772363] ADDRCONF(NETDEV_UP): wlan0: link is not ready
+[  964.750653] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 1)
+[  964.752458] wlan0: authenticated
+[  964.752489] wlan0: associate with 92:dc:0f:23:d7:d4 (try 1)
+[  964.754743] wlan0: RX AssocResp from 92:dc:0f:23:d7:d4 (capab=0x411 status=0 aid=2)
+[  964.754749] wlan0: associated
+[  964.756729] ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready
+[  965.222936] Intel AES-NI instructions are not detected.
+[  965.275855] padlock_aes: VIA PadLock not detected.
+[  975.440053] wlan0: no IPv6 routers present
+[ 4412.580043] ieee80211 phy0: wlan0: No probe response from AP 92:dc:0f:23:d7:d4 after 500ms, disconnecting.
+[ 4412.581877] cfg80211: Calling CRDA to update world regulatory domain
+[ 4416.277755] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 1)
+[ 4416.476066] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 2)
+[ 4416.477902] wlan0: authenticated
+[ 4416.477943] wlan0: associate with 92:dc:0f:23:d7:d4 (try 1)
+[ 4416.480336] wlan0: RX AssocResp from 92:dc:0f:23:d7:d4 (capab=0x411 status=0 aid=2)
+[ 4416.480343] wlan0: associated
+[ 4825.508062] ieee80211 phy0: wlan0: No probe response from AP 92:dc:0f:23:d7:d4 after 500ms, disconnecting.
+[ 4825.509236] cfg80211: Calling CRDA to update world regulatory domain
+[ 4829.191351] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 1)
+[ 4829.388044] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 2)
+[ 4829.588042] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 3)
+[ 4829.788053] wlan0: authentication with 92:dc:0f:23:d7:d4 timed out
+[ 4842.770538] wlan0: authenticate with 92:dc:0f:23:d7:d6 (try 1)
+[ 4842.968055] wlan0: authenticate with 92:dc:0f:23:d7:d6 (try 2)
+[ 4843.168035] wlan0: authenticate with 92:dc:0f:23:d7:d6 (try 3)
+[ 4843.368081] wlan0: authentication with 92:dc:0f:23:d7:d6 timed out
+[ 4856.363042] wlan0: direct probe to 92:dc:0f:23:d7:d6 (try 1/3)
+[ 4856.560038] wlan0: direct probe to 92:dc:0f:23:d7:d6 (try 2/3)
+[ 4856.760058] wlan0: direct probe to 92:dc:0f:23:d7:d6 (try 3/3)
+[ 4856.960058] wlan0: direct probe to 92:dc:0f:23:d7:d6 timed out
+[ 4869.939942] wlan0: authenticate with b2:1c:fd:25:c0:0e (try 1)
+[ 4869.941715] wlan0: authenticated
+[ 4869.941751] wlan0: associate with b2:1c:fd:25:c0:0e (try 1)
+[ 4869.945600] wlan0: RX AssocResp from b2:1c:fd:25:c0:0e (capab=0x401 status=0 aid=3)
+[ 4869.945608] wlan0: associated
+[ 7088.548054] ieee80211 phy0: wlan0: No probe response from AP b2:1c:fd:25:c0:0e after 500ms, disconnecting.
+[ 7088.549254] cfg80211: Calling CRDA to update world regulatory domain
+[ 7092.332992] wlan0: authenticate with b2:1c:fd:25:c0:0e (try 1)
+[ 7092.532060] wlan0: authenticate with b2:1c:fd:25:c0:0e (try 2)
+[ 7092.732044] wlan0: authenticate with b2:1c:fd:25:c0:0e (try 3)
+[ 7092.932062] wlan0: authentication with b2:1c:fd:25:c0:0e timed out
+[ 7106.012303] wlan0: authenticate with aa:a1:d7:80:b6:cd (try 1)
+[ 7106.015981] wlan0: authenticated
+[ 7106.016313] wlan0: associate with aa:a1:d7:80:b6:cd (try 1)
+[ 7106.024816] wlan0: RX AssocResp from aa:a1:d7:80:b6:cd (capab=0x401 status=0 aid=1)
+[ 7106.024824] wlan0: associated
+[10149.540052] ieee80211 phy0: wlan0: No probe response from AP aa:a1:d7:80:b6:cd after 500ms, disconnecting.
+[10149.541274] cfg80211: Calling CRDA to update world regulatory domain
+[10153.229458] wlan0: direct probe to 82:12:29:f4:31:1a (try 1/3)
+[10153.428050] wlan0: direct probe to 82:12:29:f4:31:1a (try 2/3)
+[10153.628043] wlan0: direct probe to 82:12:29:f4:31:1a (try 3/3)
+[10153.828063] wlan0: direct probe to 82:12:29:f4:31:1a timed out
+[10166.910132] wlan0: direct probe to 82:12:29:f4:31:1a (try 1/3)
+[10167.108190] wlan0: direct probe to 82:12:29:f4:31:1a (try 2/3)
+[10167.308054] wlan0: direct probe to 82:12:29:f4:31:1a (try 3/3)
+[10167.508484] wlan0: direct probe to 82:12:29:f4:31:1a timed out
+[10180.596170] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 1)
+[10180.597940] wlan0: authenticated
+[10180.597971] wlan0: associate with 92:dc:0f:23:d7:d4 (try 1)
+[10180.604027] wlan0: RX AssocResp from 92:dc:0f:23:d7:d4 (capab=0x411 status=0 aid=2)
+[10180.604034] wlan0: associated
+[12339.406099] PM: Syncing filesystems ... done.
+[12339.407739] PM: Preparing system for mem sleep
+[12339.407765] Freezing user space processes ... (elapsed 0.01 seconds) done.
+[12339.420049] Freezing remaining freezable tasks ... (elapsed 0.01 seconds) done.
+[12339.436072] PM: Entering mem sleep
+[12339.436099] Suspending console(s) (use no_console_suspend to debug)
+[12339.452075] e1000e 0000:02:00.0: BAR 0: set to [mem 0xee000000-0xee01ffff] (PCI address [0xee000000-0xee01ffff])
+[12339.452089] e1000e 0000:02:00.0: BAR 2: set to [io  0x2000-0x201f] (PCI address [0x2000-0x201f])
+[12339.452132] e1000e 0000:02:00.0: restoring config space at offset 0xf (was 0x100, writing 0x10b)
+[12339.452185] e1000e 0000:02:00.0: restoring config space at offset 0x1 (was 0x100000, writing 0x100107)
+[12339.452245] e1000e 0000:02:00.0: PME# disabled
+[12339.452252] e1000e 0000:02:00.0: Disabling ASPM L0s L1
+[12339.452423] e1000e 0000:02:00.0: irq 44 for MSI/MSI-X
+[12339.533781] pci 0000:00:02.0: PCI INT A disabled
+[12339.548092] pci 0000:00:02.0: power state changed by ACPI to D3
+[12339.548144] sd 0:0:0:0: [sda] Synchronizing SCSI cache
+[12339.548944] sd 0:0:0:0: [sda] Stopping disk
+[12339.612334] nsc-ircc 00:0a: disabled
+[12339.613571] ACPI handle has no context!
+[12339.613582] sdhci-pci 0000:15:00.2: PCI INT C disabled
+[12339.613592] ACPI handle has no context!
+[12339.613824] ehci_hcd 0000:00:1d.7: PCI INT D disabled
+[12339.613841] uhci_hcd 0000:00:1d.3: PCI INT D disabled
+[12339.613856] uhci_hcd 0000:00:1d.2: PCI INT C disabled
+[12339.613872] uhci_hcd 0000:00:1d.1: PCI INT B disabled
+[12339.613887] uhci_hcd 0000:00:1d.0: PCI INT A disabled
+[12339.620087] ACPI handle has no context!
+[12339.687575] e1000e 0000:02:00.0: PME# enabled
+[12339.687589] pcieport 0000:00:1c.0: wake-up capability enabled by ACPI
+[12339.716108] snd_hda_intel 0000:00:1b.0: PCI INT B disabled
+[12340.524379] ata_piix 0000:00:1f.2: PCI INT B disabled
+[12340.540042] PM: suspend of devices complete after 1008.015 msecs
+[12340.572031] ehci_hcd 0000:00:1d.7: power state changed by ACPI to D3
+[12340.572108] uhci_hcd 0000:00:1d.2: power state changed by ACPI to D3
+[12340.692034] uhci_hcd 0000:00:1d.0: power state changed by ACPI to D3
+[12340.692111] PM: late suspend of devices complete after 152.061 msecs
+[12340.692550] ACPI: Preparing to enter system sleep state S3
+[12340.856063] PM: Saving platform NVS memory
+[12340.856179] Disabling non-boot CPUs ...
+[12340.856280] Extended CMOS year: 2000
+[12340.856280] ACPI: Low-level resume complete
+[12340.856280] PM: Restoring platform NVS memory
+[12340.856280] Extended CMOS year: 2000
+[12340.856280] ACPI: Waking up from system sleep state S3
+[12341.248158] pci 0000:00:02.1: restoring config space at offset 0x1 (was 0x900000, writing 0x900003)
+[12341.248214] snd_hda_intel 0000:00:1b.0: restoring config space at offset 0x1 (was 0x100106, writing 0x100102)
+[12341.248265] pcieport 0000:00:1c.0: restoring config space at offset 0x9 (was 0x1fff1, writing 0x40114001)
+[12341.248287] pcieport 0000:00:1c.0: restoring config space at offset 0x1 (was 0x100107, writing 0x100507)
+[12341.248375] pcieport 0000:00:1c.1: restoring config space at offset 0x1 (was 0x100107, writing 0x100507)
+[12341.248450] pcieport 0000:00:1c.2: restoring config space at offset 0x7 (was 0x20006050, writing 0x6050)
+[12341.248468] pcieport 0000:00:1c.2: restoring config space at offset 0x1 (was 0x100107, writing 0x100507)
+[12341.248530] pcieport 0000:00:1c.3: restoring config space at offset 0xf (was 0x40400, writing 0x4040b)
+[12341.248548] pcieport 0000:00:1c.3: restoring config space at offset 0x9 (was 0x10001, writing 0xe421e421)
+[12341.248558] pcieport 0000:00:1c.3: restoring config space at offset 0x8 (was 0x0, writing 0xebf0ea00)
+[12341.248568] pcieport 0000:00:1c.3: restoring config space at offset 0x7 (was 0x20000000, writing 0x8070)
+[12341.248583] pcieport 0000:00:1c.3: restoring config space at offset 0x3 (was 0x810000, writing 0x810010)
+[12341.248594] pcieport 0000:00:1c.3: restoring config space at offset 0x1 (was 0x100000, writing 0x100507)
+[12341.268034] uhci_hcd 0000:00:1d.0: power state changed by ACPI to D0
+[12341.268042] uhci_hcd 0000:00:1d.0: power state changed by ACPI to D0
+[12341.268075] uhci_hcd 0000:00:1d.0: restoring config space at offset 0x1 (was 0x2800005, writing 0x2800001)
+[12341.268090] uhci_hcd 0000:00:1d.0: power state changed by ACPI to D0
+[12341.268096] uhci_hcd 0000:00:1d.0: power state changed by ACPI to D0
+[12341.268130] uhci_hcd 0000:00:1d.1: restoring config space at offset 0x1 (was 0x2800005, writing 0x2800001)
+[12341.268146] uhci_hcd 0000:00:1d.2: power state changed by ACPI to D0
+[12341.268152] uhci_hcd 0000:00:1d.2: power state changed by ACPI to D0
+[12341.268185] uhci_hcd 0000:00:1d.2: restoring config space at offset 0x1 (was 0x2800005, writing 0x2800001)
+[12341.268197] uhci_hcd 0000:00:1d.2: power state changed by ACPI to D0
+[12341.268203] uhci_hcd 0000:00:1d.2: power state changed by ACPI to D0
+[12341.268236] uhci_hcd 0000:00:1d.3: restoring config space at offset 0x1 (was 0x2800005, writing 0x2800001)
+[12341.268287] ehci_hcd 0000:00:1d.7: restoring config space at offset 0x1 (was 0x2900106, writing 0x2900102)
+[12341.268309] ehci_hcd 0000:00:1d.7: power state changed by ACPI to D0
+[12341.268317] ehci_hcd 0000:00:1d.7: power state changed by ACPI to D0
+[12341.268359] pci 0000:00:1e.0: restoring config space at offset 0x1 (was 0x100005, writing 0x100007)
+[12341.268869] iwl3945 0000:03:00.0: restoring config space at offset 0x1 (was 0x100106, writing 0x100506)
+[12341.284029] firewire_ohci 0000:15:00.1: BAR 0: set to [mem 0xe4301000-0xe43017ff] (PCI address [0xe4301000-0xe43017ff])
+[12341.284074] firewire_ohci 0000:15:00.1: restoring config space at offset 0x3 (was 0x800000, writing 0x804000)
+[12341.284087] firewire_ohci 0000:15:00.1: restoring config space at offset 0x1 (was 0x2100000, writing 0x2100006)
+[12341.300038] sdhci-pci 0000:15:00.2: BAR 0: set to [mem 0xe4301800-0xe43018ff] (PCI address [0xe4301800-0xe43018ff])
+[12341.300082] sdhci-pci 0000:15:00.2: restoring config space at offset 0x3 (was 0x800000, writing 0x804000)
+[12341.300095] sdhci-pci 0000:15:00.2: restoring config space at offset 0x1 (was 0x2100000, writing 0x2100006)
+[12341.300334] PM: early resume of devices complete after 52.273 msecs
+[12341.300687] snd_hda_intel 0000:00:1b.0: PCI INT B -> GSI 17 (level, low) -> IRQ 17
+[12341.300698] snd_hda_intel 0000:00:1b.0: setting latency timer to 64
+[12341.300753] snd_hda_intel 0000:00:1b.0: irq 44 for MSI/MSI-X
+[12341.300806] uhci_hcd 0000:00:1d.0: power state changed by ACPI to D0
+[12341.300813] uhci_hcd 0000:00:1d.0: power state changed by ACPI to D0
+[12341.300821] uhci_hcd 0000:00:1d.0: PCI INT A -> GSI 16 (level, low) -> IRQ 16
+[12341.300832] uhci_hcd 0000:00:1d.0: setting latency timer to 64
+[12341.300863] usb usb2: root hub lost power or was reset
+[12341.300918] uhci_hcd 0000:00:1d.1: PCI INT B -> GSI 17 (level, low) -> IRQ 17
+[12341.300928] uhci_hcd 0000:00:1d.1: setting latency timer to 64
+[12341.300957] usb usb3: root hub lost power or was reset
+[12341.300972] uhci_hcd 0000:00:1d.2: power state changed by ACPI to D0
+[12341.300978] uhci_hcd 0000:00:1d.2: power state changed by ACPI to D0
+[12341.300987] uhci_hcd 0000:00:1d.2: PCI INT C -> GSI 18 (level, low) -> IRQ 18
+[12341.300996] uhci_hcd 0000:00:1d.2: setting latency timer to 64
+[12341.301027] usb usb4: root hub lost power or was reset
+[12341.301044] uhci_hcd 0000:00:1d.3: PCI INT D -> GSI 19 (level, low) -> IRQ 19
+[12341.301054] uhci_hcd 0000:00:1d.3: setting latency timer to 64
+[12341.301083] usb usb5: root hub lost power or was reset
+[12341.301100] ehci_hcd 0000:00:1d.7: power state changed by ACPI to D0
+[12341.301108] ehci_hcd 0000:00:1d.7: power state changed by ACPI to D0
+[12341.301118] ehci_hcd 0000:00:1d.7: PCI INT D -> GSI 19 (level, low) -> IRQ 19
+[12341.301129] ehci_hcd 0000:00:1d.7: setting latency timer to 64
+[12341.301194] pci 0000:00:1e.0: setting latency timer to 64
+[12341.301213] ata_piix 0000:00:1f.2: PCI INT B -> GSI 16 (level, low) -> IRQ 16
+[12341.301221] ata_piix 0000:00:1f.2: setting latency timer to 64
+[12341.301253] pcieport 0000:00:1c.0: wake-up capability disabled by ACPI
+[12341.301265] e1000e 0000:02:00.0: PME# disabled
+[12341.301270] e1000e 0000:02:00.0: Disabling ASPM L0s L1
+[12341.301435] e1000e 0000:02:00.0: irq 46 for MSI/MSI-X
+[12341.305816] sdhci-pci 0000:15:00.2: PCI INT C -> GSI 18 (level, low) -> IRQ 18
+[12341.305823] sdhci-pci 0000:15:00.2: Will use DMA mode even though HW doesn't fully claim to support it.
+[12341.308483] sd 0:0:0:0: [sda] Starting disk
+[12341.364155] firewire_core: skipped bus generations, destroying all nodes
+[12341.864094] firewire_core: rediscovered device fw0
+[12342.544250] ata1.00: ACPI cmd ef/02:00:00:00:00:a0 (SET FEATURES) succeeded
+[12342.544259] ata1.00: ACPI cmd f5/00:00:00:00:00:a0 (SECURITY FREEZE LOCK) filtered out
+[12342.544267] ata1.00: ACPI cmd ef/03:45:00:00:00:a0 (SET FEATURES) filtered out
+[12342.544275] ata1.00: ACPI cmd ef/03:0c:00:00:00:a0 (SET FEATURES) filtered out
+[12342.546345] ata1.00: ACPI cmd ef/5f:00:00:00:00:a0 (SET FEATURES) succeeded
+[12342.546352] ata1.00: ACPI cmd ef/10:03:00:00:00:a0 (SET FEATURES) filtered out
+[12342.568454] ata1.00: configured for UDMA/100
+[12351.311700] nsc-ircc 00:0a: activated
+[12351.347214] Extended CMOS year: 2000
+[12351.347495] pci 0000:00:02.0: power state changed by ACPI to D0
+[12351.347503] pci 0000:00:02.0: power state changed by ACPI to D0
+[12351.347514] pci 0000:00:02.0: PCI INT A -> GSI 16 (level, low) -> IRQ 16
+[12351.347522] pci 0000:00:02.0: setting latency timer to 64
+[12351.576099] thinkpad_acpi: ACPI backlight control delay disabled
+[12351.578476] PM: resume of devices complete after 10277.915 msecs
+[12351.579069] PM: Finishing wakeup.
+[12351.579072] Restarting tasks ... done.
+[12351.588088] video LNXVIDEO:00: Restoring backlight state
+[12352.656246] e1000e 0000:02:00.0: PME# enabled
+[12363.725265] wlan0: deauthenticated from 92:dc:0f:23:d7:d4 (Reason: 6)
+[12363.727797] cfg80211: Calling CRDA to update world regulatory domain
+[12367.411371] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 1)
+[12367.413129] wlan0: authenticated
+[12367.413160] wlan0: associate with 92:dc:0f:23:d7:d4 (try 1)
+[12367.415476] wlan0: RX AssocResp from 92:dc:0f:23:d7:d4 (capab=0x411 status=0 aid=3)
+[12367.415482] wlan0: associated
+[31430.564050] ieee80211 phy0: wlan0: No probe response from AP 92:dc:0f:23:d7:d4 after 500ms, disconnecting.
+[31430.565260] cfg80211: Calling CRDA to update world regulatory domain
+[31434.242433] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 1)
+[31434.440071] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 2)
+[31434.640051] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 3)
+[31434.840044] wlan0: authentication with 92:dc:0f:23:d7:d4 timed out
+[31447.822824] wlan0: authenticate with 92:dc:0f:23:d7:d6 (try 1)
+[31448.020045] wlan0: authenticate with 92:dc:0f:23:d7:d6 (try 2)
+[31448.220039] wlan0: authenticate with 92:dc:0f:23:d7:d6 (try 3)
+[31448.420042] wlan0: authentication with 92:dc:0f:23:d7:d6 timed out
+[31461.398374] wlan0: direct probe to 92:dc:0f:23:d7:d6 (try 1/3)
+[31461.597338] wlan0: direct probe to 92:dc:0f:23:d7:d6 (try 2/3)
+[31461.796044] wlan0: direct probe to 92:dc:0f:23:d7:d6 (try 3/3)
+[31461.996046] wlan0: direct probe to 92:dc:0f:23:d7:d6 timed out
+[31474.976058] wlan0: authenticate with 76:d9:ac:11:16:86 (try 1)
+[31474.977910] wlan0: authenticated
+[31474.977939] wlan0: associate with 76:d9:ac:11:16:86 (try 1)
+[31474.981876] wlan0: RX AssocResp from 76:d9:ac:11:16:86 (capab=0x401 status=0 aid=2)
+[31474.981884] wlan0: associated
+[31580.640053] nfs: server eva03 not responding, still trying
+[31580.640080] nfs: server eva03 not responding, still trying
+[31580.640089] nfs: server eva03 not responding, still trying
+[31580.640097] nfs: server eva03 not responding, still trying
+[31580.640105] nfs: server eva03 not responding, still trying
+[31580.640114] nfs: server eva03 not responding, still trying
+[31580.640122] nfs: server eva03 not responding, still trying
+[31580.640130] nfs: server eva03 not responding, still trying
+[31580.640145] nfs: server eva03 not responding, still trying
+[31580.640153] nfs: server eva03 not responding, still trying
+[31580.640161] nfs: server eva03 not responding, still trying
+[31580.640170] nfs: server eva03 not responding, still trying
+[31580.640178] nfs: server eva03 not responding, still trying
+[31580.640187] nfs: server eva03 not responding, still trying
+[31580.640195] nfs: server eva03 not responding, still trying
+[31584.152278] nfs: server eva03 not responding, still trying
+[31584.152304] nfs: server eva03 not responding, still trying
+[31584.152316] nfs: server eva03 not responding, still trying
+[31584.152324] nfs: server eva03 not responding, still trying
+[31584.152333] nfs: server eva03 not responding, still trying
+[31584.152341] nfs: server eva03 not responding, still trying
+[31584.152349] nfs: server eva03 not responding, still trying
+[31584.152358] nfs: server eva03 not responding, still trying
+[31584.152366] nfs: server eva03 not responding, still trying
+[31584.152375] nfs: server eva03 not responding, still trying
+[31584.152383] nfs: server eva03 not responding, still trying
+[31584.152391] nfs: server eva03 not responding, still trying
+[31584.152402] nfs: server eva03 not responding, still trying
+[31584.152410] nfs: server eva03 not responding, still trying
+[31584.152418] nfs: server eva03 not responding, still trying
+[33379.620068] ieee80211 phy0: wlan0: No probe response from AP 76:d9:ac:11:16:86 after 500ms, disconnecting.
+[33379.621357] cfg80211: Calling CRDA to update world regulatory domain
+[33383.398948] wlan0: authenticate with 76:d9:ac:11:16:86 (try 1)
+[33383.433763] wlan0: authenticated
+[33383.433811] wlan0: associate with 76:d9:ac:11:16:86 (try 1)
+[33383.436376] wlan0: RX AssocResp from 76:d9:ac:11:16:86 (capab=0x401 status=0 aid=2)
+[33383.436383] wlan0: associated
+[33512.612082] ieee80211 phy0: wlan0: No probe response from AP 76:d9:ac:11:16:86 after 500ms, disconnecting.
+[33512.613299] cfg80211: Calling CRDA to update world regulatory domain
+[33516.392274] wlan0: direct probe to aa:a1:d7:80:b6:cd (try 1/3)
+[33516.398832] wlan0: direct probe responded
+[33516.398848] wlan0: authenticate with aa:a1:d7:80:b6:cd (try 1)
+[33516.418678] wlan0: authenticated
+[33516.418710] wlan0: associate with aa:a1:d7:80:b6:cd (try 1)
+[33516.438790] wlan0: RX AssocResp from aa:a1:d7:80:b6:cd (capab=0x401 status=0 aid=1)
+[33516.438796] wlan0: associated
+[33554.504076] ieee80211 phy0: wlan0: No probe response from AP aa:a1:d7:80:b6:cd after 500ms, disconnecting.
+[33554.505676] cfg80211: Calling CRDA to update world regulatory domain
+[33558.189059] wlan0: direct probe to 76:d9:ac:11:16:86 (try 1/3)
+[33558.388063] wlan0: direct probe to 76:d9:ac:11:16:86 (try 2/3)
+[33558.588067] wlan0: direct probe to 76:d9:ac:11:16:86 (try 3/3)
+[33558.788069] wlan0: direct probe to 76:d9:ac:11:16:86 timed out
+[33571.967157] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 1)
+[33571.968987] wlan0: authenticated
+[33571.969019] wlan0: associate with 92:dc:0f:23:d7:d4 (try 1)
+[33571.971476] wlan0: RX AssocResp from 92:dc:0f:23:d7:d4 (capab=0x411 status=0 aid=2)
+[33571.971482] wlan0: associated
+[33610.698866] nfs: server eva03 OK
+[33610.864486] nfs: server eva03 OK
+[33610.983776] nfs: server eva03 OK
+[33611.096406] nfs: server eva03 OK
+[33611.174535] nfs: server eva03 OK
+[33611.252239] nfs: server eva03 OK
+[33611.352546] nfs: server eva03 OK
+[33611.440751] nfs: server eva03 OK
+[33611.535599] nfs: server eva03 OK
+[33611.623546] nfs: server eva03 OK
+[33611.714278] nfs: server eva03 OK
+[33611.822182] nfs: server eva03 OK
+[33611.910602] nfs: server eva03 OK
+[33612.140076] nfs: server eva03 OK
+[33612.258222] nfs: server eva03 OK
+[33612.352253] nfs: server eva03 OK
+[33612.462959] nfs: server eva03 OK
+[33612.581661] nfs: server eva03 OK
+[33612.721316] nfs: server eva03 OK
+[33612.850918] nfs: server eva03 OK
+[33612.982730] nfs: server eva03 OK
+[33613.083029] nfs: server eva03 OK
+[33613.173423] nfs: server eva03 OK
+[33613.260767] nfs: server eva03 OK
+[33613.361724] nfs: server eva03 OK
+[33613.438405] nfs: server eva03 OK
+[33613.566299] nfs: server eva03 OK
+[33613.656055] nfs: server eva03 OK
+[33613.780487] nfs: server eva03 OK
+[33613.870657] nfs: server eva03 OK
+[35667.556061] ieee80211 phy0: wlan0: No probe response from AP 92:dc:0f:23:d7:d4 after 500ms, disconnecting.
+[35667.557303] cfg80211: Calling CRDA to update world regulatory domain
+[35671.238488] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 1)
+[35671.246662] wlan0: authenticated
+[35671.246693] wlan0: associate with 92:dc:0f:23:d7:d4 (try 1)
+[35671.266216] wlan0: RX AssocResp from 92:dc:0f:23:d7:d4 (capab=0x411 status=0 aid=2)
+[35671.266224] wlan0: associated
+[35673.922588] wlan0: deauthenticated from 92:dc:0f:23:d7:d4 (Reason: 1)
+[35673.924688] cfg80211: Calling CRDA to update world regulatory domain
+[35677.602681] wlan0: authenticate with 92:dc:0f:23:d7:d6 (try 1)
+[35677.604514] wlan0: authenticated
+[35677.604543] wlan0: associate with 92:dc:0f:23:d7:d6 (try 1)
+[35677.620575] wlan0: RX AssocResp from 92:dc:0f:23:d7:d6 (capab=0x401 status=0 aid=2)
+[35677.620583] wlan0: associated
+[36354.596933] ieee80211 phy0: wlan0: No probe response from AP 92:dc:0f:23:d7:d6 after 500ms, disconnecting.
+[36354.598533] cfg80211: Calling CRDA to update world regulatory domain
+[36358.270502] wlan0: authenticate with 92:dc:0f:23:d7:d6 (try 1)
+[36358.468060] wlan0: authenticate with 92:dc:0f:23:d7:d6 (try 2)
+[36358.668066] wlan0: authenticate with 92:dc:0f:23:d7:d6 (try 3)
+[36358.868061] wlan0: authentication with 92:dc:0f:23:d7:d6 timed out
+[36371.856292] wlan0: authenticate with 76:d9:ac:11:16:86 (try 1)
+[36371.859809] wlan0: authenticated
+[36371.859837] wlan0: associate with 76:d9:ac:11:16:86 (try 1)
+[36371.865998] wlan0: RX AssocResp from 76:d9:ac:11:16:86 (capab=0x401 status=0 aid=3)
+[36371.866005] wlan0: associated
+[36731.437004] wlan0: deauthenticated from 76:d9:ac:11:16:86 (Reason: 3)
+[36731.438772] cfg80211: Calling CRDA to update world regulatory domain
+[36735.218603] wlan0: authenticate with 76:d9:ac:11:16:86 (try 1)
+[36735.224108] wlan0: authenticated
+[36735.224139] wlan0: associate with 76:d9:ac:11:16:86 (try 1)
+[36735.236653] wlan0: RX AssocResp from 76:d9:ac:11:16:86 (capab=0x401 status=0 aid=3)
+[36735.236660] wlan0: associated
+[37274.886680] wlan0: deauthenticated from 76:d9:ac:11:16:86 (Reason: 3)
+[37274.892491] cfg80211: Calling CRDA to update world regulatory domain
+[37278.667964] wlan0: authenticate with 76:d9:ac:11:16:86 (try 1)
+[37278.682199] wlan0: authenticated
+[37278.682232] wlan0: associate with 76:d9:ac:11:16:86 (try 1)
+[37278.684781] wlan0: RX AssocResp from 76:d9:ac:11:16:86 (capab=0x401 status=0 aid=3)
+[37278.684788] wlan0: associated
+[38796.145612] wlan0: deauthenticated from 76:d9:ac:11:16:86 (Reason: 3)
+[38796.146817] cfg80211: Calling CRDA to update world regulatory domain
+[38799.922606] wlan0: authenticate with 76:d9:ac:11:16:86 (try 1)
+[38799.924551] wlan0: authenticated
+[38799.924582] wlan0: associate with 76:d9:ac:11:16:86 (try 1)
+[38799.928932] wlan0: RX AssocResp from 76:d9:ac:11:16:86 (capab=0x401 status=0 aid=3)
+[38799.928939] wlan0: associated
+[39192.612076] ieee80211 phy0: wlan0: No probe response from AP 76:d9:ac:11:16:86 after 500ms, disconnecting.
+[39192.613294] cfg80211: Calling CRDA to update world regulatory domain
+[39196.386654] wlan0: authenticate with 76:d9:ac:11:16:86 (try 1)
+[39196.394277] wlan0: authenticated
+[39196.394307] wlan0: associate with 76:d9:ac:11:16:86 (try 1)
+[39196.409165] wlan0: RX AssocResp from 76:d9:ac:11:16:86 (capab=0x401 status=0 aid=3)
+[39196.409172] wlan0: associated
+[39468.580074] ieee80211 phy0: wlan0: No probe response from AP 76:d9:ac:11:16:86 after 500ms, disconnecting.
+[39468.581297] cfg80211: Calling CRDA to update world regulatory domain
+[39472.354582] wlan0: authenticate with 76:d9:ac:11:16:86 (try 1)
+[39472.359209] wlan0: authenticated
+[39472.359238] wlan0: associate with 76:d9:ac:11:16:86 (try 1)
+[39472.376356] wlan0: RX AssocResp from 76:d9:ac:11:16:86 (capab=0x401 status=0 aid=3)
+[39472.376364] wlan0: associated
+[39626.532070] ieee80211 phy0: wlan0: No probe response from AP 76:d9:ac:11:16:86 after 500ms, disconnecting.
+[39626.533269] cfg80211: Calling CRDA to update world regulatory domain
+[39630.307729] wlan0: authenticate with 76:d9:ac:11:16:86 (try 1)
+[39630.309566] wlan0: authenticated
+[39630.309596] wlan0: associate with 76:d9:ac:11:16:86 (try 1)
+[39630.508056] wlan0: associate with 76:d9:ac:11:16:86 (try 2)
+[39630.525150] wlan0: RX AssocResp from 76:d9:ac:11:16:86 (capab=0x401 status=0 aid=3)
+[39630.525158] wlan0: associated
+[39842.597050] ieee80211 phy0: wlan0: No probe response from AP 76:d9:ac:11:16:86 after 500ms, disconnecting.
+[39842.599419] cfg80211: Calling CRDA to update world regulatory domain
+[39846.375552] wlan0: authenticate with 76:d9:ac:11:16:86 (try 1)
+[39846.572068] wlan0: authenticate with 76:d9:ac:11:16:86 (try 2)
+[39846.772073] wlan0: authenticate with 76:d9:ac:11:16:86 (try 3)
+[39846.972071] wlan0: authentication with 76:d9:ac:11:16:86 timed out
+[39860.064236] wlan0: authenticate with aa:a1:d7:80:b6:cd (try 1)
+[39860.066071] wlan0: authenticated
+[39860.066099] wlan0: associate with aa:a1:d7:80:b6:cd (try 1)
+[39860.068725] wlan0: RX AssocResp from aa:a1:d7:80:b6:cd (capab=0x401 status=0 aid=2)
+[39860.068732] wlan0: associated
+[40202.532073] ieee80211 phy0: wlan0: No probe response from AP aa:a1:d7:80:b6:cd after 500ms, disconnecting.
+[40202.533291] cfg80211: Calling CRDA to update world regulatory domain
+[40206.210544] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 1)
+[40206.212410] wlan0: authenticated
+[40206.212441] wlan0: associate with 92:dc:0f:23:d7:d4 (try 1)
+[40206.214883] wlan0: RX AssocResp from 92:dc:0f:23:d7:d4 (capab=0x411 status=0 aid=2)
+[40206.214890] wlan0: associated
+[40555.556075] ieee80211 phy0: wlan0: No probe response from AP 92:dc:0f:23:d7:d4 after 500ms, disconnecting.
+[40555.557306] cfg80211: Calling CRDA to update world regulatory domain
+[40559.230464] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 1)
+[40559.428067] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 2)
+[40559.628080] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 3)
+[40559.828057] wlan0: authentication with 92:dc:0f:23:d7:d4 timed out
+[40572.810465] wlan0: authenticate with 92:dc:0f:23:d7:d6 (try 1)
+[40573.008074] wlan0: authenticate with 92:dc:0f:23:d7:d6 (try 2)
+[40573.208065] wlan0: authenticate with 92:dc:0f:23:d7:d6 (try 3)
+[40573.408062] wlan0: authentication with 92:dc:0f:23:d7:d6 timed out
+[40586.402429] wlan0: direct probe to 92:dc:0f:23:d7:d6 (try 1/3)
+[40586.600099] wlan0: direct probe to 92:dc:0f:23:d7:d6 (try 2/3)
+[40586.800070] wlan0: direct probe to 92:dc:0f:23:d7:d6 (try 3/3)
+[40587.000074] wlan0: direct probe to 92:dc:0f:23:d7:d6 timed out
+[40599.980584] wlan0: direct probe to 76:d9:ac:11:16:86 (try 1/3)
+[40600.180052] wlan0: direct probe to 76:d9:ac:11:16:86 (try 2/3)
+[40600.380072] wlan0: direct probe to 76:d9:ac:11:16:86 (try 3/3)
+[40600.580055] wlan0: direct probe to 76:d9:ac:11:16:86 timed out
+[40613.658562] wlan0: direct probe to 76:d9:ac:11:16:86 (try 1/3)
+[40613.856074] wlan0: direct probe to 76:d9:ac:11:16:86 (try 2/3)
+[40613.860233] wlan0: direct probe responded
+[40613.860251] wlan0: authenticate with 76:d9:ac:11:16:86 (try 1)
+[40613.899749] wlan0: authenticated
+[40613.899781] wlan0: associate with 76:d9:ac:11:16:86 (try 1)
+[40614.096056] wlan0: associate with 76:d9:ac:11:16:86 (try 2)
+[40614.296047] wlan0: associate with 76:d9:ac:11:16:86 (try 3)
+[40614.496070] wlan0: association with 76:d9:ac:11:16:86 timed out
+[40627.343281] wlan0: direct probe to 92:dc:0f:23:d7:d4 (try 1/3)
+[40627.540038] wlan0: direct probe to 92:dc:0f:23:d7:d4 (try 2/3)
+[40627.740065] wlan0: direct probe to 92:dc:0f:23:d7:d4 (try 3/3)
+[40627.940063] wlan0: direct probe to 92:dc:0f:23:d7:d4 timed out
+[40640.922503] wlan0: direct probe to 92:dc:0f:23:d7:d4 (try 1/3)
+[40641.120067] wlan0: direct probe to 92:dc:0f:23:d7:d4 (try 2/3)
+[40641.320072] wlan0: direct probe to 92:dc:0f:23:d7:d4 (try 3/3)
+[40641.520061] wlan0: direct probe to 92:dc:0f:23:d7:d4 timed out
+[40654.502506] wlan0: direct probe to 92:dc:0f:23:d7:d6 (try 1/3)
+[40654.700061] wlan0: direct probe to 92:dc:0f:23:d7:d6 (try 2/3)
+[40654.900066] wlan0: direct probe to 92:dc:0f:23:d7:d6 (try 3/3)
+[40655.100070] wlan0: direct probe to 92:dc:0f:23:d7:d6 timed out
+[40668.074571] wlan0: direct probe to 92:dc:0f:23:d7:d6 (try 1/3)
+[40668.272071] wlan0: direct probe to 92:dc:0f:23:d7:d6 (try 2/3)
+[40668.472068] wlan0: direct probe to 92:dc:0f:23:d7:d6 (try 3/3)
+[40668.672073] wlan0: direct probe to 92:dc:0f:23:d7:d6 timed out
+[40681.656138] wlan0: authenticate with 76:d9:ac:11:16:86 (try 1)
+[40681.664000] wlan0: authenticated
+[40681.664080] wlan0: associate with 76:d9:ac:11:16:86 (try 1)
+[40681.669709] wlan0: RX AssocResp from 76:d9:ac:11:16:86 (capab=0x401 status=0 aid=3)
+[40681.669716] wlan0: associated
+[41314.596906] ieee80211 phy0: wlan0: No probe response from AP 76:d9:ac:11:16:86 after 500ms, disconnecting.
+[41314.598664] cfg80211: Calling CRDA to update world regulatory domain
+[41318.371070] wlan0: authenticate with 76:d9:ac:11:16:86 (try 1)
+[41318.568064] wlan0: authenticate with 76:d9:ac:11:16:86 (try 2)
+[41318.582911] wlan0: authenticated
+[41318.582943] wlan0: associate with 76:d9:ac:11:16:86 (try 1)
+[41318.780071] wlan0: associate with 76:d9:ac:11:16:86 (try 2)
+[41318.792667] wlan0: RX AssocResp from 76:d9:ac:11:16:86 (capab=0x401 status=0 aid=3)
+[41318.792674] wlan0: associated
+[41473.572076] ieee80211 phy0: wlan0: No probe response from AP 76:d9:ac:11:16:86 after 500ms, disconnecting.
+[41473.573552] cfg80211: Calling CRDA to update world regulatory domain
+[41477.349783] wlan0: authenticate with 76:d9:ac:11:16:86 (try 1)
+[41477.548067] wlan0: authenticate with 76:d9:ac:11:16:86 (try 2)
+[41477.748073] wlan0: authenticate with 76:d9:ac:11:16:86 (try 3)
+[41477.948065] wlan0: authentication with 76:d9:ac:11:16:86 timed out
+[41491.040292] wlan0: authenticate with aa:a1:d7:80:b6:cd (try 1)
+[41491.043120] wlan0: authenticated
+[41491.043150] wlan0: associate with aa:a1:d7:80:b6:cd (try 1)
+[41491.055589] wlan0: RX AssocResp from aa:a1:d7:80:b6:cd (capab=0x401 status=0 aid=1)
+[41491.055596] wlan0: associated
+[42992.500065] ieee80211 phy0: wlan0: No probe response from AP aa:a1:d7:80:b6:cd after 500ms, disconnecting.
+[42992.502115] cfg80211: Calling CRDA to update world regulatory domain
+[42996.180443] wlan0: direct probe to 92:dc:0f:23:d7:d4 (try 1/3)
+[42996.380073] wlan0: direct probe to 92:dc:0f:23:d7:d4 (try 2/3)
+[42996.383942] wlan0: direct probe responded
+[42996.383958] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 1)
+[42996.387741] wlan0: authenticated
+[42996.387783] wlan0: associate with 92:dc:0f:23:d7:d4 (try 1)
+[42996.393848] wlan0: RX AssocResp from 92:dc:0f:23:d7:d4 (capab=0x411 status=0 aid=2)
+[42996.393854] wlan0: associated
+[43091.556076] ieee80211 phy0: wlan0: No probe response from AP 92:dc:0f:23:d7:d4 after 500ms, disconnecting.
+[43091.558463] cfg80211: Calling CRDA to update world regulatory domain
+[43095.230477] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 1)
+[43095.428073] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 2)
+[43095.628078] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 3)
+[43095.828073] wlan0: authentication with 92:dc:0f:23:d7:d4 timed out
+[43108.807440] wlan0: direct probe to 92:dc:0f:23:d7:d6 (try 1/3)
+[43109.004063] wlan0: direct probe to 92:dc:0f:23:d7:d6 (try 2/3)
+[43109.204065] wlan0: direct probe to 92:dc:0f:23:d7:d6 (try 3/3)
+[43109.404072] wlan0: direct probe to 92:dc:0f:23:d7:d6 timed out
+[43122.393002] wlan0: direct probe to 92:dc:0f:23:d7:d6 (try 1/3)
+[43122.597198] wlan0: direct probe to 92:dc:0f:23:d7:d6 (try 2/3)
+[43122.796067] wlan0: direct probe to 92:dc:0f:23:d7:d6 (try 3/3)
+[43122.996056] wlan0: direct probe to 92:dc:0f:23:d7:d6 timed out
+[43135.976573] wlan0: direct probe to 76:d9:ac:11:16:86 (try 1/3)
+[43136.176072] wlan0: direct probe to 76:d9:ac:11:16:86 (try 2/3)
+[43136.376057] wlan0: direct probe to 76:d9:ac:11:16:86 (try 3/3)
+[43136.379222] wlan0: direct probe responded
+[43136.379239] wlan0: authenticate with 76:d9:ac:11:16:86 (try 1)
+[43136.388851] wlan0: authenticated
+[43136.388885] wlan0: associate with 76:d9:ac:11:16:86 (try 1)
+[43136.413531] wlan0: RX AssocResp from 76:d9:ac:11:16:86 (capab=0x401 status=0 aid=3)
+[43136.413537] wlan0: associated
+[43327.524071] ieee80211 phy0: wlan0: No probe response from AP 76:d9:ac:11:16:86 after 500ms, disconnecting.
+[43327.536121] cfg80211: Calling CRDA to update world regulatory domain
+[43331.310575] wlan0: authenticate with 76:d9:ac:11:16:86 (try 1)
+[43331.508062] wlan0: authenticate with 76:d9:ac:11:16:86 (try 2)
+[43331.708074] wlan0: authenticate with 76:d9:ac:11:16:86 (try 3)
+[43331.908071] wlan0: authentication with 76:d9:ac:11:16:86 timed out
+[43345.000274] wlan0: authenticate with aa:a1:d7:80:b6:cd (try 1)
+[43345.200066] wlan0: authenticate with aa:a1:d7:80:b6:cd (try 2)
+[43345.203885] wlan0: authenticated
+[43345.203915] wlan0: associate with aa:a1:d7:80:b6:cd (try 1)
+[43345.238690] wlan0: RX AssocResp from aa:a1:d7:80:b6:cd (capab=0x401 status=0 aid=1)
+[43345.238697] wlan0: associated
+[43378.504067] ieee80211 phy0: wlan0: No probe response from AP aa:a1:d7:80:b6:cd after 500ms, disconnecting.
+[43378.506245] cfg80211: Calling CRDA to update world regulatory domain
+[43382.179425] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 1)
+[43382.184967] wlan0: authenticated
+[43382.184997] wlan0: associate with 92:dc:0f:23:d7:d4 (try 1)
+[43382.193197] wlan0: RX AssocResp from 92:dc:0f:23:d7:d4 (capab=0x411 status=0 aid=2)
+[43382.193204] wlan0: associated
+[43590.564076] ieee80211 phy0: wlan0: No probe response from AP 92:dc:0f:23:d7:d4 after 500ms, disconnecting.
+[43590.565471] cfg80211: Calling CRDA to update world regulatory domain
+[43594.243915] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 1)
+[43594.440065] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 2)
+[43594.640070] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 3)
+[43594.840078] wlan0: authentication with 92:dc:0f:23:d7:d4 timed out
+[43607.828390] wlan0: authenticate with 92:dc:0f:23:d7:d6 (try 1)
+[43608.028109] wlan0: authenticate with 92:dc:0f:23:d7:d6 (try 2)
+[43608.228072] wlan0: authenticate with 92:dc:0f:23:d7:d6 (try 3)
+[43608.428067] wlan0: authentication with 92:dc:0f:23:d7:d6 timed out
+[43621.403518] wlan0: direct probe to 92:dc:0f:23:d7:d6 (try 1/3)
+[43621.600085] wlan0: direct probe to 92:dc:0f:23:d7:d6 (try 2/3)
+[43621.800071] wlan0: direct probe to 92:dc:0f:23:d7:d6 (try 3/3)
+[43622.000064] wlan0: direct probe to 92:dc:0f:23:d7:d6 timed out
+[43634.980187] wlan0: direct probe to 76:d9:ac:11:16:86 (try 1/3)
+[43635.180067] wlan0: direct probe to 76:d9:ac:11:16:86 (try 2/3)
+[43635.380067] wlan0: direct probe to 76:d9:ac:11:16:86 (try 3/3)
+[43635.580065] wlan0: direct probe to 76:d9:ac:11:16:86 timed out
+[43648.668153] wlan0: direct probe to 76:d9:ac:11:16:86 (try 1/3)
+[43648.868067] wlan0: direct probe to 76:d9:ac:11:16:86 (try 2/3)
+[43649.068075] wlan0: direct probe to 76:d9:ac:11:16:86 (try 3/3)
+[43649.268066] wlan0: direct probe to 76:d9:ac:11:16:86 timed out
+[43662.344731] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 1)
+[43662.349415] wlan0: authenticated
+[43662.349446] wlan0: associate with 92:dc:0f:23:d7:d4 (try 1)
+[43662.356996] wlan0: RX AssocResp from 92:dc:0f:23:d7:d4 (capab=0x411 status=0 aid=2)
+[43662.357003] wlan0: associated
+[51646.564067] ieee80211 phy0: wlan0: No probe response from AP 92:dc:0f:23:d7:d4 after 500ms, disconnecting.
+[51646.565382] cfg80211: Calling CRDA to update world regulatory domain
+[51650.246466] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 1)
+[51650.444069] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 2)
+[51650.644062] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 3)
+[51650.844045] wlan0: authentication with 92:dc:0f:23:d7:d4 timed out
+[51663.832128] wlan0: authenticate with 76:d9:ac:11:16:86 (try 1)
+[51663.837718] wlan0: authenticated
+[51663.837748] wlan0: associate with 76:d9:ac:11:16:86 (try 1)
+[51663.840277] wlan0: RX AssocResp from 76:d9:ac:11:16:86 (capab=0x401 status=0 aid=1)
+[51663.840284] wlan0: associated
+[51825.213509] wlan0: deauthenticating from 76:d9:ac:11:16:86 by local choice (reason=3)
+[51825.214523] cfg80211: Calling CRDA to update world regulatory domain
+[51828.158966] ADDRCONF(NETDEV_UP): wlan0: link is not ready
+[51834.244278] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 1)
+[51834.246050] wlan0: authenticated
+[51834.246079] wlan0: associate with 92:dc:0f:23:d7:d4 (try 1)
+[51834.248541] wlan0: RX AssocResp from 92:dc:0f:23:d7:d4 (capab=0x411 status=0 aid=2)
+[51834.248548] wlan0: associated
+[51834.250526] ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready
+[51844.512054] wlan0: no IPv6 routers present
+[52741.372050] mtrr: no MTRR for d0000000,7b0000 found
+[52752.867011] mtrr: base(0xd0000000) is not aligned on a size(0x7b0000) boundary
+[52803.890285] mtrr: no MTRR for d0000000,7b0000 found
+[52814.654781] mtrr: base(0xd0000000) is not aligned on a size(0x7b0000) boundary
+[60226.596063] ieee80211 phy0: wlan0: No probe response from AP 92:dc:0f:23:d7:d4 after 500ms, disconnecting.
+[60226.597767] cfg80211: Calling CRDA to update world regulatory domain
+[60230.418684] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 1)
+[60230.616060] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 2)
+[60230.816064] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 3)
+[60231.016057] wlan0: authentication with 92:dc:0f:23:d7:d4 timed out
+[60243.998608] wlan0: authenticate with 92:dc:0f:23:d7:d6 (try 1)
+[60244.196069] wlan0: authenticate with 92:dc:0f:23:d7:d6 (try 2)
+[60244.396066] wlan0: authenticate with 92:dc:0f:23:d7:d6 (try 3)
+[60244.596070] wlan0: authentication with 92:dc:0f:23:d7:d6 timed out
+[60257.582725] wlan0: authenticate with 92:dc:0f:23:d7:d6 (try 1)
+[60257.780061] wlan0: authenticate with 92:dc:0f:23:d7:d6 (try 2)
+[60257.980062] wlan0: authenticate with 92:dc:0f:23:d7:d6 (try 3)
+[60258.180071] wlan0: authentication with 92:dc:0f:23:d7:d6 timed out
+[60271.156593] wlan0: authenticate with 76:d9:ac:11:16:86 (try 1)
+[60271.356494] wlan0: authenticate with 76:d9:ac:11:16:86 (try 2)
+[60271.556062] wlan0: authenticate with 76:d9:ac:11:16:86 (try 3)
+[60271.756071] wlan0: authentication with 76:d9:ac:11:16:86 timed out
+[60284.838533] wlan0: direct probe to 76:d9:ac:11:16:86 (try 1/3)
+[60285.036487] wlan0: direct probe to 76:d9:ac:11:16:86 (try 2/3)
+[60285.236072] wlan0: direct probe to 76:d9:ac:11:16:86 (try 3/3)
+[60285.436060] wlan0: direct probe to 76:d9:ac:11:16:86 timed out
+[60298.520949] wlan0: authenticate with aa:a1:d7:80:b6:cd (try 1)
+[60298.523669] wlan0: authenticated
+[60298.523697] wlan0: associate with aa:a1:d7:80:b6:cd (try 1)
+[60298.537543] wlan0: RX AssocResp from aa:a1:d7:80:b6:cd (capab=0x401 status=0 aid=1)
+[60298.537550] wlan0: associated
+[63253.022147] wlan0: deauthenticating from aa:a1:d7:80:b6:cd by local choice (reason=3)
+[63253.024892] cfg80211: Calling CRDA to update world regulatory domain
+[63256.014790] ADDRCONF(NETDEV_UP): wlan0: link is not ready
+[63262.014613] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 1)
+[63262.016674] wlan0: authenticated
+[63262.016702] wlan0: associate with 92:dc:0f:23:d7:d4 (try 1)
+[63262.019442] wlan0: RX AssocResp from 92:dc:0f:23:d7:d4 (capab=0x411 status=0 aid=2)
+[63262.019448] wlan0: associated
+[63262.021311] ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready
+[63272.136023] wlan0: no IPv6 routers present
+[106490.532063] ieee80211 phy0: wlan0: No probe response from AP 92:dc:0f:23:d7:d4 after 500ms, disconnecting.
+[106490.533428] cfg80211: Calling CRDA to update world regulatory domain
+[106494.211067] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 1)
+[106494.212898] wlan0: authenticated
+[106494.212928] wlan0: associate with 92:dc:0f:23:d7:d4 (try 1)
+[106494.215299] wlan0: RX AssocResp from 92:dc:0f:23:d7:d4 (capab=0x411 status=0 aid=2)
+[106494.215305] wlan0: associated
+[110572.580076] ieee80211 phy0: wlan0: No probe response from AP 92:dc:0f:23:d7:d4 after 500ms, disconnecting.
+[110572.581333] cfg80211: Calling CRDA to update world regulatory domain
+[110576.254696] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 1)
+[110576.452065] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 2)
+[110576.652067] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 3)
+[110576.852042] wlan0: authentication with 92:dc:0f:23:d7:d4 timed out
+[110589.831898] wlan0: authenticate with 92:dc:0f:23:d7:d6 (try 1)
+[110590.028062] wlan0: authenticate with 92:dc:0f:23:d7:d6 (try 2)
+[110590.228073] wlan0: authenticate with 92:dc:0f:23:d7:d6 (try 3)
+[110590.428061] wlan0: authentication with 92:dc:0f:23:d7:d6 timed out
+[110603.406670] wlan0: direct probe to 92:dc:0f:23:d7:d6 (try 1/3)
+[110603.604068] wlan0: direct probe to 92:dc:0f:23:d7:d6 (try 2/3)
+[110603.804069] wlan0: direct probe to 92:dc:0f:23:d7:d6 (try 3/3)
+[110604.004064] wlan0: direct probe to 92:dc:0f:23:d7:d6 timed out
+[110616.997146] wlan0: authenticate with 76:d9:ac:11:16:86 (try 1)
+[110617.196066] wlan0: authenticate with 76:d9:ac:11:16:86 (try 2)
+[110617.396074] wlan0: authenticate with 76:d9:ac:11:16:86 (try 3)
+[110617.596059] wlan0: authentication with 76:d9:ac:11:16:86 timed out
+[110630.670586] wlan0: direct probe to 76:d9:ac:11:16:86 (try 1/3)
+[110630.868068] wlan0: direct probe to 76:d9:ac:11:16:86 (try 2/3)
+[110631.068064] wlan0: direct probe to 76:d9:ac:11:16:86 (try 3/3)
+[110631.268057] wlan0: direct probe to 76:d9:ac:11:16:86 timed out
+[110644.346615] wlan0: direct probe to c6:8e:37:e4:ab:4a (try 1/3)
+[110644.544072] wlan0: direct probe to c6:8e:37:e4:ab:4a (try 2/3)
+[110644.744057] wlan0: direct probe to c6:8e:37:e4:ab:4a (try 3/3)
+[110644.944064] wlan0: direct probe to c6:8e:37:e4:ab:4a timed out
+[110658.027250] wlan0: direct probe to c6:8e:37:e4:ab:4a (try 1/3)
+[110658.224064] wlan0: direct probe to c6:8e:37:e4:ab:4a (try 2/3)
+[110658.424065] wlan0: direct probe to c6:8e:37:e4:ab:4a (try 3/3)
+[110658.624071] wlan0: direct probe to c6:8e:37:e4:ab:4a timed out
+[110673.566528] ADDRCONF(NETDEV_UP): wlan0: link is not ready
+[110679.424317] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 1)
+[110679.426119] wlan0: authenticated
+[110679.426147] wlan0: associate with 92:dc:0f:23:d7:d4 (try 1)
+[110679.428489] wlan0: RX AssocResp from 92:dc:0f:23:d7:d4 (capab=0x411 status=0 aid=2)
+[110679.428496] wlan0: associated
+[110679.430377] ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready
+[110689.776052] wlan0: no IPv6 routers present
+[111000.612065] ieee80211 phy0: wlan0: No probe response from AP 92:dc:0f:23:d7:d4 after 500ms, disconnecting.
+[111000.613288] cfg80211: Calling CRDA to update world regulatory domain
+[111004.286633] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 1)
+[111004.484067] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 2)
+[111004.684065] wlan0: authenticate with 92:dc:0f:23:d7:d4 (try 3)
+[111004.884060] wlan0: authentication with 92:dc:0f:23:d7:d4 timed out
+[111017.874615] wlan0: authenticate with 92:dc:0f:23:d7:d6 (try 1)
+[111017.876369] wlan0: authenticated
+[111017.876399] wlan0: associate with 92:dc:0f:23:d7:d6 (try 1)
+[111017.883724] wlan0: RX AssocResp from 92:dc:0f:23:d7:d6 (capab=0x401 status=0 aid=2)
+[111017.883731] wlan0: associated
