@@ -32,7 +32,7 @@ Usage:
     <ul class="posts">
     {% endif %}
 
-    <li><code>{{ post.date | date: "%Y/%m/%d" }}</code> &raquo; <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> <span class="littletxt">({{ post.content | number_of_words }} mots) par {{ post.author }}</span></li>
+    <li><code>{{ post.date | date: "%m/%d" }}</code> &raquo; <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> <span class="littletxt">({{ post.content | number_of_words }} mots) par {{ post.author }}</span></li>
 
     {% if forloop.last %}
       </ul>
