@@ -5,19 +5,19 @@ description: I used to be schizophrenic but now we are going much better.<br> We
 ---
 <p class="menu">
   <a href="archives/">Index des notes</a> et <a href="articles/">articles</a>
-  | <a href="#+7">Videos+7</a>
   | <a href="#archives">Quelques archives</a>
+  | <a href="#+7">Videos+7</a>
   | <del>Qui sommes-nous ?</del>
   <br>
   <a href="#liens">Des liens en désordres</a> (<a href="links/">et plus encore</a>)
   | <a href="ukulele/">Will you be my Ukulele Hero</a><a href="1254662596281.jpg">?</a>
   <br>
   <a href="bazaar/">Random bazaar</a>
-  | <a href="cookbook/">Cookbook</a>
-  | <a href="nh/">Nethack</a>
-  | <a href="code/">Code</a>
+  | <a href="/cookbook/">Cookbook</a>
+  | <a href="/nh/">Nethack</a>
+  | <a href="/code/">Code</a>
   | <a href="/streisand.me/">Streisand.me</a>
-  | <a href="paste/">Pastebin</a>
+  | <a href="/paste/">Pastebin</a>
 
 <!-- duckduckgo.com search engine for Porneia delights -->
 <!-- see https://duckduckgo.com/params.html -->
@@ -79,10 +79,6 @@ style="text-decoration:none;color:#000000;">Google</a> (en attendant
 mieux...)</i></span>
 </div>
 
-<div style="float:right;width:220px;">
-<a href="http://www.laquadrature.net/wiki/Comment_agir_contre_ACTA"><img src="{{ site.baseurl }}/img/logo_acta.png" width="220" alt="[STOP ACTA]"></a>
-</div>
-
 <p>
 Chaque note dispose d'une ancre s'il est besoin de faire des liens.
 Un <a href="rss/rss_log.xml">flux RSS</a> est aussi mis à votre
@@ -97,8 +93,7 @@ hreflang="fr">Planet Libre</a>.
 
 <ul class="posts">
   {% for post in site.posts limit: 6 %}
-  <li><code>{{ post.date | date: "%Y/%m/%d" }}</code>
-    &raquo; <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> <span class="littletxt">({{ post.content | number_of_words }} mots) par {{ post.author }}</span></li>
+  <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> <span class="littletxt">({{ post.date | date: "%Y/%m/%d" }}, {{ post.content | number_of_words }} mots) par {{ post.author }}</span></li>
   {% endfor %}
 </ul>
 
@@ -113,6 +108,33 @@ hreflang="fr">Planet Libre</a>.
 ]
 
 <hr class="flourishes">
+
+<h3 id="archives">&alefsym; Archives</h3>
+
+<p>
+Nous maintenons quelques archives :
+
+<ul class="sub">
+  <li>Nous avons quelques <a href="/awsp/">Adult Word Search
+      Puzzles</a> qui sont, comme le nom l'indique, des grilles de
+      mots à retrouver sur des thèmes pour adultes (en anglais).
+  <li>Une section dédiée au gestionnaire de
+    fenêtre <a href="/larswm/">LarsWM</a> écrit par Lars Bernhardsson
+    dont le développement semble être totalement arrêté. L'archive est
+    composée des sources, de patches ainsi que de
+    certaines binaires et autres documentations. La page officielle du
+    projet ayant disparue, nous en avons aussi mis une copie
+    ici. C'est à notre connaissance le seul miroir de cette page
+    existant (hormis ce qui est disponible sur archive.org).
+  <li>Quelques <a href="/bin/slackbuilds/">SlackBuilds</a>.
+  <li>Toutes les recettes de l'émission culinaire <a href="/5if/">5
+    Ingredient Fix</a> présentée par Claire Robinson sur FoodNetwork
+    au format <code>plain text</code> (avec des photos des plats pour
+    certaines).
+  <li>Des <a href="/piano">partitions pour le piano</a>.
+  <li>Un peu de <a href="/litt/">nourriture pour l'esprit</a>
+    en <code>plain text</code>.
+</ul>
 
 <h3 id="+7">&alefsym; Videos+7</h3>
 
@@ -224,33 +246,6 @@ cette page.
     hreflang="en">Fanou Filali</a> pour
     <a href="http://www.france24.com/fr/20110316-reporters-indonesie-pasung-maison-fous-malades-troubles-mentaux-sante-patients-enchaines-herbes"
     class="external" hreflang="fr">France24</a>.
-</ul>
-
-<h3 id="archives">&alefsym; Archives</h3>
-
-<p>
-Nous maintenons quelques archives :
-
-<ul class="sub">
-  <li>Nous avons quelques <a href="/awsp/">Adult Word Search
-      Puzzles</a> qui sont, comme le nom l'indique, des grilles de
-      mots à retrouver sur des thèmes pour adultes (en anglais).
-  <li>Une section dédiée au gestionnaire de
-    fenêtre <a href="/larswm/">LarsWM</a> écrit par Lars Bernhardsson
-    dont le développement semble être totalement arrêté. L'archive est
-    composée des sources, de patches ainsi que de
-    certaines binaires et autres documentations. La page officielle du
-    projet ayant disparue, nous en avons aussi mis une copie
-    ici. C'est à notre connaissance le seul miroir de cette page
-    existant (hormis ce qui est disponible sur archive.org).
-  <li>Quelques <a href="/bin/slackbuilds/">SlackBuilds</a>.
-  <li>Toutes les recettes de l'émission culinaire <a href="/5if/">5
-    Ingredient Fix</a> présentée par Claire Robinson sur FoodNetwork
-    au format <code>plain text</code> (avec des photos des plats pour
-    certaines).
-  <li>Des <a href="/piano">partitions pour le piano</a>.
-  <li>Un peu de <a href="/litt/">nourriture pour l'esprit</a>
-    en <code>plain text</code>.
 </ul>
 
 <h3 id="liens">&alefsym; Liens divers</h3>

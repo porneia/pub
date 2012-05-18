@@ -4,34 +4,11 @@ Porneia Delights http://porneia.free.fr/pub/
 */
 
 body {
-    margin: 0;
-    padding: 0;
 }
 
 h1 {
     margin-top: 0;
-    max-width: 700px;
     margin: auto;
-    font-family: Georgia;
-    font-size: 2.3em;
-}
-
-h1.articleHeadline {
-    font-size: 1.6em;
-    /* font-weight: normal; */
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-h2.articleHeadline, article h2 {
-    font-weight: normal;
-    font-size: 1.4em;
-    text-align: left;
-}
-
-h3.articleHeadline, article h3 {
-    font-weight: normal;
-    font-size: 1.2em;
 }
 
 img {
@@ -47,19 +24,9 @@ iframe {
     overflow: auto;
 }
 
-ul.posts {
-  list-style-type: none;
-}
-
 ul.posts li {
     line-height: 1.5em;
 }
-
-  /* ul.posts span { */
-  /*   color: #aaa; */
-  /*   font-family: Monaco, "Courier New", monospace; */
-  /*   font-size: 80%; */
-  /* } */
 
 dl {
     padding-top: 0px;
@@ -80,11 +47,6 @@ dt {
 dt a { text-decoration: none; }
 
 dd p { margin-top: 0; }
-
-/* dd p b { */
-/*     font-weight: normal; */
-/*     background: none repeat scroll 0 0 #FFFF66; */
-/* } */
 
 dd pre {
     background-color: transparent;
@@ -116,19 +78,12 @@ sup, sub {
 p.menu {
     margin-bottom: 20px;
     text-align: center;
-    font-size: 1.1em;
+    font-size: medium;
 }
 
 a[hreflang]:after {
     content: "\0000a0(" attr(hreflang) ")";
     background : transparent;
-}
-
-code, pre {
-    font-size: 1.2em;
-    /* font-size: 1.2em; /\* Arial, Sans-serif *\/ */
-    /* font-size: 1.09em; /\* Georgia *\/ */
-    line-height: 1.2em;
 }
 
 blockquote {
@@ -137,9 +92,6 @@ blockquote {
 }
 
 pre {
-    border: 1pt dashed #AEBDCC;
-    background: #FFF;
-    padding: 5pt;
     overflow: auto;
 }
 
@@ -167,26 +119,6 @@ tr.ocolor {
     text-align: center;
 }
 
-#page-container {
-    /* background: #FFFFEE; */ /* like 4chan */
-    background:url('img/content_bg.gif') repeat; /* pwned in some wordpress theme */
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-#content {
-    clear: both;
-    font-family: Sans-serif;
-    font-size: 0.9em;
-    /* font-family: Georgia, Times, Sans-Serif; */
-    /* font-size: 1.1em; */
-    color:#150517;
-    padding: 10px 10px 0px 10px;
-/*     background-image:url('img/pouxfv1.gif'); */
-/*     background-repeat:no-repeat; */
-/*     background-position:right top; */
-}
-
 #header a {
     /* color: #9DD52A; */
     text-decoration: none;
@@ -200,61 +132,6 @@ tr.ocolor {
     padding: 10px 10px 10px 10px;
     margin-left: 20px;
 }
-
-#outer-column-container, #inner-column-container { border-right-width: 0; }
-
-#outer-column-container
-{
-    /* border-left: solid 500px; */
-    /* padding: 0; */
-    /* margin: 0; */
-}
-
-#inner-column-container
-{
-    /* width: 100%; */
-    /* padding: 0; */
-    /* margin: 0; */
-}
-
-/* #logleftcol { */
-/*     text-align: center; */
-/*     float: left; */
-/*     margin-left: -100px; */
-/*     width: 100px; */
-/*     margin-right: 1px; */
-/* } */
-
-/* #logrightcol { */
-/*     float: left; */
-/*     width: 100%; */
-/*     margin-left: -1px; */
-/* } */
-
-#logleftcol {
-    float: left;
-    margin-left: 10px;
-    width: 100%;
-}
-
-#logrightcol {
-    float: left;
-    margin-left: 95px;
-}
-
-#logleftcol p {
-    padding-top: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    margin-bottom: 0;
-}
-
-#logrightcol p {
-    padding-top: 0;
-    margin-top: 0;
-}
-
-
 
 .headertitletext {
     font-size: 1em;
@@ -273,6 +150,15 @@ tr.ocolor {
     text-align: left;
     padding: 0 5px;
     max-width: 475px;
+}
+
+.notebar {
+    font-size: small;
+    line-height: 1em;
+    background: #ccffcc;
+    border: dotted;
+    border-width: 1px;
+    padding: 5px;
 }
 
 .littletxt { font-size: 0.8em; }
@@ -299,48 +185,6 @@ ul.bibliographie {
     vertical-align: text-top;
 }
 
-hr.flourishes {
-    clear: both;
-    display: block;
-    height: 18px;
-    margin: 18px;
-    background: url('img/flourishes.png') no-repeat scroll center 0px transparent; /* -61px */
-    border: 0 none;
-    opacity: 0.8;
-    outline: 0 none;
-}
-
-hr.tinyflourishes {
-    clear: both;
-    display: block;
-    height: 18px;
-    margin: 18px;
-    background: url('img/flourishes.png') no-repeat scroll center -16px transparent; /* -61px */
-    border: 0 none;
-    opacity: 0.8;
-    outline: 0 none;
-}
-
-hr.rishes {
-    clear: both;
-    display: block;
-    height: 18px;
-    margin: 18px;
-    background: url('img/flourishes.png') no-repeat scroll center -36px transparent; /* -61px */
-    border: 0 none;
-    opacity: 0.8;
-    outline: 0 none;
-}
-
-/* .logdate, .logdate a { color: #E15116; } */
-
-.article, article {
-    line-height: 1.5em;
-    text-align: justify;
-    max-width: 682px;
-    margin: auto;
-}
-
 .articleAuthor {
     font-variant: small-caps;
     color: #A81817;
@@ -352,36 +196,6 @@ hr.rishes {
     float: left;
 }
 
-.articleCommentaires {
-    line-height: 1.1em;
-    text-align: left;
-}
-
-.articleCommentaires p {
-    margin: 7px 0px;
-}
-
-.articleCom {
-    border-left: 2px solid #CCC;
-    margin-left: 10px;
-    margin-bottom: 20px;
-    padding: 0 10px 0 10px;
-}
-
-.articleComus {
-    border-left: 2px solid #3F6D90;
-    margin-left: 10px;
-    margin-bottom: 20px;
-    padding: 0 10px 0 10px;
-}
-
-.articleComal {
-    border-left: 2px solid #800517;
-    margin-left: 10px;
-    margin-bottom: 20px;
-    padding: 0 10px 0 10px;
-}
-
 .credit {
     font-family: arial,helvetica,sans-serif;
     color: #909090;
@@ -390,7 +204,6 @@ hr.rishes {
     margin-bottom: 3px;
     text-align: right;
 }
-
 
 figcaption, .caption {
     font-family: arial,helvetica,sans-serif;

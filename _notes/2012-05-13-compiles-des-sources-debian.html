@@ -1,0 +1,28 @@
+---
+layout: project
+title: "Compiler des sources debian"
+date: 2012-05-13 04:00:17 +0200
+---
+<p>
+Un simple aide-mémoire pour compiler et créer un paquet à partir des
+sources téléchargées depuis les dépôts Debian :
+
+<pre>
+$ <b>sudo apt-get source foobar</b>
+$ <b>cd foobar-0.0.X/</b>
+$ # Installation des outils de bases et autres dépendances requises par
+$ # le paquet à compiler
+$ <b>sudo apt-get install debhelper fakeroot</b>
+$ <b>sudo dpkg-buildpackage -rfakeroot</b>
+$ <b>sudo dpkg -i ../foobar_0.0.X*deb</b>
+</pre>
+
+<p>
+Note : cette méthode de création de paquet peut être acceptable dans
+un cadre personnel, si l'on veut modifier les sources ou
+le <code>debian/rules</code> pour une quelconque raison. Il est
+important de ne pas partager les paquets générés de cette manière avec
+autrui car ceux-ci n'ont pas été empaquetés dans un
+environnement <em>sain</em>. Si le but visé est la diffusion de paquet
+Debian ces derniers doivent avoir été créé à l'aide
+de <code>pbuilder</code>.

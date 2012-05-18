@@ -1,9 +1,0 @@
----
-layout: nil
-permalink: .htaccess
----
-HeaderName header.html
-
-AddDescription "bash script to help RSF keep some mirrors up (httrack, rsync, tar, gzip)" mirror-rsf.sh
-AddDescription "bash script to update remote ftp dir from local dir (lftp)" updateftp.sh
-AddDescription "display a simple ascii table" ascii_table.c

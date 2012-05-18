@@ -1,0 +1,27 @@
+---
+layout: project
+title: "pbuilder sur Debian Squeeze (stable) bon à mettre à la poubelle"
+date: 2012-05-18 00:23:11 +0200
+---
+<p>
+Il faut le savoir. Si vous cherchez à utiliser pbuilder (l'outils de
+création de paquet Debian) sur une Debian stable, vous pouvez arrêter
+tout de suite. En effet,
+un <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=363193"
+class="external" hreflang="en">bug</a>
+dans <code>pbuilder-satisfydepends</code> fait qu'il ne comprend pas
+les spécifications d'architecture comme <code>[linux-any]</code> dans
+les Build-Depends du fichier <code>debian/control</code>. Pourtant un
+patch début 2011 a bien été appliqué et a donné la version de pbuilder
+0.199+nmu2... mais qui n'a pas été intégré à Squeeze ; qui est donc
+resté à la version 0.199+nmu1squeeze1... et donc qui bug. Le truc
+c'est que le tag <code>[linux-any]</code> est pas mal utilisé et depuis
+longtemps... Allez savoir pourquoi la version de pbuilder dans stable
+n'a pas eu le plaisir d'être mise à jour.
+
+<p>
+Si vous voulez utiliser pbuilder sur une Debian Squeeze, pas d'autre
+choix que d'utiliser
+l'<a href="http://porneia.free.fr/pub/links/?UINHmA" hreflang="fr">APT
+Pinning</a> pour avoir une version plus récente (aucun problème avec
+les versions sur Wheezy ou Sid).
