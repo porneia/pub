@@ -1,0 +1,35 @@
+---
+layout: project
+title: "Booter Debian sur un iMac G4 depuis l'usb"
+date: 2012-05-19 06:51:05 +0200
+---
+<p>
+Il est bien connu que le boot depuis un périphérique usb est supporté
+sur les ordinateurs Apple depuis déjà longtemps. Voici un petit rappel
+concernant la procédure à suivre pour démarrer l'installeur Debian
+(entre autres) depuis une clef usb sur un iMac G4 (powerpc).
+
+<p>
+La création de la clef se fait en un tour de main (en sachant que tout
+sera effacé sur la cible) :
+
+<pre>
+# <b>dd if=debian-6.0.4-powerpc-CD-1.iso of=/dev/sdb</b>
+</pre>
+
+<p>
+Il faut ensuite redémarrer sur l'Open Firmware en utilisant la
+combinaison de touche <code>Command+Option+O+F</code> dès le
+démarrage. Le but du jeu est d'avant tout trouver où est branché la
+clef usb nommée <code>/disk@&lt;n&gt;</code> (où <em>n</em> est un
+chiffre en fonction du périphérique) grâce aux
+commandes <code>dev</code> et <code>ls</code>. Une fois trouvée il ne
+restera plus qu'à lancer yaboot avec la commande <code>boot</code>.
+
+<pre>
+0 &gt; <b>dev usb0</b>
+0 &gt; <b>ls</b> # si usb0 ne renvoit rien de concluant, continuer sur usb<em>n</em>+1
+0 &gt; <b>dev usb1</b>
+0 &gt; <b>ls</b>
+0 &gt; <b>boot usb1/disk@2:,\install\yaboot</b>
+</pre>
