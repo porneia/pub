@@ -1,0 +1,79 @@
+---
+layout: post
+title: "Après unfoo, foo"
+date: 2006-07-28 06:00:00 +00:00
+author: gapz
+mail: gapz [at] dud-t [point] org
+description:
+commentaire: Cet article a été exhumé par illov&aelig; avec l'aimable autorisation de son auteur.
+category:
+tags: []
+keywords:
+license: "WTF"
+---
+<p>
+<span class="articleAuthor">gapz.tuxfamily.org, 28 juillet 2006, {{ page.author }}</span>
+&mdash; Tout abord qu'est-ce que le script <code>unfoo</code>, c'est
+un script tout simple dont le but est de pouvoir décompresser tout
+type d'archive. Il se présente sous la forme d'un simple script bash
+mais il reste très utile !
+
+<p>
+Pour pouvoir décompresser une archive <code>.tar.bz2</code> il faut
+connaître la bonne commande avec les bons arguments, dans cette
+exemple :
+
+<pre>
+$ <b>bzip2 -dc archive.tar.bz2 | tar xf -</b>
+</pre>
+
+<p>
+Donc, à moins de connaître la commande, ainsi que toutes les autres
+(pour <code>tar</code>, <code>pkg</code>, <code>tar.gz</code>,
+<code>zip</code>...) il vous suffit désormais de placé le script unfoo
+dans /bin, de lui mettre les droits d'éxécution (ajuster en fonction
+des droits que vous voulez mettre) :
+
+<pre>
+$ <b>chmod 755</b>
+</pre>
+
+<p>
+Après ceci, un simple :
+
+<pre>
+$ <b>unfoo archive.tar</b>
+</pre>
+
+<p>
+Décompressera l'archive !
+
+<p>
+<a href="{{ site.url }}/code/unfoo.sh"><em>Consulter la source</em></a>.
+
+<h2 class="articleHeadline">foo</h2>
+
+<p>
+Suite à l'utilisation intensive de ce script... J'ai alors décidé de
+faire tout simplement l'inverse : <code>foo</code>.
+
+<p>
+Il aura pour simple but de compresser n'importe quoi en fonction de
+l'extension que vous metterez au fichier en premier argument. Pour le
+moment je n'ai mis que les deux formats que j'utilise, mais même si
+vous ne connaissez pas bash vous n'aurez que très peu de mal à
+rajouter le format que vous voulez.
+
+<p>
+<a href="{{ site.url }}/code/foo.sh"><em>Consulter la source</em></a>.
+
+<h2 class="articleHeadline">Liens</h2>
+
+<p>
+<ul>
+  <li><a href="http://obsoleet.org/code" class="external"
+         hreflang="en">Site officiel de unfoo</a></li>
+  <li><a href="http://www.tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html"
+         class="external" hreflang="en">Tutorial pour Bash (en
+      anglais)</a></li>
+</ul>

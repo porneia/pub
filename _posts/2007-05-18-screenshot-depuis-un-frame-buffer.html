@@ -1,0 +1,81 @@
+---
+layout: post
+title: "Screenshot depuis un Frame-Buffer"
+date: 2007-05-18 06:00:00 +00:00
+author: gapz
+mail: gapz [at] dud-t [point] org
+description:
+commentaire: Cet article a été exhumé par illov&aelig; avec l'aimable autorisation de son auteur.
+category:
+tags: []
+keywords:
+license: "WTF"
+---
+<p>
+<span class="articleAuthor">gapz.tuxfamily.org, 18 mai 2007, {{ page.author }}</span>
+&mdash; Voici une petite astuce qui vous permet de prendre une capture
+d' écran depuis un <a href="http://en.wikipedia.org/wiki/Framebuffer"
+class="wikipedia" hreflang="en">FrameBuffer</a>. Malgré tout les
+outils déja disponibles il vous faudra un petit soft qui permettra de
+convertir un fichier au
+format <a href="http://fr.wikipedia.org/wiki/RAW" class="wikipedia"
+hreflang="fr">RAW</a> (qui correspondra au contenu de la mémoire du
+frame-buffer) en un fichier au
+format <a href="http://fr.wikipedia.org/wiki/Portable_anymap"
+class="wikipedia" hreflang="fr">PNM</a>. En voici la source :
+
+{% highlight c %}
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(int argc, char *argv[])
+{
+    int len;
+    unsigned short buf[256];
+    FILE *f;
+    int w, h;
+
+    w=1024;
+    h=768;
+
+    printf("P6\n%d %d \n255\n", w, h);
+    f=fopen(argv[1], "rb");
+    while((len=fread(buf, 2, 256, f))!=0)
+    {
+        int i;
+
+        for (i=0; i<len; i++)
+        {
+            unsigned char r, g, b;
+        #ifdef BYTESWAP
+            buf[i]=((buf[i] & 0xff00) >> 8) + ((buf[i] & 0x00ff) << 8);
+        #endif
+            r=(buf[i] & 0xF800) >> 8;
+            g=(buf[i] & 0x07E0) >> 3;
+            b=(buf[i] & 0x001F) << 3;
+            printf("%c%c%c", r, g, b);
+        }
+    }
+    return(0);
+}
+{% endhighlight %}
+
+<p>
+Une fois la source adaptée à votre configuration, compilée (<code>gcc
+raw2pnm.c -o raw2pnm</code>) et placé (le binaire !) dans un chemin
+(<code>echo $PATH</code>) adéquat:
+
+<pre>
+$ <b>cp /dev/fb0 scrot.raw; raw2pnm scrot.raw | convert - scrot.png</b>
+$ <b>rm scrot.raw</b>
+</pre>
+
+<p>
+Bien entendu, il y a mille façons de convertir le &quot;pnm&quot; dans
+le format que vous voulez ;-). Voici quelques screenshots réalisés
+avec cette méthode: <del>fb.png</del>, <del>frame-buffer.png</del>,
+<del>irssi-mplayer-fb.png</del>. Il existe aussi quelques outils
+dédiés tel que FBGrab
+
+<p>
+<em>Astuce glanée dans le livre Linux embarqué 2eme édition de Pierre Ficheux, EAN : 978-2212116748</em>

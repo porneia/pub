@@ -1,0 +1,89 @@
+---
+layout: post
+title: "La banalisation des performances"
+date: 2006-12-01 06:00:00 +00:00
+author: gapz
+mail: gapz [at] dud-t [point] org
+description:
+commentaire: Cet article a été exhumé par illov&aelig; avec l'aimable autorisation de son auteur.
+category:
+tags: []
+keywords:
+license: "WTF"
+---
+<p>
+<span class="articleAuthor">gapz.tuxfamily.org, 1 décembre 2006, {{ page.author }}</span>
+&mdash; Alors que je cherchais quelques ouvrages sur les systèmes
+embarqués, je me suis retrouvé à lire l'introduction d'un texte (sur
+l'embarqué bien sûr) qui résumait parfaitement l'idée de <strong>la
+banalisation des performances</strong>. Je vous met à disposition la
+partie du texte que j'ai trouvé très pertinente la dessus, mais sachez
+que la version complète est disponible ici
+: <a href="http://docs.mandragor.org/files/Misc/GLFM/lm22/construction_sys_linux_embedded.html"
+class="external" hreflang="fr">Construction d'un système LINUX
+embarqué</a>.
+
+<p>
+Voici l'extrait :
+
+<blockquote>
+<p>
+La chute vertigineuse des couts du hardware ces dernières années a
+provoqué une inflation dans l'espace utilisé par les systèmes
+d'exploitation modernes. Alors que certains d'entre nous ont débuté
+avec 1Ko de mémoire vive et un système sur 8Ko de ROM (le ZX-81 !) il
+n'est pas rare aujourd'hui de voir des adolescents pester contre le
+PII de l'année précédente qui n'affiche pas assez vite les formes
+plantureuses de Lara Croft :-)
+
+<p>
+La banalisation des performances a quelques effets pervers:
+
+<p>
+<ul>
+  <li>elle masque les imperfections et la faible optimisation (voire
+    les bugs) de certains produits: <em>software becomes slower faster
+    than hardware becomes faster</em>.
+  <li>elle incite à une consommation effrénée de hardware ce qui
+    compense la baisse des couts de celui-ci.
+  <li>elle donne des mauvaises habitudes aux programmeurs qui, forts
+    de leurs 256 Mo de RAM, 10 Go de disque et Pentium XXX à YYY GHz
+    ne comprennent pas pourquoi la classe Java 'Hello World!' prend
+    tellement de temps à s'exécuter alors qu'il a suffit de cliquer
+    sur le bouton generate code :-)
+  <li>elle masque le fonctionnement réel du système ce qui fait que
+    l'on ne sait plus trop des centaines de bibliothèques et des
+    dizaines de packages lesquels sont vraiment utiles pour
+    l'utilisation courante de la machine. Par contre, en cas de
+    vérification du disque par e2fsck, on se rend compte que les
+    packages sont bien la et que ces 4 cafés bus en attendant étaient
+    très bons en fait.
+</ul>
+
+<p>
+L'exemple de plus flagrant de cette course à la consommation est bien
+entendu le système MS Windows et les applications associées pour
+lesquelles chaque version est accompagnée d'un
+certain <em>embompoint</em> compensé par l'achat de la dernière carte
+3D, de quelques Go de plus ou d'une barrette de RAM
+supplémentaire.
+
+<p>
+La tendance n'épargne pas les systèmes LINUX dont les distributions
+les plus célèbres prennent de plus en plus de poids. J'ai longtemps
+utilisé ma première distribution avec un kernel 0.99 puis 1.0 sur un
+486SX25 avec 8Mo de RAM, peux-t-on l'imaginer sur les distributions
+standards d'aujourd'hui ?
+
+<p>
+Un avantage notable avec LINUX est la complète transparence du
+système. Un utilisateur averti pourra à partir d'une configuration
+standard créer un système très optimisé tant au niveau de l'espace
+disque que de la mémoire utilisée. A partir d'un certain niveau
+extrème de réduction, on pourra parler de système embarqué
+(<em>embedded</em> ou <em>embeddable</em>).
+</blockquote>
+
+<p>
+En tout cas merci à Pierre Ficheux pour avoir écrit ce texte (pas que
+l'introduction bien sûr).

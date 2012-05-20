@@ -1,0 +1,81 @@
+---
+layout: post
+title: "Crypter ses mails avec vim"
+date: 2006-10-21 06:00:00 +00:00
+author: gapz
+mail: gapz [at] dud-t [point] org
+description:
+commentaire: Cet article a été exhumé par illov&aelig; avec l'aimable autorisation de son auteur.
+category:
+tags: []
+keywords:
+license: "WTF"
+---
+<p>
+<span class="articleAuthor">gapz.tuxfamily.org, 21 octobre 2006, {{ page.author }}</span>
+&mdash; Étant un utilisateur fréquent de vim, je me suis dit pourquoi
+ne pas se servir directement de celui-ci pour crypter mes fichiers
+texte et ainsi ne plus avoir qu'à les envoyer par mail. L'astuce est
+vraiment simple, il suffit de rajouter dans votre vimrc :
+
+{% highlight vim %}
+map <F9> :1,$!gpg --armor --encrypt 2>/dev/null
+map <F10> :1,$!gpg --decrypt 2>/dev/null
+{% endhighlight %}
+
+<p>
+Ensuite, il vous suffit d'appuyer sur F9 et de confirmer par la touche
+entrée pour crypter le texte présent. Il vous suffit après de choisir
+la ou les personnes à qui le message est destiné :
+
+<pre>
+You did not specify a user ID. (you may use &quot;-r&quot;)
+Current recipients:
+Enter the user ID.  End with an empty line :
+</pre>
+
+<p>
+Puis, d'enregistrer et de quitter (<code>esc, :wq</code>). Bien
+entendu vous pouvez aussi utiliser une autre solution, comme le
+chiffrage symétrique :
+
+{% highlight vim %}
+map <F5> :1,$!gpg  --armor --symmetric --cipher-algo AES192
+{% endhighlight %}
+
+<p>
+Comme dans le cas précédent, il vous suffit d'appuyer sur la touche
+correspondante, dans notre cas F5, et de confirmer pour que gpg vous
+demande de rentrer le mot de passe pour crypter le fichier :
+
+<pre>
+Enter passphrase:
+</pre>
+
+<p>
+Pour le décrypter il vous suffira simplement d'utiliser la touche F10 ;-)
+
+<p>
+Pour ceux qui n'utilise pas le chiffrage symétrique, la
+commande <code>gpg --armor --symmetric --cipher-algo AES192</code>
+permet de chiffrer le texte présent dans vim au moyen de l'algorithme
+AES sur la clé de 192 bits, pour plus d'information <code>man gpg</code>.
+
+<p>
+Commme vous l'aurez compris c'est extensible à toutes les commandes
+possibles et inimaginables.
+
+<p>
+Liens :
+
+<ul>
+  <li><a href="http://www.gnupg.org/gph/en/manual/book1.html"
+         class="external" hreflang="en">The GNU Privacy Handbook</a></li>
+  <li><a href="http://vi-improved.org/" class="external"
+         hreflang="en">vi-improved.org</a></li>
+  <li><a href="http://rick.vanrein.org/linux/" class="external"
+         hreflang="en">rick.vanrein.org/linux/</a>
+  <li><a href="http://blog.uggy.org/index.php?2006/05/28/95-chiffrer-en-symetrique-avec-gpg"
+         class="external" hreflang="fr">Un billet de Uggy sur le chiffrement
+      symétrique</a></li>
+</ul>

@@ -1,0 +1,205 @@
+---
+layout: post
+title: "Quelques nouvelles (et quelques astuces pour LaTeX)"
+date: 2007-12-29 16:34:40 +00:00
+author: gapz
+mail: gapz [at] dud-t [point] org
+description:
+commentaire: Cet article a été exhumé par illov&aelig; avec l'aimable autorisation de son auteur.
+category:
+tags: []
+keywords:
+license: "WTF"
+---
+<p>
+<span class="articleAuthor">gapz.tuxfamily.org, 29 décembre 2007, {{ page.author }}</span>
+&mdash; Voilà maintenant quelques jours (mois ?) que je n'ai pas écris
+quelques mots ici. Ceci est étroitement lié au fait que j'ai beaucoup
+de chose à faire, tant au niveau personnel qu'au niveau de mes
+cours. Ainsi, je n'ai pas eu trop le temps de vous parler de mes
+activités et de partager quelques astuces avec vous.
+
+<p>
+J'ai donc pris pas mal de retard dans toute les choses que j'esperais
+faire ici, notamment une refonte complète de cet espace (sans doute
+mieux organisé), parler un peu de l'avancement de quelques projets
+comme emb (je l'ai recodé en python en ajoutant quelques modules pour
+faire des histogrammes dans le domaine spatial et fréquentiel), mais
+aussi de LaTeX, d'OpenBSD et de toutes ces choses qui remplissent mes
+journées.
+
+<p>
+Bon, il faut bien commencer par un bout, voici donc un petit Makefile
+que j'ai fais pour générer un PDF à partir d'un document LaTeX. Il
+permet entre autre (et c'est essentiellement pour cela que je l'ai
+codé), de générer :
+
+<ul>
+ <li>un glossaire (avec glosstex)
+ <li>chaque figure au format fig dans le format désiré (ici pdf/pdf_t)
+ <li>le PDF (oui, ca aurait sans doute été idiot de ne pas le faire)
+</ul>
+
+<p>
+Le Makefile n'est pas forcément bien écrit, j'ai fais pour le
+mieux. Le voici donc sans plus attendre :
+
+{% highlight makefile %}
+PROJET=projet
+
+LATEX=pdflatex
+LATEXFLAGS=-file-line-error -halt-on-error -interaction errorstopmode
+GLOSSTEX=glosstex
+MAKEINDEX=makeindex
+
+GDF=glossaire.gdf
+
+READER=xpdf #-fullscreen
+CFIG=fig2dev
+
+IMGSRC=$(wildcard ./fig/src/*.fig)
+IMAGES_tex=$(shell grep -E -h -o 'fig/.*\.(pdf_t)' $(PROJET).tex)
+IMAGES_pdf=$(patsubst %.pdf_t,%.pdf,$(IMAGES_tex))
+SRC=$(wildcard ./*.tex)
+
+$(PROJET).pdf:$(SRC) $(IMAGES_pdf) $(IMAGES_tex) $(SRC) $(IMGSRC) $(GDF) $(PROJET).tex
+    latex $(LATEXFLAG) $(PROJET).tex
+    $(GLOSSTEX) $(PROJET) $(GDF)
+    $(MAKEINDEX) $(PROJET).gxs -o $(PROJET).glx -s glosstex.ist
+    $(LATEX) $(PROJET).tex
+    $(LATEX) $(PROJET).tex
+
+fig/%.pdf:fig/src/%.fig
+    $(CFIG) -L pdftex $? $@
+
+fig/%.pdf_t:fig/%.pdf
+    $(CFIG) -L pdftex_t -p $? fig/src/$(shell basename $? .pdf).fig $@
+
+run: $(PROJET).pdf
+    $(READER) $(PROJET).pdf
+
+.PHONY:check
+check:
+    aspell --lang=fr_FR --encoding=UTF-8 -c $(PROJET).tex
+
+.PHONY:cleangraph
+cleangraph:
+    @rm -f fig/*.pdf fig/*.pdf_t
+            
+.PHONY:clean
+clean: cleangraph
+    @rm -f *.aux *.log *.toc *.lof *.glo *.ist *.ind *.gxs *.gxg *.ilg *.glx *.idx *.out
+
+.PHONY:mrproper
+mrproper:clean cleangraph
+    @rm $(PROJET).pdf
+{% endhighlight %}
+
+<p>
+Pour pouvoir l'utiliser dans l'état actuel il vous faut une structure
+de la forme :
+
+<ul>
+  <li><code>projet.tex</code> qui correspond au document principale
+  <li><code>fig/</code> correspondant au répertoire des figures au
+    format pdf/pdf_t (celle générée automatiquement)
+  <li><code>fig/src/</code> qui correspond au répertoire des sources au
+    format fig
+</ul>
+
+<p>
+Toutes les figures qui serons importées dans le document projet.tex et
+qui se trouve dans fig/src serons automatiquement générées. Voici un
+exemple:
+
+{% highlight tex %}
+> projet.tex
+[...]
+\begin{figure}[!htb]
+    \scalebox{1}{\input{fig/test.pdf_t}}
+    \caption{La belle figure !!!}\label{test}
+\end{figure}
+{% endhighlight %}
+
+<p>
+Comme vous l'aurez remarqué, on importe une figure qui n'est pas
+encore générée. Après un petit <em>make</em> donc, fig2dev se met au
+travail et vous génère vos figures.
+
+<p>
+Pour ce qui est du glossaire, rien de nouveau, il suffit simplement de
+lire la documentation mis à votre
+disposition: <a href="http://www.ctan.org/tex-archive/help/Catalogue/entries/glosstex.html"
+class="external" hreflang="en">glosstex</a>. Personnellement, j'ai
+juste rajouté/enlevé quelques petites choses pour obtenir un rendu un
+peu plus propre à mon goût, voici mon fichier <em>glosstex.std</em> :
+
+{% highlight tex %}
+{% raw %}
+\def\filename{glosstex}
+\def\fileversion{0.4}
+\def\filedate{2007/12/13}
+\let\docdate=\filedate
+\newcommand{\GLX@output@short}[3]{#3}
+\newcommand{\GLX@output@long}[3]{#3}
+\newcommand{\glosstexpage}[1]{\nobreak{\itshape\pagename~#1}\nobreak}
+\glxgldefault{glo}{p}
+\glxacdefault{acr}{n}
+\glxitemorderdefault{glo}{}
+\glxitemplacementdefault{glo}{}
+\glxitemorderdefault{acr}{}
+\glxitemplacementdefault{acr}{}
+\newcommand{\GLX@benv@glo}{\begin{description}}
+\newcommand{\GLX@eenv@glo}{\end{description}}
+\newcommand{\GLX@item@glo}[7]{%
+  \item[#2]\ifx#3\empty\else\emph{#3}\space\fi#4\space#7}
+\newcommand{\GLX@item@acr@label}[1]{\mbox{#1}\dotfill}
+\newcommand{\GLX@benv@acr}{
+  \begin{list}{}{%
+      \renewcommand{\makelabel}{\GLX@item@acr@label}%
+      \setlength{\labelwidth}{7em}%
+      \leftmargin\labelwidth \advance\leftmargin by \labelsep}}
+\newcommand{\GLX@eenv@acr}{\end{list}}
+\newcommand{\GLX@item@acr}[7]{%
+  \item[\textsc{#2}]%
+    \ifx#3\empty\else#3:\,\fi\ifx#4\empty\else#4\space\fi#7} % changement de #3\quad en #3:\,
+\ifx\glossaryname\@undefined
+  \def\glossaryname{Glossary}
+\fi
+\ifx\listacronymname\@undefined
+  \def\listacronymname{List of Acronyms}
+\fi
+\ifx\pagename\@undefined
+  \def\pagename{page}
+\fi
+\ifx\chapter\@undefined
+  \glxheading{glo}{}
+  \glxheading{acr}{}
+\else
+  \glxheading{glo}{}
+  \glxheading{acr}{}
+\fi
+\endinput
+{% endraw %}
+{% endhighlight %}
+
+<p>
+Vous remarquerez sans doute que j'ai juste enlevé les titres par
+defaut et changer une autre ligne pour modifier l'apparence du
+glossaire, je n'ai pas vraiment chercher à faire quelque chose de plus
+poussé.
+
+<p>
+Toujours pour LaTeX, je me suis codé un petit thême beamer (largement
+inspiré du thême proposé
+par <a href="http://www.rennes.enst-bretagne.fr/~gbertran/pages/tutorials_latex.html"
+class="external" hreflang="fr">Gilles Bertrand</a>). Les fichiers sont
+disponible ici: <del>repos/LaTeX/</del> (de même que le Makefile et
+glosstex.std).
+
+<p>
+Voilà voilà, j'espère pouvoir poster encore quelques astuces très
+prochainement, d'ici la (non je ne vais pas vous souhaiter quoique ce
+soit), mais faite plutôt attention à votre peau, le chef des armées
+vous surveille !
+		

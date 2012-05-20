@@ -1,0 +1,76 @@
+---
+layout: post
+title: "Fond d'écran aléatoire"
+date: 2006-08-31 06:00:00 +00:00
+author: gapz
+mail: gapz [at] dud-t [point] org
+description:
+commentaire: Cet article a été exhumé par illov&aelig; avec l'aimable autorisation de son auteur.
+category:
+tags: []
+keywords:
+license: "WTF"
+---
+<p>
+<span class="articleAuthor">gapz.tuxfamily.org, 31 août 2006, {{ page.author }}</span>
+&mdash; Cette astuce est essentielement pour les personnes ayant comme
+gestionnaire de fenêtres <a href="http://www.fluxbox.org/"
+class="external" hreflang="en">Fluxbox</a>.
+
+<p>
+Pour les autres vous pouvez toujours vous inspirer du script qui très
+simple, ce qui en fait sa force !
+
+<p>
+Pour disposer donc d'un fond d'écran aléatoire il faut déja créer un
+répertoire qui contiendra l'intégralité des papiers peints que vous
+souhaiterez avoir, pour moi ce sera <code>~/wallpaper</code>. Puis,
+placer le script suivant ou vous le désirez (pour
+moi, <code>~/.fluxbox/</code>) :
+
+{% highlight bash %}
+#!/bin/sh
+flux=true #Tant que fluxbox tourne
+
+while $flux; do
+
+      #Temporisation de 2000 secondes
+      sleep 2000
+      nombre=$RANDOM
+      let "nombre %= `ls ~/wallpaper/ | wc -l`"
+
+      let "nombre += 1"
+      fbsetbg -f ~/wallpaper/`ls ~/wallpaper | head -n $nombre | tail -n 1`
+
+      #Fluxbox fonctionne-t-il toujours ?
+      if ! [ `ps aux | grep fluxbox | wc -l` -gt 1 ];then
+
+              flux=false
+      fi
+done
+{% endhighlight %}
+
+<p>
+Puis mettez les droits d'éxécution pour les utilisateurs que vous
+souhaitez, par exemple :
+
+<pre>
+$ <b>chmod 711 nom_du_script</b>
+</pre>
+
+<p>
+Puis ajoutez cette ligne dans votre <code>./fluxbox/startup</code> :
+
+<pre>
+$ <b>exec ~/.fluxbox/nom_du_script</b>
+</pre>
+
+<p>
+Il vous suffit maintenant de redémarrer fluxbox et d'attendre 2000s
+;-) N'oubliez pas d'ajuster les chemins vers votre répertoire de
+wallpapers et du chemin du script.
+
+<p>
+Merci à
+<a href="http://takia.free-nux.org/~unixversal/" class="external"
+         hreflang="fr">Marc Millien</a>.

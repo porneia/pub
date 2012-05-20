@@ -1,0 +1,79 @@
+---
+layout: post
+title: "Le flux RSS en console"
+date: 2006-10-07 06:00:00 +00:00
+author: gapz
+mail: gapz [at] dud-t [point] org
+description:
+commentaire: Cet article a été exhumé par illov&aelig; avec l'aimable autorisation de son auteur.
+category:
+tags: []
+keywords:
+license: "WTF"
+---
+<p>
+<span class="articleAuthor">gapz.tuxfamily.org, 7 octobre 2006, {{ page.author }}</span>
+&mdash; Après une utilisation peu avancé de divers agrégateurs
+graphiques tels que <a href="http://liferea.sourceforge.net/"
+class="external" hreflang="en">liferea</a>, ou encore l'extension
+<br /> pour <a href="http://www.mozilla.com/thunderbird/"
+class="external" hreflang="en">thunderbird</a> je me tourne vers un
+agrégateur en console du nom de <a href="http://www.raggle.org/"
+class="external" hreflang="en">Raggle</a>.
+
+<p>
+Pourquoi un tel choix ? Déja car j'aime les applications en console,
+cela permet par exemple de pouvoir accéder de manière simple et légère
+à mon agrégateur via ssh. De plus, étant donné que l'interface en
+console est très légère (ncurse powered) cela me permet de pouvoir
+économiser des ressources précieuses. Enfin, raggle est écrit
+en <a href="http://www.ruby-lang.org/" class="external"
+hreflang="en">Ruby</a> et utilise la
+librairie <a href="http://www.gnu.org/software/ncurses/ncurses.html"
+class="external" hreflang="en">Ncurses</a> pour l'interface, ce bon
+mélange nous donne donc une application légère et très stable.
+
+<p>
+Pour se qui est des fonctionnalités
+de <a href="http://www.raggle.org/about/" class="external"
+hreflang="en">Raggle</a> :
+
+<ul>
+ <li>Raccourcis claviers personnalisable via un fichier de
+   configuration ;
+ <li>Rendu HTML basique ;
+ <li>Possibilité d'utilisé des proxys HTTP ;
+ <li>Importation/exportation de thême
+   en <a href="http://www.opml.org/" class="external"
+         hreflang="en">OPML</a> ;
+ <li>Support de différentes version de RSS ;
+ <li>Classement des divers flux par catégorie ;
+ <li>Détection automatique du navigateur (par exemple après avoir
+   appuyé sur la touche <code>o</code>, le billet s'ouvre dans notre
+   navigateur) ;
+ <li>Raggle roule sous Linux, FreeBSD, Mac OSX, et OpenBSD, pour les
+   autres distribution le site officiel ne donne pas d'information.
+</ul>
+
+<p>
+Voici deux petits screenshots de mon raggle (je n'ai pas encore
+modifier mon thème) :
+
+<p style="display:block;margin:0 auto;">
+<figure>
+<img title="[raggle 1]" class="imgborder" alt="[raggle 1]"
+     src="{{ site.url }}{{ site.baseurl }}/img/raggle.png">
+  <figcaption>Raggle &mdash; Lecture des flux</figcaption>
+</figure>
+
+<p style="display:block;margin:0 auto;">
+<figure>
+<img title="[raggle 2]" class="imgborder" alt="[raggle 2]"
+     src="{{ site.url }}{{ site.baseurl }}/img/raggle-2.png">
+  <figcaption>Raggle &mdash; Édition d'un flux</figcaption>
+</figure>
+
+<p>Lien : le site officiel, <a href="http://www.raggle.org/"
+class="external" hreflang="en">http://www.raggle.org/</a>, vous y
+trouverez les dernières versions en téléchargement, mais aussi des
+screenshots etc...

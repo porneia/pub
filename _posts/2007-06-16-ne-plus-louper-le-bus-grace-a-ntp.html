@@ -1,0 +1,106 @@
+---
+layout: post
+title: "Ne plus louper le bus grâce à NTP !"
+date: 2007-06-16 06:00:00 +00:00
+author: gapz
+mail: gapz [at] dud-t [point] org
+description:
+commentaire: Cet article a été exhumé par illov&aelig; avec l'aimable autorisation de son auteur.
+category:
+tags: []
+keywords:
+license: "WTF"
+---
+<p>
+<span class="articleAuthor">gapz.tuxfamily.org, 16 juin 2007, {{ page.author }}</span>
+&mdash; <a href="http://ntp.org/" class="external"
+hreflang="en">NTP</a>, Network Time Protocole, est comme son nom
+l'indique, un protocole qui permet (entre autres) de gérer l'heure de
+vos machines via le réseau. On peut ne pas prêter attention à cela,
+cependant c'est un point très important d'autant plus que très facile
+à mettre en oeuvre (et léger en plus). Au risque de plagier tout ce
+qu'il <a href="http://www.ntp.org/documentation.html" class="external"
+hreflang="en">existe</a> déja à se sujet, je vais vous présenter
+rapidement les points importants de <a href="http://ntp.org/"
+class="external" hreflang="en">NTP</a>.
+
+<p>
+L'architecture du réseau <a href="http://ntp.org/" class="external"
+hreflang="en">NTP</a> est organisée en strates. On peut notamment
+distinguer grossièrement 3 niveau :
+
+<ol>
+  <li>des serveurs pilotés par des horloges
+  atomiques, <a href="http://www.eecis.udel.edu/~mills/ntp/clock1a.html"
+  class="external"
+  hreflang="en">eecis.udel.edu/~mills/ntp/clock1a.html</a>
+
+  <li>des serveurs publiques que l'on peut utiliser librement
+    (certains demandent une
+    authentification), <a href="http://www.eecis.udel.edu/~mills/ntp/clock2a.html"
+    class="external"
+    hreflang="en">eecis.udel.edu/~mills/ntp/clock2a.html</a>
+  <li>des serveurs que l'on trouve chez des
+    &laquo;&nbsp;particuliers&nbsp;&raquo;
+</ol>
+
+<p>
+La question qui se pose maintenant est &laquo;&nbsp;Mais comment se
+servir de NTP ?&nbsp;&raquo;. Cela est extêmement simple, tout abord
+il vous faut installer <a href="http://www.ntp.org/downloads.html"
+class="external" hreflang="en">NTP</a> (suivez pour cela une des
+méthodes proposées par votre distribution). Une fois installé, il vous
+faut le configurer à partir du fichier de configuration qui va bien
+(<code>/etc/ntp.conf</code>). La première chose à faire est de choisir
+un serveur qui vous fournira l'heure, vous pouvez entre autres
+indiquer le serveur &laquo;&nbsp;round robin&nbsp;&raquo; de
+ntp.org, <code>pool.ntp.org</code>, qui permet d'être redirigé vers un
+serveur disponible (cela de manière aléatoire). On peut aussi noter la
+présence d'autre &laquo;&nbsp;round robin&nbsp;&raquo; dont vous
+trouverez la liste ici
+: <a href="http://support.ntp.org/bin/view/Servers/NTPPoolServers"
+class="external"
+hreflang="en">http://support.ntp.org/bin/view/Servers/NTPPoolServers</a>.
+
+<p>
+Lancez maintenant ntp en démon :
+
+<pre>
+$ <b>ntpdate pool.ntp.org</b>
+$ <b>/etc/init.d/ntpd start</b>
+</pre>
+
+<p>
+La commande ntpdate permet de récupérer l'heure auprès d'un serveur
+choisis par pool.ntp.org (dans notre cas).
+
+<h2 class="articleHeadline">&laquo;&nbsp;Mais comment ça marche
+?&nbsp;&raquo</h2>
+ 
+<p>
+En fait, après quelques étapes que je n'aborderais pas ici, ntpd va
+comparer l'heure reçue à l'heure locale. Si la différence entre les
+deux n'est pas trop importante, alors ntpd va tenter de corriger cet
+écart. Seulement (en gros), pour éviter de trop pertuber les logiciels
+qui utilisent l'heure, cela va se faire de manière progressive. On
+peut donc noter que le temps de correction est assez long, d'autant
+plus si l'on veut un réglage fin de la dérive. Tout le principe de
+fonctionnement est expliqué
+sur <a href="http://www.eecis.udel.edu/~mills/ntp/html/index.html"
+class="external"
+hreflang="en">eecis.udel.edu/~mills/ntp/html/index.html</a>. NTP est à
+la fois un client et un serveur, le tout étant d'une légèreté
+surprenante, il n'est pas nécessaire de supprimer la fonctionnalité de
+serveur.
+
+<h2 class="articleHeadline">De la bonne à la mauvaise utilisation de
+ntpdate.</h2>
+
+<p>
+Pour ceux qui auraient la fâcheuse idée de mettre un coup de ntpdate
+dans une tâche cron, enlever tout de suite cela !!! Cette idée peut
+paraître logique, mais si des milliers de personnes font la même
+requête à la même heure sur le même serveur, alors imaginez bien ce
+qu'il va se passer. À ce propose, à cause de ce problème, il a même
+été question (encore d'actualité ?) de supprimer ntpdate de la suite
+ntp.

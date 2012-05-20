@@ -1,0 +1,68 @@
+---
+layout: post
+title: "Tor et IRC"
+date: 2006-05-30 06:00:00 +00:00
+author: gapz
+mail: gapz [at] dud-t [point] org
+description:
+commentaire: Cet article a été exhumé par illov&aelig; avec l'aimable autorisation de son auteur.
+category:
+tags: []
+keywords:
+license: "WTF"
+---
+<p>
+<span class="articleAuthor">gapz.tuxfamily.org, 30 juin 2006, {{ page.author }}</span>
+&mdash; Vous aurez sans doute déja remarqué que lorsque vous vous
+connecter sur IRC vous avez après votre pseudo quelque chose qui
+ressemble à ceux-ci par exemple&nbsp;:
+
+<pre>
+(n=pseudo@Adunkerk-231-4-88-153.w73-221.abo.wanadoo.fr)
+</pre>
+
+<p>
+Chez certain FAI vous avez directement votre IP qui s'affiche au lieu
+de &quot;Adunkerk-231-4-88-153.w73-221.abo.wanadoo.fr&quot; dans notre
+exemple. Si vous voulez éviter toutes sortes d'attaque vous en avez
+les moyens avec le lociel <a href="http://tor.eff.org/"
+class="external" hreflang="en">TOR</a>. Si votre distribution est basé
+sur &quot;des <code>.deb</code>&quot; et que tor ce trouve dans vos
+dépôts, alors&nbsp;:
+
+<pre>
+$ <b>sudo apt-get install tor</b>
+</pre>
+
+<p>
+Ensuite il faut &quot;tor-iffier&quot; votre client IRC, par exemple
+si vous utilisez xchat, aller dans les préférences, réglage relatif au
+réseaux, puis comme hostname vous mettez&nbsp;: <code>127.0.0.1</code>
+et comme port&nbsp;: <code>9050</code>, et enfin de type Socks5,
+laisser les cases non remplis vide. Si vous utiliser un autre client,
+vous pouvez utiliser
+le <a href="http://wiki.noreply.org/noreply/TheOnionRouter/TorifyHOWTO"
+class="external" hreflang="en">guide de tor-iffication</a>. Par
+contre, sur certain réseaux vous aurez des problèmes de bannissement
+d'ip etc... Donc il se peut que la connection soit plus
+longue. Malgrès tout, si vous êtes un utilisateur du réseaux freenode,
+au lieu de ce connecté sur irc.freenode.org connecter vous plutôt :
+<code>6ua4nhltph56henu.onion</code> Port <code>6667</code>.
+
+<p>
+Si vous n'utilisez pas ce réseaux que vous trouvez les connexions trop
+longue, mettez ces quelques lignes au début de votre
+<code>/etc/tor/torrc</code>&nbsp;:
+
+<pre>
+ClientOnly 1
+TrackHostExitsExpire 30
+MaxCircuitDirtiness 30
+TrackHostExitsExpire 120
+</pre>
+
+<p>
+Adapter ces lignes en fonction ce que vous désirez ;-)
+
+<p>
+Paranoïa quand tu nous tiens...

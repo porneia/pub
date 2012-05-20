@@ -1,0 +1,81 @@
+---
+layout: post
+title: "Lire les PDFs en console"
+date: 2006-10-30 06:00:00 +00:00
+author: gapz
+mail: gapz [at] dud-t [point] org
+description:
+commentaire: Cet article a été exhumé par illov&aelig; avec l'aimable autorisation de son auteur.
+category:
+tags: []
+keywords:
+license: "WTF"
+---
+<p>
+<span class="articleAuthor">gapz.tuxfamily.org, 30 octobre 2006, {{ page.author }}</span>
+&mdash; Dans la série j'essaye de me passer de l'interface graphique,
+je vais vous expliquer comment lire vos PDFs en ligne de commande. En
+fait, on contourne la tâche plus qu'autre chose, car on ne lira pas
+directement le pdf en console.
+
+<p>
+Étant donné que je n'ai pas trouvé de programme permettant directement
+une lecture du pdf dans la console, je me suis dis pourquoi ne pas
+transformer le pdf en un fichier html, puis le lire avec un quelconque
+navigateur en ligne de commande. Il faut donc au préalable
+installer <a href="http://pdftohtml.sourceforge.net/" class="external"
+hreflang="en">pdftohtml</a> et un navigateur internet en mode console,
+pour moi ce sera <a href="http://elinks.or.cz/" class="external"
+hreflang="en">elinks</a>. Ensuite on peut donc visualiser n'importe
+quel pdf via la commande :
+
+<pre>
+$ <b>pdftohtml -q document.pdf ; elinks document.html</b>
+</pre>
+
+<p>
+Bien sûr ce n'est pas pratique me direz vous. Alors vient la solution
+de faire un petit script exécutable dans <code>/bin/</code>
+(dans <code>$PATH</code> plus généralement) du nom que vous désirez,
+et qui ferait directement toutes les commandes nécessaires et
+effacerait toutes les traces de la visualisation :
+
+{% highlight bash %}
+#!/bin/bash 
+name=$(date +%s)
+if [ ! "$1" ]; then
+{
+echo "
+    Usage: viewpdf [name_of_document]
+    "
+}
+else
+{
+    pdftohtml -q $1 .$name.html
+    elinks .$name.html && rm .$name*
+}
+fi
+{% endhighlight %}
+
+<p>
+Si mon pdf s'appelle <code>document.pdf</code> et que j'ai nommé mon
+programme <code>viewpdf</code>, un simpe <code>viewpdf
+document.pdf</code> sera alors nécessaire pour le lire !
+
+<p>
+Vous aurez sans doute remarquez l'utilisation de l'heure unix qui est
+très pratique dans ce cas, cela évite de supprimer par erreur des
+fichiers qui auraient pu commencer par un nom que l'on aurait choisis
+(par exemple <code>temp</code>...).
+
+<p>
+Liens :
+<ul>
+  <li><a href="http://lynx.isc.org/" class="external"
+         hreflang="en">Lynx, un navigateur digne de ce nom</a> ;
+  <li><a href="http://elinks.or.cz/" class="external"
+         hreflang="en">Elinks, navigateur en mode console très
+         pratique</a> ;
+  <li><a href="http://pdftohtml.sourceforge.net/" class="external"
+         hreflang="en">pdftohtml.sourceforge.net</a>
+</ul>

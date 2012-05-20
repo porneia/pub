@@ -1,0 +1,78 @@
+---
+layout: post
+title: "script - scriptreplay"
+date: 2007-02-10 06:00:00 +00:00
+author: gapz
+mail: gapz [at] dud-t [point] org
+description:
+commentaire: Cet article a été exhumé par illov&aelig; avec l'aimable autorisation de son auteur.
+category:
+tags: []
+keywords:
+license: "WTF"
+---
+<p>
+<span class="articleAuthor">gapz.tuxfamily.org, 10 février 2007, {{ page.author }}</span>
+&mdash; J'avais prévu de faire il y a quelques semaines de ça un petit
+billet sur ce qui permet d'enregistrer et de rejouer ce que l'on
+pourrait appeler une &quot;console session&quot;. Mais entre
+temps <a href="http://www.hermann-uwe.de/" class="external"
+hreflang="en">quelqu'un</a> a fait un billet sur le
+duo <a href="http://www.hermann-uwe.de/blog/capturing-and-replaying-console-terminal-sessions-with-script-and-scriptreplay"
+class="external" hreflang="en">script/scriptreplay</a>.
+
+<p>
+Après avoir gentillement demandé <em>l'autorisation</em> de traduire
+son billet (malgrès que son blog soit sous licence Creative Commons
+Attribution-ShareAlike 2.5, j'aime bien prévenir) je vais donc
+reprendre une grande partie de ce billet en français.
+
+<p>
+Vous êtes vous déja demandé comment capturer facilement une
+&quot;console session&quot; sans avoir à passer par un logiciel
+d'enregistrement vidéo lourd et peu adapté ?
+
+<p>
+C'est pour cela qu'a été
+développé <a href="http://man.cx/?page=script" class="external"
+hreflang="en">script</a> :
+
+<ul>
+  <li>Si vous lancer script sans paramètre la &quot;session&quot; est
+    enregistrée dans un fichier nommé <code>typescript</code>. Vous
+    pouvez aussi spécifier le nom du fichier de la manière
+    : <code>script fichier.log</code>.
+  <li>Pour arrêter l'enregistrement il suffit de faire CTRL+D ou
+    simplement <code>exit</code>.
+  <li>Vous pouvez désormais voir le log via <code>less -r
+    nom_du_fichier</code> (il contient les séquences d'échappement,
+    les retours à la ligne etc..), avec un simple éditeur de texte
+    l'affichage ne sera donc pas &quot;propre&quot;. Vous pouvez aussi
+    simplement l'afficher dans le terminal avec la commande <code>cat
+    nom_du_fichier</code>.
+</ul>
+
+<p>
+C'est alors que vous vous demandez sans doute comment rejouer cette
+session ? (ou pas). Il faut d'abord savoir qu'il faut enregistrer un
+repère temporel pour pouvoir rejouer la session
+via <code>scriptreplay</code> :
+
+<ul>
+  <li>Il vous suffit de faire <code>script -t 2&gt; timing</code>.
+  <li>Maintenant si vous désirez rejouer la session il suffit
+    simplement d'un <code>scriptreplay timing</code>.
+</ul>
+
+<p>
+Pour plus d'information consultez le manuel
+de <a href="http://man.cx/?page=script" class="external"
+hreflang="en">script</a> et <a href="http://man.cx/replay(1)"
+class="external" hreflang="en">scriptreplay</a>.  Sachez aussi qu'il
+existe d'autre outil
+comme <a href="http://0xcc.net/ttyrec/index.html.en" class="external"
+hreflang="en">ttyrec</a>.
+
+<p>
+Merci à <a href="http://hermann-uwe.de/" class="external"
+hreflang="en">Hermann Uwe</a>.

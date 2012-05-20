@@ -1,0 +1,135 @@
+---
+layout: post
+title: "Installation de polices exotiques"
+date: 2007-01-07 06:00:00 +00:00
+author: gapz
+mail: gapz [at] dud-t [point] org
+description:
+commentaire: Cet article a été exhumé par illov&aelig; avec l'aimable autorisation de son auteur.
+category:
+tags: []
+keywords:
+license: "WTF"
+---
+<p>
+<span class="articleAuthor">gapz.tuxfamily.org, 7 janvier 2007, {{ page.author }}</span>
+&mdash; Il est vrai qu'il existe bon nombre de polices installées par
+défaut sous la plupart des systèmes GNU/Linux mais il existe aussi une
+quantité énorme de police disponible sur internet (ex
+: <a href="http://www.1001fonts.com/" class="external"
+hreflang="en">http://www.1001fonts.com/</a>, <a href="http://www.fontfile.com/"
+class="external"
+hreflang="en">http://www.fontfile.com/</a>, <a href="http://dreamer.nitro.dk/typography/bitmap-fonts.html"
+class="external"
+hreflang="en">http://dreamer.nitro.dk/typography/bitmap-fonts.html</a>...). Je
+vais vous expliquer ici comment les installer simplement :
+
+<p>
+Tout abord créez, si cela n'est pas déja fait, le répertoire qui
+contiendra l'ensemble des polices que vous voulez
+installer. Typiquement :
+
+<pre>
+$ <b>mkdir ~/.fonts</b>
+</pre>
+
+<p>
+Ensuite copiez les polices que vous voulez installées dans ce
+répertoire et créez le fichier index des polices :
+
+<pre>
+$ <b>mkfontdir ~/.fonts</b>
+</pre>
+
+<p>
+Éditez ensuite le fichier de configuration du serveur X
+(<code>/etc/X11/xorg.conf</code> si vous utilisez Xorg) et ajoutez y
+dans la section &quot;files&quot; (vous devez être root pour pouvoir
+modifier ce fichier) :
+
+<pre>
+FontPath &quot;/home/your_username/.fonts/&quot;</em>
+</pre>
+
+<p>
+Maintenant, éditez (toujours en root) le
+fichier <code>/etc/fonts/fonts.conf</code> et ajoutez dans la
+section <code>&lt;fontconfig&gt;</code> (il se peut que la ligne
+existe déja, dans ce cas laisser tel quel) :
+
+<pre>
+&lt;dir&gt;/home/your_username/.fonts&lt;/dir&gt;
+</pre>
+
+<p>
+Enfin, il faut régénérer le cache des polices (toujours en root) :
+
+<pre>
+# <b>fc-cache -fv</b>
+</pre>
+
+<p>
+En plus des polices habituelles vous devez désormais voir :
+
+<pre>
+fc-cache: &quot;/home/gapz/.fonts&quot;: caching, 78 fonts, 0 dirs
+fc-cache: succeeded
+</pre>
+
+<p>
+Avec 78 le nombre de polices dans <code>~/.fonts</code>, et 0 le
+nombre de sous répertoire pouvant contenir d'autre police. En
+utilisant la commande xlsfonts vous pouvez constater que les polices
+sont correctement installées.
+
+<h2 class="articleHeadline">Comment utiliser ses polices ?</h2>
+
+<p>
+Vous pouvez tout abord utiliser <code>xfontsel</code> pour selectionner la police de votre choix et obtenir la ligne correspondante, par exemple :
+
+<p style="display:block;margin:0 auto;">
+<figure>
+<img title="[xfontsel]" class="imgborder" alt="[xfontsel]"
+     src="{{ site.url }}{{ site.baseurl }}/img/xfontsel.png">
+  <figcaption>xfontsel &mdash; Fenêtre principale</figcaption>
+</figure>
+
+<p>
+La ligne ici serait : <code> -lfp-artist-*-r-normal-*-10-100-75-75-c-90-iso10646-1</code>.
+
+<p>
+Ensuite, si par exemple vous vous l'utilisez avec aterm, xterm ou
+encore urxvt (cela s'étant à toutes les applications utilisant
+le <code>.Xdefaults</code>) il vous suffit d'ajouter à
+votre <code>.Xdefaults</code> une ligne du type :
+
+<pre>
+URxvt*font: -lfp-artist-*-r-normal-*-10-100-75-75-c-90-iso10646-1
+XTerm*font: -lfp-artist-*-r-normal-*-10-100-75-75-c-90-iso10646-1
+Aterm*font: -lfp-artist-*-r-normal-*-10-100-75-75-c-90-iso10646-1
+</pre>
+
+<p>
+Par exemple, chez moi
+avec <code>-lfp-gamow-medium-r-*-*-9-*-*-*-*-*-*-*</code> cela donne :
+
+<p style="display:block;margin:0 auto;">
+<figure>
+<img title="[xterm gamow]" class="imgborder" alt="[xterm gamow]"
+     src="{{ site.url }}{{ site.baseurl }}/img/xterm-font-gamow.png">
+  <figcaption>XTerm avec la police lfp-gamaw-*</figcaption>
+</figure>
+
+<p>
+Pour l'utilisation de ses polices avec des applications xfce ou encore
+gnome je n'ai pas encore trouvé une manière simple pour les utiliser,
+car ces applications ne gère pas directement celle ci.
+
+<p>
+Lien : <a href="http://fluxbox-wiki.org/index.php/Howto_install_fonts"
+class="external"
+hreflang="en">http://fluxbox-wiki.org/index.php/Howto_install_fonts</a>
+		
+
+
+	

@@ -1,0 +1,61 @@
+---
+layout: post
+title: "Supprimer les espaces"
+date: 2006-12-21 06:00:00 +00:00
+author: gapz
+mail: gapz [at] dud-t [point] org
+description:
+commentaire: Cet article a été exhumé par illov&aelig; avec l'aimable autorisation de son auteur.
+category:
+tags: []
+keywords:
+license: "WTF"
+---
+<p>
+<span class="articleAuthor">gapz.tuxfamily.org, 21 décembre 2006, {{ page.author }}</span>
+&mdash; Rien de révolutionnaire dans ce billet, juste un petit script
+qui permet de renommer tout les fichiers du répertoire courant
+contenant des espaces, en remplacant ceux-ci par un &quot;_&quot;, ou
+par le caractère de votre choix, il vous suffit de modifier le script
+;-)
+
+{% highlight bash %}
+#!/bin/bash
+
+for f in * ;
+do
+nn=`echo $f | tr "[:blank:]" "_"`
+if [ ! "$nn" = "$f" ]; then
+    mv "$f" "$nn"
+    let "cm = cm + 1"
+fi
+done
+echo "$cm modification(s)"
+{% endhighlight %}
+
+<p>
+Vous retrouverez bien sûr plein d'autre possibilité pour faire
+exactement la même chose, comme par exemple :
+
+{% highlight bash %}
+rename 's/[[:blank:]]/_/g' *
+{% endhighlight %}
+
+<p>
+Ou encore :
+
+{% highlight bash %}
+for a in * ;do
+  b=$(echo $a | sed -e 's/[[:blank:]]/_/g');
+  if [ -e "$b" ];then
+  echo "">/dev/null;
+  else
+  mv "$a" "$b";
+  fi
+done
+{% endhighlight %}
+
+<p>
+Totalement inspiré de l'astuce sur
+<a href="http://www.lea-linux.org/cached/index/Trucs:Supprimer_les_espaces_dans_un_nom_de_fichier.html"
+   class="external" hreflang="fr">Léa Linux</a>.

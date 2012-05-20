@@ -1,0 +1,138 @@
+---
+layout: post
+title: "emb - Une première approche de la stéganographie"
+date: 2007-07-18 06:00:00 +00:00
+author: gapz
+mail: gapz [at] dud-t [point] org
+description:
+commentaire: Cet article a été exhumé par illov&aelig; avec l'aimable autorisation de son auteur.
+category:
+tags: []
+keywords:
+license: "WTF"
+---
+<p>
+<span class="articleAuthor">gapz.tuxfamily.org, 18 juillet 2007, {{ page.author }}</span>
+&mdash; La <a href="http://en.wikipedia.org/wiki/Steganography"
+class="wikipedia" hreflang="en">stéganographie</a> est, comme le dit
+si bien l'encyclopédie du libre, l'art de dissimuler une information
+au sein d'un autre support tel qu'une image, un texte, un son ou
+encore une vidéo.
+
+<p>
+Dans ce billet je ne vais pas vraiment vous faire une introduction à
+la stéganographie mais plutôt vous parler d'un outil (emb) que j'ai
+développé pour mettre en oeuvre une technique de stéganographie
+relativement simple.
+
+<p>
+Initialement codé en C, je ne devais pas vraiment le publier avant
+qu'il ne soit vraiment finalisé et que j'arrive aux différents
+résultats que je m'étais fixé. Mais voila, un soir ou la chaleur était
+trop intense et que ma fonction de recherche statistique boitait, j'ai
+eu un flash : &laquo;&nbsp;Mon dieu ! Mais je code horriblement mal
+des fonctions qui existent déja et qui sont fantastiquement bien
+codées !&nbsp;&raquo;. Voilà, depuis ce jour, emb est devenu un projet
+sérieux et qui sera codé python.
+
+<h2 class="articleHeadline">Principes</h2>
+
+<p>
+Revenons donc un peu avant tout ces changements. Emb (embed) est donc
+un petit programme qui permet d'insérer une information telle qu'une
+chaine de caractères dans une image bitmap 24 bits par pixel. La
+technique utilisée permet de répartir chaque bits de notre information
+sur les bits de poids faibles de chaques pixels.
+
+<p>
+Comme vous le savez, une image bitmap 24 bits par pixel est formée
+comme ceci (en gros) :
+
+<ul>
+  <li>Une entete constituée de 56 octets.
+  <li>Une suite de pixels constitués de 8 bits pour la nuance de
+    Rouge, 8 bits pour la nuance de Vert et de 8 bits pour la nuance
+    de Bleu, ce qui nous donne bien 24 bits par pixel.
+</ul>
+
+<p>
+L'insertion va donc se dérouler comme suit: on va traiter notre
+information 8 bits par 8 bits, c'est à dire caractère par
+caractère. Notre première séquence de 8 bits va être découpée en 3
+partie : (2 - 3 - 3).
+
+<ul>
+  <li>Les 3 bits de poids faible vont être insérés à la place des 3
+    bits de poids faibles de R (nuance de rouge).
+  <li>Les 3 bits intermédiaires seront insérés à la place des 3 bits
+    de poids faible de V (nuance de vert).
+  <li>Les 2 bits de poids fort de l'information seront insérés sur les
+    2 bits de poids faible de B (nuance de bleu).
+</ul>
+
+<p>
+Ainsi, on réitère ce processus de manière à insérer toute notre
+information dans l'image. Emb suit exactement ce schéma, il ne choisit
+pas les pixels, il insère successivement les séquences de 8 bits dans
+chaques pixels lui correspondant. Le schéma utilisé ici n'est donc pas
+du tout robuste, et un changement de format ou une modification de
+l'image entrainera très certainement la perte de notre information.
+
+<p>
+On peut aussi noter que emb chiffre l'information, rien de bien sûr,
+c'est juste pour faire genre (la mise en oeuvre de la méthode utilisée
+ici ne respect pas différent point important mais qui serait difficile
+de respecter ici). La méthode utilisée est celle du masque jetable qui
+est encore connu sous le nom
+de <a href="http://en.wikipedia.org/wiki/One-time_pad"
+class="wikipedia" hreflang="en">One Time Pad</a>.
+
+<h2 class="articleHeadline">Stéganalyse</h2>
+
+<p>
+Cette technique, comme vous l'aurez constaté, travail dans le domaine
+spatiale (directement sur les pixels). D'après les études réalisée sur
+ce schéma, la mise en évidence de l'information est assez simple grâce
+à une analyse statistique.
+
+<p>
+Le problème vient du fait que l'insertion de notre information va
+uniformiser la répartition des bits de poids faible au travers de
+notre image. Voici un
+exemple: <a href="{{ site.url }}{{ site.baseurl }}/img/orginale.bmp">répartition
+des bits de poids faible dans l'image
+originale</a>, <a href="{{ site.url }}{{ site.baseurl }}/img/avec-info.bmp">répartion
+des bits de poids faible dans l'image qui contient notre
+information</a> (la quantité d'information insérée est assez grande,
+de manière à bien mettre en évidence le phénomène).
+
+<h2 class="articleHeadline">Perspectives</h2>
+
+<p>
+Emb va donc évoluer et beaucoup de changement sont au programme (bah
+oui maintenant c'est un projet sérieux). Dans les futurs versions vous
+trouverez donc entre autres :
+
+<ul>
+  <li>choix des pixels ou l'information sera insérée ;
+  <li>inclusion de nouvelles techniques et support de nouveau format
+    (jpeg) ;
+  <li>... (pas assez d'imagination sur le moment).
+</ul>
+
+<h2 class="articleHeadline">Les sources !</h2>
+
+<p>
+Voici les sources
+de <a href="{{ site.url }}/code/emb.c">emb
+version 0.2e</a> (attention, c'est mal codé et oui ma fonction pour
+gérer les arguments est pourris).
+
+<p>
+Voici aussi
+la <a href="{{ site.url }}/code/stats-emb.c">source
+du programme que j'ai codé</a> pour faire la stéganalyse.
+
+<p>
+Vous trouverez quelques documents sur ce sujet dans la section
+&quot;steganographie&quot; de mon <del>joyeux bordel</del>.
