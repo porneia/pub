@@ -6,7 +6,8 @@ description: I used to be schizophrenic but now we are going much better.<br> We
 Dernière mise à jour du Porneia delights : {{ site.time | date: "%Y-%m-%d %H:%M:%S %z" }}
 
 Site statique automatiquement généré par
-[Jekyll](http://github.com/mojombo/jekyll).
+[Jekyll](http://github.com/mojombo/jekyll) dont les sources sont
+disponibles [en ligne](https://github.com/porneia/pub).
 
 ### Changelog ###
 
