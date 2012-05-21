@@ -1,0 +1,176 @@
+---
+layout: post
+title: "Shell-FM"
+date: 2009-03-15 19:40:57 +0100
+author: illov&aelig;
+mail: illovae[at]bk[dot]ru
+description:
+commentaire:
+category:
+tags:
+keywords:
+license: "WTF"
+---
+<p>
+<span class="articleAuthor">D Weblog System, 15 mars 2009, {{ page.author }}</span>
+&mdash; <a href="http://nex.scrapping.cc/shell-fm" class="external"
+hreflang="en">Shell-FM</a> est un client en ligne de commande qui
+permet d'écouter les radios de <a href="http://www.last.fm"
+class="external" hreflang="en">Last-FM</a> et dont le développement a
+été initié par Jonas Kramer. Il est très simple à prendre en main,
+très léger et comporte toutes les options fournis par le client
+officiel en plus de quelques unes bien pratique que nous verrons un
+peu plus bas. Vous devez bien sûr disposer d'un compte Last.FM pour
+pouvoir utiliser ce service (c'est gratuit au cas où vous vous
+poseriez la question). Mais avant ça, on va commencer par le compiler
+et l'installer.
+
+<p>
+Pour récupérer les sources, il y a deux solutions : soit en utilisant
+git, soit en téléchargeant directement
+le <a href="http://github.com/jkramer/shell-fm/tarball/v0.6"
+class="external" hreflang="en">tgz</a> (dernière version 0.6 a l'heure
+où j'écris ces lignes). Dans votre dossier de sources :
+
+<pre>
+$ <b>git clone git://github.com/jkramer/shell-fm.git shell-fm</b>
+</pre>
+
+<p>
+En ce qui concerne les dépendances vous aurez besoin de <code>libmad</code> et
+optionnellement de <code>libao</code>. Sous debian :
+
+<pre>
+# <b>apt-get install libmad0 libmad0-dev libao-dev</b>
+</pre>
+
+<p>
+Il n'y a pas de configure, on passe directement à la compilation et on installe
+le tout dans <code>/usr/local</code> :
+
+<pre>
+$ <b>make</b>
+# <b>make install PREFIX=/usr/local MANDIR=/usr/local/share/man</b>
+</pre>
+
+<p>
+On va ensuite créer le répertoire de configuration de shell-fm ainsi que son
+fichier de configuration principal :
+
+<pre>
+$ <b>mkdir -p ~/.shell-fm/cache</b>
+</pre>
+
+<p>
+Mon fichier de configuration <code>~/.shell-fm/shell-fm.rc</code> :
+
+<pre>
+username = VotreNickLast.FM
+password = VotrePWDLast.FM
+np-file = /home/VotreLogin/.shell-fm/nowplaying
+default-radio = lastfm://artist/VotreArtistPrefere
+minimum = 60
+
+a-color = 0;31
+t-color = 0;32
+l-color = 1;33
+s-color = 1;35
+</pre>
+
+<p>
+Les deux éléments primordiaux sont évidemment votre username et votre login
+(tel quel et non la somme md5). Comme tout ceci est en clair, n'hésitez pas à
+passer un coup de chmod 600 sur ce fichier histoire de pas le laisser à la vue
+de tout le monde (de toute façon me direz-vous, rien n'est crypté dans la
+communication entre les scrobbler et Last.FM donc votre mot de passe voyage en
+clair, m'enfin bon...). Sachez que vous n'êtes pas obligé de créer ce fichier,
+si vous ne le renseigner pas, Shell-FM vous demandera votre login et mot de
+passe au démarrage. Vous pourrez aussi lancer une radio automatiquement de
+cette façon : <code>$ shell-fm lastfm://artist/Britney%20Spears</code>
+(remarquez le %20 qui sert à remplacer l'espace).
+
+<p>
+Pour les autres options, nous avons d'abord la création d'un log qui
+est renseigné par ce qui se joue présentement, la radio qui sera
+lancée par défaut au démarrage de Shell-FM et ensuite à combien de
+pourcentage la chanson sera scrobbler sur Last-FM (par défaut c'est
+50%). Les quatres dernières lignes servent à mettre un peu de couleur
+pour respectivement l'artiste, le titre de la chanson, le nom de
+l'album et le nom de le station de radio en cours d'écoute. Ce sont
+les couleurs de shell par défaut qui sont utilisées, vous pouvez
+retrouver toutes celles disponibles en parcourant la man de Shell-FM
+ou en vous servant de ce <del>script</del> écrit par Jonas Kramer et
+qui est je dois dire vachement pratique.
+
+<p>
+On va quand même finir par lancer ce client en tapant simplement
+<code>shell-fm</code> dans votre terminal. Et hop voilà un ascii-art screenshot
+pour vous donner une idée :
+
+{% highlight console %}
+Shell-FM v0.6, (C) 2006-2009 by Jonas Kramer
+Published under the terms of the GNU General Public License (GPL).
+
+Press ? for help.
+
+Receiving The Gladiators Radio.
+Now playing "better must come (remix)" by Don Carlos.
+Now playing "For the Love of You" by John Holt.
+Now playing "Ketchy Shuby" by Peter Tosh.
+Now playing "Mama Africa" by Midnite.
+Loved.
+Now playing "Them Never Love Poor Marcus" by Johnny Clarke.
+Now playing "Get Ready" by Delroy Wilson.
+Connection failed. Connection timed out.
+Couldn't scrobble track(s).
+Now playing "Don't Fool The Young Girls" by The Gladiators
+_0:42
+{% endhighlight %}
+
+<p>
+Comme vous pouvez le voir le serveur ne répond pas toujours bien ce qui produit
+une erreur de connection qui est sans gravité car les chansons jouées sont
+gardées en cache et envoyées au prochain tour (Si vous êtes un(e) habitué(e) de
+Last.FM vous savez que ça arrive parfois).
+
+<p>
+Vous remarquerez aussi le <code>Loved</code> qui indique que j'ai ajouté la
+chanson juste au-dessus aux musiques que j'aime, grâce au raccourci clavier
+<code>l</code> (et oui c'est intuitif avec ça). Dans le même genre et comme le
+client officiel on peut ajouter des tags (<code>T</code>), passer à la chanson
+suivante sans attendre (<code>n</code>), arrêter (<code>S</code>), etc. Si vous
+voulez changer de radio en cours d'écoute, c'est très simple, il vous suffit de
+taper <code>r</code> et d'entrer quelque chose de ce genre : <code>radio
+url&gt; globaltag/dub</code>.
+
+<p>
+Cependant Shell-FM a des options en plus qui sont fortes intéressantes. Par
+exemple, vous pouvez bannir définitivement une chanson ou même un artiste (si
+vous êtes friant(e)s du globaltag Dance mais que vous supportez pas Lorie, vous
+apprécierez). Vous pouvez voir ce qui arrive ensuite dans la playlist, ou
+encore gérer des bookmarks.
+
+<p>
+Enfin et pour finir, Shell-FM dispose d'un mode très intéressant qui permet de
+le piloter à distance ce qui est pratique si vous êtes sur un réseau. Pour cela
+il suffit de le lancer en spécifiant une interface et un port (par défaut
+54311) en plus de l'option <code>-d</code>. Ce qui peut donner par exemple ceci
+(n'oubliez pas de rêgler votre firewall pour laisser passer ce port) :
+
+<pre>
+$ <b>shell-fm -d -i localhost -p 30000</b>
+</pre>
+
+<p>
+Il vous suffira alors ce vous connecter à ce port par l'intermédiaire de netcat
+ou de telnet afin d'envoyer des commandes à Shell-FM : <code>play
+lastfm://artist/Britney%20Spears</code> ; <code>love</code> ; etc. Mais si ce
+mode ne vous plaît pas, vous pouvez toujours enfermer Shell-FM dans un screen
+et dans dtach et y accéder par ssh, ce qui a l'avantage d'être un peu plus
+sécure.
+
+<p>
+Shell-FM est un donc selon moi un très bon client pour écouter des radios
+Last-FM et disposent de beaucoup de fonctions très pratiques. Il a en plus
+l'avantage de ne pas dépendre de X.org et peut donc être installer sur un
+serveur@home disposant d'une carte son.

@@ -1,0 +1,170 @@
+---
+layout: post
+title: "Rubystein 3D SUPER MEGAZORD UBER EDITION (MàJ)"
+date: 2009-05-11 20:38:50 +0200
+author: illov&aelig;
+mail: illovae[at]bk[dot]ru
+description:
+commentaire:
+category:
+tags:
+keywords:
+license: "WTF"
+---
+<p>
+<span class="articleAuthor">D Weblog System, 11 mai 2009, {{ page.author }}</span>
+&mdash; Ah ça faisait longtemps que je n'avais pas parlé de jeux. Et
+cette fois-ci nous allons aborder pas n'importe quel jeu, un bon vieux
+et bien oldschool
+: <a href="http://en.wikipedia.org/wiki/Wolfenstein_3D"
+class="wikipedia" hreflang="en">Wolfenstein 3D</a> ! Revu et corrigé
+par Hongli Lai de chez Phusion le tout en language ruby pour faire
+plaisir à skateinmars. Le jeu
+s'appelle <a href="http://github.com/FooBarWidget/rubystein/tree/master"
+class="external" hreflang="en">rubystein</a> et la nouvelle a
+fait <a href="http://www.rubyinside.com/rubystein-wolfenstein-3d-recreated-in-ruby-1751.html"
+class="external" hreflang="en">son petit bruit</a> dans le monde des
+fan de ruby. Le but est simple : vous vous balladez dans les méandres
+des couloirs sauce Wolfenstein 3D et vous poutrez des méchants armé
+d'un ruby magique. Les graphismes sont d'époques ainsi que l'ambiance,
+de quoi retrouver de vieilles sensations perdues.
+
+<p>
+Pour installer tout ça, il vous faut remplir quelques conditions. Il
+vous faut avant tout avoir <a href="http://www.rubyfrance.org/"
+class="external" hreflang="fr">ruby</a> d'installé ainsi
+que <a href="http://www.rubygems.org/" class="external"
+hreflang="fr">rubygems</a> (pour ceux qui ne connaissent pas, rubygems
+est un framework qui permet de gérer des librairies et des
+applications ruby). Nous allons aussi avoir besoin de quelques
+dépendances qui permettront d'installer à bien une librairie
+primordiale pour le jeu : <a href="http://code.google.com/p/gosu/"
+class="external" hreflang="en">gosu</a>, on va y venir juste
+après. Pour ce qui est de rubygems, il est préfèrable d'utiliser une
+version assez récente.  Si vous avez une distribution plutôt uptodate
+vous n'avez pas besoin d'y penser. Cependant, si vous êtes sous etch,
+la version disponible est un peu deprecated, préfèrez une installation
+manuel histoire d'éviter les soucis ;)
+
+<pre>
+# <b>apt-get install ruby ruby1.8 ruby1.8-dev rdoc rubygems g++ libgl1-mesa-dev libpango1.0-dev libboost-dev libsdl-mixer1.2-dev</b>
+</pre>
+
+<p>
+Et oui ça fait du monde mine de rien. Bien que le jeu ne demande pas de
+ressources graphiques immenses, il a besoin de <code>/usr/lib/libGL.so</code> 
+pour compiler. Assurez-vous donc d'avoir des drivers graphiques installés comme
+il faut.
+
+<p>
+Ceci fait, nous allons nous occuper de gosu à l'aide de rubygems. Rien de plus
+silmple :
+
+<pre>
+# <b>gem1.8 install gosu</b>
+</pre>
+
+<p>
+Tout devrait normalement se passer à merveille, c'est à dire qu'après quelques
+instants, le système vous répond qu'un nouveau gem vient d'être fraîchement
+installé. Cependant, il se peut que vous vous retrouviez avec un problème de
+configure avec la librairie GL (surtout si vous êtes avec une nvidia). Rien de
+grave là dedans, c'est juste l'init script d'nvidia qui merde un peu. Le
+configure ne trouve pas <code>/usr/lib/libGL.so</code> simplement parce que
+l'init script l'a peut-être enlevé (quand on sait que selon le changelog des
+paquets nvidia, les devels s'arrachent les cheveux depuis 2004 avec ce lien, on
+ne s'étonne pas, nvidia est proprio, il faut s'attendre à tout). Pour réparer
+ça, il suffit de faire un simple symlink :
+
+<pre>
+# <b>ln -s /usr/lib/libGL.so.1 /usr/lib/libGL.so</b>
+</pre>
+
+<p>
+Une fois cela fait, vous pouvez relancer l'installation de gosu. Enfin nous
+arrivons au principal, nous allons récupérer les sources de
+<strong>rubystein</strong> grâce à git (installez le avant si vous ne l'avez
+pas bien sûr). Mettez-vous dans n'importe quel dossier de votre choix puis :
+
+<pre>
+$ <b>git clone git://github.com/FooBarWidget/rubystein.git</b>
+</pre>
+
+<p>
+Ça va prendre quelques minutes, il y a de gros fichiers sons dedans. Il ne vous
+reste plus qu'à rentrer dans le dossier rubystein et de faire un simple
+<code>ruby wolf3d.rb</code> !
+
+<p>
+Allez voilà ce que <del>donne le jeu</del>. Have phun!!
+
+<p>
+<strong>NB:</strong> Notez que comme l'indique le site rubyinside.com le jeu
+peut ramer un peu avec ruby1.8, n'hésitez pas à le tester sous REE ou encore
+sous ruby1.9. Le jeu &quot;s'envolerait&quot; paraît-il avec ce dernier ;)
+
+<p>
+<strong>edit:</strong> <em>Comme prévu le code a été mis à jour dans la nuit.
+Ce qui suit n'est donc plus valable si vous avez une version à jour de
+rubystein.</em>
+
+<p>
+&quot;Chez moi ça marche pô !&quot; &ndash; Oui en effet, si vous êtes
+sur des distributions qui ne release pas de paquets contenant du code
+proprio dans leur dépôt officiel, vous risquez d'avoir une erreur de
+ce genre :
+
+<pre>
+$ <b>./wolf3d.rb</b>
+./sound.rb:36:in `initialize': Unrecognized sound file type (RuntimeError)
+    from ./sound.rb:36:in `new'
+    from ./sound.rb:36:in `get'
+    from ./ai_player.rb:357:in `load_sounds'
+    from ./ai_player.rb:356:in `map'
+    from ./ai_player.rb:356:in `load_sounds'
+    from ./ai_player.rb:207:in `initialize'
+    from ./ai_player.rb:413:in `initialize'
+    from ./map.rb:46:in `new'
+    from ./map.rb:46:in `player'
+    from ./level.rb:207:in `create'
+    from ./map.rb:99:in `add'
+    from ./level.rb:205:in `create'
+    from ./map.rb:342:in `get'
+    from ./wolf3d.rb:57:in `initialize'
+    from ./wolf3d.rb:668:in `new'
+    from ./wolf3d.rb:668
+</pre>
+
+<p>
+Cela vient simplement du fait que les librairies pour sdlmixer ne sont
+pas compilés avec le support du mp3, et comme le jeu contient des sons
+à ce format... C'est un problème connu des développeurs comme on peut
+le voir sur <a href="http://github.com/FooBarWidget/rubystein/issues"
+class="external" hreflang="en">cette page</a>. Le problème n'est pour
+le moment pas résolu au niveau des sources mais ça ne devrait pas
+tarder. En attendant, il y a deux solutions :
+
+<ol>
+<li> commenté les lignes faisant référence aux fichiers mp3 dans le code ;
+<li> ou bien convertir les wav/mp3 en ogg et patcher les sources.
+</ol>
+
+<p>
+Personnellement j'ai préféré la seconde solution. J'ai donc converti tous les
+fichiers sons posant problèmes en plus des .wav parce que les .wav cay sale et
+j'ai fait un patch. <del>Vous pouvez retrouver tout cela ici le temps que</del>
+les devels corrigent le soucis directement dans les sources sur github. La
+démarche est très simple : il vous suffit de copier les fichiers .ogg dans le
+dossier des sources et depuis le dossier rubystein/ faire un simple : 
+
+<pre>
+$ <b>patch -p1 -Z &lt; /path/to/the/rubystein_ogg_sound_patch_01.diff</b>
+patching file ai_player.rb
+patching file door.rb
+patching file level.rb
+patching file map.rb
+patching file player.rb
+patching file sound.rb
+patching file sprite.rb
+patching file wolf3d.rb
+</pre>

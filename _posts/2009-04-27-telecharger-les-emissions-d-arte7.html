@@ -1,0 +1,154 @@
+---
+layout: post
+title: "Télécharger les émissions d'Arte+7"
+date: 2009-04-27 03:14:29 +0200
+author: illov&aelig;
+mail: illovae[at]bk[dot]ru
+description:
+commentaire:
+category:
+tags:
+keywords:
+license: "WTF"
+---
+<p>
+<span class="articleAuthor">D Weblog System, 27 avril 2009, {{ page.author }}</span>
+&mdash; Pour ceux qui ne connaissent
+pas, <a href="http://www.arte.tv/plus7" class="external"
+hreflang="fr">Arte+7</a> est un service en ligne gratuit offert par la
+chaîne franco-allemande Arte. On peut y retrouver des émissions
+diffusées à la télévision pendant une durée de 7 jours. Il y a en
+moyenne une quarantaine d'émissions proposées en même temps.  Cela
+peut aller des documentaires d'ArteThema jusqu'à des émissions
+hebdomadaires tel que <em>Toutes Les Télés Du Monde</em> en passant
+par quelques films et/ou court métrages.
+
+<p>
+<a href="http://codingteam.net/users/show/beudbeud" class="external"
+hreflang="fr">beudbeud</a> a eu la bonne idée d'écrire un script bash
+qui permet de récupérer ces émissions sur votre ordinateur. Cependant,
+depuis la version 4 du
+script <a href="http://codingteam.net/project/arte7recorder"
+class="external" hreflang="fr">Arte+7 recorder</a> il n'y a plus
+d'interface console, il ne reste plus qu'une interface graphique
+permise par Zenity.
+
+<p>
+Étant un aficionados invétéré de la CLI, je me suis donc mis en tête d'écrire
+un fork de ce script, mais utilisable uniquement en ligne de commande.
+J'utilise exactement la même démarche que beudbeud qui passe par l'utilisation
+d'un fichier .xml fourni par le site d'Arte et le tout toujours en bash.
+
+<p>
+Je vous présente donc <del>arte7-dl.sh</del> (version 0.2beta.2)
+(<del>lien http</del>). C'est donc un petit script bash d'environ 200
+lignes comz comprises qui, pour être exact, <em>enregistre</em> les
+émissions proposées par Arte+7. Je dis enregistre parce que les
+émissions ne sont disponibles qu'au travers du protocol
+propriétaire <a href="http://fr.wikipedia.org/wiki/Microsoft_Media_Services"
+class="wikipedia" hreflang="fr">mms</a>.  L'enregistrement d'une
+émission prendra donc à peu près le temps de sa durée réelle.
+
+<p>
+Le script utilise
+donc <a href="http://savannah.nongnu.org/projects/mimms/"
+class="external" hreflang="en">mimms</a> qui est un outils qui permet
+comme vous le devinez d'enregistrer les flux provenants du protocol
+suscité. Vous trouverez normalement <code>mimms</code> sur votre
+distribution.
+<strong>Attention</strong> cependant, car la dernière version disponible sur le
+site officiel du projet, la version 3.2, comporte un bug connu qui empêche de
+renommer le fichier final lors de son enregistrement. C'est une fonction
+qu'utilise mon script. Si vous voulez des fichiers avec un nom compréhensible,
+il vous faudra donc utiliser une autre version de <code>mimms</code> ou alors
+utiliser une version patchée. Sous debian lenny par exemple, la version
+proposée est la version 3.2.1, version patchée par les debian devels ; donc
+aucun problème.
+
+<p>
+Le script dispose pour le moment de trois options principales. Tout d'abord
+avec l'option <code>-l, --list</code> vous pouvez lister toutes les émissions
+proposées (la sortie peut être longue, n'hésitez pas à piper avec less par
+exemple, ou à rediriger la sortie vers un fichier). La seconde fonction est
+l'option <code>-i, --infos [VIDEO_ID]</code> qui permet de récupérer des
+informations sur l'émission de son choix. Il est nécessaire d'indiquer à cette
+option l'ID de l'émission souhaitée (ID qui est fourni au travers de l'option
+<code>-l</code>). Enfin l'option <code>-d, --download [VIDEO_ID]</code> qui
+vous l'aurez compris, enregistrera l'émission choisie grâce à l'ID dans le
+répertoire courant. Selon la durée de l'émission, cela peut prendre plusieurs
+minutes, vous pouvez donc par exemple utiliser des programmes tel que
+<code>screen</code> ou <code>dtach</code> histoire que l'enregistrement puisse
+se faire en dehors d'un terminal. Pour retrouver ces informations, l'option
+<code>-h, --help</code> vous sera utile ;)
+
+<p>
+N'hésitez donc pas à me contacter par mail ou par IRC si quelque chose vous
+manque, si vous trouvez le moindre bug, ou si vous avez simplement envie de
+m'insulter =)
+
+<p>
+Juste une dernière chose : par défault le script enregistre les émissions en
+Medium Quality. C'est un choix tout à fait personnel. Vous pouvez très bien
+enregistrer les émissions en High Quality. Pour faire cela, il vous faut
+simplement éditer le script à la ligne 56 et changer le <code>MQ</code> en
+<code>HQ</code> pour la variable <code>VQ</code>. Oui dans une prochaine
+version, il faudra que je pense à implémenter une option qui permette de faire
+le choix, ça fera quand même plus propre...
+
+<p>
+Exemple d'utilisation :
+
+<pre>
+$ <b>arte7-dl.sh -l</b>
+-- VIDEO #0
+Title: Xenius
+Since: 2009-04-20T08:10:00
+To: 2009-04-27T08:13:17
+Video ID: 2574358
+
+[...]
+
+-- VIDEO #38
+Title: Karambolage
+Since: 2009-04-26T20:00:00
+To: 2009-05-03T20:00:26
+Video ID: 2597752
+
+-- VIDEO #39
+Title: La mort au fil des siècles
+Since: 2009-04-26T20:15:00
+To: 2009-05-03T20:15:37
+Video ID: 2587240
+
+$ arte7-dl.sh -i 2597752
+Informations for `Karambolage' (2009-04-26):
+
+Headline -- Un mot, un objet, une image, une coutume, une onomatopée : à
+travers Karambolage, ARTE se penche sur les particularités de la culture
+quotidienne française et allemande. Des regards à la fois critiques et pleins
+d'humour qui décryptent nos habitudes et nos comportements. Décliné en courtes
+rubriques, Karambolage fait s'entrechoquer nos différences des deux côtés du
+Rhin.
+
+Synopsis -- Le tapis de prière ; l'origine française du mot allemand etepetete
+; l'expression &quot;moule à manqué&quot; et la devinette.
+
+Others -- France, 2009, 12mn.
+
+$ <b>arte7-dl.sh -d 2597752</b>
+Connecting...
+mms://a7.v39759e.c39759.g.vm.akamaistream.net/7/7/39759/f4109d44050d6fb177c8fa4
+b3a34ab27/artegeie.download.akamai.com/39759/mfile/arteprod/A7_SGT_ENC_06_04102
+2-001-A_PG_MQ_FR.wmv
+=&gt; KARAMBOLAGE_2009-04-26_A7_SGT_ENC_06_041022-001-A_PG_MQ_FR.wmv
+
+6.16 MB / 28.93 MB (46.32 kB/s, 00:08:11 remaining)
+</pre>
+
+<p>
+<strong>Updates edit:</strong>
+
+<ul>
+<li> 2009-10-04 - arte7-dl.sh version 0.3
+</ul>
+

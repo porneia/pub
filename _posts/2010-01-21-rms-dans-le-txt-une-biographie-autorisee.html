@@ -1,0 +1,88 @@
+---
+layout: post
+title: "RMS dans le TXT - Une biographie autorisée"
+date: 2010-01-21 23:44:56 +0100
+author: illov&aelig;
+mail: illovae[at]bk[dot]ru
+description:
+commentaire:
+category:
+tags:
+keywords:
+license: "WTF"
+---
+<p>
+<span class="articleAuthor">D Weblog System, 21 janvier 2010, {{ page.author }}</span>
+&mdash; Comme vous le savez
+peut-être <a href="http://www.framabook.org/" class="external"
+hreflang="fr">framabook</a> a sorti son dernier bébé, le numéro 6, qui
+n'a d'autre sujet que RMS himself et portant le
+titre <a href="http://www.framabook.org/stallman.html"
+class="external" hreflang="fr">Richard Stallman et la révolution du
+logiciel libre - Une biographie autorisée</a>. Un ouvrage initialement
+écrit par Sam Williams, revue et augmenté par Richard himself avec la
+collaboration de Christophe Masutti de chez Framasoft (notamment pour
+la traduction en français). Enfin bref, vous connaissez peut-être
+l'histoire de ce livre et si ce n'est pas le cas, je vous laisse
+cliquer sur le lien ci-dessus histoire d'en savoir plus...
+
+<p>
+Comme beaucoup d'entre vous j'aime bien lire mes livres sous formes
+numériques.  Certains préfèrent le format HTML, d'autres le PDF.
+D'ailleurs framabook propose ces deux formats. Personnellement ni l'un
+ni l'autre ne me convient. En tant que maniaque
+du <a href="http://en.wikipedia.org/wiki/Retrocomputing"
+class="wikipedia" hreflang="en">retrocomputing</a> moi je veux du bon
+vieux TXT. Pourquoi ? Avant tout parce que c'est léger et que c'est
+lisible sur tout type de machine et de système, mais aussi parce que
+les documents en .txt sont plus facilement diffusable sur votre gopher
+ou votre bboard favorite, voir même par mail (pour les plus modernes
+d'entre vous). Et je regrette vraiment de ne pas trouver d'ebooks
+libre au format texte...
+
+<p>
+Bref, tout ça pour dire que je me suis donc permis de récupérer les
+sources latex de l'ouvrage que j'ai donc compilé en html grâce à
+latex2html. Ensuite j'ai converti le tout en plain text avec lynx. (Oui je
+n'ai pas utilisé la version HTML donné par framabook car cette version est
+scindée en plusieurs fichier.html en fonction des chapitres, chose que je
+ne voulais pas (plus simple pour le passage du bouquin en un seul fichier
+.txt)). Enfin, j'ai retouché légèrement l'apparence de la version texte
+(titre, encart, etc) histoire que ça soit d'une part agréable à lire mais
+aussi histoire de mieux se repérer (titre de chapitre écrit en majuscule
+avec ajout de caractères clés pour pouvoir naviguer directement vers un
+chapitre sans avoir à scroller les 10895 lignes)...
+
+<p>
+Voici maintenant les liens vers ce framabook en .txt et compressé avec
+gzip pour ceux que ça intéresse (oui vous allez pas être nombreux je
+me doute :p) :<br>
+<del>Richard Stallman et la révolution du logiciel libre</del>
+(protocole gopher)<br>
+<a href="{{ site.url }}/litt/rms2010revl.txt.gz">Richard
+Stallman et la révolution du logiciel libre</a> (protocole http)
+
+<p>
+Notez que chaque chapitre a donc des caractères clés histoire de
+pouvoir sauter vers le chapitre voulu en faisant une simple recherche
+(&quot;[C07]&quot; pour le chapitre septième par exemple. Le système
+de recherche peut-être utilisé aussi pour voir les notes de bas de
+pages (qui sont en fin de document) en recherchant simplement le mot
+suivi du numéro de la note (par exemple : &quot;<em>et autres systèmes
+ordonné^23</em>&quot; il suffit de chercher
+<em>ordonné^23</em> pour tomber tout de suite sur la note (dans les faits
+il suffit simplement de faire une recherche sur <em>^23</em> pour tomber
+sur la note, puis de refaire la même recherche pour revenir à la position
+originale).
+
+<p>
+NB : Ah et bien sûr, je ne l'ai pas dit explicitement, mais je n'ai en rien
+changé le contenu de l'ouvrage évidemment...
+
+<p>
+NB2 : Avant qu'on ne me fasse la remarque &quot;Mais pourquoi ne pas
+simplement convertir le pdf en texte directement avec genre pdftotext
+?&quot; Simplement parce que, je ne sais pas si vous l'avez déjà fait,
+mais le résultat est limite inbuvable la plupart du temps ni vraiment
+très propre (caractères illisibles, formatage des plus aléatoires,
+etc)...

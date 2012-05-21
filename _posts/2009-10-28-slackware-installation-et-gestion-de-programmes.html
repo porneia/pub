@@ -1,0 +1,307 @@
+---
+layout: post
+title: "Slackware : installation et gestion de programmes"
+date: 2009-10-28 23:05:46 +0100
+author: illov&aelig;
+mail: illovae[at]bk[dot]ru
+description:
+commentaire:
+category:
+tags:
+keywords:
+license: "WTF"
+---
+<p>
+<span class="articleAuthor">D Weblog System, 28 octobre 2009, {{ page.author }}</span>
+&mdash; En ce qui concerne l'installation de Slackware 13.0 j'ai pris
+dans leur ensemble les sets <code>A AP D L N X</code>, ce qui prend
+environ 2.1Go d'espace disque (plus d'informations sur les sets
+dans <a href="http://ftp.lip6.fr/pub/linux/distributions/slackware/slackware-13.0/Slackware-HOWTO"
+class="external" hreflang="en">le Slackware-HOWTO</a>). L'installation
+s'est déroulée sans entraves. Ne connaissant pas encore assez bien
+slackware, j'ai installé tous ces sets en entier,
+cependant, <strong>il est possible de partir d'un système plus minimal
+et d'installer les packages à sa convenance</strong>. Vous pouvez le
+faire depuis le(s) cd(s)/dvd d'installation, mais cette méthode de
+sélection paquet par paquet peut être fastidieuse.
+
+<p>
+Une <strong>autre technique</strong> consiste à installer les sets <code>A
+AP D L N</code> dans leur totalité puis d'<strong>utiliser le script
+<em>Make Me Slim</em> écrit
+par <a href="http://www.iki.fi/kuparine/english.html" class="external"
+hreflang="en">Martti Kuparinen</a></strong> et que vous
+pouvez <a href="http://kuparinen.org/martti/comp/slackware/mms"
+class="external" hreflang="en">trouver ici</a>. Son utilisation est
+très simple, après l'avoir récupéré :
+
+<pre>
+$ <b>chmod +x mms</b>
+$ <b>./mms -h</b>
+$ <b>./mms -y</b>
+</pre>
+
+<p>
+À l'origine ce script sert donc a avoir le système le plus épuré
+possible afin
+d'utiliser <a href="http://www.netbsd.org/Documentation/software/packages.html"
+class="external" hreflang="en">pkgsrc</a>.
+<strong>Attention, ce script va désinstaller une <em>grande</em> partie
+des packages sous slackware, il restera juste assez pour booter, mais rien
+de plus...</strong>
+
+<h2>Slackware et pkgsrc</h2>
+
+<p>
+<em>Note :</em> j'ai utilisé <code>pkgsrc</code> sur une slackware épurée,
+mais sachez que vous pouvez très bien l'utiliser sur n'importe quel
+système GNU/Linux ; c'est l'intérêt de <code>pkgsrc</code>...
+
+<p>
+Je ne vais pas détailler ce
+qu'est <a href="http://www.netbsd.org/Documentation/software/packages.html"
+class="external" hreflang="en">pkgsrc</a> ici, mais sachez simplement
+que cela sert simplement à <strong>avoir les programmes de l'userland
+NetBSD sous GNU/Linux</strong> (entre autres). Le tout par la
+compilation.
+
+<p>
+L'idée ici est d'<strong>avoir un système minimal basé sur slackware et
+d'utiliser exclusivement <code>pkgsrc</code> pour compiler les programmes
+tiers dont vous pourriez avoir besoin</strong> (depuis ncurses jusqu'à
+Xorg et des X applications). Oui, cette optique d'avoir un noyau Linux,
+une base minimale GNU et d'utiliser l'userland NetBSD va faire frémir
+d'horreur les BSDistes. Généralement, on fait l'inverse : on a un noyau
+BSD, son userland (plus pratique) et on rajoute les outils GNU...
+
+<p>
+Mais on peut très bien utilisé <code>pkgsrc</code> simplement pour avoir des
+applications non disponibles dans les dépôts officiels slackware. C'est à vous
+de voir. (<em>Note</em>: <code>pkgsrc</code> rêgle lui-même les dépendances).
+
+<p>
+Avant tout nous allons récupérer <code>pkgsrc</code>
+à <a href="http://www.netbsd.org/docs/software/packages.html"
+class="external" hreflang="en">cette adresse</a> et le placer
+dans <code>/usr/</code>.
+
+<p>
+Pour avoir un système minimal slackware, je vous renvoie à la partie
+précédente et l'utilisation du script <em>Make Me Slim</em>.
+<strong>Attention</strong>: veuillez récupérer le tar.gz de pkgsrc
+<em>avant</em> de lancer <code>mms</code>. En effet <code>mms</code>
+supprime le package <code>wget</code>, vous ne pourrez donc plus le
+télécharger simplement. Ou alors éditez le script pour rajouter
+<code>wget</code> à la liste des packages à ne pas enlever.
+
+<p>
+Nous allons donc détarer <code>pkgsrc</code> puis lancer le bootstrap :
+
+<pre>
+# <b>cd /usr</b>
+# <b>tar xzf pkgsrc-200XQX.tar.gz</b>
+# <b>cd /usr/pkgsrc/bootstrap/</b>
+# <b>./bootstrap</b>
+</pre>
+
+<p>
+
+Tout cela va prendre un peu de temps et de place (un peu moins de 700Mo).
+Une fois fini, il va vous falloir <strong>éditer un peu votre
+shell</strong> en modifiant votre PATH :
+<code>PATH=$PATH:/usr/pkg/sbin:/usr/pkg/bin</code>. Il faut aussi penser
+aux man en rajoutant <code>MANPATH=$MANPATH:/usr/pkg/man</code> (tout cela
+dans votre <code>~/.profile</code> ou votre <code>~/.bashrc</code> ou
+autre...). Occupons nous aussi du PATH des librairies :
+
+<pre>
+# <b>echo /usr/pkg/lib &gt;&gt; /etc/ld.so.conf</b>
+# <b>cat /etc/ld.so.conf</b>
+/usr/local/lib
+/usr/X11R6/lib
+/usr/i486-slackware-linux/lib
+/usr/pkg/lib
+</pre>
+
+<p>
+Nous allons <strong>maintenant customiser un peu
+<code>mk.conf</code></strong>. Avant tout on le copie là où il faut :
+
+<pre>
+# <b>cp /usr/pkgsrc/bootstrap/work/mk.conf /usr/pkg/etc/mk.conf</b>
+</pre>
+
+<p>
+Par défaut, la configuration n'est pas à modifier sauf selon votre convéniance.
+Cependant, vous pouvez d'ores et déjà rajouté ces deux lignes dans ce fichier
+avant <code>.endif</code>:
+
+<pre>
+ACCEPTABLE_LICENSES+=vim-license
+ALLOW_VULNERABLE_PACKAGES=vim
+</pre>
+
+<p>
+Enfin on va installer l'audit et <code>digest</code> (<code>bmake</code> est le
+make de NetBSD pour information) (c'est une bonne idée de mettre
+<code>download-vulnerability-list</code> dans un crontab histoire de garder
+cette liste à jour) :
+
+<pre>
+# <b>/usr/pkg/sbin/download-vulnerability-list</b>
+# <b>cd /usr/pkgsrc/pkgtools/digest</b>
+# <b>bmake</b>
+</pre>
+
+<p>
+Voilà <strong>nous avons donc maintenant un pkgsrc totalement
+fonctionnel</strong>. Vous pouvez déjà compiler openssh (si vous n'avez
+pas d'installation minimale, pensez à <code>removepkg openssh</code>
+avant) :
+
+<pre>
+# <b>cd /usr/pkgsrc/security/openssh</b>
+# <b>bmake install</b>
+# <b>bmake clean clean-depends</b>
+</pre>
+
+<p>
+Il exist un programme assez intéressant qui va vous permettre de maintenir à
+jour les programmes installés par <code>pkgsrc</code> et qui se nomme
+<code>lintpkgsrc</code> :
+
+<pre>
+# <b>cd /usr/pkgsrc/pkgtools/lintpkgsrc</b>
+# <b>bmake</b>
+</pre>
+
+<p>
+<em><strong>edit :</strong> si vous comptez
+utiliser <code>pkgsrc</code> avec un installation &quot;normale&quot;
+de slackware, vous devriez penser à désactiver la
+binaire <code>ftp</code>. En effet, <code>pkgsrc</code> utilise sa
+propre version de <code>ftp</code> et cela pourrait provoquer un
+disfonctionnement dans la récupération des sources par
+<code>pkgsrc</code>. Pour cela un simple <code># chmod 0 /bin/ftp</code>
+suffit.</em>
+
+<h2>Slackware et slackpkg, sbopkg, slackyd</h2>
+
+<p>
+Nous allons maintenant <strong>passé en revenu quelques façons de gérer
+les packages sous slackware</strong>. Notons (comme vous le savez
+peut-être) que <strong>slackware ne gère pas les dépendances</strong>,
+vous devez le faire vous-même à la main.
+
+<p>
+<dl>
+<dt><strong>slackpkg</strong> :
+<dd><code>slackpkg</code> est une <strong>méthode</strong> pratique
+<strong>pour gérer les packages officiels</strong>. Sa configuration se
+fait au travers du fichier <code>/etc/slackpkg/slackpkg.conf</code> et de
+<code>/etc/slackpkg/mirrors</code> notamment. Il est normalement livré
+dans les dépôts officiels de slackware ; si vous avez fait une
+installation normale, vous devriez l'avoir sur votre machine.
+
+<p>
+<dt><strong>sbopkg</strong> :
+<dd><a href="http://www.sbopkg.org" class="external"
+hreflang="en"><code>sbopkg</code></a> est un
+<strong>outil en ligne de commande qui permet d'avoir accès au dépôt
+de <a href="http://www.slackbuilds.org/" class="external"
+hreflang="en">SlackBuilds.org</a></strong> qui contient une liste non
+négligeable de packages. <code>sbopkg</code> s'occupera donc pour vous
+de récupérer les sources, de compiler et d'installer les packages
+résultant sur votre système.
+
+<p>
+Certains de ces programmes nécessitent d'avoir des librairies
+installées pour la compilation. Vous pouvez obtenir toutes les
+informations nécessaires via la commande <code># sbopkg -s
+[packages]</code> pour les dépendances directes du paquet (par
+exemple,
+le <a href="http://slackbuild.org/slackbuilds/13.0/graphics/feh/README"
+class="external" hreflang="en">README</a> de feh nous indique que
+giblib et imlib2 sont requis et disponibles sur slackbuild.org). Il
+faudra donc les compiler <em>avant</em> bien sûr. En pratique et si
+les dépendances se trouvent sur SlackBuild, avec
+<code>sbopkg</code>, cela se traduit simplement de cette façon :
+
+<pre>
+$ <b>sudo sbopkg -i &quot;giblib imlib2 feh&quot;</b>
+</pre>
+
+<p>
+<dt><strong>slackyd</strong> :
+<dd><code>slackyd</code> est un outil qui nous vient de
+la <a href="http://www.slacky.eu" class="external"
+hreflang="en">communauté slackware italienne Slacky.eu</a> qui a son
+propre <a href="http://repository.slacky.eu/slackware-13.0/"
+class="external" hreflang="en">dépôt de packages</a> ; à nouveau
+un <strong>outil en ligne de commande</strong>, qui vous permettra
+d'<strong>installer les packages directement ou de les
+compiler</strong>. <code>slackyd</code> lors de l'installation d'un
+package vous <strong>indique quelles sont les dépendances directes
+requises</strong> et vous propose de les installer automatiquement
+(soit depuis le dépôt officiel, soit depuis le dépôt slacky.eu, selon
+le package). Notez que c'est <strong>à titre indicatif</strong>, pour
+respecter la philosophie slackware, le script ne vous impose pas du
+tout d'installer ces dépendances, et fort heureusement.
+
+<p>
+Vous pouvez récupérer le package de <code>slackyd</code> directement sur
+le dépôt officiel et l'installer (attention prenez la version qui
+correspond à votre version de slackware). Pensez à regarder la
+configuration se trouvant dans <code>/etc/slackyd/slackyd.conf</code>.  Je
+vous conseille d'utiliser un des miroirs pour récupérer les packages,
+étant donné que le dépôt officiel est plutôt lent... (cf. le fichier de
+configuration).
+
+</dl>
+
+<p>
+Les packages installés via <code>sbopkg</code> et <code>slackyd</code>
+sont enregistrés sur votre système. <strong>Pour les désinstaller, il
+suffit simplement d'utiliser les outils slackware appropriés, dans notre
+cas <code>removepkg</code>.</strong>
+
+<p>
+Il existe d'autres façons de gérer les packages sous slackware, et notamment
+<code>swiret</code> et <code>slapt-get</code>. Je n'ai testé ni l'un ni
+l'autre. <code>swiret</code> ne paraît plus vraiment utilisé selon ce qu'on m'a
+dit. Quant à <code>slapt-get</code> sa gestion des dépendances est trop
+debian-like et ne respecte pas assez la philosophie de slackware pour que je
+m'y sois penché...
+
+<h2>Conclusion et références</h2>
+
+<p>
+On peut <strong>tout à fait utiliser <em>en même temps</em> ces
+quatres méthodes pour installer les paquets / compiler les sources des
+programmes dont nous avons besoin</strong>. <code>sbopkg</code> et
+<code>slackyd</code> ont plusieurs packages en commun mais chacun a des
+outils en plus dans lesquels chacun pourra trouver son bonheur.
+L'<strong>intérêt de <code>pkgsrc</code> est, bien sûr, de bénéficier de
+l'userland de NetBSD et de ces audits</strong>. Personnellement, j'aurai
+tendance à n'utiliser <em>que</em> <code>pkgsrc</code> avec une base
+minimale mais il faut pour cela une partition assez conséquente et du
+temps (car oui on compile tout de A à Z et ça prend de la place ; un peu
+comme une gentoo quoi). Mais avec cette dernière méthode on s'éloigne de
+la philosophie slackware, mais on bénéficie malgré tout de son
+installation de base très robuste et standard.
+
+<p>
+Dans les faits, n'ayant pas une place folle pour mon root, j'ai laissé de côté
+<code>pkgsrc</code> pour le moment pour me concentrer sur <code>sbopkg</code>
+et <code>slackyd</code>.
+
+<p>
+<a href="http://www.slacky.eu/wikislack/index.php?title=Pkgsrc_su_slackware" class="external" hreflang="en">
+http://www.slacky.eu/wikislack/index.php?title=Pkgsrc_su_slackware</a><br>
+<a href="http://kuparinen.org/martti/comp/slackware/slackware.html" class="external" hreflang="en">
+http://kuparinen.org/martti/comp/slackware/slackware.html</a><br>
+<a href="http://pbraun.nethence.com/doc/sysutils_linux/slackware.html" class="external" hreflang="en">
+http://pbraun.nethence.com/doc/sysutils_linux/slackware.html</a><br>
+<a href="http://pbraun.nethence.com/doc/sysutils_linux/slackware-pkgsrc.html" class="external" hreflang="en">
+http://pbraun.nethence.com/doc/sysutils_linux/slackware-pkgsrc.html</a>
+

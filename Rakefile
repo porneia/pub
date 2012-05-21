@@ -110,10 +110,10 @@ task :preview do
 end # task :preview
 
 desc "Update and rsync"
-task :doit do
+task :publish do
   system "jekyll"
   system "rsync --delete -rovuc --exclude='links' /srv/git/porneia/_site/ /srv/www/porneia.free.fr/pub/"
-end # task :doit
+end # task :publish
 
 #Load custom rake scripts
 Dir['_rake/*.rake'].each { |r| load r }
