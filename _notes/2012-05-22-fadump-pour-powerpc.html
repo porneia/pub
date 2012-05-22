@@ -1,0 +1,60 @@
+---
+layout: project
+title: "Du nouveau pour PowerPC dans linux-3.4"
+date: 2012-05-22 16:53:26 +0200
+---
+<p>
+Dans sa
+<a href="http://linuxfr.org/news/sortie-officielle-du-noyau-linux-3-4"
+class="external" hreflang="en">brêve du 21/05/12</a> patrick_g nous
+gratifie d'une dépêche fort intéressante concernant
+<a href="https://lkml.org/lkml/2012/5/20/126" class="external"
+hreflang="en">la sortie officielle du noyau Linux 3.4</a>. Et il y
+parle notamment d'une nouveauté pour PowerPC, le fadump :
+
+<blockquote>
+<p>
+Dans cette version du noyau, l'architecture
+PowerPC <a href="http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commitdiff;h=eb39c8803d0e3d98fe74825f99287f63d55e6460"
+class="external" hreflang="en">a gagné un mécanisme</a> de capture des
+donnés (<em>dump</em>) lors d'un éventuel crash de la machine. Ce
+nouveau système repose sur une coopération avec le firmware, ce qui
+explique son nom de fadump (<em>firmware assisted dump</em>).</p>
+
+<p>
+Lors du boot initial le noyau se sert du firmware Power pour
+sélectionner des régions de la mémoire et les réserver au stockage des
+données pour analyse post-mortem. Au moment du crash, c'est le
+firmware qui prend la main et qui sauve les données (ainsi que les
+registres systèmes et les entrées dans la tables des pages).
+<br>
+Après ces opérations l'administrateur peut redémarrer normalement. Le
+noyau va noter qu'il y a eu un crash (puisqu'une
+entrée <code>dump-kernel</code> aura été créée) et il va soigneusement
+éviter de toucher les zones mémoire réservées. Un programme en espace
+utilisateur pourra ensuite être utilisé pour
+lire <code>/proc/vmcore</code> et récupérer ces données pour analyse
+ultérieure. Ensuite, il ne faudra pas oublier de faire un
+petit <code>echo 1 &gt; /sys/kernel/fadump_release_mem</code> pour
+libérer la mémoire qui avait été réservée au stockage des données du
+crash.</p>
+
+<p>
+<a href="http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commitdiff;h=8e0aa6d436f303a37df7ec68758883ade077d123"
+class="external" hreflang="en">La documentation</a> de fadump écrite
+par Mahesh Salgaonkar explique les deux avantages de cette procédure
+par rapport aux classiques kexec
+et <a href="http://lse.sourceforge.net/kdump/" class="external"
+hreflang="en">kdump</a>. Tout d'abord, le système est réinitialisé
+proprement avec une version fraiche du noyau et ensuite, aussitôt que
+la copie du dump est effectuée, la mémoire peut être réutilisée. Pas
+besoin d'un second reboot.
+<br>
+Pour profiter des avantages de fadump il vous faudra un noyau compilé avec l'option de configuration <code>CONFIG_FA_DUMP</code>.</p>
+</blockquote>
+
+<p>
+L'auteur nous présente de surcroît des informations très intéressantes
+concernant la nouvelle architecture x32 ou encore le très controversé
+<a href="http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commitdiff;h=2d514487faf188938a4ee4fb3464eeecfbdcf8eb"
+class="external" hreflang="en">YAMA</a>.
