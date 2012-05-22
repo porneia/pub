@@ -12,7 +12,7 @@ IndexOptions NameWidth=* FancyIndexing FoldersFirst DescriptionWidth=80 IconWidt
 AddType text/html .html
 
 HeaderName {{ site.baseurl }}/header.html
-ReadmeName {{ site.baseurl }}/readme.html
+ReadmeName {{ site.baseurl }}/footer.html
 
 AddDescription "Mayaliubova kalashnika" ..
 AddDescription "Videos+7 backups" a7
