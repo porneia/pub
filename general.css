@@ -246,7 +246,7 @@ ins {
 .nostyle { text-decoration: none; }
 
 /* from wikipedia */
-div#content a.external,div#content a[href ^="gopher://"] {
+a.external, a[href ^="gopher://"] {
     background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAFZJREFUeF59z4EJADEIQ1F36k7u5E7ZKXeUQPACJ3wK7UNokVxVk9kHnQH7bY9hbDyDhNXgjpRLqFlo4M2GgfyJHhjq8V4agfrgPQX3JtJQGbofmCHgA/nAKks+JAjFAAAAAElFTkSuQmCC) center right no-repeat;
     padding-right: 13px;
     text-decoration: none;
@@ -254,7 +254,7 @@ div#content a.external,div#content a[href ^="gopher://"] {
 }
 
 /* from framasoft */
-div#content a.wikipedia {
+a.wikipedia {
     background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAABmJLR0QARwBHAHg4m11tAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH1wEUCgk2MhvESQAAAQhJREFUKM+V0s1KAlEUwPH/vdyx8SYUSjL4Uc0M6CJ3LX2L3sCnEME3iGjnG7SdB0jcjboQukEDQgRuQqEQAglsNS2igWFaTGd1FufHOYdzRBjGF0BEjjCGjgIi14WcIJL8MxIwGNzQ71+z3X4QRc8EwT0Ao9Edw+FtAtRv0utdMZ8/Uqkcs1g8sVq9AtDtXlIuH2U7eF4zKZJSsN9/Eccx6/UbjYaTBUoptLbZ7T6RUlKrVdls3hFCIITIjgTQbrtMpw/U61UKBYvl8gWt7b+X/gEek8kM3z/D908Zj2e0WucpkOrg+01KpUO0tikWD7AsheOcpIAIwzjOe7ggAGUMHWPyvQbQ+QZ6UUjF10X+0wAAAABJRU5ErkJggg==) center right no-repeat transparent;
     padding-right: 15px;
     text-decoration: none;
