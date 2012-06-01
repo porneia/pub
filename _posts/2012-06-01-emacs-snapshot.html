@@ -1,0 +1,138 @@
+---
+layout: post
+title: "Emacs 24 pour Debian PowerPC"
+date: 2012-06-01 00:42:59 +0200
+author: e20100633
+mail: e20100633[at]inbox[dot]lv
+description:
+commentaire:
+category:
+tags: [planet-libre]
+keywords: emacs, snapshot, debian, naquadah, sources.list, e20100633
+license: "WTF"
+---
+<p>
+<span class="articleAuthor">Porneia delights, 1 juin 2012, {{ page.author }}</span>
+&mdash; Les utilisateurs d'Emacs n'ont pu le manqué : le développement
+d'Emacs 24 avance à grand pas. Bien que toujours en version de test,
+de nombreux utilisateurs ont déjà franchi le pas et utilisent (à leurs
+risques et périls) cette nouvelle mouture afin d'y découvrir les
+nouvelles fonctionnalités. Mickey Petersen a d'ailleurs écrit un
+article en deux parties sur le sujet au cours du mois de décembre 2011
+sous le nom évocateur
+de <a href="http://www.masteringemacs.org/articles/2011/12/06/what-is-new-in-emacs-24-part-1/"
+class="external" hreflang="en"><em>What's new in Emacs 24</em></a> (la
+seconde partie
+étant <a href="http://www.masteringemacs.org/articles/2011/12/12/what-is-new-in-emacs-24-part-2/"
+class="external" hreflang="en">ici</a>).
+
+<p>
+Pour pouvoir installer la version de développement d'Emacs, il existe
+plusieurs méthodes. La plus courante est probablement d'utiliser le
+dépôt Bazaar d'Emacs <a href="http://savannah.gnu.org/projects/emacs/"
+class="external" hreflang="en">disponible sur Savannah</a>, ou bien de
+passer par <a href="http://www.emacswiki.org/emacs/EmacsFromGit"
+class="external" hreflang="en">leur dépôt git</a>, ou encore de
+télécharger <a href="http://alpha.gnu.org/gnu/emacs/pretest/"
+class="external" hreflang="en">une archive des sources</a>, et de
+compiler tout cela à la main. Mais il serait dommage de ne pas
+utiliser un des points forts de nos distributions qui est la gestion
+des paquets, notamment sur Debian. C'est pourquoi, il
+existe <a href="http://emacs.naquadah.org/" class="external"
+hreflang="en">un dépôt pour Debian</a> maintenu
+par <a href="http://julien.danjou.info/" class="external"
+hreflang="en">Julien Danjou</a>. Remarquez en passant
+que <a href="http://anonscm.debian.org/gitweb/?p=users/acid/emacs-snapshot.git;a=log;h=refs/heads/debian/patches"
+class="external" hreflang="en">quelques patches</a> sont appliqués
+lors de la création des paquets afin d'apporter quelques menues
+corrections.
+
+<p>
+Une des grandes forces de Debian
+est <a href="http://www.debian.org/ports/" class="external"
+hreflang="en">le support officiel d'un certain nombre
+d'architectures</a>, dont le regretté PowerPC. Si vous êtes un
+utilisateur d'Emacs et heureux possesseur d'un PPC faisant fièrement
+tourné Debian, vous serez peut-être content d'apprendre que ce dépôt,
+du Réseau Naqu&aring;dah, accueille depuis un peu moins d'une semaine
+des paquets pour Emacs à destination de cette architecture. Des
+paquets pour la version <em>stable</em> (Squeeze) et <em>unstable</em>
+(Sid) sont disponibles.
+
+<p>
+Attention, comme il a été dit, bien qu'Emacs 24 soit suffisamment
+robuste, il reste en version de développement &mdash; ainsi que les
+paquets sur le dépôt. Attendez-vous à quelques bugs et à de possibles
+malfonctionnements (voir les remarques en bas de cet article par
+exemple).
+
+<p>
+L'utilisation du dépôt est très simple. Il suffit dans un premier
+temps d'ajouter la clef à votre trousseau APT :
+
+<pre>
+$ <b>wget -q -O - http://emacs.naquadah.org/key.gpg | sudo apt-key add -</b>
+</pre>
+
+<p>
+Puis d'éditer votre fichier <code>/etc/apt/sources.list</code> en
+fonction de votre version de Debian (si vous êtes
+sous <em>testing</em> vous pouvez prendre la
+version <em>unstable</em>) :
+
+{% highlight sourceslist %}
+# Emacs24 for Debian stable:
+deb http://emacs.naquadah.org/ stable/
+deb-src http://emacs.naquadah.org/ stable/
+
+# Emacs24 for Debian unstable:
+deb http://emacs.naquadah.org/ unstable/
+deb-src http://emacs.naquadah.org/ unstable/
+{% endhighlight %}
+
+<p>
+Après avoir mis à jour, vous pourrez installer le
+paquet <code>emacs-snapshot</code> (utilisant GTK). Il existe deux
+autres variantes du paquet :
+
+<ul>
+  <li><code>emacs-snapshot-nox</code> pour une version en console ;
+  <li><code>emacs-snapshot-lucid</code> pour une version utilisant
+    Lucid/Athena.
+</ul>
+
+<p>
+<b>Remarque #1</b> : sur PowerPC, lors de mes essais avec une
+version <em>stable</em>, Emacs se plaignait de ne pas
+trouver <code>rsvg</code> (<code>sh: rsvg: not found</code>). J'ai pu
+résoudre le problème en installant à la main le
+paquet <code>librsvg2-bin</code>.
+
+<p>
+<b>Remarque #2</b> : avec la version <code>20120522</code> du dépôt et
+toujours sur <em>stable</em>, une nouvelle erreur est apparue
+concernant <code>/usr/bin/rsvg-convert</code> :
+
+{% highlight console %}
+/usr/bin/rsvg-convert: symbol lookup error: /usr/bin/rsvg-convert:
+undefined symbol: _rsvg_size_callback
+{% endhighlight %}
+
+<p>
+Cela ressemble à un problème de version
+concernant <code>librsvg2-bin</code> ; celle de Squeeze n'étant plus
+toute jeune (2.26-3 contre 2.36.1 sur sid). Mais peut-être que je me
+trompe.
+
+<p>
+<b>Remarque #3</b> : la version disponible sur le dépôt à l'heure où
+j'écris ces lignes, la <code>20120523</code>, a un problème avec un
+fichier manquant quand on démarre Emacs avec son init.el :
+
+{% highlight console %}
+Warning (initialization): An error occurred while loading `/home/e20100633/.emacs.d/init.el':
+error: Cannot open doc string file "/usr/share/emacs/24.1.50/etc/DOC-24.1.50.1"
+{% endhighlight %}
+
+<p>
+Cela devrait être résolu avec la prochaine mise à jour.
