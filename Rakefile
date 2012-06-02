@@ -111,7 +111,7 @@ end # task :preview
 
 desc "Update and rsync"
 task :publish do
-  system "jekyll"
+  system "jekyll --future"
   system "rsync --delete -rovuc --exclude='links' /srv/git/porneia/_site/ /srv/www/porneia.free.fr/pub/"
 end # task :publish
 
