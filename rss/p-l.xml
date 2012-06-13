@@ -17,7 +17,7 @@ layout: nil
 <title>{{ post.title }}</title>
 <link>http://porneia.free.fr/pub{{ post.url }}</link>
 <guid>http://porneia.free.fr/pub{{ post.url }}</guid>
-<pubDate>{{ post.date | date_to_xmlschema }}</pubDate>
+<pubDate>{{ post.date | date: "%a, %d %b %Y %R:%S %z" }}</pubDate>
 <dc:creator>{% if post.author == 'al.' %}Porneia delights{% else %}{{ post.author | xml_escape }}{% endif %}</dc:creator>
 <description><![CDATA[
 {{ post.content }}
