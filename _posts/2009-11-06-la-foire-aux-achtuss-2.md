@@ -11,7 +11,8 @@ tags: []
 keywords: foire, astuces, tips, GNU/Linux, achtuss, illovae
 license: "WTFPL(v2) - Beerware License"
 ---
-Un peu plus d'un an après la <a href="{{ site.url }}{{ site.baseurl}}/articles/la-foire-aux-achtuss-1.html"
+<span class="articleAuthor">D Weblog System, 06 novembre 2009,
+{{ page.author }}</span> &mdash; Un peu plus d'un an après la <a href="{{ site.url }}{{ site.baseurl}}/articles/la-foire-aux-achtuss-1.html"
 class="external"
 hreflang="fr">première édition</a>, je me décide enfin à continuer
 cette série (le fait d'avoir retrouvé mes vieilles notes à ce sujet ne
