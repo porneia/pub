@@ -1,7 +1,7 @@
 {% if projects %}
 
     <p>
-    <b>&alefsym; 2012</b>
+    <b>2012</b>
     <ul class="posts">
 {% for project in projects %}
 {% capture this_year %}{{ project.date | date: "%Y" }}{% endcapture %}
@@ -12,7 +12,7 @@
     </ul>
 
     <p>
-    <b>&alefsym; 2011</b>
+    <b>2011</b>
     <ul class="posts">
 {% for project in projects %}
 {% capture this_year %}{{ project.date | date: "%Y" }}{% endcapture %}

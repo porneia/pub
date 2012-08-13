@@ -5,21 +5,23 @@ date: 2012-06-01 00:42:59 +0200
 author: e20100633
 mail: e20100633[at]inbox[dot]lv
 description:
-commentaire:
+commentaire: Cette information a aussi fait l'objet d'une annonce sur la <a href="http://lists.debian.org/debian-powerpc/2012/06/msg00027.html" class="external" hreflang="en">mailing list debian-powerpc</a>.
 category:
 tags: [planet-libre]
 keywords: emacs, snapshot, debian, naquadah, sources.list, e20100633
 license: "WTF"
 ---
 <p>
-<span class="articleAuthor">Porneia delights, 1 juin 2012, {{ page.author }}</span>
-&mdash; Les utilisateurs d'Emacs n'ont pu le manqué : le développement
-d'Emacs 24 avance à grand pas. Bien que toujours en version de test,
-de nombreux utilisateurs ont déjà franchi le pas et utilisent (à leurs
-risques et périls) cette nouvelle mouture afin d'y découvrir les
-nouvelles fonctionnalités. Mickey Petersen a d'ailleurs écrit un
-article en deux parties sur le sujet au cours du mois de décembre 2011
-sous le nom évocateur
+<span class="articleAuthor">Porneia delights, <time datetime="{{ page.date | date_to_xmlschema }}" pubdate="pubdate">1 juin 2012</time>, {{ page.author }}</span>
+&mdash; Les utilisateurs d'Emacs n'ont pu le manquer : le développement
+d'Emacs 24 avance à grand pas. <del>Bien que toujours en version de
+test, de nombreux utilisateurs ont déjà franchi le pas et utilisent (à
+leurs risques et périls) cette nouvelle mouture afin d'y découvrir les
+nouvelles fonctionnalités</del>
+(<ins datetime="2012-06-19T16:11:23">MàJ du 19 juin 2012 16h11 +0200 :
+Emacs 24.1 est en version stable depuis le 10 juin 2012</ins>). Mickey
+Petersen a d'ailleurs écrit un article en deux parties sur le sujet au
+cours du mois de décembre 2011 sous le nom évocateur
 de <a href="http://www.masteringemacs.org/articles/2011/12/06/what-is-new-in-emacs-24-part-1/"
 class="external" hreflang="en"><em>What's new in Emacs 24</em></a> (la
 seconde partie
@@ -27,9 +29,10 @@ seconde partie
 class="external" hreflang="en">ici</a>).
 
 <p>
-Pour pouvoir installer la version de développement d'Emacs, il existe
-plusieurs méthodes. La plus courante est probablement d'utiliser le
-dépôt Bazaar d'Emacs <a href="http://savannah.gnu.org/projects/emacs/"
+Pour pouvoir installer la version <del>de développement</del> courante
+d'Emacs, il existe plusieurs méthodes. La plus courante est
+probablement d'utiliser le dépôt Bazaar
+d'Emacs <a href="http://savannah.gnu.org/projects/emacs/"
 class="external" hreflang="en">disponible sur Savannah</a>, ou bien de
 passer par <a href="http://www.emacswiki.org/emacs/EmacsFromGit"
 class="external" hreflang="en">leur dépôt git</a>, ou encore de
@@ -60,11 +63,11 @@ paquets pour la version <em>stable</em> (Squeeze) et <em>unstable</em>
 (Sid) sont disponibles.
 
 <p>
-Attention, comme il a été dit, bien qu'Emacs 24 soit suffisamment
+<del>Attention, comme il a été dit, bien qu'Emacs 24 soit suffisamment
 robuste, il reste en version de développement &mdash; ainsi que les
 paquets sur le dépôt. Attendez-vous à quelques bugs et à de possibles
 malfonctionnements (voir les remarques en bas de cet article par
-exemple).
+exemple).</del>
 
 <p>
 L'utilisation du dépôt est très simple. Il suffit dans un premier
@@ -107,6 +110,12 @@ version <em>stable</em>, Emacs se plaignait de ne pas
 trouver <code>rsvg</code> (<code>sh: rsvg: not found</code>). J'ai pu
 résoudre le problème en installant à la main le
 paquet <code>librsvg2-bin</code>.
+
+<p>
+<ins datetime="2012-06-19T16:11:23">MàJ du 19 juin 2012 16h11 +0200 :
+Les problèmes exposés dans les remarques #2 et #3 ci-dessous sont
+corrigés avec la version <code>2:20120615-1</code>. Celles-ci ne sont
+donc plus valides.</ins>
 
 <p>
 <b>Remarque #2</b> : avec la version <code>20120522</code> du dépôt et

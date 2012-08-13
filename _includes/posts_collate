@@ -28,7 +28,7 @@ Usage:
 
     {% if forloop.first %}
     <p>
-    <b>&alefsym; {{ this_year }}</b>
+    <b>{{ this_year }}</b>
     <ul class="posts">
     {% endif %}
 
@@ -40,7 +40,7 @@ Usage:
       {% if this_year != next_year %}
        </ul>
        <p>
-       <b>&alefsym; {{ next_year }}</b>
+       <b>{{ next_year }}</b>
        <ul class="posts">
       {% endif %}
     {% endif %}
