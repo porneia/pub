@@ -1,0 +1,168 @@
+---
+layout: post
+title: "Enregistrer les émissions d'Arte+7"
+date: 2012-08-14 02:50:11 +0200
+author: e20100633
+mail: e20100633[at]inbox[dot]lv
+description:
+commentaire:
+category:
+tags:
+keywords: Arte+7, enregistrement, lynx, rtmpdump, xsltproc, stream
+license: "WTF"
+---
+<p>
+<span class="articleAuthor">Porneia delights, 14 août 2012, {{ page.author }}</span>
+&mdash; Il y a quelques années, illov&aelig; avait écrit un script
+bash pour aisément lister
+et <a href="http://porneia.free.fr/pub/articles/telecharger-les-emissions-d-arte7.html">télécharger
+les émissions d'Arte+7</a>, le fameux portail vidéo
+d'<a href="http://plus7.arte.tv" class="external">Arte</a> qui permet
+d'en revoir certaines émissions gratuitement pendant 7 jours. Le temps
+passant et l'architecture du site de la chaîne ayant changé, le code
+n'avait plus été maintenu.
+
+<p>
+Il existe de nos jours des projets similaires et très évolués
+comme <a href="http://forum.ubuntu-fr.org/viewtopic.php?id=861411&p=1"
+class="external">Qarte</a> par exemple. Je ne l'ai jamais testé, c'est
+un outil graphique. En ligne de commande, il est possible d'arriver à
+télécharger ces émissions avec <a href="http://weboob.org/"
+class="external">weboob</a> &mdash; par l'intermédiaire d'un plugin je
+crois. C'est un programme très sympas qui permet de faire plein de
+choses, que l'on doit normalement faire depuis un navigateur internet,
+mais depuis son terminal (plus
+d'informations <a href="https://linuxfr.org/tags/weboob/public"
+class="external">par ici</a>). Mais en ce qui concerne le
+téléchargement (et surtout le listing en fait) des vidéos d'Arte+7 je
+n'avais pas été convaincu (je ne prétend pas masteriser cet outil,
+j'ai sûrement dû mal m'y prendre, mais le fait est que j'ai laissé
+tomber).
+
+<p>
+Bref, tout ça pour dire que je m'étais mis en tête de me faire mon
+propre script. Mes propres scripts devrais-je même plutôt
+dire. N'ayant pas les compétences pour faire quelques choses de très
+pointu avec des tas d'options comme c'était le cas pour le script
+d'illov&aelig;, ma réalisation est très simple, probablement
+maladroite et pas forcément ergonomique. Je sais qu'on doit pouvoir
+faire dix fois mieux et en un seul script. Mais ça me convient comme
+ça (et je sais qu'elle convient à au moins une autre personne). Je ne
+pensais donc jamais la diffuser.
+
+<p>
+En parcourant tout à l'heure les archives du newsgroup
+<code>fcol.configuration</code>, je suis retombé sur un
+<a href="http://fr.comp.os.linux.configuration.narkive.com/HcAEeJmy/capture-stream-arte-7-plus"
+class="external">vieux fil traitant justement de cette question de
+capture de stream d'Arte+7</a> où j'avais partagé mes quelques lignes
+de code. J'ai trouvé que c'était la bonne occasion pour mettre tout ça
+dans une page html et de l'archiver sur le Porneia delights...
+
+<h2>Lister les vidéos disponibles</h2>
+
+<p>
+Arte utilise un fichier xml pour les vidéos disponibles, nous
+utilisons donc xsltproc pour le travailler.
+
+<p>
+Le script <code>arte-ls.sh</code> qui suit
+requiert <code>wget</code>, <code>xsltproc</code> et <code>lynx</code>
+(ou tout autre navigateur en CLI &mdash; éditez les dernières lignes
+en fonction) :
+
+{% highlight sh %}
+#!/bin/sh
+# arte-ls.sh 0.1 e20100633
+# $ arte-ls.sh
+
+TDATE=$(date "+%m%d-%H%M")
+XMLLINK=$(wget -q -O - http://videos.arte.tv/fr/videos |grep XmlUrl |cut -d "\"" -f2)
+
+wget -O /tmp/arte_$$_$TDATE.xml "http://videos.arte.tv$XMLLINK"
+
+xsltproc /tmp/artexml.xsl /tmp/arte_$$_$TDATE.xml > /tmp/arte.html
+
+# Pour utiliser lynx
+lynx /tmp/arte.html
+
+# Pour utiliser w3m via l'instance d'Emacs
+#emacsclient --eval '(w3m-find-file "/tmp/arte.html")'
+{% endhighlight %}
+
+<p>
+Le fichier <code>artexml.xsl</code> (utilisé
+par <code>xsltproc</code>) à placer dans /tmp qui va servir au
+formatage de la page html finale :
+
+{% highlight xml %}
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:template match="/">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<body>
+<dl>
+<xsl:for-each select="coverflow/video">
+<dt>
+<xsl:value-of select="title"/>
+</dt>
+<dd>
+<xsl:value-of select="startDate"/> - <xsl:value-of select="duration"/><br/>
+[http://videos.arte.tv/<xsl:value-of select="targetUrl"/>]
+<p>
+<xsl:value-of select="teaserText"/>
+</p>
+</dd>
+<hr/>
+</xsl:for-each>
+</dl>
+</body>
+</html>
+</xsl:template>
+</xsl:stylesheet>
+{% endhighlight %}
+
+<p>
+Il suffit de lancer <code>arte-ls.sh</code> et après
+traitement <code>lynx</code> s'ouvre avec les vidéos disponibles
+(titre, url, synopsys, etc).
+
+<h2>Enregistrer une vidéo</h2>
+
+<p>
+Si une des vidéos vous intéresse, récupérez le lien fourni sur la page
+générée par <code>arte-ls.sh</code> (du genre
+http://videos.arte.tv/fr/videos/a_qui_profite_la_crise_-4204438.html
+donc) et mettez le en argument à ce script, nommé chez
+moi <code>arte-dl.sh</code> :
+
+{% highlight sh %}
+#!/bin/bash
+# arte-dl.sh 0.1 e20100633
+# $ arte-dl.sh <lien>
+
+XMLLINK=$(wget -q -O - $1 |grep "embed src" |cut -d"=" -f11 |sed 's/"//;s/%3A/:/;s/%2F/\//g')
+XMLVIDEOLINK=$(wget -q -O - $XMLLINK |grep 'lang="fr"' |cut -d"\"" -f4)
+RTMPLINK=$(wget -q -O - $XMLVIDEOLINK |grep hd |cut -d">" -f2 |sed 's/<\/url//')
+
+echo "$RTMPLINK"
+#rtmpdump -e -W "http://videos.arte.tv/videoplayer.swf" -r "$RTMPLINK" -o "$2"
+{% endhighlight %}
+
+<p>
+Par défaut, le script renvoie simplement l'adresse rtmp de la vidéo
+dans votre terminal. Vous pouvez décommenter la dernière ligne si vous
+avez rtmpdump. Le script s'utilisera alors de cette manière :
+
+<pre>
+$ <b>arte-dl.sh</b> [http://lien] [titre_voulu_video.flv]
+</pre>
+
+<p>
+Remarquez l'option <code>-W
+&quot;http://videos.arte.tv/videoplayer.swf&quot;</code> passée
+à <code>rtmpdump</code>. Sans elle votre téléchargement se coupera
+aléatoirement sans en avoir terminé.
