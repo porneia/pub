@@ -7,15 +7,15 @@ id: "0223"
 <pre>
 $ # We will use snapshots from naquadah.org with patches
 $ # Maintainer: Julien Danjou &lt;acid(at)debian.org&gt;
-$ echo "deb-src http://emacs.naquadah.org/ unstable/" | sudo tee -a /etc/apt/sources.list
-$ sudo apt-get update
+$ <b>echo "deb-src http://emacs.naquadah.org/ unstable/" | sudo tee -a /etc/apt/sources.list</b>
+$ <b>sudo apt-get update</b>
 $ # We already have everything to compile (make, gcc, etc) so we just need some headers
-$ sudo apt-get install xorg-dev libjpeg8-dev libpng12-dev libtiff4-dev libgif-dev libncurses5-dev
-$ cd /tmp ; apt-get source emacs-snapshot
-$ cd emacs-snapshot-20120222/
-$ ./autogen.sh
+$ <b>sudo apt-get install xorg-dev libjpeg8-dev libpng12-dev libtiff4-dev libgif-dev libncurses5-dev</b>
+$ <b>cd /tmp ; apt-get source emacs-snapshot</b>
+$ <b>cd emacs-snapshot-20120222/</b>
+$ <b>./autogen.sh</b>
 $ # We want Emacs as is with X support but no toolkits like gtk+/whatever; all in system folders
-$ ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --mandir=/usr/man --infodir=/usr/info --with-x --with-x-toolkit=no
-$ make
-$ sudo make install
+$ <b>./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --mandir=/usr/man --infodir=/usr/info --with-x --with-x-toolkit=no</b>
+$ <b>make</b>
+$ <b>sudo make install</b>
 </pre>

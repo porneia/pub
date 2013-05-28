@@ -1,0 +1,47 @@
+---
+layout: post
+title: "Rxvt-unicode : quelques changements avec la version 9.16"
+date: 2013-01-03 14:03:04 +0100
+author: illov&aelig;
+mail: illovae[at]bk[dot]ru
+tags: [planet-libre]
+keywords: terminal, console, urxvt, rxvt-unicode, illovae
+license: "WTF"
+---
+<p>
+<span class="articleAuthor">Porneia delights, <time datetime="{{ page.date | date_to_xmlschema }}" pubdate="pubdate">3 janvier 2013</time>, {{ page.author }}</span>
+&mdash; Quelques petites modifications ont été apportées à la nouvelle version
+d'urxvt, ou <a href="http://software.schmorp.de/pkg/rxvt-unicode.html"
+class="external">rxvt-unicode</a>, la 9.16. Notamment une composante
+intéressante de cet émulateur qui permet, de lancer un lien affiché dans le
+terminal dans son navigateur simplement en cliquant dessus. En effet, ainsi
+qu'il est indiqué dans le fichier <code>Changes</code> des sources, sous le
+titre <code>9.16 Thu Dec 27 11:56:43 CET 2012</code>, la ressource
+<code>urlLauncher</code> a été renommée en <code>url-launcher</code>. De plus,
+les extensions perls d'urvxt disposent maintenant de leur propre page de
+manuel (voir <code>urxvt-extensions</code> pour une liste complète). À cet
+effet, on trouvera la documentation concernant <code>matcher</code> utilisé
+par la ressource <code>urlLauncher</code> dans la page de manuel
+intitulée <code>urxvt-matcher</code>.
+
+<p>
+Tout cela pour dire que vos anciennes configurations pour les extensions perls
+ainsi que d'<code>urlLauncher</code> ne marcheront plus dès que vous serez
+passé à cette nouvelle version. Il faudra donc la revoir afin qu'elle
+ressemble à ceci :
+
+{% highlight bash %}
+# perl-ext-common remplacé par perl-ext depuis v9.16 :
+URxvt.perl-ext: default,matcher
+# urlLauncher remplacé par url-launcher depuis v9.16 :
+URxvt.url-launcher: firefox
+# Clic milieu :
+Rxvt*matcher.button: 2
+Rxvt*matcher.pattern.1: \\b(gopher|mailto|http|https|ftp|file):[/]*[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+Rxvt*matcher.pattern.2: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+{% endhighlight %}
+
+<p>
+Pour le reste des nouveautés, n'hésitez pas à consulter le fameux
+fichier <a href="http://dist.schmorp.de/rxvt-unicode/Changes"
+class="external"><code>Changes</code></a>.

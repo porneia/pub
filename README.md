@@ -13,7 +13,7 @@ disponibles [en ligne](https://github.com/porneia/pub).
 
 2012-04-19 01:41:38 +0200
 
-     * Removed code/ cookbook/ paste/ nh/ folders from jekyll hand
+     * Removed code/ cookbook/ paste/ nh/ folders from jekyll's hand
      * Now Jekyll takes care only for publications stuffs
 
 2012-04-13 16:00:12 +0200

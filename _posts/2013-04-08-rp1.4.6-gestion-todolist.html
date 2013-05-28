@@ -1,0 +1,147 @@
+---
+layout: post
+title: "Sortie de ratpoison 1.4.6 et gestion de todolist"
+date: 2013-04-08 11:47:45 +0200
+author: illov&aelig;
+mail: illovae[at]bk[dot]ru
+description:
+commentaire:
+category:
+tags: [planet-libre]
+keywords: illovae, ratpoison, todolist, todo.sh
+license: "WTF"
+---
+<p>
+<span class="articleAuthor">Porneia delights, <time datetime="{{ page.date | date_to_xmlschema }}" pubdate="pubdate">08 avril 2013</time>, {{ page.author }}</span>
+&mdash; Ah, <a href="http://www.nongnu.org/ratpoison/" hreflang="en"
+class="external">ratpoison</a> ! Quelques jours seulement après
+<a href="{{ site.url }}{{ site.baseurl }}/archives/2013.html#0404"
+   hreflang="fr">l'annonce de la RC1 de ratpoison-1.4.6</a> faîte par Jérémie
+Courrèges-Anglas, qui fait suite d'ailleurs à l'initiateur du projet Shawn
+Betts, voici finalement
+<a href="https://lists.nongnu.org/archive/html/ratpoison-devel/2013-04/msg00001.html"
+   class="external" hreflang="en">l'annonce de la version finale, version
+1.4.6</a>, de notre cher gestionnaire de fenêtre nous permettant de libérer
+notre souris. Le nouveau développeur du projet, à savoir donc Jérémie qui
+opère officiellement en tant que mainteneur du projet depuis le 8 février
+dernier si l'on en croit le ChangeLog, n'a pas chômé ces dernières semaines
+(qui finissent au bout du compte par faire des mois). Au menu, correction de
+bugs en tout genre, ajout/modification au niveau de la page de manuel,
+intégration des patchs (notamment la tant attendue, en tout cas pour ma part,
+intégration totale de l'UTF-8), et autres joyeusetés. Tous les détails sont
+dans les fichiers <code>NEWS</code> et <code>ChangeLog</code> bien sûr.
+
+<p>
+Le téléchargement de la nouvelle version peut se faire via le site officiel
+bien sûr
+(<a href="http://download.savannah.nongnu.org/releases/ratpoison/ratpoison-1.4.6.tar.gz"
+class="external">tar.gz</a>
+et <a href="http://download.savannah.nongnu.org/releases/ratpoison/ratpoison-1.4.6.tar.gz.sig"
+class="external">tar.gz.sig</a>
+; <a href="http://download.savannah.nongnu.org/releases/ratpoison/ratpoison-1.4.6.tar.xz"
+class="external">tar.xz</a>
+et <a href="http://download.savannah.nongnu.org/releases/ratpoison/ratpoison-1.4.6.tar.xz.sig"
+class="external">tar.xz.sig</a>). N'hésitez pas bien sûr à consulter sur le
+wiki du projet la page concernant
+l'<a href="http://ratpoison.wxcvbn.org/cgi-bin/wiki.pl/Installation"
+hreflang="en" class="external">installation</a> voir même, pourquoi pas,
+la <a href="http://ratpoison.wxcvbn.org/cgi-bin/wiki.pl/FAQ" hreflang="en"
+class="external">FAQ</a>.
+
+<p>
+Les utilisateurs quotidiens de ratpoison le savent très bien, ce gestionnaire
+de fenêtre est conçu pour être parfaitement modulable, notamment par
+l'intermédiaire de la <em>status bar</em> qui peut servir à faire à peu près
+tout ce que l'imagination permet... d'imaginer (forcément). J'exagère un peu
+mais cela peut aller de l'affichage simple de l'heure en passant par des
+notifications quelconques jusqu'à un véritable système intéractif permettant
+de gérer évidemment ratpoison lui-même mais aussi tout ce qu'on pourrait
+envoyer comme variable à un script/programme tiers. Pour donner un exemple
+concret sur ce dernier point, je m'en servais comme d'une télécommande pour ma
+Freebox v5 par le truchement d'un simple script bash.
+
+<p>
+Dans le même état d'esprit, et histoire de ne pas faire qu'un simple billet
+d'annonce d'une nouvelle version, je vais vous présenter la façon dont je gère
+ma todolist avec ratpoison. Alors il faut savoir tout de suite que j'ai des
+besoins assez simples en ce domaine, à savoir ajout et suppression d'éléments
+bien sûr principalement. J'ai longtemps utilisé
+<a href="http://swapoff.org/devtodo.html" hreflang="en"
+class="external">devtodo</a>, excellent outils, très complet (peut-être même
+trop pour moi finalement). Je me suis cependant retranché depuis quelques mois
+sur un simple script bash nommé <a href="http://todotxt.com/" hreflang="en"
+class="external">Todo.txt</a> qui répond parfaitement à mes besoins limités
+même s'il dispose encore d'options que je n'utilise pour ainsi dire
+jamais. Bon, ce n'est pas le sujet donc je ne vais pas vous le présenter, mais
+si ça vous intéresse il n'y a vraiment rien de sorcier et puis au pire
+<a href="https://github.com/ginatrapani/todo.txt-cli/wiki" hreflang="en"
+class="external"</a>il y a la documentation</a>.
+
+<p>
+L'idée donc est d'interagir avec Todo.txt (mais ça marcherai très bien aussi
+avec devtodo ou un script personnel ceci dit) en utilisant la status bar de
+ratpoison et cela pour 1) afficher la todolist 2) afficher la todolist mais en
+y applicant un filtre, histoire de ne voir que les élements voulus (par projet
+ou par contexte/tag) 3) ajouter des éléments à la todolist 4) supprimer des
+éléments de la todolist 5) prioriser un élément et enfin 6) le déprioriser. Il
+faut savoir que ratpoison permet d'assigner un jeu de touche à certaines
+fonctions particulières comme on peut le faire avec GNU Screen ou tmux par
+exemple. J'ai décidé d'assigner la combinaison de touches <code>s-t</code>,
+soit la touche <code>super</code> (autrement nommée windows) et la
+touche <code>t</code>, comme base pour interagir avec l'outils de gestion de
+ma todolist et d'attribuer des touches spécifiques pour chaque action que je
+souhaite effectuer. Manière d'être plus clair, par exemple pour afficher ma
+todolist avec la status bar de ratpoison, je tape <code>s-t l</code>, soit la
+combinaison de touche super et t, puis l. Bref, une image valant souvent mieux
+que de longs discours, voici le résultat :
+
+<p style="display:block;margin:0 auto;">
+<figure>
+<img title="[Todo.txt dans ratpoison]" class="imgborder"
+     alt="[Todo.txt dans ratpoison]"
+     src="{{ site.url }}{{ site.baseurl }}/img/todotxt-rp.png">
+<figcaption>Affichage de la todolist via la status bar de
+  ratpoison</figcaption>
+</figure>
+
+<p>
+Comme dit cette fameuse barre permet une certaine interactivité, donc on peut
+très bien l'utiliser pour faire ce que j'ai exposé ci-dessus, et même plus si
+on voulait. Pour cela, j'ai ajouté ces quelques lignes dans
+mon <code>~/.ratpoisonrc</code> :
+
+{% highlight sh %}
+## TODOLIST
+# On commence par ajouter les alias vers les commandes désirées :
+alias todo exec ratpoison -c "echo $(todo.sh ls)"
+alias todolsc exec ratpoison -c "echo $(todo.sh ls $(ratpoison -c "prompt todo context: "))"
+alias todoa exec todo.sh a $(ratpoison -c "prompt todo add: ")
+alias tododel exec todo.sh -f del $(ratpoison -c "prompt todo del: ")
+alias todopri exec todo.sh pri $(ratpoison -c "prompt todo pri: ")
+alias tododepri exec todo.sh depri $(ratpoison -c "prompt todo depri: ")
+# On créé le keymap spécifique pour la todolist
+newkmap super-t
+# On assigne les touches pour chaque alias
+definekey super-t l todo
+definekey super-t c todolsc
+definekey super-t a todoa
+definekey super-t d tododel
+definekey super-t p todopri
+definekey super-t u tododepri
+# Enfin on indique je ne sais pas trop quoi mais sans ça ratpoison
+# ne comprend pas que s-t == super-t (j'ai suivi la doc, j'ai pas trop
+# cherché à comprendre, j'avoue)
+definekey top s-t readkey super-t
+{% endhighlight %}
+
+<p>
+J'ai instamment voulu utiliser une autre combinaison de touche bien spécifique
+(avec la touche <code>super</code> et <code>t</code> ici) que celle par
+défaut, d'une part pour ne pas interférer avec mes commandes liées à la
+gestion de ratpoison et aussi pour ne pas interférer avec Emacs. Donc par
+exemple, personnellement avec cette configuration, quand je tape <code>s-t
+a</code> un prompt s'ouvre et attend que j'entre l'item de la liste à ajouter,
+suivi de la touche entrée pour valider. J'ai de cette manière accès très
+simplement et rapidement, depuis mon gestionnaire de fenêtre, à la gestion de
+ma todolist au quotidien sans forcément devoir passer par un terminal et/ou un
+éditeur de texte. Non, sérieusement, c'est super pratique.

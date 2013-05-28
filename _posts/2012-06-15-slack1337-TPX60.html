@@ -1,0 +1,303 @@
+---
+layout: post
+title: "Installation de Slackware Linux sur un IBM Thinkpad X60"
+date: 2012-06-15 09:27:49 +0200
+author: illov&aelig;
+mail: illovae[at]bk[dot]ru
+description:
+commentaire: Une version de cette page <del>est disponible sur Linux on Laptops</del>.
+category:
+tags:
+keywords: IBM, Thinkpad, X60, linux-on-laptop, linux, laptop, illovae
+license: "BY"
+---
+<p>
+<div class="notebar">
+[Cette page est en cours de
+construction... <ins datetime="2013-04-05T11:54:03+02:00">Edit du 05 avril
+2013 11:54:03 +0200 :</ins> et le restera probablement encore longtemps...]
+</div>
+
+<p>
+<span class="articleAuthor">Porneia delights, 15 juin 2012, {{ page.author }}</span>
+&mdash; Cette page présente l'installation de Slackware Linux sur un
+ordinateur portable IBM Thinkpad
+X60. <ins datetime="2012-06-15T09:27:49+02:00">Dernière mise à jour :
+15 Juin 2012 09:27:49 +0200</ins>.
+
+<p>
+Spécifications matérielles générales :
+
+<p>
+  <table>
+    <tr>
+      <th><b>Composants</b></th>
+      <th><b>Status</b></th>
+      <th><b>Notes</b></th>
+    </tr>
+
+    <tr>
+      <td>Intel(R) CPU T1300 @ 1.66GHz</td>
+      <td>OK</td>
+      <td>N/A</td>
+    </tr>
+
+    <tr>
+      <td>12.1 TFT Display, 1024x768</td>
+      <td>OK</td>
+      <td>X.org X11 7.* configuration automatique OK</td>
+    </tr>
+
+    <tr>
+      <td>Intel Corporation Mobile 945GM/GMS Express Integrated Graphics Controller</td>
+      <td>OK</td>
+      <td>Intel driver : X.org X11 v7.4</td>
+    </tr>
+
+    <tr>
+      <td>Intel Corporation 82801G High Definition Audio Controller</td>
+      <td>OK</td>
+      <td>hda-intel driver</td>
+    </tr>
+
+    <tr>
+      <td>Intel Corporation 82573L Gigabit Ethernet Controller</td>
+      <td>OK</td>
+      <td>N/A</td>
+    </tr>
+
+    <tr>
+      <td>Intel Corporation PRO/Wireless 3945ABG Network Connection</td>
+      <td>OK (WPA PSK)</td>
+      <td>iwl3945 driver</td>
+    </tr>
+
+    <tr>
+      <td>Ricoh Co Ltd R5C822 SD/SDIO/MMC/MS/MSPro Host Adapter</td>
+      <td>OK</td>
+      <td>SD Host controller</td>
+    </tr>
+
+    <tr>
+      <td>Ricoh Co Ltd R5C552 IEEE 1394 Controller</td>
+      <td>OK</td>
+      <td>FireWire (IEEE 1394)</td>
+    </tr>
+
+    <tr>
+      <td>Modem interne 56k</td>
+      <td>N/A</td>
+      <td>Non testé, désactivé au niveau du BIOS</td>
+    </tr>
+
+    <tr>
+      <td>Bluetooth</td>
+      <td>N/A</td>
+      <td>Non testé, désactivé au niveau du BIOS</td>
+    </tr>
+  </table>
+
+<p>
+Cet ordinateur portable est propulsé par le kernel Linux 2.6.37-6.
+
+<h2>Installation de Slackware Linux 13.37 depuis un périphérique USB</h2>
+
+<p>
+Depuis quelques années maintenant, j'utilise Slackware comme
+distribution par défaut sur les machines que j'administre. Au-delà de
+la stabilité maintenant légendaire de cette <em>plus vieille
+distribution encore en service</em>, j'y ai trouvé une simplicité
+d'utilisation ainsi que la possibilité d'intervenir en profondeur et
+de manière fine et personnalisée sur la configuration de mes systèmes,
+cependant qu'il faille un investissement en terme de temps plus
+important que pour l'installation d'une distribution type Debian ou
+RedHat.
+
+<p>
+En 2008 j'ai installé Slackware 12.0 sur cette machine et ai effectué
+avec
+succès, <a href="{{ site.url }}{{ site.baseurl}}/articles/slackware-installation-et-gestion-de-programmes.html">courant
+octobre 2009</a>, une migration vers 13.0. Malheureusement, une
+défaillance matérielle du disque dur me pousse à faire une
+réinstallation <em>from scratch</em> de cette distribution sur cet
+ordinateur ; ce qui me donne par ailleurs l'occasion d'écrire cette
+page. J'ai (évidemment ?) choisi de prendre la dernière version de
+Slackware, la 13.37, disponible sur les serveurs ftp depuis le 27
+avril 2011.
+
+<p>
+Il y a maintenant bien longtemps que je n'effectue plus mes
+installations via CD-ROM. Le Thinkpad X60 supportant le boot sur USB,
+je privilégie donc cette méthode d'installation pour Slackware.
+
+<h3>Création de la clef USB et boot</h3>
+
+<p>
+AlienBOB a écrit, pour faciliter la création d'une clef USB bootable,
+le <a href="http://alien.slackbook.org/blog/installing-slackware-using-usb-thumb-drive/"
+class="external" hreflang="en">script en
+bash <code>usbimg2disk.sh</code></a> utilisant notamment l'image de
+disque bootable <code>usbboot.img</code> qu'il a conçu spécialement
+pour USB. Ce script permet donc de créer très simplement une clef USB
+contenant soit l'installeur simple de Slackware, soit l'installeur
+plus les paquets nécessaires à l'installation du système. Ne
+souhaitant pas avoir tout le dépôt de Slackware sur cette clef USB,
+mais uniquement ce que contient le CD1, je vais privilégié la première
+méthode et je copierai ensuite le dépôt présent sur le CD1 sur la clef
+à la main. Il serai possible d'éditer quelques lignes du script
+d'AlienBOB pour le faire automatiquement, mais la procédure de copie
+étant très simple, je n'y ai pas trouvé d'intérêt.
+
+<pre>
+$ # Création du répertoire de travail
+$ <b>mkdir /tmp/slack</b>
+$ <b>cd /tmp/slack</b>
+$ # Récupération du nécessaire
+$ <b>wget ftp://ftp.lip6.fr/pub/linux/distributions/slackware/slackware-13.37/usb-and-pxe-installers/usbboot.img</b>
+$ <b>wget ftp://ftp.lip6.fr/pub/linux/distributions/slackware/slackware-13.37/usb-and-pxe-installers/usbimg2disk.sh</b>
+$ <b>wget ftp://ftp.lip6.fr/pub/linux/distributions/slackware/slackware-13.37-iso/slackware-13.37-install-d1.iso</b>
+$ <b>wget ftp://ftp.lip6.fr/pub/linux/distributions/slackware/slackware-13.37-iso/slackware-13.37-install-d1.iso.md5</b>
+$ # Vérification MD5 et chmod
+$ <b>md5sum -c slackware-13.37-install-d1.iso.md5</b>
+slackware-13.37-install-d1.iso: OK
+$ <b>chmod +x usbimg2disk.sh</b>
+mode of `usbimg2disk.sh' retained as 0700 (rwx------)
+$ # Installation sur /dev/sdb (la clef est déjà formatée, utilisez l'option -f pour forcer le formatage)
+$ <b>sudo ./usbimg2disk.sh -i usbboot.img -o /dev/sdb</b>
+
+# We are going to use this device - '/dev/sdb':
+# Vendor :
+# Model  : USB DISK 28X
+# Size   : 984 MB
+#
+# FDISK OUTPUT:
+#
+# Disk /dev/sdb: 1031 MB, 1031798784 bytes
+# 24 heads, 46 sectors/track, 1825 cylinders, total 2015232 sectors
+# Units = sectors of 1 * 512 = 512 bytes
+# Sector size (logical/physical): 512 bytes / 512 bytes
+# I/O size (minimum/optimal): 512 bytes / 512 bytes
+# Disk identifier: 0xf2ee9783
+#
+# Device Boot      Start         End      Blocks   Id  System
+# /dev/sdb1   *        2048     2015231     1006592    b  W95 FAT32
+
+***                                                       ***
+*** If this is the wrong drive, then press CONTROL-C now! ***
+***                                                       ***
+Or press ENTER to continue:
+--- Using current FAT partition label 'USBSLACKINS'
+--- Available free space on the the USB drive is 973836 KB
+--- Required free space for installer: 31416 KB
+--- Your USB drive contains directory 'syslinux'
+--- This will be overwritten.  Press CTRL-C to abort now!
+Or press ENTER to continue:
+--- Copying boot files to the USB drive...
+--- Cleaning up the staging area...
+--- Making the USB drive '/dev/sdb' bootable...
+$ # Montage de l'image ISO, et copie des sets
+$ <b>sudo mount -o loop slackware-13.37-install-d1.iso /mnt/cdrom/</b>
+mount: warning: /mnt/cdrom/ seems to be mounted read-only.
+$ <b>sudo cp -r /mnt/cdrom/slackware/ /mnt/tmp/ &amp;&amp; sudo cp -r /mnt/cdrom/PACKAGES.TXT /mnt/tmp/</b>
+$ <b>sudo ln -s /mnt/tmp/slackware/PACKAGES.TXT /mnt/tmp/PACKAGES.TXT</b>
+</pre>
+
+<p>
+Il ne reste plus qu'à booter la machine sur USB. Pour ce faire, au
+démarrage appuyez sur le bouton bleu ThinkVantage, sélectionnez la
+méthode de boot via F12 et choisir le périphérique USB.
+
+<h3>Processus d'installation</h3>
+
+<p>
+Après avoir booté sur le kernel <code>hugesmp.s</code> (le choix par
+défaut) nous arrivons sur le prompt de login. Il suffit de
+rentrer <code>root</code> sans mot de passe pour commencer à
+travailler. La procédure d'installation étant décrite très largement
+dans le
+fichier <a href="ftp://ftp.lip6.fr/pub/linux/distributions/slackware/slackware-13.37/Slackware-HOWTO"
+class="external" hreflang="en">Slackware-HOWTO</a>, il est inutile de
+la reprendre dans son ensemble ici.
+
+<p>
+Cependant, comme les paquets nécessaire à l'installation de Slackware
+se trouve sur la clef USB, il est important de l'indiquer lors de
+l'écran de sélection de la source :
+
+<p style="display:block;margin:0 auto;">
+<figure>
+<img title="[SOURCE MEDIA SELECTION]" class="" alt="[SOURCE MEDIA SELECTION]"
+     src="{{ site.url }}{{ site.baseurl }}/img/slack-install-source-media-select.png">
+<figcaption>Slackware <code>setup</code> source media selection</figcaption>
+</figure>
+
+<p>
+Dans notre cas, il faut donc prendre la sélection 2 <em>Install from a
+hard drive partition</em>, de lui indiquer le
+périphérique <code>/dev/sdb1</code> (si la clef est bien à cet
+endroit) et le dossier <code>/slackware</code> (c'est dans ce dossier
+que se trouve nos paquets sur cette clef).
+
+<p>
+La suite du processus d'installation se déroule comme à
+l'habitude. Nous avons installé les
+sets <code>A</code>, <code>AP</code>, <code>D</code>, <code>L</code>,
+et <code>N</code>.
+
+<h3>Configurations post-installations spécifiques à Slackware</h3>
+
+<h4>HOSTNAME</h4>
+
+<p>
+Par défaut, le hostname de votre Slackware
+sera <code>darkstar</code>. Pour le changer à chaud on utilise le
+commande <code>hostname</code> :
+
+<pre>
+# <b>hostname shyla</b>
+</pre>
+
+<p>
+Pour le rendre pérène, il faut éditer le
+fichier <code>/etc/HOSTNAME</code>. Il faut aussi penser à éditer le
+fichier <code>/etc/hosts</code>.
+
+<h4>Partage NFS (client/server)</h4>
+
+<p>
+Pour le côté client, il faut penser à lancer <code>rpc.statd</code>
+et <code>rpc.portmap</code>. Il y a un script tout prêt pour cela
+: <code>/etc/rc.d/rc.rpc</code>. Si vous n'avez pas activé le service
+lors de l'installation c'est le bon moment pour le faire :
+
+<pre>
+# <b>chmod +x /etc/rc.d/rc.rpc</b>
+# <b>/etc/rc.d/rc.rpc start</b>
+Starting RPC portmapper: /sbin/rpc.portmap
+Starting RPC NSM (Network Status Monitor): /sbin/rpc.statd
+</pre>
+
+<p>
+Pour le côté serveur, rlworkman a écrit
+<a href="http://rlworkman.net/howtos/NFS_Firewall_HOWTO"
+class="external" hreflang="en">une documentation didactique pour faire
+tourner NFSd avec un parefeu</a> (typiquement iptables).
+
+<p>
+<b>TODO</b>
+<ul>
+  <li>slackpkg : lip6
+  <li>useradd -m login && passwd login
+  <li><a href="http://wiki.slackware-fr.org/administration:trucs:garder_sa_machine_a_l_heure"
+  class="external"
+  hreflang="fr">http://wiki.slackware-fr.org/administration:trucs:garder_sa_machine_a_l_heure</a>
+</ul>
+
+<h3>Configurations post-installations spécifiques au Thinkpad X60</h3>
+
+<p>
+<b>TODO</b>
+<ul>
+  <li>/etc/modprobe.d/i915-kms.conf
+  <li>/etc/modprobe.d/uvesafb.conf
+</ul>

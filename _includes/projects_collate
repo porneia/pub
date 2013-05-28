@@ -1,6 +1,17 @@
 {% if projects %}
 
     <p>
+    <b>2013</b>
+    <ul class="posts">
+{% for project in projects %}
+{% capture this_year %}{{ project.date | date: "%Y" }}{% endcapture %}
+    {% if this_year == '2013' %}
+    <li><a href="{{ project.date | date: "%Y" }}.html#{{ project.date | date: "%m%d" }}"><code>{{ project.date | date: "%Y/%m/%d" }}</code></a> &raquo; {{ project.title }}
+    {% endif %}
+{% endfor %}
+    </ul>
+
+    <p>
     <b>2012</b>
     <ul class="posts">
 {% for project in projects %}

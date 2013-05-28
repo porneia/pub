@@ -185,6 +185,10 @@ ul.bibliographie {
     vertical-align: text-top;
 }
 
+article p {
+    line-height: 150%;
+}
+
 .articleAuthor {
     font-variant: small-caps;
     color: #A81817;
