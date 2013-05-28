@@ -38,6 +38,7 @@ disponibles [en ligne](https://github.com/porneia/pub).
 - finir de réimporter les vieux articles de tout le monde
 - organiser les articles aussi en catégories (sur une seule page)
 - mettre en place des tags pour les notes/articles ?
+- créer un fichier xml (RSS) avec tous les shaarlis connus (script ?)
 
 
 ### Liste des articles ###
