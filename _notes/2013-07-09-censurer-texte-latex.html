@@ -44,13 +44,13 @@ fait en noir. Voici un ECM générant un pdf d'exemple :
 \usepackage[frenchb]{babel} % les langues
 \usepackage[pdftex]{graphicx,color} % activer le pdf
 \usepackage{pdfpages} % pdf
-\usepackage{color,soulutf8} % prise en charge du surlignage et de la couleur
+<b>\usepackage{color,soulutf8}</b> % prise en charge du surlignage et de la couleur
 
 % configuration de la couleur pour \hl{}
-\sethlcolor{black}
+<b>\sethlcolor{black}</b>
 
 % Here we go!
 \begin{document}
-Ceci est du texte non-censuré. \hl{Ceci est du texte censuré.}
+Ceci est du texte non-censuré. <b>\hl{</b>Ceci est du texte censuré.<b>}</b>
 \end{document}
 </pre>
