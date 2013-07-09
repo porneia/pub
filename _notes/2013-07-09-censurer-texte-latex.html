@@ -1,0 +1,56 @@
+---
+layout: project
+title: "Censurer du texte dans LaTeX"
+date: 2013-07-09 13:37:46 +0200
+---
+<p>
+Pour censurer du texte dans LaTeX &mdash; c'est-à-dire avoir quelque chose qui
+ressemble à ceci : ████ ███ ██ █████ ███████ &mdash; deux méthodes (au moins)
+s'offrent à nous. Tout d'abord dessiner <em>à la main</em> des boîtes sur les
+mots concernés. Il suffit d'ajouter ce bloc juste avant ce que l'on veut
+censurer et jouer avec les valeurs du <code>\put</code> ; un peu fastidieux et
+nécessitant des essais :
+
+<p>
+<pre>
+\setlength{\unitlength}{1mm}
+\begin{picture}(1,1)
+\put(36,-4.8){\rule{30mm}{3.2mm}}
+\end{picture}
+</pre>
+
+<p>
+Il existe une autre méthode, bien plus pratique, mais qui nécessite
+l'utilisation de deux packages, à
+savoir <a href="http://www.ctan.org/pkg/color" class="external"
+hreflang="en"><code>color</code></a> et <a href="http://www.ctan.org/pkg/soul"
+class="external" hreflang="en"><code>soul</code></a>. Dans notre exemple, nous
+utilisons le package <code>soulutf8</code> en lieu et place
+de <code>soul</code> afin de supporter l'UTF-8. Le paquet <code>soul</code>
+contient de
+<a href="http://mirrors.ctan.org/macros/latex/contrib/soul/soul.pdf"
+   class="external" hreflang="en">nombreuses
+   commandes</a> <span class="littletxt">(pdf, 380K)</span> mais celle qui
+nous intéresse ici est <code>\hl{}</code> qui permet de surligner du texte. Il
+suffira d'utiliser cette commande en indiquant que le surlignage doit être
+fait en noir. Voici un ECM générant un pdf d'exemple :
+
+<p>
+<pre>
+%
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc} % codage du fichier
+\usepackage[T1]{fontenc} % codage des fontes TeX
+\usepackage[frenchb]{babel} % les langues
+\usepackage[pdftex]{graphicx,color} % activer le pdf
+\usepackage{pdfpages} % pdf
+\usepackage{color,soulutf8} % prise en charge du surlignage et de la couleur
+
+% configuration de la couleur pour \hl{}
+\sethlcolor{black}
+
+% Here we go!
+\begin{document}
+Ceci est du texte non-censuré. \hl{Ceci est du texte censuré.}
+\end{document}
+</pre>
