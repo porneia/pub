@@ -1,0 +1,36 @@
+---
+layout: project
+title: "Activer le sleep mode des disques durs sous Slackware"
+date: 2013-07-12 12:29:43 +0200
+---
+<p>
+Depuis Slackware 13.0, les disques durs (notamment externes) restent
+constamment actifs et ne se mettent plus d'eux-mêmes <em>en veille</em>
+&mdash; autrement appelé <em>sleep mode</em>. La solution est relativement
+simple, il fallait chercher du côté d'<code>udev</code>. Dans un premier
+temps, copiez la configuration par défaut vers <code>/etc/</code> :
+
+<p>
+<pre>
+# <b>cp /lib/udev/rules.d/60-persistent-storage.rules /etc/udev/rules.d/</b>
+</pre>
+
+<p>
+Puis éditez le fichier en question (celui nouvellement copié
+dans <code>/etc/</code> bien sûr) en repérant la ligne suivante :
+
+<p>
+<pre>
+KERNEL!=&quot;sr*&quot;, OPTIONS+=&quot;watch&quot;
+</pre>
+
+pour la changer en ceci :
+
+<p>
+<pre>
+KERNEL!=&quot;sr*|sda|sdb|sdc&quot;, OPTIONS+=&quot;watch&quot;
+</pre>
+
+Remarquez que nous n'ajoutons que les périphériques qui nous intéressent et le
+faisons de façon explicite. En effet ajouter <code>sd*</code> casserait
+probablement le montage à chaud des autres lecteurs.
