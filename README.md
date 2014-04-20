@@ -19,8 +19,8 @@ Parce que tel est notre bon plaisir. *Alterius non sit, qui potest esse sui.*
 
 La partie `/pub` est automagiquement générée par
 [Jekyll](http://github.com/mojombo/jekyll) dont les sources (du site) sont
-disponibles [en ligne](https://github.com/porneia/pub) (mais qui ne sont pas à
-jour, parce qu'on est feignant).
+disponibles [en ligne](https://github.com/porneia/pub) (mais qui ne sont pas
+forcément à jour, parce qu'on est feignant).
 
 Les liens disponibles dans `/pub/links` sont distribués par
 [Shaarli](http://sebsauvage.net/wiki/doku.php?id=php:shaarli), le clone
