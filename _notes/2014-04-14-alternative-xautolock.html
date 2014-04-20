@@ -1,0 +1,21 @@
+---
+layout: project
+title: "Alternative à xautolock"
+date: 2014-04-19 18:11:08 +0200
+---
+<pre>
+\&gt; # alternative to <a href="http://www.ibiblio.org/pub/linux/X11/screensavers/" class="external" hreflang="en">xautolock</a> using <a href="http://lists.suckless.org/dwm/0712/4685.html" class="external" hreflang="en">sinac</a> to launch display locker
+\&gt; # source: <a href="http://martin.kopta.eu/blog/#2014-05-02-11-28-35" class="external" hreflang="en">http://martin.kopta.eu/blog/#2014-05-02-11-28-35</a>
+\&gt; <b>wget http://lists.suckless.org/dwm/att-4685/sinac.c</b>
+\&gt; <b>gcc sinac.c -Wall -L/usr/X11R6/lib -lX11 -lXss -lXext -o sinac </b>
+sinac.c: In function 'main':
+sinac.c:54:7: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+sinac.c:74:5: warning: format '&#37;ld' expects argument of type 'long int', but argument 3 has type 'int' [-Wformat]
+sinac.c:49:8: warning: unused variable 'idleTime' [-Wunused-variable]
+\&gt; <b>sudo chown root:root sinac &amp;&amp; sudo mv sinac /usr/local/bin/</b>
+\&gt; <b>grep -A2 sinac ~/.xinitrc</b>
+if [ -x /usr/local/bin/sinac ] &amp;&amp; [ &quot;$(sinac -p)&quot; -gt 300 ]; then
+    slock
+fi
+\&gt; <blink>_</blink>
+</pre>
