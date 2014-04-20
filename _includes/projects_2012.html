@@ -2,7 +2,7 @@
 <dl>
   {% for project in projects %}{% capture this_year %}{{ project.date | date: "%Y" }}{% endcapture %}{% if this_year == '2012' %}
 <p>
-<dt><span class="notetitle" id="{{ project.date |date: "%m%d" }}">[<a href="#{{ project.date |date: "%m%d" }}"><code>{{ project.date | date: "%Y/%m/%d" }}</code></a>] <b>{{ project.title }}</b></span>
+<dt><span class="notetitle" id="{{ project.date |date: "%m%d" }}"><b>{{ project.title }}</b> &ndash; <a href="{{ project.date | date: "%Y" }}.html#{{ project.date | date: "%m%d" }}">{{ project.date | date: "%Y/%m/%d" }}</a></span>
 <dd>
       {{ project.content }}
 </dd>

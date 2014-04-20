@@ -1,11 +1,20 @@
 ---
 layout: page
-title: Porneia delights' articles  &mdash; Index
+title: Porneia delights' articles  &mdash; index
 description: I used to be schizophrenic but now we are going much better.<br> We are the <b>Porneia delights</b>. We are persistent and reluctant.<br> We also do not really come from outer space.
 ---
-<p class="menu">[
-  <a href="../archives/">Index des notes</a> ] [ Index des articles par date
- | <del>Index des articles par catégories</del> ]
+<p class="menu">[ logs :
+  <a href="../archives/2014.html">2014</a> &brvbar;
+  <a href="../archives/2013.html">2013</a> &brvbar;
+  <a href="../archives/2012.html">2012</a> &brvbar;
+  <a href="../archives/2011.html">2011</a> &brvbar;
+  <a href="../archives/index.html">index</a>
+  ] [ articles ]
+  [ <a href="../rss/rss_log.xml">rss</a> ]
 
-{% assign posts_collate = site.posts %}
-{% include posts_collate %}
+<p>
+  <ul class="posts">
+    {% for post in site.posts %}
+    <li>{{ post.date | date: "%Y/%m/%d" }} &raquo; <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>

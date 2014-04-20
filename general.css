@@ -186,7 +186,7 @@ ul.bibliographie {
 }
 
 article p {
-    line-height: 150%;
+    /* line-height: 150%; */
 }
 
 .articleAuthor {

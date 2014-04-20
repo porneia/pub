@@ -4,317 +4,52 @@ title: Porneia delights' random pages
 description: I used to be schizophrenic but now we are going much better.<br> We are the <b>Porneia delights</b>. We are persistent and reluctant.<br> We also do not really come from outer space.
 ---
 <p class="menu">
-  <a href="archives/">Index des notes</a> et <a href="articles/">articles</a>
-  | <a href="#archives">Quelques archives</a>
-  | <a href="#+7">Videos+7</a>
-  | <a href="#who">Qui sommes-nous </a><a href="../about.txt">?</a>
-  <br>
-  <a href="#liens">Des liens en désordres</a> (<a href="links/">et plus encore</a>)
-  | <a href="ukulele/">Will you be my Ukulele Hero</a><a href="1254662596281.jpg">?</a>
-  <br>
-  <a href="bazaar/">Random bazaar</a>
-  | <a href="/nh/">Nethack</a>
-  | <a href="/code/">Code</a>
-  | <a href="/streisand.me/">Streisand.me</a>
-  | <a href="/paste/">Pastebin</a>
-
-
-<!-- google search engine for Porneia delights -->
-<div style="text-align:center;padding-bottom:0px;line-height:10px;">
-<p>
-<form method="get" action="http://www.google.com/search">
-  <input type="hidden" value="site:porneia.free.fr" name="q">
-  Recherche :
-  <input type="text" name="q" maxlength="255" style="width:30%;"
-	 value="">
-	 <!--placeholder="Rechercher sur Porneia delights&hellip;"-->
-  <input type="submit" name="sa" value="Aller">
-</form>
-<span style="font-size:x-small;text-align:left;"><i>Résultats de recherche
-proposés par <a href="https://google.com" target="_blank"
-style="text-decoration:none;color:#000000;">Google</a> (en attendant
-mieux...)</i></span>
-</div>
-<!-- end for google search engine -->
-
-<p>
-Chaque note dispose d'une ancre s'il est besoin de faire des liens.
-Un <a href="rss/rss_log.xml">flux RSS</a> est aussi mis à votre
-disposition. Ces notes sont publiées au nom du Porneia delights ; pour tout
-commentaire ou remarque, merci de vous référer au bas de cette page. Dans le
-cas d'un article, veuillez contacter directement l'auteur. Sachez que
-certaines de nos publications sont diffusées sur
-le <a href="http://planet-libre.org" class="external" hreflang="fr">Planet
-Libre</a>. Enfin, pour des informations pratiques sur cet espace vous pouvez
-consulter le <a href="README.html">README</a>.
-
-<h3 id="articles">Derniers articles</h3>
-
-<ul class="posts">
-  {% for post in site.posts limit: 6 %}
-  <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> <span class="littletxt">({{ post.date | date: "%Y/%m/%d" }}, {{ post.content | number_of_words }} mots) par {{ post.author }}</span></li>
-  {% endfor %}
-</ul>
-
-<h3 id="notes">Dernières notes</h3>
+[
+<a href="articles/">articles</a> &brvbar;
+<a href="rss/rss_log.xml">rss</a> &brvbar;
+<a href="links/">shaarli</a> &brvbar;
+<a href="1254662596281.jpg">.</a><a href="/txt/">txt</a> &brvbar;
+<a href="/nh/">nethack</a> &brvbar;
+<a href="/larswm/">larswm</a> &brvbar;
+<a href="README.hml">readme</a>
+]
 
 {% projectlist projects_index.html %}
 
 <p>
-[ Archives des logs :
-<a href="archives/log.html">Année en cours</a> |
-<a href="archives/2012.html">2012</a> |
-<a href="archives/2011.html">2011</a>
+[ logs :
+<a href="archives/log.html">2014</a> &brvbar;
+<a href="archives/2013.html">2013</a> &brvbar;
+<a href="archives/2012.html">2012</a> &brvbar;
+<a href="archives/2011.html">2011</a> &brvbar;
+<a href="archives/index.html">index</a>
 ]
 
 <hr class="flourishes">
 
-<h3 id="archives">Archives</h3>
+<h3 id="archives">Random archives</h3>
 
 <p>
-Nous maintenons quelques archives :
-
 <ul class="sub">
-  <li>Nous avons quelques <a href="/awsp/">Adult Word Search
-      Puzzles</a> qui sont, comme le nom l'indique, des grilles de
-    mots à retrouver sur des thèmes pour adultes (en anglais).
+  <li>Quelques <a href="/awsp/">Adult Word Search Puzzles</a> qui sont, comme
+      le nom l'indique, des grilles de mots à retrouver sur des thèmes pour
+      adultes (en anglais).
   <li>Une section dédiée au gestionnaire de
-    fenêtre <a href="/larswm/">LarsWM</a> écrit par Lars Bernhardsson
-    dont le développement semble être totalement arrêté. L'archive est
-    composée des sources, de patches ainsi que de
-    certaines binaires et autres documentations. La page officielle du
-    projet ayant disparue, nous en avons aussi mis une copie
-    ici. C'est à notre connaissance le seul miroir de cette page
-    existant (hormis ce qui est disponible sur archive.org).
-  <li>Quelques <a href="/bin/slackbuilds/">SlackBuilds</a>.
-  <li>Toutes les recettes de l'émission culinaire <a href="/5if/">5
-    Ingredient Fix</a> présentée par Claire Robinson sur FoodNetwork
-    au format <code>plain text</code> (avec des photos des plats pour
-    certaines).
+    fenêtre <a href="/larswm/">LarsWM</a> écrit par Lars Bernhardsson dont le
+    développement semble être totalement arrêté. L'archive est composée des
+    sources, de patches ainsi que de certaines binaires et autres
+    documentations. La page officielle du projet ayant disparue, nous en avons
+    aussi mis une copie ici. C'est à notre connaissance le seul miroir de
+    cette page existant (hormis ce qui est disponible sur archive.org).
+  <li>Toutes les recettes de l'émission culinaire <a href="/5if/">5 Ingredient
+    Fix</a> présentée par Claire Robinson sur FoodNetwork au
+    format <code>plain text</code> (avec des photos des plats pour certaines).
   <li>Des <a href="/piano">partitions pour le piano</a>.
   <li>Un peu de <a href="/litt/">nourriture pour l'esprit</a>
     en <code>plain text</code>.
-  <li>Des <a href="/cookbook/">recettes de cuisine</a> glanées à
-    droite et à gauche, notamment sur <code>rec.food.cooking</code>.
+  <li>Des <a href="/cookbook/">recettes de cuisine</a> glanées à droite et à
+    gauche, notamment sur <code>rec.food.cooking</code>.
 </ul>
-
-<h3 id="+7">Videos+7</h3>
-
-<p>
-L'objet de cette section est de présenter des documentaires, des films ou
-des courts-métrages accessibles publiquement par des liens stables. Si les
-fichiers ne sont pas trop gros, nous veillerons à la héberger sur cet
-espace. Dans tous les cas nous vous recommandons de les télécharger
-directement sur votre ordinateur et non de les lire depuis les différents
-serveurs.
-
-<p>
-Si vous remarquez qu'un lien est devenu invalide avec le temps, merci de
-nous le signaler en nous envoyant un mail à l'adresse disponible en bas de
-cette page.
-
-<ul class="sub">
-  <li><p>Pour fêter la nuit des étoiles 2012, la chaîne Arte a diffusé
-    au milieu du mois d'août 2012 une série de petites vidéos ayant
-    pour titre <em>Ciel !</em> et présentant divers astres de notre
-    ciel. Elles sont produites
-    par <a href="http://www.universcience.tv/" class="external"
-    hreflang="fr">universcience.tv</a>, la <em>webtv scientifique
-    hebdo</em>, et réalisées par Bernard Nomblot. Les vidéos, visibles
-    sur le site de la webtv, sont au nombre de 14 et durent
-    approximativement 2 minutes chacune pour une taille de 10Mo
-    environ. Les thèmes sont :
-    <a href="/bin/videos/(2012)_ciel_cassiopee_la_reine_du_ciel.flv">Cassiopée, la reine du ciel</a> ;
-    <a href="/bin/videos/(2012)_ciel_la_fleche_et_le_dauphin.flv">la flêche et le Dauphin</a> ;
-    <a href="/bin/videos/(2012)_ciel_la_lyre.flv">la Lyre</a> ;
-    <a href="/bin/videos/(2012)_ciel_la_pleine_lune.flv">la pleine Lune</a> ;
-    <a href="/bin/videos/(2012)_ciel_la_voie_lactee_sur_l_equateur.flv">la Voie Lactée sur l'équateur</a> ;
-    <a href="/bin/videos/(2012)_ciel_le_grand_triangle_d_ete.flv">le grand triangle d'été</a> ;
-    <a href="/bin/videos/(2012)_ciel_le_sablier_celeste.flv">le sablier céleste</a> ;
-    <a href="/bin/videos/(2012)_ciel_le_scorpion_et_le_sagittaire.flv">le Scorpion et le Sagittaire</a> ;
-    <a href="/bin/videos/(2012)_ciel_le_soleil_notre_etoile.flv">la Soleil notre étoile</a> ;
-    <a href="/bin/videos/(2012)_ciel_les_amas_d_hercule.flv">les amas d'Hercule</a> ;
-    <a href="/bin/videos/(2012)_ciel_les_perseides.flv">les Perséïdes</a> ;
-    <a href="/bin/videos/(2012)_ciel_persee_le_heros.flv">Persée, le héros</a> ;
-    <a href="/bin/videos/(2012)_ciel_saturne_mars_et_spica.flv">Saturne, Mars et Spica</a> et
-    <a href="/bin/videos/(2012)_ciel_une_bulle_dans_le_cygne.flv">une bulle dans le Cygne</a>.
-  <li><p>Lors des JRES (Journées Réseaux de l'Enseignement Supérieur) 2011
-    Benjamin Bayart a tenu une conférence
-    sur <a href="/bin/videos/bbayart_jres_neutralite_du_reseau.ogv">la
-    neutralité du réseau</a> <span class="littletxt">(2011, FR, 40min49sec,
-    ogv, 80Mo)</span>. Toujours passionnant et très instructif. Une
-    présentation de la conférence ainsi que la vidéo au format mp4 est
-    disponible sur <a href="https://2011.jres.org/archives/198/index.htm"
-    class="external" hreflang="fr">cette page</a>.
-  <li><p>Richard Stallman a tenu une conférence le mercredi 19 octobre
-    2011 dans le grand amphithéâtre Émile Boutmy à Sciences Po sur le
-    thème
-    &laquo;&nbsp;<a href="/bin/videos/stallman-sciencespo-freesociety.webm">A
-    Free Digital Society - Pour une société des réseaux
-    libérée</a>&nbsp;&raquo; <span class="littletxt">(2011, EN, 95min,
-    webm, 327Mo)</span>. La conférence est, pour une fois, en
-    anglais. Voici donc
-    les <a href="/bin/videos/stallman-sciencespo-freesociety.srt">sous-titres
-    en anglais</a> qui peuvent aider à la compréhension. Vous pouvez
-    retrouver plus d'informations, quelques photos, ainsi que la vidéo
-    en streaming sur le site
-    de <a href="http://www.libertesnumeriques.net/evenements/stallman-19octobre2011"
-    class="external" hreflang="fr">Libertés Numériques</a>.
-  <li><p>Pour tous ceux qui ont déjà été un garçon de 11 ans : Is Tropical
-    &ndash; <a href="/bin/videos/is_tropical_the_greeks_(2011).avi">The
-    Greeks</a> <span class="littletxt">(2011, EN, 3min24sec, avi,
-    40Mo)</span>. Le clip est de Megaforce. Plus d'informations et le
-    fichier mp3 du titre sur
-    <a href="http://www.kitsune.fr/journal/2011/05/videos/is-tropical-the-greeks-videoclip-by-megaforce/"
-    class="external" hreflang="en">kitsune.fr</a>.
-  <li><p>Un petit cours sous forme de court-métrage d'animation réalisé par
-    Marc Chevalier et écrit par Anne Jaffrennou qui vous expliquera très
-    simplement <a href="/bin/videos/A7_SGT_ENC_08_045001-000-A_PG_HQ_FR.avi">ce
-    qu'est un trou noir</a> <span class="littletxt">(2009, FR, 4min41sec,
-    avi, 34.4Mo)</span>. Il a été notamment diffusé le 06 août 2011 à
-    14h48 heure de Paris sur la chaîne télévisé franco-allemande Arte pour
-    leur spécial <em>Nuit des étoiles</em>. Il a été produit par Petite
-    ceinture, Société française d’astronomie et d'astrophysique,
-    l'Observatoire de Paris, l'Observatoire de la Côte d'azur, le CNRS, le
-    laboratoire Leprince Ringuet, et l'École polytechnique. Notez enfin
-    que l'explication à cette vaste question est donnée par le Professeur
-    Rollin en personne.
-  <li><p>Le réalisateur Denis Van Waere Beke nous présente, sur une idée
-    d'Anne Jaffrennou et Marie Cuisset,
-    sa <a href="/bin/videos/A7_SGT_ENC_08_045001-000-A_PG_HQ_FR.avi">classification
-    systématique du vivant
-    extraterrestre</a> <span class="littletxt">(2006, FR, 10min, avi,
-    79.6Mo)</span>. Ce court-métrage, co-produit par ARTE France et Cargo
-    Films, a été diffusé sur Arte le 06 août 2011 à 16h40 heure de Paris
-    dans le cadre de leur spécial <em>Nuit des étoiles</em>.
-  <li><p>&laquo;&nbsp;<em>Qu'est-ce qu'un soin psychique&nbsp;? Peut-on
-    traiter la maladie mentale comme toute autre pathologie&nbsp;?
-    Pourquoi tant de grands malades échappent au soin, au point où on les
-    retrouve massivement dans la rue ou en prison&nbsp;?</em>&nbsp;&raquo;
-    C'est ainsi que
-    <a href="http://www.mediapart.fr" class="external"
-    hreflang="fr">mediapart</a> présente le documentaire
-    <a href="http://video.mediapart.fr/fous/un_monde_sans_fous.mp4"
-    class="external">&laquo;&nbsp;Un monde sans fous&nbsp;?&nbsp;&raquo; ou les
-    dérives de la psychiatrie</a> <span class="littletxt">(2009, FR,
-    67min, mp4, 246Mo)</span> de Philippe Borrel produit par Cinétévé en
-    coproduction avec le Forum des images. Il nous permet de comprendre
-    d'une part l'univers de la psychiatrie mais aussi les effets néfastes
-    des dérives actuelles en matière de politique de santé. Sachez que la
-    vidéo est visible aussi directement depuis le lecteur flash sur la
-    <a href="http://www.mediapart.fr/content/un-monde-sans-fous"
-    class="external" hreflang="fr">page dédiée</a> du site de mediapart.
-    Notez enfin que cette page contient aussi l'intégrale des douzes
-    entretiens et des témoignages visibles dans le documentaire.
-  <li><p><a href="http://www.megaupload.com/?d=JRW7XK2Z"
-    class="external">Planeta Bur</a> <span class="littletxt">(1962, RU
-    sous-titré FR, 1h12min49sec, avi, 699.9Mo)</span> est un film russe de
-    science-fiction de Pavel Klushantsev. Il a d'ailleurs été repris
-    (volé&nbsp;?), modifié &ndash; <em>hollywoodianisé</em>, si l'on peut
-    dire &ndash; et finalement diffusé sous le
-    titre <a href="http://www.archive.org/download/VoyagetothePrehistoricPlanet/VoyagetothePrehistoricPlanet.ogv"
-    class="external">Voyage to the Prehistoric
-    Planet</a> <span class="littletxt">(1965, EN, 1h13min46sec, ogv,
-    301.2Mo)</span> par Georges Edwards (cf.
-    la <a href="http://www.archive.org/details/VoyagetothePrehistoricPlanet"
-    class="external" hreflang="en">page sur archive.org</a> où l'on trouve
-    notamment d'autres formats vidéos). Préférez si possible la version
-    russe ; la version hollywoodienne pouvant en substance être considérée
-    comme anecdotique. Mais pour en savoir plus, lisez plutôt
-    la <a href="{{ site.baseurl }}/articles/planeta-bur.html">fiche sur ce sujet</a> par
-    e20100633.
-  <li><p>En Indonésie, les <em>pasung</em> sont des établissements dans
-    lesquels sont pris en charge les <em>fous</em>. C'est un
-    <a href="http://flv2010.france24.com/MG035451-A-01-20110314.flv"
-    class="external">reportage</a> <span class="littletxt">(2011, FR,
-    11min33sec, flv, 32Mo)</span> de
-    <a href="http://twitter.com/fanoupanou" class="external"
-    hreflang="en">Fanou Filali</a> pour
-    <a href="http://www.france24.com/fr/20110316-reporters-indonesie-pasung-maison-fous-malades-troubles-mentaux-sante-patients-enchaines-herbes"
-    class="external" hreflang="fr">France24</a>.
-</ul>
-
-<h3 id="liens">Liens divers</h3>
-
-<ul class="sub">
-  <li>La très connue <a href="telnet://towel.blinkenlights.nl"
-    class="external">animation en ASCII du film Star Wars</a>
-    (et... une pour <a href="telnet://miku.acm.uiuc.edu"
-    class="external">nyancat</a> (si, si..)) (requiert un client
-    telnet).
-  <li>Un serveur très populaire <a href="telnet://nethack.alt.org"
-    class="external">pour jouer à Nethack</a> (NAO) accessible par telnet.
-    Vous devrez vous enregistrer pour pouvoir jouer en ligne. Le serveur
-    dispose d'un canal à l'adresse #nethack@irc.freenode.net ainsi que
-    d'<a href="http://nethack.alt.org/" class="external" hreflang="en">un
-    site</a>. Si vous chercher des informations sur ce jeu vous pouvez
-    aller faire un tour sur le <a href="http://www.nethack.org/"
-    class="external" hreflang="en">site officiel</a> de Nethack et
-    sur <a href="http://en.wikipedia.org/wiki/NetHack"
-    class="wikipedia" hreflang="en">wikipedia</a>
-    <a href="http://fr.wikipedia.org/wiki/NetHack" class="wikipedia"
-    hreflang="fr">`</a>. De très nombreux documents existent à propos de
-    Nethack, vous pouvez en retrouver une grande majorité sur
-    notre <a href="/nh/">section nh</a>. Il existe aussi
-    un <a href="http://nethack.wikia.com/wiki/Main_Page" class="external"
-    hreflang="en">wiki spécialisé</a>.
-  <li>Le serveur <a href="gopher://gopher.quux.org" hreflang="en">gopher
-    de quux.org</a> est une mine d'information en tout genre. De même que
-    celui sur <a href="gopher://hal3000.cx" hreflang="en">HAL3000</a>.
-  <li>Un selecteur gopher contenant un grand nombre
-    de <a href="gopher://gopher.viste-family.net/1/NES">ROM pour la
-    NES</a> (sur viste-family.net).
-  <li><a href="http://fauxascii.com/linux/top-posting.html"
-    class="external" hreflang="en">Don't top post!</a>
-  <li>Le wiki de la distribution Archlinux
-    propose <a href="https://wiki.archlinux.org/index.php/Lightweight_Software"
-    class="external" hreflang="en">une page</a> regroupant un grand nombre
-    d'applications légères (utilisant donc peu de ressources).
-  <li>Le site <a href="http://retrocomputing.eu/info/doslife/index.html"
-    class="external" hreflang="en">DOSLIFE</a> propose dans sa
-    section <em>abandoned</em> de nombreuses applications pour (Free)DOS.
-    Dans le même ordre d'idée, on peut faire un tour
-    sur <a href="http://www.selvacamaleon.net/" class="external"
-    hreflang="es">La Selva del Cameleón</a> (section <em>Utilidades</em>).
-  <li>Une sélection de <a href="http://www.opus.co.tt/dave/index.htm"
-    class="external" hreflang="en">programmes intéressants pour
-    DOS</a> par Dev Anand Teelucksingh.
-  <li>L'<a href="http://garbo.uwasa.fi/pc/" class="external"
-    hreflang="en">archive de Garbo</a> contenant une multitude de
-    programmes pour DOS.
-  <li>Dans la suite des liens précédents : Edward
-    Mendelson <a href="http://www.columbia.edu/~em36/wpdos/index.html"
-    class="external" hreflang="en">propose une page</a> très complète sur
-    WordPerfect 5.1, 6.0, 6.1 et 6.2 pour DOS sur des machines modernes.
-  <li>La <a href="http://shell.figarola.fr/x1677.html" class="external"
-    hreflang="fr">notion de filtre sous Unix</a>.
-  <li>De la <a href="http://pornfortheblind.org/" class="external"
-    hreflang="en">pornographie pour aveugles et déficients visuels</a>.
-  <li>Si vous aimez les Andrews Sisters alors il y a de fortes chances
-    que vous aimiez les <a href="http://www.thepuppinisisters.com/"
-    class="external" hreflang="en">Puppini Sisters</a>.
-  <li><a href="http://www.ukuleleorchestra.com/main/home.aspx"
-         class="external" hreflang="en">The Ukulele Orchestra of Great
-      Britain</a>.
-  <li>Un guide très complet et très accessible sur la
-    <a href="http://www.tldp.org/LDP/abs/html/" class="external"
-     hreflang="en">programmation en Bash</a> par Mendel Cooper.
-  <li>Le <a href="http://goawaygarage.blogspot.com/" class="external"
-    hreflang="en">Go Away Garage</a> est un blog de photos, souvent
-    rétros. C'est aussi est un vrai garage à Wichita au Kansas. Mitch
-    Willis a commencé la construction de Hot Rods customisées sur West
-    Street et construit maintenant des motos au coin de Commerce
-    Street où le garage a été pendant plus d'une douzaine
-    d'année. Lorsque Willis a eu besoin de tranquilité pour mener à
-    bien ses projets, il avait mis en place un panneau de 4 pieds sur
-    8 avec marqué &quot;Go Away&quot;. Le nom est resté. D'où le
-    &quot;Go Away Garage&quot;.
-</ul>
-
-<p>
-Si vous aimez les liens et/ou que vous en voulez plus , n'hésitez pas
-à visiter notre <a href="links/">page de liens</a> mise à jour
-régulièrement.
 
 <h3 id="who">Qui sommes-nous ?</h3>
 
