@@ -112,7 +112,7 @@ end # task :preview
 desc "Update and rsync"
 task :publish do
   system "jekyll --future"
-  system "rsync --delete -rovuc --exclude='links' /home/e201/g/porneia/_site/ /home/e201/w/porneia.free.fr/pub/"
+  system "rsync --delete -rovuc --exclude='links' /home/e201/g/porneia/_site/ /home/e201/w/pub/"
 end # task :publish
 
 #Load custom rake scripts

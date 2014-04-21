@@ -7,6 +7,7 @@ date: 2012-05-13 04:00:17 +0200
 Un simple aide-mémoire pour compiler et créer un paquet à partir des
 sources téléchargées depuis les dépôts Debian :
 
+<p>
 <pre>
 $ <b>sudo apt-get source foobar</b>
 $ <b>cd foobar-0.0.X/</b>
@@ -16,6 +17,7 @@ $ <b>sudo apt-get install debhelper fakeroot</b>
 $ <b>sudo dpkg-buildpackage -rfakeroot</b>
 $ <b>sudo dpkg -i ../foobar_0.0.X*deb</b>
 </pre>
+</p>
 
 <p>
 Note : cette méthode de création de paquet peut être acceptable dans

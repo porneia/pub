@@ -1,10 +1,8 @@
 {% if projects %}
-
     <p>
     <ul class="posts">
 {% for project in projects %}
-    <li><a href="{{ project.date | date: "%Y" }}.html#{{ project.date | date: "%m%d" }}">{{ project.date | date: "%Y/%m/%d" }}</a> &raquo; {{ project.title }}
+    <li><a href="{{ project.date | date: "%Y" }}.html#{{ project.date | date: "%m%d" }}">{{ project.title }}</a> <span class="littletxt">({{ project.date | date: "%Y/%m/%d" }})</span></li>
 {% endfor %}
     </ul>
-
 {% endif %}

@@ -10,6 +10,7 @@ la barre de message de ratpoison. Il est le résultat d'une question sur
 la <a href="http://lists.nongnu.org/archive/html/ratpoison-devel/2010-08/msg00003.html"
 class="external" hreflang="en">mailing-list</a>.
 
+<p>
 <pre>
 ; hook which auto-display current bongo song in ratpoison's bar
 (add-hook 'bongo-player-started-hook
@@ -20,12 +21,14 @@ class="external" hreflang="en">mailing-list</a>.
         (setq command (concat &quot;ratpoison -c 'echo &quot; message &quot;'&quot;))
         (start-process-shell-command &quot;foobar&quot; nil command))))
 </pre>
+</p>
 
 <p>
 <ins datetime="2011-09-07T12:30:47+01:00">MàJ du 07 septembre 2011 :
 display just <em>Artist - Title</em> and not the whole infoset. Change
 setq message and command with this:</ins>
 
+<p>
 <pre>
         (setq bg-art-msg (bongo-infoset-artist-name (bongo-line-infoset)))
 	(setq bg-titl-msg (bongo-infoset-track-title (bongo-line-infoset)))

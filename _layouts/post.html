@@ -17,12 +17,8 @@ Vous pouvez envoyer par mail vos commentaires et vos remarques
 à <code>{{ page.mail }}</code>.{% endif %}
 
 <p>
-Retournez sur <a href="{{ site.url }}{{ site.baseurl }}">la page
-principale du Porneia delights</a>.
-
-<p>
-Vulnerant omnes, ultima necat. Sic transit hominis regnum.<br>
-{% if page.license == 'Reproduit sans autorisation' %}Copyright{% else %}Copyleft{% endif %} &copy; {{ page.date | date: "%Y" }} &mdash; {% if page.author == 'al.' %}Porneia delights{% else %}{{ page.author }}{% endif %}
+Retournez sur <a href="{{ site.url }}{{ site.baseurl }}/">la page
+principale</a>.
 
 <p>
 {% case page.license %}
@@ -64,3 +60,7 @@ Commons Paternité 3.0</a> (CC BY 3.0).
 est mis à disposition selon les termes de la licence {{ page.license }}.
 
 {% endcase %}
+
+<p>
+<em>Vulnerant omnes, ultima necat. Sic transit hominis regnum.</em><br>
+{% if page.license == 'Reproduit sans autorisation' %}Copyright{% else %}Copyleft{% endif %} &copy; {{ page.date | date: "%Y" }} &mdash; {% if page.author == 'al.' %}Porneia delights{% else %}{{ page.author }}{% endif %}

@@ -14,6 +14,7 @@ temps, copiez la configuration par défaut vers <code>/etc/</code> :
 <pre>
 # <b>cp /lib/udev/rules.d/60-persistent-storage.rules /etc/udev/rules.d/</b>
 </pre>
+</p>
 
 <p>
 Puis éditez le fichier en question (celui nouvellement copié
@@ -23,14 +24,18 @@ dans <code>/etc/</code> bien sûr) en repérant la ligne suivante :
 <pre>
 KERNEL!=&quot;sr*&quot;, OPTIONS+=&quot;watch&quot;
 </pre>
+</p>
 
+<p>
 pour la changer en ceci :
 
 <p>
 <pre>
 KERNEL!=&quot;sr*|sda|sdb|sdc&quot;, OPTIONS+=&quot;watch&quot;
 </pre>
+</p>
 
+<p>
 Remarquez que nous n'ajoutons que les périphériques qui nous intéressent et le
 faisons de façon explicite. En effet ajouter <code>sd*</code> casserait
 probablement le montage à chaud des autres lecteurs.

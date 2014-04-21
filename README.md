@@ -3,6 +3,20 @@ layout: page
 title: Porneia delights' README
 description: I used to be schizophrenic but now we are going much better.<br> We are the <b>Porneia delights</b>. We are persistent and reluctant.<br> We also do not really come from outer space.
 ---
+### Informations générales ###
+
+La partie `/pub` est automagiquement générée par
+[Jekyll](http://github.com/mojombo/jekyll) dont les sources (du site) sont
+disponibles [en ligne](https://github.com/porneia/pub) (mais qui ne sont pas
+forcément à jour, parce qu'on est feignant). Les liens disponibles dans
+`/pub/links` sont distribués par
+[Shaarli](http://sebsauvage.net/wiki/doku.php?id=php:shaarli), le clone
+personnel, minimaliste, super-rapide, sans base de donnée de delicious
+développé par [sebsauvage](http://sebsauvage.net/). Le reste est maintenu à la
+main à grand renfort de `lftp`.
+
+Dernière mise à jour du Porneia delights : {{ site.time | date: "%Y-%m-%d %H:%M:%S %z" }}
+
 ### Qui sommes-nous ? ###
 
 Nous sommes un regroupement de quelques personnes assimilées et s'exprimant par la voix et au nom d'une entité unique naissante : le Porneia delights. Cette abstraction numérique n'a ni forme, ni consistance réelle et n'est que la figuration de nos esprits, parfois malades mais toujours conscients, ensemble réunis. Nous existons sur le Réseau sans buts particuliers mais avec la certitude que la Fin approchant n'a rien d'un commencement.
@@ -14,22 +28,6 @@ Nous sommes le Porneia delights. Nous sommes persistants et répugnants. Ah et a
 ### Pourquoi ? ####
 
 Parce que tel est notre bon plaisir. *Alterius non sit, qui potest esse sui.*
-
-### Informations générales ###
-
-La partie `/pub` est automagiquement générée par
-[Jekyll](http://github.com/mojombo/jekyll) dont les sources (du site) sont
-disponibles [en ligne](https://github.com/porneia/pub) (mais qui ne sont pas
-forcément à jour, parce qu'on est feignant).
-
-Les liens disponibles dans `/pub/links` sont distribués par
-[Shaarli](http://sebsauvage.net/wiki/doku.php?id=php:shaarli), le clone
-personnel, minimaliste, super-rapide, sans base de donnée de delicious
-développé par [sebsauvage](http://sebsauvage.net/).
-
-Le reste est maintenu à la main.
-
-Dernière mise à jour du Porneia delights : {{ site.time | date: "%Y-%m-%d %H:%M:%S %z" }}
 
 ### Changelog ###
 
@@ -64,21 +62,23 @@ Dernière mise à jour du Porneia delights : {{ site.time | date: "%Y-%m-%d %H:%
 ### TODO ###
 
 *   Créer un fichier xml (RSS) avec tous les shaarlis connus (script ?)
+*   Ajouter des liens sur la page du Shaarli vers :
+    - http://river.hoa.ro/
+    - https://shaarlimages.net/
+    - https://nexen.mkdir.fr/shaarli-tv/
+    - http://shaarli.fr/
+*   Programme de simplification EVOMorph (Shaarli)
+*   [DONE] Programme de simplification EVOMorph (Jekyll)
+*   [DONE] Finir de réimporter les vieux articles de tout le monde
+*   [CANCELED] Organiser les articles aussi en catégories (sur une seule page)
+    > Au final, ça n'a pas grand intérêt, si ?
+*   [CANCELED] Mettre en place des tags pour les notes/articles ?
+    > Idem, aucun intérêt...
 
-#### DONE ####
-
-*   Finir de réimporter les vieux articles de tout le monde
-
-#### CANCELED ####
-
-*   Organiser les articles aussi en catégories (sur une seule page)
-
-    Au final, ça n'a pas grand intérêt, si ?
-
-*   Mettre en place des tags pour les notes/articles ?
-
-    Idem, aucun intérêt...
-
-### Liste des articles ###
-{% for post in site.posts %}
-[{{ site.url | strip_slash }}{{ site.baseurl }}{{ post.url }}]({{ site.url | strip_slash }}{{ site.baseurl }}{{ post.url }})<br>{% endfor %}
+### Liste des images dans les nuages (backup) ###
+*   originale.bmp (5.5M) http://i.imgur.com/YF0yHFz.jpg
+*   avec-info.bmp (5.5M) http://i.imgur.com/0lzCZ4a.png
+*   waldo-beach.jpg (460K) http://i.imgur.com/ZEsbKI8.jpg
+*   waldo-gobbling.png (516K) http://i.imgur.com/b2XiPgP.jpg
+*   waldo-goldrush.jpg (2.7M) http://i.imgur.com/fVntYRo.jpg
+*   waldo-store.jpg (1.3M) http://i.imgur.com/6l0rD7v.jpg

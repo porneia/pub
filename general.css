@@ -28,6 +28,10 @@ ul.posts li {
     line-height: 1.5em;
 }
 
+ul.fa-ul li {
+    margin-left: 25px;
+}
+
 dl {
     padding-top: 0px;
 }
@@ -52,6 +56,9 @@ dd pre {
     background-color: transparent;
     border: none;
     margin-top: 0;
+    margin-bottom: 0;
+    text-overflow: ellipsis;
+    overflow: auto;
 }
 
 ul.square {
@@ -93,6 +100,7 @@ blockquote {
 
 pre {
     overflow: auto;
+    text-overflow: ellipsis;
 }
 
 table {
@@ -245,6 +253,15 @@ ul.circle {
 ins {
     background: none repeat scroll 0 0 #FFE0E5;
     text-decoration: none;
+}
+
+hr {
+    height: 20px;
+    display: block;
+    clear: both;
+    margin: 18px 0 0;
+    background: url("img/flourishes.png") 50% 0px no-repeat scroll;
+    border: 0;
 }
 
 .nostyle { text-decoration: none; }
