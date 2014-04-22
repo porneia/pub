@@ -1,0 +1,78 @@
+---
+layout: project
+title: "Un ruban rouge en CSS"
+date: 2014-04-20 11:04:15 +0200
+---
+<p>
+Tandis que certains mettent des rubans autour d'&oelig;ufs, lapins et autres
+poules cacaotées, cela pour d'obscures raisons liées à une
+apparente <a href="https://fr.wikipedia.org/wiki/%C5%92uf_de_P%C3%A2ques"
+class="wikipedia" hreflang="fr">auto-extraction</a> d'un tombeau non loin du
+Camp de <em>Golgoth A</em> (oui, un mystérieux
+Golgoth <a href="http://grendizer.pagesperso-orange.fr/fiches/golgoth/lesgolgoths.htm"
+class="external" hreflang="fr">non référencé</a>), d'autres revêtent les pages
+de leur site d'un ruban rouge sans que cela n'ait de rapports avec les
+évènements susmentionnés ni d'ailleurs
+<a href="https://fr.wikipedia.org/wiki/L%27arm%C3%A9e_du_Ruban_Rouge"
+   class="wikipedia" hreflang="fr">avec quelques souvenirs de jeunesse</a>
+&ndash; non, le Porneia delights est une entité indépendante.
+
+<p>
+Pour arriver à ce résultat plusieurs manières sont possibles mais la seule qui
+ne soit point hérésie est d'agir par le truchement du Catholicism Saves Souls
+(aussi parfois connu sous ses intiales CSS). Pour ce faire, on peut se référer
+à la liturgie de <a href="https://github.com/simonwhitaker" class="external"
+hreflang="en">Simon Withaker</a> nous fournissant l'office
+du <a href="https://github.com/simonwhitaker/github-fork-ribbon-css"
+class="external" hreflang="en">github-fork-ribbon-css</a> &ndash; les dieux en
+chocolat puissent-ils le bénir pour cette action.
+
+<p>
+  <ul class="circle">
+    <li> Récupérer
+    le <a href="https://raw.githubusercontent.com/simonwhitaker/github-fork-ribbon-css/gh-pages/gh-fork-ribbon.css"
+    class="external" hreflang="en">Texte Sacré</a> en question et Le placer
+    dans un endroit approprié (au ch&oelig;ur du site par exemple) ;</li>
+    <li> Inscrire <code>&lt;link
+      rel=&quot;stylesheet&quot; href=&quot;gh-fork-ribbon.css&quot;
+      type=&quot;text/css&quot;&gt;</code> au sein du
+      chapitre <code>head</code> à la Genèse de votre page ;</li>
+    <li> Apprendre que les valeurs
+    pour <code>github-fork-ribbon-wrapper</code> peuvent au choix
+    être <code>right left right-bottom left-bottom</code>, cela va
+    potentiellement servir pour la suite ;</li>
+    <li> Après le
+      chapitre <code>body</code>, ajouter un verset qui ressemble à cela :<br/>
+      <pre>
+&lt;div class=&quot;github-fork-ribbon-wrapper right&quot;&gt;
+  &lt;div class=&quot;github-fork-ribbon&quot;&gt;
+    &lt;a href=&quot;/pub/&quot;&gt;Porneia delights&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+      Modifier en fonction du point troisième le cas échéant ;</li>
+    <li>Enfin, et finalement, pour terminer en guise de conclusion, dernier
+      point, comme Il est apparu qu'il pouvait être intéressant de rajouter un
+      effet de transparence, que l'on supprime par ailleurs lorsque la souris
+      survole le ruban, voici une diff-révélation <em>urbi et orbi</em>
+      :<br />
+      <pre>
+--- gh-fork-ribbon.css  2014-04-20 12:20:14.661364594 +0200
++++ /home/604/g/porneia/gh-fork-ribbon.css     2014-04-20 12:23:21.079591134 +0200
+@@ -24,6 +24,16 @@
+
+z-index: 9999;
+pointer-events: auto;
++
++  /* Transparent */
++  opacity: 0.4;
++  filter:alpha(opacity=40); /* For IE8 and earlier */
++}
++
++.github-fork-ribbon:hover {
++  /* Restore opacity */
++  opacity: 1.0;
++  filter:alpha(opacity=100); /* For IE8 and earlier */
+}
+
+.github-fork-ribbon a,</pre>
+  </ul>

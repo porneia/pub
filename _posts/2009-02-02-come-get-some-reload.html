@@ -1,0 +1,284 @@
+---
+layout: post
+title: "Come get some!!1 - reload"
+date: 2009-02-02 23:08:37 +0100
+author: illov&aelig;
+mail: illovae[at]bk[dot]ru
+keywords:
+license: "WTF"
+---
+<p>
+<div class="notebar">
+[Après avoir été perdu suite à quelques tumultes lors d'un déménagement, cet
+article a été republié sur la base d'obscures archives. Il a alors subi
+quelques légères modifications et le titre a été agrémenté
+d'un <em>reload</em> pour notifier ce fait. La date de publication de
+l'original n'a pas été retrouvée, celle indiquée dans l'article correspond à
+la seconde publication]
+</div>
+
+<p>
+<span class="articleAuthor">Britney Gopherspace, 02 février 2009, {{ page.author }}</span>
+&mdash; Depuis le temps que j'en rêve... Ça va faire dix ans, mais à l'époque,
+avec mon vieux 386 je ne pouvais pas y jouer, c'était uniquement de l'ordre du
+fantasme.  Mais voilà, toujours dans mon trip &quot;allons donc installer tout
+ce qui est vieux&quot; je me suis dit &quot;<span style="font-variant:
+small-caps;">hey, mais j'ai un ordi du nouveau millénaire, sûr que je vais
+pouvoir faire tourner Duk3 Nuk3m 3D :D !?!</span>&quot;
+
+<blockquote>
+<pre>
+ _____        _          _   _       _                    ____  ____
+|  __ \      | |        | \ | |     | |     x.xx.xx      |___ \|  _ \
+| |  | |_   _| | _____  |  \| |_   _| | _____ _ __ ___     __) | | | |
+| |  | | | | | |/ / _ \ | . ' | | | | |/ / _ \ '_ ' _ \   |__ &lt;| | | |
+| |__| | |_| |   &lt;  __/ | |\  | |_| |   &lt;  __/ | | | | |  ___) | |_| |
+|_____/ \__,_|_|\_\___| |_| \_|\__,_|_|\_\___|_| |_| |_| |____/|____/
+                                                           (c)3d Realms
+</pre>
+</blockquote>
+
+<p>
+Pour les quelques rares personnes lisant ces lignes et ne connaissant pas
+(honte à vous), je vous renvoie vers wikipedia pour vous mettre à la page
+concernant le second meilleur FPS de tous les temps selon moi :&gt;
+
+<p>
+Si ça vous dit aussi, j'ai récupère une faq sur gamesfaq.com que vous pouvez
+voir <a href="http://db.gamefaqs.com/computer/doswin/file/duke_nukem_3d_c.txt"
+class="external" hreflang="en">ici</a> (il date de 2004) et qui nous donne des
+tonnes et des tonnes de renseignements sur le jeu, c'est vraiment une lecture
+très sympathique... en anglais ;)
+
+<p>
+Bien, maintenant que tout le monde voit de quoi je parle, on va pouvoir
+s'amuser à installer le jeu sur notre système. Juste avant, et pour info,
+c'est un jeu qui a été distribuer par 3DRealms en 1996 et il se trouve qu'ils
+ont fini par libérer les sources il y a quelques années. Suite a cela, un port
+a été fait par <a href="http://icculus.org/duke3d/" class="external"
+hreflang="en">icculus</a>, mais nous y reviendrons un peu plus tard.
+
+<p>
+Comme je suis sous gentoo, je vais commencer par décrire l'installation
+sur cette distribution, pour les autres, soit vous avez la chance d'avoir
+un paquet disponible pour votre distribution, soit vous avez le choix de
+compiler mais nous allons voir ça dans une seconde partie.
+
+<p>
+À vrai dire, rien de plus simple :
+
+<p>
+<pre>
+# <b>emerge -va duke3d</b>
+</pre>
+</p>
+
+<p>
+Ensuite, on va avoir à faire une petite manipulation, mais rien de bien
+méchant.
+
+<p>
+Commencez par récupérer le jeu sur un site d'abandonware. Je vous laisse
+chercher c'est simple à trouver. Décompressez donc l'archive que vous
+aurez récupérer.
+
+<p>
+Vous vous retrouvez généralement avec un joli dossier nomme DUKE3D (adaptez
+selon votre cas). Nous n'aurons besoin dedans que d'un seul fichier :
+DUKE3D.GRP. Pour ceux que ça intéresse, ce fichier est en fait une archive qui
+regroupe textures, sons, etc.  Si vous avez lu les messages que vous a donné
+emerge, vous avez compris qu'il vous suffisait de déplacer ce fichier dans le
+dossier <code>/usr/share/games/duke3d</code> alors n'hésitez plus :
+
+<p>
+<pre>
+# <b>mv DUKE3D/DUKE3D.GRP /usr/share/games/duke3d</b>
+</pre>
+</p>
+
+<p>
+Et voila, il ne vous reste plus qu'a lancer le jeu :
+
+<p>
+<pre>
+$ <b>duke3d</b>
+</pre>
+</p>
+
+<p>
+Si ça vous amuse, vous pouvez éditer les fichiers DUKE3D.CFG (qui est un
+lien symbolique en fait) pour modifier la configuration principale du jeu
+et aussi les fichiers DEFS.CON GAME.CON et USER.CON (dans ce dernier par
+exemple, vous pourrez régler les armes, la vitesse de déplacement de Duke,
+etc).
+
+<blockquote>
+<pre>
+                  .,aadd88888888bbaa,.
+              ,ad888888&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;888888ba,
+           ,a8888&quot;&quot;                  &quot;&quot;8888a,
+ ____     d888_          _   _       _  >8888b
+|  __ \ d888&quot;| |        | \ | |     | ||8888888b
+| |  | |888' | |8_____  |  \| |_   _| |8888888888. ___
+| |  | | |8| | |/ / _ \ | . ` | | | | |&quot; / _ \8'_ ` _ \
+| |__| | |8| |   &lt;  __/ | |\  | |_| |   &lt;  __/ | | | | |
+|_____/8\__,_|_|\_\___| |_| \_|\__,_|_|\_\___|_| |_| |_|
+  ,88888888888888888888b         d8888888888888888888,
+  I88888888888888888888888888888888888888888888888888I
+  888&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;d8P     &quot;8b&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;8888
+  888.                 88       88                .888
+  I88|                 &quot;8b     d8P                |88I
+  `888                  &quot;8888888&quot;                 888'
+   I888               ___8888888_                888I
+    Y888             |___ &quot;|  __ \              888P
+     Y888              _8) | |88| |            888P
+      Y88b            |__ &lt;| |88| |           d88P
+       &quot;888b.        8888) | |88| |8       .d888&quot;
+         &quot;8888m     8|____/|_____/ 88    m8888&quot;
+           `&quot;88888m8888888888888888888m8888&quot;'
+              `&quot;Y8888888888888888888888P&quot;'
+                  ``&quot;&quot;YY88888888PP&quot;&quot;''  (ascii-art by AOH)
+</pre>
+</blockquote>
+
+<p>
+Pas de paquets disponibles ? Alors on compile a la main.
+
+<p>
+Pour le fun j'ai aussi compiler le jeu. Rien de bien sorcier, je me suis
+simplement référer à la page de présentation d'icculus. Comme cette page
+vous l'indique, faites attention à bien avoir installé les dépendances SDL
+et SDL_MIXER (reportez vous à la documentation de votre distribution pour
+installer ces deux petites choses). Il vous faudra aussi svn pour pouvoir
+récupérer les sources.
+
+<p>
+Allez, on se lance :
+
+<p>
+<pre>
+$ <b>svn co svn://svn.icculus.org/duke3d/trunk/ duke3d</b>
+$ <b>cd duke3d/source</b>
+</pre>
+</p>
+
+<p>
+Nous avons donc télécharger les sources et sommes rentrés dans le dossier
+<code>duke3d/source</code>. La dernière chose à faire est de compiler :
+
+<p>
+<pre>
+$ <b>make</b>
+</pre>
+</p>
+
+<p>
+Normalement vous devez vous retrouvez avec une binaire se nommant 'duke3d'.
+Décompressez l'archive que du jeu que vous aurez préalablement télécharger sur
+un site d'abandonware et placez maintenant simplement la binaire duke3d
+fraîchement compilée dans le dossier DUKE3D ainsi que les fichier .con présent
+dans le dossier 'testdata' du svn (manière de remplacer les originaux par ceux
+d'icculus) et lancez le jeu :
+
+<p>
+<pre>
+$ <b>$ ./duke3d</b>
+</pre>
+</p>
+
+<p>
+Bon c'est sympathique ça, mais c'est pas très très pratique, alors on va
+arranger ça, à l'aide d'un petit script (il est pas à moi, c'est
+simplement celui fourni par gentoo ;))
+
+<p>
+Je vais vous expliquer la man&oelig;uvre : on va copier les fichiers
+nécessaires au jeu dans un répertoire bien précis, on va reprendre le script
+de gentoo, en faire un exécutable, le mettre dans un
+dossier <code>../bin</code>, ce script renvoyant vers la binaire que l'on
+vient de compiler mais aussi... aux fichiers nécessaires au jeu :D (ça va tout
+le monde suit encore ?!) (sachant que notre dossier de travail
+sera <code>/usr/local</code> (un endroit fait spécialement pour les scripts et
+configurations personnelles)).
+
+<p>
+Occupons nous d'abord des fichiers du jeu :
+
+<p>
+<pre>
+# <b>mkdir /usr/local/share/games/ && mkdir /usr/local/share/games/duke3d</b>
+</pre>
+</p>
+
+<p>
+Ensuite veuillez à copier dans ce nouveau dossier les fichiers DUKE3D.GRP
+(disponible dans mon .rar) et les fichiers DEFS.CON GAME.CON USER.CON (ceux
+qui sont dans le dossier 'testdata' des sources d'icculus).  N'oubliez pas
+aussi d'y mettre le DUKE3D.CFG.
+
+<p>
+Maintenant déplacez vous dans votre dossier de sources et changez le nom
+de votre binaire 'duke3d' en 'duke3d.bin' et mettez le dans le dossier
+<code>/usr/local/bin/</code> :
+
+<p>
+<pre>
+# <b>mv duke3d /usr/local/bin/duke3d.bin</b>
+</pre>
+</p>
+
+<p>
+Nous allons maintenant créer notre petit script. Pour ce faire, utilisez votre
+éditeur favori (pour moi c'est vi) :
+
+<p>
+<pre>
+# <b>vi /usr/local/bin/duke3d</b>
+</pre>
+</p>
+
+<p>
+Et copiez-y ce qui suit :
+
+{% highlight sh %}
+#!/bin/sh
+cd "/usr/local/share/games/duke3d"
+if [ -n "" ] ; then
+        if [ "${LD_LIBRARY_PATH+set}" = "set" ] ; then
+                export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:"
+        else
+                export LD_LIBRARY_PATH=""
+        fi
+fi
+exec /usr/local/bin/duke3d.bin "$@"
+{% endhighlight %}
+
+<p>
+Comme vous le voyez, le script permet de repérer les fichiers dans
+<code>/usr/local/share/games/duke3d</code>, de les charger en mémoire et de
+lancer en fonction la binaire 'duke3d.bin'. Enregistrez donc le fichier ;)
+
+<p>
+Dernière petite chose, on va rendre notre script exécutable :
+
+<p>
+<pre>
+# <b>chmod +x /usr/local/bin/duke3d</b>
+</pre>
+<p>
+
+<blockquote>
+<pre>
+Hum, I needed some !!
+</pre>
+</blockquote>
+
+<p>
+Et voila, maintenant quand vous lancerez votre terminal, il vous suffira de
+taper 'duke3d' et hop : just enjoy :D
+
+<p>
+Allez dans un prochain épisode, on installera Doom :D
+
+<p>
+G00D FR4GS !!1

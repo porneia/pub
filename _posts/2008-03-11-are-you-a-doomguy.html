@@ -1,0 +1,299 @@
+---
+layout: post
+title: "Are you a doomguy?"
+date: 2008-03-11 07:11:39 +0200
+author: illov&aelig;
+mail: illovae[at]bk[dot]ru
+keywords:
+license: "WTF"
+---
+<p>
+<span class="articleAuthor">Britney Gopherspace, 11 mars 2008, {{ page.author }}</span>
+&mdash; Après mon épisode sur Duke Nukem 3D j'aimerai vous faire part de mon
+engouement pour le meilleur jeu EVAR !!1 À savoir : DOOM :D
+
+<p>
+Oui, oui, celui-là même sorti en 1993 par Id Software. Je vais pas vous le
+présenter, parce que là, si vous le connaissez pas, je peux vraiment plus rien
+pour vous. Malgré tout, si vous voulez des infos sur le jeu, je vous renvoie à
+la page sur <a href="http://fr.wikipedia.org/wiki/Doom" class="wikipedia"
+hreflang="fr">wikipedia</a>.
+
+<p>
+Il y a eu des milliers de trucs fait autour de DOOM, ça a vraiment été une
+révolution, même si Wolfenstein 3D (toujours d'Id Software) avait déjà
+commencer à creuser dans ce sens. Ça a été un tel phénomène que même
+Celui_dont_on_ne_doit_pas_citer_le_nom (qui n'est plus, comme vous devez
+sûrement le savoir, la première fortune du monde, mais la troisième avec
+juste 58 milliards de $ (le pauvre... T.T (oui, oui okay j'arrête les
+potins :]))), que même, disais-je, l'image de DOOM a été utilisée pour
+lancer Windows95 =0 (cf. wikipedia anglich verchione (y'a même une petite
+image en prime)).
+
+<p>
+Bon je vais pas vous gaver avec des tas d'infos, il y a tout ce qu'il faut
+sur le net, on va passer à ce qui nous intéresse ici finalement :
+(re)installer et surtout jouer \o/
+
+<p>
+À noter que ce qui suis vaut aussi pour DOOM II qui utilise le même moteur
+graphique, mais pour plus de simplicité, je dirai simplement DOOM.
+
+<p>
+Le moteur de DOOM a été libérer initialement en 1997, puis reliberé en 1999
+sous la GPL (à nouveau je vous renvoie
+vers <a href="http://fr.wikipedia.org/wiki/Doom_engine" class="wikipedia"
+hreflang="fr">la page de wikipedia</a> concernant le Doom Engine). Donc on va
+pouvoir se l'installer/le compiler.
+
+Il y a eu pas mal de projet autour de ces sources, plus ou moins aboutis.  À
+savoir lequel choisir, c'est quand même une histoire de préférence. Moi je
+veux le vrai, l'original, celui qui n'utilise pas OpenGL, je veux en somme, me
+retrouver comme avant, comme devant mon 386 :D J'ai pu en tester quelques uns
+et mon choix s'est finalement arrêter
+sur <a href="http://prboom.sourceforge.net/" class="external"
+hreflang="en">prboom</a>...  Bon j'en vois deux ou trois qui s'agitent dans le
+fond &quot;Oui toussa, les gros pixels qui piquent les noeils merci bien
+toussa, alors que l'OpenGL caykanmememieu :o&quot;. Je suis pas forcement
+d'accord, mais j'utilise aussi un des projets permettant l'accélération
+OpenGL. Et en fait, je pense que je l'aborderai dans un autre billet. Pourquoi
+? Simplement parce que le moteur de DOOM a été utilisé pour d'autres jeux, je
+pense à Hexen et Heretic. Ces deux jeux, on ne peut pas les faire tourner avec
+prboom (ni avec lsdoom et d'autres du même genre) alors qu'ils tournent avec
+le truc en OpenGL.  Je sais pas pourquoi d'ailleurs ; mais ce que je veux dire
+c'est que c'est quand même sympa d'avoir le vrai jeu (et avec une résolution
+en 800x600 on est pas face à une pepperoni non plus, c'est parfaitement
+jouable (si, si ^^) (et en plus avec prboom, y'a un petit truc en plus qui
+nous rapproche encore plus du vrai sous DOS, j'y reviendrai ;)).
+
+Sans compter que toi (montrant du doigt), oui toi la, le/la djeunz né(e)
+dans les 90's, trop tard pour en avoir profité, si tu veux devenir un(e)
+vrai(e) tu te dois comme nous tes aïeux (mon dieu suis-je déjà dans la
+vieillesse ?  T.T) retourner aux sources et poutrer du monstre a l'aide de
+ton simple clavier (vous là-bas dans le fond, j'espère que vous ne jouez
+pas avec la souris =0 ?!  Sacrilège !!1 Allez débranchez moi ces
+<code>/dev/input/mice</code> inutiles :] ).
+
+Bon maintenant que j'ai perdu les trois quarts de mes lecteurs avec mon
+petit laïus, on va pouvoir passer aux choses sérieuses =)
+
+Alors il y a comme pour l'histoire avec Duke, deux étapes principales.
+Installer le moteur graphique, et, évidemment récupérer l'archive contenant
+les textures, etc, et la placer dans le bon dossier (ou la charger depuis le
+shell).  L'avantage c'est que prboom est quand même pas mal répandu, donc
+reportez-vous à la documentation de votre distribution pour l'installation.
+Sous debian-like, un simple :
+
+<p>
+<pre>
+# <b>apt-get install prboom</b>
+</pre>
+</p>
+
+<p>
+Sous gentoo :
+
+<p>
+<pre>
+# <b>emerge -va prboom</b>
+</pre>
+</p>
+
+<p>
+&quot;Wouha, tu nous as gavé avec tes explications juste pour ces deux pauvres
+lignes que même ma grand-mère aurait pu trouver toute seule ?!&quot;. Meuh non
+enfin, parce que généralement, sur vos distributions, il est possible que
+votre version ne soit pas la dernière dispo. Genre sous debian stable, on a la
+2.4.6. La dernière étant la 2.4.7 et datant déjà de 2006...
+
+<p>
+Alors on va compiler. Les dépendances sont simples : il vous faut les
+librairies de SDL, de SDL_MIXER et de SDL_NET et cela dans sa version 1.2.
+Nous compilons n'est-ce pas, donc il nous faut les paquets nous le permettant
+(et pas simplement les binaires (cela concerne évidemment que les
+distributions fournies en binaire)) ; sous debian, c'est les lib*-dev donc ;)
+Au pire reportez-vous au fichier INSTALL fourni avec les sources :p
+
+<p>
+Vous pouvez aussi installer Timidity afin de pouvoir écouter la musique de
+DOOM pendant le jeu.
+
+<p>
+Une fois les dépendances installées, on récupère
+la <a href="http://downloads.sourceforge.net/prboom/prboom-2.4.7.tar.gz"
+class="external" hreflang="en">source de prboom</a>. Mettez cette archive dans
+n'importe quel répertoire de travail et on décompresse...  (oui, oui, faites
+les malins là-bas dans le fond, avec vos jeux de mots !!1) :
+
+<p>
+<pre>
+$ <b>tar xvf prboom-2.4.7.tar.gz</b>
+</pre>
+</p>
+
+<p>
+On pénètre (oui, oui, c'est cela, continuez à rire dans le fond ! :/) le
+dossier des sources donc et comme d'habitude :
+
+<p>
+<pre>
+$ <b>./configure</b>
+</pre>
+</p>
+
+<p>
+Suivi d'un simple :
+
+<p>
+<pre>
+$ <b>$ make</b>
+</pre>
+</p>
+
+<p>
+On va enfin pouvoir installer les binaires générées ainsi que manpage et
+fichiers de configuration ; comme toujours, avec vos compilations
+personnelles, cela va aller directement dans
+l'arborescence <code>/usr/local</code> (histoire de pas mélanger avec les
+binaires, manp... etc installées par votre distribution).
+
+<p>
+<pre>
+$ <b># make install-strip</b>
+</pre>
+</p>
+
+<p>
+Et voila :)
+
+<p>
+Les données du jeu se trouvent dans des fichiers .wad
+(voir <a href="http://fr.wikipedia.org/wiki/Where%27s_All_the_Data"
+class="wikipedia" hreflang="fr">Where's All the Data</a>, toujours sur
+wikipedia. Comme pour le DUK3D.GRP (cf. mon precedent billet) c'est une
+archive. Alors c'est une information à vérifier, mais je crois que c'est la
+première fois que toutes les données d'un jeu sont dans une seule et même
+archive. Vous vous rendez compte de l'avantage bien sûr : un moteur d'un côté
+et un .wad de l'autre. Ce format a eu pour effet d'amener des tas de gens à
+créer leurs propres .wad qui sont très largement diffusées. D'ailleurs ce type
+de fichier est toujours utilisé aujourd'hui. Je pense notamment aux Quakes
+(héhé, futur billet ? ;)) qui utilisent les .pk3 et qui fonctionnent sur le
+même principe (forcement ils sont released par Id Software aussi...). Bref, il
+y a eu un tel engouement que des teams comme je l'ai dit ci-dessus (oui je me
+répète et alors ?! :0) se sont crées autour de ça et ont réussi a mettre à
+disposition des users des choses vraiment très très sympa (comme The Plutonia
+Experiment base sur DOOMII par exemple). Je vous laisse farfouiller le net
+pour trouver votre bonheur (je vous donnerai des bonnes adresses après ;)).
+
+<p>
+D'ailleurs, si vous avez de la chance, vous pourrez tomber sur des vieux
+de la vieille qui vous raconteront leurs souvenirs du temps des batailles
+en réseau (ceux-là même qui avait la chance d'avoir le net chez eux il y a
+quelques années).
+
+<p>
+Alors ? Prêt a micher du monstre tout droit sorti des années 90 ? Okay, donc
+j'arrête de radoter, les voici les voilà les fameuses <del>wads</del> pour les
+deux premiers DOOM, mais je vous encourage vivement si le sujet vous intéresse
+à aller chercher celles mise à disposition par les teams (oui c'est la
+troisième fois, faut que je consulte, y'a quelque chose...). Pour cela, je
+vous renvoie vers une <a href="http://www.doomworld.com/10years/bestwads/"
+class="externa" hreflang="en">section sur doomworld</a> concernant les 100
+meilleurs wads EVAR mais aussi sur <a href="http://www.doomwadstation.com/"
+class="external" hreflang="en">doomwadstation</a>.
+
+<p>
+Alors comment utiliser ces belles .wad ? Simple, après avoir compilé et
+installé, vous mettez vos .wad dans le
+dossier <code>/usr/local/share/games/doom</code> et vous lancez simplement le
+jeu. Si vous l'avez installé depuis un paquet donné par votre distribution, le
+dossier sera <code>/usr/share/games/doom</code> (attention selon les
+distributions, ce dossier pourra être 'doom-data' au lieu de 'doom').
+
+<p>
+Mais vous pouvez aussi très bien sélectionner les .wad une à une au travers du
+shell (je trouve cette méthode plus pratique car elle permet de sélectionner
+selon l'envie et sans rien éditer, à quoi on veut jouer) :
+
+<p>
+<pre>
+$ <b>prboom -iwad ledossierdeswads/DOOM.WAD</b>
+</pre>
+</p>
+
+<p>
+Comme vous le remarquerez, un dossier a été créer à l'intérieur de votre home
+: <code>~/.prboom</code> ; et ce dossier contient un prboom.cfg que vous
+pouvez modifier à votre guise...
+
+<p>
+En ce temps-là on pensait autrement question jeu. Pour ceux qui ne sont pas
+encore en train de jouer je voudrais continuer en vous montrant pourquoi
+j'aime spécialement prboom : parce que ce dernier nous permet de voir le
+message que le jeu echo dans votre console quand vous le quittez. C'est le
+message original qui terminait mes parties de jeu nocturne (oui c'est un jeu
+qui se joue seul(e), dans le noir total (la nuit c'est mieux), avec un casque
+sur les oreilles (si vous êtes un peu crevé(e), c'est encore meilleur :D) (la
+vache en relisant ça, on me prendrai presque pour l'onaniste du coin, mais
+non, nous parlons bien de DOOM ^^').
+
+<p>
+Portez votre attention principalement sur le premier paragraphe ^^ C'est pas
+énorme quand même ?! Héhé, pour ceux qui n'ont pas envie de se le taper en
+angliche, voici une petite traduction de mon cru (je suis loin d'être une
+référence en trad mais bon ça devrait aller) :
+
+<blockquote>
+<pre>
+VOUS JOUEZ A THE ULTIMATE DOOM.
+
+Si vous n'avez pas paye pour DOOM, vous jouez illégalement. Cela
+signifie que vous nous devez de l'argent. Bien sûr, un gars dans votre
+genre doit probablement de l'argent a des tas de gens -- vos amis, peut-
+être même vos parents. Arrêtez d'être un 'pirate' et enregistrez votre
+copie de DOOM. Appelez nous au 1-800-IDGAMES. Nous pouvons aider !
+</pre>
+</blockquote>
+
+<p>
+En vrai c'est trop bon quand même ! C'est vrai que c'est très injonctifs,
+mais les gars ont l'air bien compréhensifs, on sent quand même qu'il y
+avait une certaine philosophie autour du jeu... Donc si vous n'avez pas de
+licence vous savez ce qu'il vous reste à faire ;)
+
+<p>
+&quot;Koua, le pa enkor fini l'billet ?!1 =0&quot;
+
+<p>
+Si mais souffrez que je vous parle d'une dernière petite chose, parce que ça,
+vraiment, il ne faut pas passer à côté, surtout si vous êtes ou compter
+devenir un vrai fan. Pour clouer le bec à n'importe qui sur DOOM et DOOM II en
+soirée c'est très simple : il faut/suffit de lire et d'apprendre les 7065
+lignes de <del>la Bible</del> ; en fait c'est une faq écrite par HLeukart en
+(oui vous allez bien lire) 1994 !! Et qui est disponible sur
+gamesfaq.com. Elle a été publiée pas très longtemps après la sortie du jeu
+donc, et elle regroupe, tout sur tout sur tout ce que vous avez toujours voulu
+savoir ou pas concernant DOOM et DOOM II - HELL ON EARTH.
+
+<p>
+Leukart (Hank de son prénom) est le gars qui a écrit The Doom Hacker's
+Guide (c'est encore plus que la bible, si vous avez un original dont vous
+voulez vous débarrassez, contactez moi =D) et qui a maintenu cette fameuse
+faq officielle (autant dire que c'est une espèce de gourou quoi =)).
+
+<p>
+Je vous laisser admirer l'ascii-art qui sert de titre, appréciez la précision
+dans les détails concernant le jeu, son historique, ses espoirs, ses buts, ses
+rêves ; vous trouverez des tableaux répertoriant les monstres par niveaux,
+leurs descriptifs, les armes... Il a même pris le soin de nous dessiner
+(toujours en ascii-art) certaines parties de certains niveaux pour être bien
+sûr qu'on voit de quoi il parle...  Laissez-vous porter par la superbe
+explication concern... &quot;Bon cay bon on a compri !!?!&quot; Bref. TOUT.
+
+<p>
+Voila donc, c'est fini pour cette fois (qui a dit enfin ?!), c'était un peu
+long, mais c'est vraiment un bon jeu... Je vous souhaite quand même de bien
+vous amusez :)
+
+<p>
+G00D FR4GS !!1

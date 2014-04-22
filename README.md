@@ -17,7 +17,9 @@ main à grand renfort de `lftp`.
 
 Dernière mise à jour du Porneia delights : {{ site.time | date: "%Y-%m-%d %H:%M:%S %z" }}
 
-### Qui sommes-nous ? ###
+### FAQ ###
+
+#### Qui êtes-vous ? ####
 
 Nous sommes un regroupement de quelques personnes assimilées et s'exprimant par la voix et au nom d'une entité unique naissante : le Porneia delights. Cette abstraction numérique n'a ni forme, ni consistance réelle et n'est que la figuration de nos esprits, parfois malades mais toujours conscients, ensemble réunis. Nous existons sur le Réseau sans buts particuliers mais avec la certitude que la Fin approchant n'a rien d'un commencement.
 
@@ -25,18 +27,26 @@ En intégrant, volontairement ou non, le Porneia delights sommes-nous devenu fou
 
 Nous sommes le Porneia delights. Nous sommes persistants et répugnants. Ah et aussi, nous ne venons pas vraiment de l'espace.
 
-### Pourquoi ? ####
+#### Pourquoi ? ####
 
 Parce que tel est notre bon plaisir. *Alterius non sit, qui potest esse sui.*
 
 ### Changelog ###
 
+2014-04-22 11:08:20 +0200
+     * Mise à jour de /pub en remote (nouvelle charte appliquée)
+     * le Shaarli a été adapté en conséquence
+     * Suppression des plus grosses images de la main du Porneia et upload sur
+       imgur -- oui cay pas bien de pas héberger son propre contenu, mais
+       c'était trop lourd et pas suffisamment important pour justifier qu'on
+       les garde ici ! Les liens sont disponibles pour mémoire en bas de cette
+       page.
+
 2014-04-20 05:16:52 +0200
 
      * Arrêt de l'écriture du Changelog en anglais ; tout le monde s'en fou
-     * Simplification de /pub
-     * Suppression de /priv, de /bin et de /linkXXX
-     * Création de /txt et déplacement du contenu idoine dans ce dossier
+     * Simplification de /pub (en local)
+     * Suppression de /priv, de /bin et de /linkXXX (en local)
 
 2012-04-19 01:41:38 +0200
 
@@ -61,6 +71,7 @@ Parce que tel est notre bon plaisir. *Alterius non sit, qui potest esse sui.*
 
 ### TODO ###
 
+*   Finir de réimporter les vieux articles de tout le monde
 *   Créer un fichier xml (RSS) avec tous les shaarlis connus (script ?)
 *   Ajouter des liens sur la page du Shaarli vers :
     - http://river.hoa.ro/
@@ -69,13 +80,12 @@ Parce que tel est notre bon plaisir. *Alterius non sit, qui potest esse sui.*
     - http://shaarli.fr/
 *   Programme de simplification EVOMorph (Shaarli)
 *   [DONE] Programme de simplification EVOMorph (Jekyll)
-*   [DONE] Finir de réimporter les vieux articles de tout le monde
 *   [CANCELED] Organiser les articles aussi en catégories (sur une seule page)
     > Au final, ça n'a pas grand intérêt, si ?
 *   [CANCELED] Mettre en place des tags pour les notes/articles ?
     > Idem, aucun intérêt...
 
-### Liste des images dans les nuages (backup) ###
+### Liste des images dans les nuages ###
 *   originale.bmp (5.5M) http://i.imgur.com/YF0yHFz.jpg
 *   avec-info.bmp (5.5M) http://i.imgur.com/0lzCZ4a.png
 *   waldo-beach.jpg (460K) http://i.imgur.com/ZEsbKI8.jpg

@@ -171,8 +171,13 @@ tr.ocolor {
 
 .littletxt { font-size: 0.8em; }
 
-.imgborder { border: 1pt dashed #AEBDCC; }
+.imgborder {
+    border: 1pt dashed #AEBDCC;
+ }
 
+.overflow {
+     overflow: auto;
+}
 
 ul.bibliographie {
     font-size: 0.9em;
