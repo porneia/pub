@@ -1,9 +1,10 @@
 /*
 This file is released to the public domain.
-Porneia Delights http://porneia.free.fr/pub/
+Porneia Delights http://porneia.free.fr/
 */
 
 body {
+    background-color: rgb(255, 255, 238);
 }
 
 h1 {
@@ -51,6 +52,7 @@ dd {
 dt {
     background:url("img/star9.gif") center left no-repeat;
     padding-left: 17px;
+    text-transform: lowercase;
 }
 
 dt a { text-decoration: none; }

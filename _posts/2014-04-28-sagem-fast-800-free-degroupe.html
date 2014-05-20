@@ -1,0 +1,98 @@
+---
+layout: post
+title: "Sagem Fast 800 et Free dégroupé"
+date: 2014-04-28 12:37:38 +0200
+author: illov&aelig;
+mail: illovae[at]bk[dot]ru
+description:
+commentaire:
+category:
+tags: [planet-libre]
+keywords: illovae, sagem, modem, atm-tools, linux-atm, free
+license: "WTF"
+---
+<p>
+<span class="articleAuthor">Porneia delights, <time datetime="{{ page.date | date_to_xmlschema }}" pubdate="pubdate">28 avril 2014</time>, {{ page.author }}</span> &mdash; Amis du retrocomputing nous cherchons à nous brancher sur une
+connection Free dégroupée à l'aide d'un bon vieux modem USB Sagem F@st 800
+(ici, un de ceux qui étaient <a href="http://i.imgur.com/7PoXCkI.jpg"
+class="external">fournis par Wanadoo</a>). Il faut se munir de l'IP de la
+ligne que l'on peut récupérer sur l'interface de gestion chez free.fr. Ensuite
+il faudra vérifier que le matériel est bien détecté par le kernel ce qui
+devrait être le cas par défaut avec un noyau récent qui a été compilé avec
+ueagle-atm (c'est le cas sous Slackware en tout cas avec le 3.2.29-smp). Pour
+configurer le modem, nous allons
+utiliser <a href="http://linux-atm.sourceforge.net/" class="external"
+hreflang="en">linux-atm</a> aussi connu sous le nom de atm-tools chez
+Debian. Si vous avez cela dans vos dépôts de distribution, alors installez ce
+paquet (qui devrait avoir comme dépendance libatm1), sinon il faudra le
+compiler. Une fois installé, il faudra créer l'interface <code>atm0</code>, la
+configurer, ajouter un <code>route</code> et
+modifier <code>resolv.conf</code>. Source de ce qui suit
+: <a href="http://forum.ubuntu-fr.org/viewtopic.php?id=43971" class="external"
+hreflang="fr">forum ubuntu-fr</a>.
+
+<p>
+<pre>
+shyla:23/0&gt; # branchement de la bestiole
+shyla:24/0&gt; <b>sudo dmesg |tail -n 23</b>
+[279693.206050] usb 4-1: new full-speed USB device number 2 using uhci_hcd
+[279693.339135] usb 4-1: New USB device found, idVendor=1110, idProduct=9010
+[279693.339143] usb 4-1: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+[279693.341202] usb 4-1: [ueagle-atm] ADSL device founded vid (0X1110) pid (0X9010) Rev (0X4000): Eagle I
+[279693.444061] usb 4-1: reset full-speed USB device number 2 using uhci_hcd
+[279693.576133] usb 4-1: [ueagle-atm] pre-firmware device, uploading firmware
+[279693.576184] usb 4-1: [ueagle-atm] loading firmware ueagle-atm/eagleI.fw
+[279694.395167] usb 4-1: [ueagle-atm] firmware uploaded
+[279694.500118] usb 4-1: USB disconnect, device number 2
+[279696.956055] usb 4-1: new full-speed USB device number 3 using uhci_hcd
+[279697.104120] usb 4-1: New USB device found, idVendor=1110, idProduct=900f
+[279697.104128] usb 4-1: New USB device strings: Mfr=0, Product=2, SerialNumber=3
+[279697.104135] usb 4-1: Product: ADSL-USB Modem
+[279697.104140] usb 4-1: SerialNumber: 00604C163C53
+[279697.137234] usb 4-1: [ueagle-atm] ADSL device founded vid (0X1110) pid (0X900F) Rev (0X410B): Eagle I
+[279697.241056] usb 4-1: reset full-speed USB device number 3 using uhci_hcd
+[279697.413132] usb 4-1: [ueagle-atm] using iso mode
+[279697.416605] usb 4-1: [ueagle-atm] (re)booting started
+[279698.850806] usb 4-1: [ueagle-atm] ATU-R firmware version : 44e2ea17
+[279698.857374] usb 4-1: [Ueagle-atm] requesting firmware ueagle-atm/CMVep.bin.v2 failed, try to get older cmvs
+[279698.922710] usb 4-1: [Ueagle-atm] use deprecated cmvs version, please update your firmware
+[279698.957195] usb 4-1: [ueagle-atm] modem started, waiting synchronization...
+[279710.097655] usb 4-1: [ueagle-atm] modem operational
+shyla:25/0&gt; <b>cd /tmp</b>
+shyla:26/0&gt; # téléchargement des sources de linux-atm et compilation
+shyla:27/0&gt; <b>wget -q http://downloads.sourceforge.net/project/linux-atm/linux-atm/2.5.1/linux-atm-2.5.1.tgz</B>
+shyla:28/0&gt; <b>tar xvf linux-atm-2.5.1.tgz</b>
+shyla:29/0&gt; <b>cd linux-atm-2.5.1/</b>
+shyla:30/0&gt; # nous allons installer directement dans /usr
+shyla:31/0&gt; <b>./configure --prefix=/usr</b>
+shyla:32/0&gt; <b>make</b>
+shyla:33/0&gt; <b>sudo make install</b>
+shyla:34/0&gt; # lancement du démon en background
+shyla:35/0&gt; <b>sudo atmarpd -b</b>
+shyla:36/0&gt; # création de l'interface atm0 et configuration
+shyla:37/0&gt; <b>sudo atmarp -c atm0</b>
+shyla:38/0&gt; <b>sudo ifconfig atm0 up</b>
+shyla:39/0&gt; # nous avons ici besoin de l'IP de la ligne
+shyla:40/0&gt; <b>sudo ifconfig atm0 82.XX.XX.XX netmask 255.255.255.0 mtu 1500 up</b>
+shyla:41/0&gt; # et ici nous avons besoin de la passerelle (ne cherchez pas trop loin, c'est l'IP mais avec 254 pour dernier chiffre)
+shyla:42/0&gt; <b>sudo atmarp -s 82.XX.XX.254 8.36 null</b>
+shyla:43/0&gt; # une route toute neuve pour default
+shyla:44/0&gt; <b>sudo route del default</b>
+shyla:45/0&gt; # à nouveau il y a besoin de l'adresse de la passerelle ici
+shyla:46/0&gt; <b>sudo route add default gw 82.XX.XX.254</b>
+shyla:47/0&gt; # finalement pour la résolution des noms de domaine
+shyla:48/0&gt; <b>echo -e &quot;nameserver 212.27.40.240\nnameserver 212.27.40.241&quot; | sudo tee /etc/resolv.conf</b>
+shyla:49/0> <b>ping -c 4 porneia.free.fr</b>
+PING perso129-g5.free.fr (212.27.63.129) 56(84) bytes of data.
+64 bytes from perso129-g5.free.fr (212.27.63.129): icmp_req=1 ttl=58 time=41.2 ms
+64 bytes from perso129-g5.free.fr (212.27.63.129): icmp_req=2 ttl=58 time=41.6 ms
+64 bytes from perso129-g5.free.fr (212.27.63.129): icmp_req=3 ttl=58 time=41.9 ms
+64 bytes from perso129-g5.free.fr (212.27.63.129): icmp_req=4 ttl=58 time=39.9 ms
+
+--- perso129-g5.free.fr ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 39.923/41.208/41.973/0.795 ms
+</pre>
+</p>
+
+<p>
