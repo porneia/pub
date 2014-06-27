@@ -1,6 +1,6 @@
 {% if projects %}
 <dl>
-  {% for project in projects limit: 20 %}
+  {% for project in projects limit:7 %}
 {% if forloop.first %}{% else %}<p>{% endif %}
 <dt><span class="notetitle" id="{{ project.date |date: "%m%d" }}"><b><a href="archives/{{ project.date | date: "%Y" }}.html#{{ project.date | date: "%m%d" }}">{{ project.title }}</a></b></span>
 <dd>
